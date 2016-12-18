@@ -1,16 +1,14 @@
 //
-//  IdeaListTableViewCell.swift
+//  TrashTableViewCell.swift
 //  CatchIdea
 //
-//  Created by Linsw on 16/12/17.
+//  Created by Linsw on 16/12/18.
 //  Copyright © 2016年 Linsw. All rights reserved.
 //
 
 import UIKit
 
-
-
-internal class IdeaListTableViewCell: UITableViewCell {
+class TrashTableViewCell: UITableViewCell {
 
     @IBOutlet weak var contentHeaderLabel: UILabel!
     
@@ -24,12 +22,12 @@ internal class IdeaListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftToDeleteIdeaCell(sender:)))
         swipeLeftGesture.direction = .left
         addGestureRecognizer(swipeLeftGesture)
         
-        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightToFinishIdeaCell(sender:)))
+        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightToRestoreIdeaCell(sender:)))
         swipeRightGesture.direction = .right
         addGestureRecognizer(swipeRightGesture)
     }
@@ -38,9 +36,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
         delegate?.deleteIdea(sender: self)
     }
     
-    @objc private func swipeRightToFinishIdeaCell(sender: UISwipeGestureRecognizer) {
+    @objc private func swipeRightToRestoreIdeaCell(sender: UISwipeGestureRecognizer) {
         delegate?.finishIdea(sender: self)
     }
 }
-
-

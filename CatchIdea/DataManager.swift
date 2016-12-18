@@ -14,24 +14,27 @@ internal enum IdeaDataType {
 }
 
 internal final class DataManager {
+    private let entityName = "Idea"
+    
     static let shared = DataManager()
     private init(){
-        getIdeaDataObjects()
     }
     
     private var objects = [NSManagedObject]()
     
     //MARK: Public API
     internal func getAllIdeaData(type: IdeaDataType, _ completion: @escaping (Bool,[IdeaData]?)->Void) {
-        switch type {
-        case .existed:
-            getIdeaData(filter: {$0.value(forKey: "isDelete") as! Bool == false}, completion)
-        case .deleted:
-            getIdeaData(filter: {$0.value(forKey: "isDelete") as! Bool == true}, completion)
+        getIdeaDataObjects{[unowned self] success in
+            switch type {
+            case .existed:
+                self.getIdeaData(filter: {$0.value(forKey: "isDelete") as? Bool == false}, completion)
+            case .deleted:
+                self.getIdeaData(filter: {$0.value(forKey: "isDelete") as? Bool == true}, completion)
+            }
         }
     }
     
-    internal func getIdeaData(filter: ((NSManagedObject)->Bool), _ completion: @escaping (Bool,[IdeaData]?)->Void) {
+    private func getIdeaData(filter: ((NSManagedObject)->Bool), _ completion: @escaping (Bool,[IdeaData]?)->Void) {
         var ideas = [IdeaData]()
         for object in objects{
             if filter(object) {
@@ -55,6 +58,13 @@ internal final class DataManager {
             deleteOneDeletedIdeaData(ideaData: ideaData, completion)
         }
     }
+    
+    internal func finishOneIdeaData(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
+        for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
+            object.setValue(true, forKey: "isFinish")
+        }
+        deleteOneExistedIdeaData(ideaData: ideaData, completion)
+    }
     //MARK: Private help func
     
     private func deleteOneDeletedIdeaData(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
@@ -64,13 +74,7 @@ internal final class DataManager {
         for (index,object) in objects.enumerated() where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
             assert(object.value(forKey: "isDelete") as! Bool == true)
             managedContext.delete(object)
-            do {
-                try managedContext.save()
-            }
-            catch let error as NSError {
-                print("Could not save \(error), \(error.userInfo)")
-                completion?(false)
-            }
+            managedContextSave()
             objects.remove(at: index)
         }
         assert(objects.count == count - 1)
@@ -79,22 +83,15 @@ internal final class DataManager {
     
     private func deleteOneExistedIdeaData(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
         for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
-            let managedContext = getManagedContext()
             object.setValue(true, forKey: "isDelete")
-            do {
-                try managedContext.save()
-            }
-            catch let error as NSError {
-                print("Could not save \(error), \(error.userInfo)")
-                completion?(false)
-            }
+            managedContextSave()
         }
         completion?(true)
     }
     
-    private func getIdeaDataObjects(){
+    private func getIdeaDataObjects(_ completion: @escaping ((Bool)->Void)){
         if objects.count == 0 {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Idea")
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "addingDate", ascending: false)]
             do {
                 objects = try getManagedContext().fetch(fetchRequest)
@@ -102,31 +99,32 @@ internal final class DataManager {
                 print("Could not fetch \(error), \(error.userInfo)")
             }
             if objects.count > 0 {
-                
+                completion(true)
             }else{
                 //当要使用模拟数据的时候，解除下注释
-                saveMockIdeaData(ideas: mockIdeaData())
+                saveMockIdeaData(ideas: mockIdeaData(),completion)
             }
+        }else{
+            completion(true)
         }
     }
   
-    private func saveMockIdeaData(ideas: [IdeaData]) {
-        DispatchQueue.main.async {[unowned self] in
+    private func saveMockIdeaData(ideas: [IdeaData],_ completion: @escaping ((Bool)->Void)) {
+        DispatchQueue.global().async {[unowned self] in
             let managedContext = self.getManagedContext()
-            let entity = NSEntityDescription.entity(forEntityName: "ExistedIdea", in: managedContext)
+            let entity = NSEntityDescription.entity(forEntityName: self.entityName, in: managedContext)
             for idea in ideas {
                 
                 let ideaObject = NSManagedObject(entity: entity!, insertInto: managedContext)
                 ideaObject.setValue(idea.addingDate, forKey: "addingDate")
                 ideaObject.setValue(idea.header, forKey: "header")
                 ideaObject.setValue(idea.content, forKey: "content")
+                ideaObject.setValue(idea.isDelete, forKey: "isDelete")
+                ideaObject.setValue(idea.isFinish, forKey: "isFinish")
                 self.objects.append(ideaObject)
             }
-            do {
-                try managedContext.save()
-            }catch let error as NSError {
-                print("Could not save \(error), \(error.userInfo)")
-            }
+            self.managedContextSave()
+            completion(true)
         }
     }
 
@@ -146,5 +144,14 @@ internal final class DataManager {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.managedObjectContext
     }
-          
+    
+    private func managedContextSave(){
+        let managedContext = getManagedContext()
+        do{
+            try managedContext.save()
+        }
+        catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
 }

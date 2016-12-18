@@ -16,6 +16,9 @@
 		567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */; };
 		567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
 		567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
+		56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604C91E06C6BF001C465B /* TrashViewController.swift */; };
+		56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */; };
+		56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableViewCell.swift; sourceTree = "<group>"; };
 		567FA3E91E05736900E4A293 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		567FA3EB1E05744F00E4A293 /* IdeaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData.swift; sourceTree = "<group>"; };
+		56F604C91E06C6BF001C465B /* TrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
+		56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
+		56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaCellManagerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				567FA3E51E056D3100E4A293 /* Support */,
-				567FA3E31E056CFA00E4A293 /* MainViewController.swift */,
-				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
+				56F604CD1E06CA21001C465B /* MainVC */,
+				56F604CE1E06CA29001C465B /* TrashVC */,
 				567FA3ED1E05752A00E4A293 /* IdeaData */,
+				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
 			);
 			path = CatchIdea;
 			sourceTree = "<group>";
@@ -90,6 +97,24 @@
 				567FA3E91E05736900E4A293 /* DataManager.swift */,
 			);
 			name = IdeaData;
+			sourceTree = "<group>";
+		};
+		56F604CD1E06CA21001C465B /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				567FA3E31E056CFA00E4A293 /* MainViewController.swift */,
+				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+		56F604CE1E06CA29001C465B /* TrashVC */ = {
+			isa = PBXGroup;
+			children = (
+				56F604C91E06C6BF001C465B /* TrashViewController.swift */,
+				56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */,
+			);
+			name = TrashVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,7 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */,
+				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
+				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
 				567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */,
@@ -336,6 +364,7 @@
 				567FA3E11E05628E00E4A293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

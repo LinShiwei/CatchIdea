@@ -9,7 +9,7 @@
 import UIKit
 
 internal class MainViewController: UIViewController {
-
+    
     fileprivate let ideaDataManager = DataManager.shared
     
     fileprivate var existedIdeas = [IdeaData]()
@@ -53,23 +53,26 @@ extension MainViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdeaListTableViewCell", for: indexPath) as! IdeaListTableViewCell
-        
+        let idea = existedIdeas[indexPath.row]
         cell.delegate = self
-        cell.header = existedIdeas[indexPath.row].header
+        cell.header = idea.header
         
         return cell
     }
 }
 
 extension MainViewController : IdeaCellManagerDelegate {
-    func deleteIdea(sender: IdeaListTableViewCell){
+    func deleteIdea(sender: UITableViewCell){
         guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
         ideaDataManager.deleteOneIdeaData(type: .existed, ideaData: existedIdeas[indexPath.row])
         existedIdeas.remove(at: indexPath.row)
         ideaListTableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-    func finishIdea(sender: IdeaListTableViewCell){
-        
+    func finishIdea(sender: UITableViewCell){
+        guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
+        ideaDataManager.finishOneIdeaData(ideaData: existedIdeas[indexPath.row])
+        existedIdeas.remove(at: indexPath.row)
+        ideaListTableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
