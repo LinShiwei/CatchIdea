@@ -60,6 +60,9 @@
                                     <constraint firstAttribute="width" secondItem="Cgs-nw-3cb" secondAttribute="height" multiplier="1:1" id="dxh-l6-jp9"/>
                                 </constraints>
                                 <state key="normal" title="add"/>
+                                <connections>
+                                    <segue destination="ifY-Y3-tiW" kind="showDetail" action="showViewController:sender:" id="BZW-95-Vt3"/>
+                                </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELj-lQ-jeX">
                                 <rect key="frame" x="102" y="610" width="86" height="37"/>
@@ -178,6 +181,9 @@
                                     <constraint firstAttribute="width" secondItem="gO8-Nx-NDY" secondAttribute="height" multiplier="1:1" id="EVI-lB-yy8"/>
                                 </constraints>
                                 <state key="normal" title="main"/>
+                                <connections>
+                                    <action selector="dismissTrashVC:" destination="i6A-da-cxW" eventType="touchUpInside" id="ErY-GP-l3T"/>
+                                </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbu-cD-3uT">
                                 <rect key="frame" x="188" y="607" width="86" height="40"/>
@@ -214,6 +220,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uty-G3-WZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1816.8" y="18.440779610194905"/>
+        </scene>
+        <!--Create Idea View Controller-->
+        <scene sceneID="63R-0l-Xsf">
+            <objects>
+                <viewController id="ifY-Y3-tiW" customClass="CreateIdeaViewController" customModule="CatchIdea" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cj9-gs-wXV"/>
+                        <viewControllerLayoutGuide type="bottom" id="NdL-iU-KKd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Gn-ek-2Ml">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="header" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="56w-rm-goi">
+                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="569-kg-aNf"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U1P-Ck-GgP">
+                                <rect key="frame" x="16" y="142" width="343" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Wgr-ZV-u1r"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="trailing" secondItem="5Gn-ek-2Ml" secondAttribute="trailingMargin" id="0c0-cu-k8r"/>
+                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="top" secondItem="56w-rm-goi" secondAttribute="bottom" constant="8" id="D61-Ci-boV"/>
+                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leadingMargin" id="Fok-YU-HOO"/>
+                            <constraint firstItem="56w-rm-goi" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leadingMargin" id="HWG-XP-IOB"/>
+                            <constraint firstItem="56w-rm-goi" firstAttribute="top" secondItem="Cj9-gs-wXV" secondAttribute="bottom" constant="84" id="OmP-cb-IiK"/>
+                            <constraint firstItem="56w-rm-goi" firstAttribute="trailing" secondItem="5Gn-ek-2Ml" secondAttribute="trailingMargin" id="dbq-bx-aEK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ideaContentTextView" destination="U1P-Ck-GgP" id="wEw-sG-kM0"/>
+                        <outlet property="ideaHeaderTextField" destination="56w-rm-goi" id="dxW-49-YbS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2X-uk-Ykf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="710.19490254872574"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2ha-xb-6J3">

@@ -37,6 +37,6 @@ class TrashTableViewCell: UITableViewCell {
     }
     
     @objc private func swipeRightToRestoreIdeaCell(sender: UISwipeGestureRecognizer) {
-        delegate?.finishIdea(sender: self)
+        delegate?.restoreIdea?(sender: self)
     }
 }

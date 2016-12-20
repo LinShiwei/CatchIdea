@@ -39,7 +39,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
     }
     
     @objc private func swipeRightToFinishIdeaCell(sender: UISwipeGestureRecognizer) {
-        delegate?.finishIdea(sender: self)
+        delegate?.finishIdea?(sender: self)
     }
 }
 

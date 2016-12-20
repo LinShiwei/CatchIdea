@@ -31,15 +31,12 @@ internal class MainViewController: UIViewController {
             }
         }
     }
-    
-
 }
 
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
     }
-
 }
 
 extension MainViewController : UITableViewDataSource {

@@ -29,6 +29,9 @@ class TrashViewController: UIViewController {
             }
         }
     }
+    @IBAction func dismissTrashVC(_ sender: UIButton) {
+        navigationController!.popViewController(animated: true)
+    }
 }
 
 extension TrashViewController : UITableViewDelegate {
@@ -64,4 +67,10 @@ extension TrashViewController : IdeaCellManagerDelegate {
         trashTableView.deleteRows(at: [indexPath], with: .fade)
     }
     
+    func restoreIdea(sender: UITableViewCell) {
+        guard let indexPath = trashTableView.indexPath(for: sender) else {return}
+        ideaDataManager.restoreOneIdeaData(ideaData: deletedIdeas[indexPath.row])
+        deletedIdeas.remove(at: indexPath.row)
+        trashTableView.deleteRows(at: [indexPath], with: .fade)
+    }
 }

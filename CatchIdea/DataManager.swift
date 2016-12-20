@@ -20,9 +20,11 @@ internal final class DataManager {
     private init(){
     }
     
+    //objects 里的数据是按照 date 由新到旧排列，最新的数据在［0］。
+    //newest ideaData in objects is at index 0.
     private var objects = [NSManagedObject]()
     
-    //MARK: Public API
+    //MARK: Public API - Get
     internal func getAllIdeaData(type: IdeaDataType, _ completion: @escaping (Bool,[IdeaData]?)->Void) {
         getIdeaDataObjects{[unowned self] success in
             switch type {
@@ -49,7 +51,7 @@ internal final class DataManager {
         }
         completion(true,ideas)
     }
-    
+    //MARK: Public API - Delete
     internal func deleteOneIdeaData(type: IdeaDataType, ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
         switch type {
         case .existed:
@@ -65,10 +67,31 @@ internal final class DataManager {
         }
         deleteOneExistedIdeaData(ideaData: ideaData, completion)
     }
+    
+    //MARK: Public API - Restore
+    internal func restoreOneIdeaData(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
+        var findObject = false
+        for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
+            object.setValue(false, forKey: "isFinish")
+            object.setValue(false, forKey: "isDelete")
+            findObject = true
+        }
+        managedContextSave()
+        completion?(findObject)
+    }
+    
+    //MARK: Public API - Save
+    internal func saveOneIdeaData(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
+        objects.insert(createIdeaObject(fromIdeaData: ideaData), at: 0)
+        managedContextSave()
+        completion?(true)
+    }
+    
     //MARK: Private help func
     
     private func deleteOneDeletedIdeaData(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
         assert(ideaData.isDelete == true)
+        var findObject = false
         let managedContext = getManagedContext()
         let count = objects.count
         for (index,object) in objects.enumerated() where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
@@ -76,17 +99,20 @@ internal final class DataManager {
             managedContext.delete(object)
             managedContextSave()
             objects.remove(at: index)
+            findObject = true
         }
         assert(objects.count == count - 1)
-        completion?(true)
+        completion?(findObject)
     }
     
     private func deleteOneExistedIdeaData(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
+        var findObject = false
         for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
             object.setValue(true, forKey: "isDelete")
             managedContextSave()
+            findObject = true
         }
-        completion?(true)
+        completion?(findObject)
     }
     
     private func getIdeaDataObjects(_ completion: @escaping ((Bool)->Void)){
@@ -111,17 +137,8 @@ internal final class DataManager {
   
     private func saveMockIdeaData(ideas: [IdeaData],_ completion: @escaping ((Bool)->Void)) {
         DispatchQueue.global().async {[unowned self] in
-            let managedContext = self.getManagedContext()
-            let entity = NSEntityDescription.entity(forEntityName: self.entityName, in: managedContext)
             for idea in ideas {
-                
-                let ideaObject = NSManagedObject(entity: entity!, insertInto: managedContext)
-                ideaObject.setValue(idea.addingDate, forKey: "addingDate")
-                ideaObject.setValue(idea.header, forKey: "header")
-                ideaObject.setValue(idea.content, forKey: "content")
-                ideaObject.setValue(idea.isDelete, forKey: "isDelete")
-                ideaObject.setValue(idea.isFinish, forKey: "isFinish")
-                self.objects.append(ideaObject)
+                self.objects.append(self.createIdeaObject(fromIdeaData: idea))
             }
             self.managedContextSave()
             completion(true)
@@ -138,6 +155,18 @@ internal final class DataManager {
             ideas.append(IdeaData(addingDate: date, header: header, content: content))
         }
         return ideas
+    }
+    
+    private func createIdeaObject(fromIdeaData idea: IdeaData)->NSManagedObject{
+        let managedContext = self.getManagedContext()
+        let entity = NSEntityDescription.entity(forEntityName: self.entityName, in: managedContext)
+        let ideaObject = NSManagedObject(entity: entity!, insertInto: managedContext)
+        ideaObject.setValue(idea.addingDate, forKey: "addingDate")
+        ideaObject.setValue(idea.header, forKey: "header")
+        ideaObject.setValue(idea.content, forKey: "content")
+        ideaObject.setValue(idea.isDelete, forKey: "isDelete")
+        ideaObject.setValue(idea.isFinish, forKey: "isFinish")
+        return ideaObject
     }
     
     private func getManagedContext()->NSManagedObjectContext{

@@ -8,13 +8,8 @@
 
 import UIKit
 
-internal protocol IdeaCellManagerDelegate {
+@objc internal protocol IdeaCellManagerDelegate {
     func deleteIdea(sender: UITableViewCell)
-}
-
-extension IdeaCellManagerDelegate {
-    func finishIdea(sender: UITableViewCell){
-    }
-    func restoreIdea(sender: UITableViewCell){
-    }
+    @objc optional func finishIdea(sender: UITableViewCell)
+    @objc optional func restoreIdea(sender: UITableViewCell)
 }
