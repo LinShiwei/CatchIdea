@@ -31,6 +31,13 @@ internal class MainViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "IdeaCellDetail", let destinationViewController = segue.destination as? CreateIdeaViewController,let cell = sender as? IdeaListTableViewCell {
+            let indexPath = ideaListTableView.indexPath(for: cell)!
+            destinationViewController.originIdeaData = existedIdeas[indexPath.row]
+        }
+    }
 }
 
 extension MainViewController : UITableViewDelegate {

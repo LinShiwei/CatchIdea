@@ -74,7 +74,6 @@
 				56F604CD1E06CA21001C465B /* MainVC */,
 				56F604CE1E06CA29001C465B /* TrashVC */,
 				567FA3ED1E05752A00E4A293 /* IdeaData */,
-				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
 				561E00671E09770B00E55313 /* CreateIdeaViewController.swift */,
 			);
 			path = CatchIdea;
@@ -89,6 +88,7 @@
 				567FA3D91E05628E00E4A293 /* LaunchScreen.storyboard */,
 				567FA3DC1E05628E00E4A293 /* Info.plist */,
 				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
+				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";

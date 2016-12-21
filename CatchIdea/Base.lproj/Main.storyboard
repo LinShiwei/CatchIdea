@@ -46,6 +46,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="contentHeaderLabel" destination="Yyd-Sd-8Ly" id="c3e-l3-oe9"/>
+                                            <segue destination="ifY-Y3-tiW" kind="show" identifier="IdeaCellDetail" id="GMp-GD-Uue"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,7 +62,7 @@
                                 </constraints>
                                 <state key="normal" title="add"/>
                                 <connections>
-                                    <segue destination="ifY-Y3-tiW" kind="showDetail" action="showViewController:sender:" id="BZW-95-Vt3"/>
+                                    <segue destination="ifY-Y3-tiW" kind="showDetail" identifier="AddIdeaCell" action="showViewController:sender:" id="BZW-95-Vt3"/>
                                 </connections>
                             </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELj-lQ-jeX">
@@ -252,16 +253,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxR-5v-gyg">
+                                <rect key="frame" x="187.5" y="579" width="187.5" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="ObH-hR-1M6"/>
+                                </constraints>
+                                <state key="normal" title="ok"/>
+                                <connections>
+                                    <action selector="okToCreateIdea:" destination="ifY-Y3-tiW" eventType="touchUpInside" id="I4m-dR-eWN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krN-rd-jmd">
+                                <rect key="frame" x="0.0" y="579" width="187.5" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="RhS-mQ-W5o"/>
+                                </constraints>
+                                <state key="normal" title="cancle"/>
+                                <connections>
+                                    <action selector="cancleCreateIdea:" destination="ifY-Y3-tiW" eventType="touchUpInside" id="jSt-LJ-R8f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="U1P-Ck-GgP" firstAttribute="trailing" secondItem="5Gn-ek-2Ml" secondAttribute="trailingMargin" id="0c0-cu-k8r"/>
+                            <constraint firstItem="NdL-iU-KKd" firstAttribute="top" secondItem="oxR-5v-gyg" secondAttribute="bottom" id="6Th-Pc-cwu"/>
                             <constraint firstItem="U1P-Ck-GgP" firstAttribute="top" secondItem="56w-rm-goi" secondAttribute="bottom" constant="8" id="D61-Ci-boV"/>
+                            <constraint firstItem="oxR-5v-gyg" firstAttribute="width" secondItem="krN-rd-jmd" secondAttribute="width" id="Doc-7a-9rN"/>
                             <constraint firstItem="U1P-Ck-GgP" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leadingMargin" id="Fok-YU-HOO"/>
                             <constraint firstItem="56w-rm-goi" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leadingMargin" id="HWG-XP-IOB"/>
+                            <constraint firstItem="oxR-5v-gyg" firstAttribute="leading" secondItem="krN-rd-jmd" secondAttribute="trailing" id="MXm-v3-gG3"/>
+                            <constraint firstItem="NdL-iU-KKd" firstAttribute="top" secondItem="krN-rd-jmd" secondAttribute="bottom" id="Mdj-aF-jMB"/>
                             <constraint firstItem="56w-rm-goi" firstAttribute="top" secondItem="Cj9-gs-wXV" secondAttribute="bottom" constant="84" id="OmP-cb-IiK"/>
                             <constraint firstItem="56w-rm-goi" firstAttribute="trailing" secondItem="5Gn-ek-2Ml" secondAttribute="trailingMargin" id="dbq-bx-aEK"/>
+                            <constraint firstAttribute="trailing" secondItem="oxR-5v-gyg" secondAttribute="trailing" id="fNw-ZV-2PX"/>
+                            <constraint firstItem="krN-rd-jmd" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leading" id="lLS-HC-Wp8"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="IQi-dt-JLk" appends="YES" id="wwb-ks-RKY"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="ideaContentTextView" destination="U1P-Ck-GgP" id="wEw-sG-kM0"/>
@@ -269,6 +300,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2X-uk-Ykf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IQi-dt-JLk">
+                    <connections>
+                        <action selector="tapToResignFirstResponse:" destination="ifY-Y3-tiW" id="P0e-lW-p0u"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="972" y="710.19490254872574"/>
         </scene>
@@ -291,4 +327,7 @@
             <point key="canvasLocation" x="32.799999999999997" y="19.340329835082461"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GMp-GD-Uue"/>
+    </inferredMetricsTieBreakers>
 </document>
