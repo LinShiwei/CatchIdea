@@ -68,7 +68,7 @@ extension MainViewController : UITableViewDataSource {
 extension MainViewController : IdeaCellManagerDelegate {
     func deleteIdea(sender: UITableViewCell){
         guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
-        ideaDataManager.deleteOneIdeaData(type: .existed, ideaData: existedIdeas[indexPath.row])
+        ideaDataManager.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: existedIdeas[indexPath.row])
         existedIdeas.remove(at: indexPath.row)
         ideaListTableView.deleteRows(at: [indexPath], with: .fade)
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E00671E09770B00E55313 /* CreateIdeaViewController.swift */; };
+		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
 		567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3CD1E05628E00E4A293 /* AppDelegate.swift */; };
 		567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D11E05628E00E4A293 /* Main.storyboard */; };
 		567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
+		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567FA3D21E05628E00E4A293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,10 +53,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */ = {
+			isa = PBXGroup;
+			children = (
+				561E00671E09770B00E55313 /* CreateIdeaViewController.swift */,
+				564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */,
+			);
+			name = CreateIdeaVC;
+			sourceTree = "<group>";
+		};
 		567FA3C11E05628D00E4A293 = {
 			isa = PBXGroup;
 			children = (
 				567FA3CC1E05628E00E4A293 /* CatchIdea */,
+				567FA3ED1E05752A00E4A293 /* IdeaData */,
 				567FA3CB1E05628E00E4A293 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,8 +85,7 @@
 				567FA3E51E056D3100E4A293 /* Support */,
 				56F604CD1E06CA21001C465B /* MainVC */,
 				56F604CE1E06CA29001C465B /* TrashVC */,
-				567FA3ED1E05752A00E4A293 /* IdeaData */,
-				561E00671E09770B00E55313 /* CreateIdeaViewController.swift */,
+				564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */,
 			);
 			path = CatchIdea;
 			sourceTree = "<group>";
@@ -100,6 +111,7 @@
 				567FA3E91E05736900E4A293 /* DataManager.swift */,
 			);
 			name = IdeaData;
+			path = CatchIdea;
 			sourceTree = "<group>";
 		};
 		56F604CD1E06CA21001C465B /* MainVC */ = {
@@ -203,6 +215,7 @@
 				561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */,
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
+				564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

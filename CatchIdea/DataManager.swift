@@ -13,6 +13,9 @@ internal enum IdeaDataType {
     case existed,deleted
 }
 
+internal enum DeleteStyle {
+    case moveToTrash,deleteForever
+}
 internal final class DataManager {
     private let entityName = "Idea"
     
@@ -52,12 +55,12 @@ internal final class DataManager {
         completion(true,ideas)
     }
     //MARK: Public API - Delete
-    internal func deleteOneIdeaData(type: IdeaDataType, ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
-        switch type {
-        case .existed:
-            deleteOneExistedIdeaData(ideaData: ideaData, completion)
-        case .deleted:
-            deleteOneDeletedIdeaData(ideaData: ideaData, completion)
+    internal func deleteOneIdeaData(deleteStyle: DeleteStyle, ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
+        switch deleteStyle {
+        case .moveToTrash:
+            deleteOneIdeaDataToTrash(ideaData: ideaData, completion)
+        case .deleteForever:
+            deleteOneIdeaDataForever(ideaData: ideaData, completion)
         }
     }
     
@@ -65,7 +68,7 @@ internal final class DataManager {
         for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
             object.setValue(true, forKey: "isFinish")
         }
-        deleteOneExistedIdeaData(ideaData: ideaData, completion)
+        deleteOneIdeaDataToTrash(ideaData: ideaData, completion)
     }
     
     //MARK: Public API - Restore
@@ -89,13 +92,11 @@ internal final class DataManager {
     
     //MARK: Private help func
     
-    private func deleteOneDeletedIdeaData(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
-        assert(ideaData.isDelete == true)
+    private func deleteOneIdeaDataForever(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
         var findObject = false
         let managedContext = getManagedContext()
         let count = objects.count
         for (index,object) in objects.enumerated() where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
-            assert(object.value(forKey: "isDelete") as! Bool == true)
             managedContext.delete(object)
             managedContextSave()
             objects.remove(at: index)
@@ -105,7 +106,7 @@ internal final class DataManager {
         completion?(findObject)
     }
     
-    private func deleteOneExistedIdeaData(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
+    private func deleteOneIdeaDataToTrash(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
         var findObject = false
         for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
             object.setValue(true, forKey: "isDelete")

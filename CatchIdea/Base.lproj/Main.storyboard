@@ -234,25 +234,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="header" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="56w-rm-goi">
-                                <rect key="frame" x="16" y="104" width="343" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="569-kg-aNf"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U1P-Ck-GgP">
-                                <rect key="frame" x="16" y="142" width="343" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Wgr-ZV-u1r"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxR-5v-gyg">
                                 <rect key="frame" x="187.5" y="579" width="187.5" height="88"/>
                                 <constraints>
@@ -273,21 +254,74 @@
                                     <action selector="cancleCreateIdea:" destination="ifY-Y3-tiW" eventType="touchUpInside" id="jSt-LJ-R8f"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rC1-8S-yq6">
+                                <rect key="frame" x="36" y="144" width="303" height="425"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbO-Vx-qyB" customClass="IdeaDataSheetView" customModule="CatchIdea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="425"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="header" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="56w-rm-goi">
+                                                <rect key="frame" x="10" y="10" width="283" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="C8r-eh-3aO"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U1P-Ck-GgP">
+                                                <rect key="frame" x="10" y="48" width="283" height="100"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="yDv-dn-NOR"/>
+                                                </constraints>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAh-cA-8ZW">
+                                                <rect key="frame" x="244" y="156" width="51" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="49" id="Llg-Ms-KeZ"/>
+                                                    <constraint firstAttribute="height" constant="31" id="jHo-w9-t2l"/>
+                                                </constraints>
+                                            </switch>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="eAh-cA-8ZW" firstAttribute="top" secondItem="U1P-Ck-GgP" secondAttribute="bottom" constant="8" id="1CX-Fx-FB9"/>
+                                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="leading" secondItem="kbO-Vx-qyB" secondAttribute="leading" constant="10" id="6vn-5K-3p1"/>
+                                            <constraint firstItem="56w-rm-goi" firstAttribute="top" secondItem="kbO-Vx-qyB" secondAttribute="top" constant="10" id="9uu-WC-9tR"/>
+                                            <constraint firstAttribute="trailing" secondItem="56w-rm-goi" secondAttribute="trailing" constant="10" id="EAI-FT-Cx4"/>
+                                            <constraint firstAttribute="trailing" secondItem="U1P-Ck-GgP" secondAttribute="trailing" constant="10" id="HMW-vb-jMv"/>
+                                            <constraint firstAttribute="trailing" secondItem="eAh-cA-8ZW" secondAttribute="trailing" constant="10" id="JZN-eF-czt"/>
+                                            <constraint firstItem="56w-rm-goi" firstAttribute="leading" secondItem="kbO-Vx-qyB" secondAttribute="leading" constant="10" id="bYe-DI-XUB"/>
+                                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="top" secondItem="56w-rm-goi" secondAttribute="bottom" constant="8" id="v89-05-WcU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kbO-Vx-qyB" firstAttribute="width" secondItem="rC1-8S-yq6" secondAttribute="width" id="NiC-TO-lvs"/>
+                                    <constraint firstItem="kbO-Vx-qyB" firstAttribute="leading" secondItem="rC1-8S-yq6" secondAttribute="leading" id="UKe-Ou-EDc"/>
+                                    <constraint firstItem="kbO-Vx-qyB" firstAttribute="top" secondItem="rC1-8S-yq6" secondAttribute="top" id="dci-cs-RSo"/>
+                                    <constraint firstAttribute="bottom" secondItem="kbO-Vx-qyB" secondAttribute="bottom" id="fKD-q5-sgH"/>
+                                    <constraint firstAttribute="trailing" secondItem="kbO-Vx-qyB" secondAttribute="trailing" id="iXm-hi-2YB"/>
+                                    <constraint firstItem="kbO-Vx-qyB" firstAttribute="height" secondItem="rC1-8S-yq6" secondAttribute="height" priority="250" id="icS-6r-o9R"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="trailing" secondItem="5Gn-ek-2Ml" secondAttribute="trailingMargin" id="0c0-cu-k8r"/>
                             <constraint firstItem="NdL-iU-KKd" firstAttribute="top" secondItem="oxR-5v-gyg" secondAttribute="bottom" id="6Th-Pc-cwu"/>
-                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="top" secondItem="56w-rm-goi" secondAttribute="bottom" constant="8" id="D61-Ci-boV"/>
+                            <constraint firstItem="rC1-8S-yq6" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leadingMargin" constant="20" id="739-or-5r8"/>
+                            <constraint firstItem="krN-rd-jmd" firstAttribute="top" secondItem="rC1-8S-yq6" secondAttribute="bottom" constant="10" id="Cdb-j4-9J0"/>
                             <constraint firstItem="oxR-5v-gyg" firstAttribute="width" secondItem="krN-rd-jmd" secondAttribute="width" id="Doc-7a-9rN"/>
-                            <constraint firstItem="U1P-Ck-GgP" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leadingMargin" id="Fok-YU-HOO"/>
-                            <constraint firstItem="56w-rm-goi" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leadingMargin" id="HWG-XP-IOB"/>
                             <constraint firstItem="oxR-5v-gyg" firstAttribute="leading" secondItem="krN-rd-jmd" secondAttribute="trailing" id="MXm-v3-gG3"/>
                             <constraint firstItem="NdL-iU-KKd" firstAttribute="top" secondItem="krN-rd-jmd" secondAttribute="bottom" id="Mdj-aF-jMB"/>
-                            <constraint firstItem="56w-rm-goi" firstAttribute="top" secondItem="Cj9-gs-wXV" secondAttribute="bottom" constant="84" id="OmP-cb-IiK"/>
-                            <constraint firstItem="56w-rm-goi" firstAttribute="trailing" secondItem="5Gn-ek-2Ml" secondAttribute="trailingMargin" id="dbq-bx-aEK"/>
+                            <constraint firstItem="rC1-8S-yq6" firstAttribute="top" secondItem="Cj9-gs-wXV" secondAttribute="bottom" constant="80" id="MmA-P2-VOx"/>
                             <constraint firstAttribute="trailing" secondItem="oxR-5v-gyg" secondAttribute="trailing" id="fNw-ZV-2PX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rC1-8S-yq6" secondAttribute="trailing" constant="20" id="gCd-Qx-Lcw"/>
                             <constraint firstItem="krN-rd-jmd" firstAttribute="leading" secondItem="5Gn-ek-2Ml" secondAttribute="leading" id="lLS-HC-Wp8"/>
                         </constraints>
                         <connections>
@@ -295,8 +329,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="ideaContentTextView" destination="U1P-Ck-GgP" id="wEw-sG-kM0"/>
-                        <outlet property="ideaHeaderTextField" destination="56w-rm-goi" id="dxW-49-YbS"/>
+                        <outlet property="ideaDataSheetView" destination="kbO-Vx-qyB" id="jhc-Y6-hY1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2X-uk-Ykf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,7 +339,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="972" y="710.19490254872574"/>
+            <point key="canvasLocation" x="972" y="729"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2ha-xb-6J3">

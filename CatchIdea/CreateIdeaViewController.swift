@@ -14,8 +14,7 @@ internal class CreateIdeaViewController: UIViewController {
 
     internal var originIdeaData: IdeaData?
     
-    @IBOutlet weak var ideaHeaderTextField: UITextField!
-    @IBOutlet weak var ideaContentTextView: UITextView!
+    @IBOutlet weak var ideaDataSheetView: IdeaDataSheetView!
     
     private let dataManager = DataManager.shared
 
@@ -23,25 +22,17 @@ internal class CreateIdeaViewController: UIViewController {
         super.viewDidLoad()
         
         if let idea = originIdeaData {
-            ideaHeaderTextField.text = idea.header
-            ideaContentTextView.text = idea.content
+            ideaDataSheetView.idea = idea
         }
 
     }
 
     @IBAction func tapToResignFirstResponse(_ sender: UITapGestureRecognizer) {
-        ideaHeaderTextField.resignFirstResponder()
-        ideaContentTextView.resignFirstResponder()
+        ideaDataSheetView.resignSubviewsFirstResponder()
     }
     
     @IBAction func okToCreateIdea(_ sender: UIButton) {
-        if let idea = originIdeaData {
-            dataManager.deleteOneIdeaData(type: .existed, ideaData: idea)
-        }
-        if let header = ideaHeaderTextField.text {
-            let ideaData = IdeaData(addingDate: Date(), header: header, content: ideaContentTextView.text)
-            dataManager.saveOneIdeaData(ideaData: ideaData)
-        }
+        ideaDataSheetView.saveIdea()
         cancleCreateIdea(sender)
 
     }
