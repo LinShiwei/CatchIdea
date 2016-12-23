@@ -288,6 +288,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backToMainVCButton" destination="gO8-Nx-NDY" id="2Ig-Uy-aL4"/>
                         <outlet property="trashTableView" destination="6vC-VN-kEo" id="lW1-QF-Nm0"/>
                     </connections>
                 </viewController>

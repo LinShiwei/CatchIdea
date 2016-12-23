@@ -14,6 +14,7 @@ class TrashViewController: UIViewController {
     fileprivate var deletedIdeas = [IdeaData]()
     
     @IBOutlet weak var trashTableView: UITableView!
+    @IBOutlet weak var backToMainVCButton: GeneralControlButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
