@@ -12,19 +12,41 @@ import UIKit
 
 internal class IdeaListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var addingDateDescriptionLabel: UILabel!
+    @IBOutlet weak var notificationControlButton: UIButton!
+    @IBOutlet weak var markColorView: UIView!
     @IBOutlet weak var contentHeaderLabel: UILabel!
     
-    internal var header = "" {
+    internal var ideaData: IdeaData?{
         didSet{
-            contentHeaderLabel.text = header
+            addingDateDescriptionLabel.text = ideaData?.addingDate.description
+            contentHeaderLabel.text = ideaData?.header
         }
     }
     
-    internal var delegate : IdeaCellManagerDelegate?
+    internal var delegate: IdeaCellManagerDelegate?
+    
+    private let gap: CGFloat = 4
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        let contentLayer = CALayer()
+        contentLayer.frame = CGRect(x: gap, y: gap, width: windowBounds.width-gap*2, height: self.frame.height-gap*2)
+        contentLayer.cornerRadius = 10
+        contentLayer.backgroundColor = Theme.shared.tableViewCellBackgroundColor.cgColor
+        layer.insertSublayer(contentLayer, at: 0)
+        
+        markColorView.layer.backgroundColor = UIColor.red.cgColor
+        
+        addGesture()
+    }
+    
+    override func layoutSubviews() {
+        markColorView.layer.cornerRadius = markColorView.frame.width/2
+    }
+
+    private func addGesture(){
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftToDeleteIdeaCell(sender:)))
         swipeLeftGesture.direction = .left
         addGestureRecognizer(swipeLeftGesture)
@@ -33,7 +55,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
         swipeRightGesture.direction = .right
         addGestureRecognizer(swipeRightGesture)
     }
-
+    
     @objc private func swipeLeftToDeleteIdeaCell(sender: UISwipeGestureRecognizer) {
         delegate?.deleteIdea(sender: self)
     }

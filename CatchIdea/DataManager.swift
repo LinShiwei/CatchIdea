@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 internal enum IdeaDataType {
     case existed,deleted
 }
@@ -25,7 +26,19 @@ internal final class DataManager {
     
     //objects 里的数据是按照 date 由新到旧排列，最新的数据在［0］。
     //newest ideaData in objects is at index 0.
-    private var objects = [NSManagedObject]()
+    private var objects = [NSManagedObject](){
+        didSet{
+            for object in objects where (object.value(forKey: "isDelete") as! Bool)==false {
+                let userDefault = UserDefaults(suiteName: "group.catchidea")
+                let dic = [ "header" : object.value(forKey: "header") as? String,
+                        "content": object.value(forKey: "content") as? String
+                ]
+                userDefault?.set(dic, forKey: "firstIdea")
+                break
+            }
+            
+        }
+    }
     
     //MARK: Public API - Get
     internal func getAllIdeaData(type: IdeaDataType, _ completion: @escaping (Bool,[IdeaData]?)->Void) {
@@ -45,10 +58,11 @@ internal final class DataManager {
             if filter(object) {
                 if let addingDate = object.value(forKey: "addingDate") as? Date,
                     let header = object.value(forKey: "header") as? String ,
-                    let content = object.value(forKey: "content") as? String,
                     let isFinish = object.value(forKey: "isFinish") as? Bool,
-                    let isDelete = object.value(forKey: "isDelete") as? Bool {
-                    ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete))
+                    let isDelete = object.value(forKey: "isDelete") as? Bool{
+                    let content = object.value(forKey: "content") as? String
+                    let notificationDate = object.value(forKey: "notificationDate") as? Date
+                    ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete,notificationDate:notificationDate))
                 }
             }
         }
@@ -62,6 +76,7 @@ internal final class DataManager {
         case .deleteForever:
             deleteOneIdeaDataForever(ideaData: ideaData, completion)
         }
+        LocalNotificationManager.shared.deletePendingNotification(withIdeaData: ideaData)
     }
     
     internal func finishOneIdeaData(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
@@ -87,6 +102,7 @@ internal final class DataManager {
     internal func saveOneIdeaData(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
         objects.insert(createIdeaObject(fromIdeaData: ideaData), at: 0)
         managedContextSave()
+        LocalNotificationManager.shared.createNewNotification(withIdeaData: ideaData)
         completion?(true)
     }
     
@@ -167,6 +183,7 @@ internal final class DataManager {
         ideaObject.setValue(idea.content, forKey: "content")
         ideaObject.setValue(idea.isDelete, forKey: "isDelete")
         ideaObject.setValue(idea.isFinish, forKey: "isFinish")
+        ideaObject.setValue(idea.notificationDate, forKey: "notificationDate")
         return ideaObject
     }
     

@@ -30,6 +30,7 @@ class TrashViewController: UIViewController {
         }
     }
     @IBAction func dismissTrashVC(_ sender: UIButton) {
+        print(transitioningDelegate)
         navigationController!.popViewController(animated: true)
     }
 }

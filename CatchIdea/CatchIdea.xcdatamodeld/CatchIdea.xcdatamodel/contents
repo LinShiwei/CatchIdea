@@ -6,8 +6,9 @@
         <attribute name="header" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isDelete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isFinish" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="notificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Idea" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Idea" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

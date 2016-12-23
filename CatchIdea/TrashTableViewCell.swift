@@ -10,6 +10,7 @@ import UIKit
 
 class TrashTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var markColorView: UIView!
     @IBOutlet weak var contentHeaderLabel: UILabel!
     
     internal var header = "" {
@@ -20,9 +21,28 @@ class TrashTableViewCell: UITableViewCell {
     
     internal var delegate : IdeaCellManagerDelegate?
     
+    private let gap: CGFloat = 4
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        let contentLayer = CALayer()
+        contentLayer.frame = CGRect(x: gap, y: gap, width: windowBounds.width-gap*2, height: self.frame.height-gap*2)
+        contentLayer.cornerRadius = 10
+        contentLayer.backgroundColor = Theme.shared.tableViewCellBackgroundColor.cgColor
+        layer.insertSublayer(contentLayer, at: 0)
+        
+        markColorView.layer.backgroundColor = UIColor.red.cgColor
+        
+        addGesture()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        markColorView.layer.cornerRadius = markColorView.frame.width/2
+    }
+    
+    private func addGesture(){
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftToDeleteIdeaCell(sender:)))
         swipeLeftGesture.direction = .left
         addGestureRecognizer(swipeLeftGesture)

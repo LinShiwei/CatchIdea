@@ -10,9 +10,10 @@ import UIKit
 
 internal class IdeaDataSheetView: UIView {
 
-    private var headerTextField : UITextField!
-    private var contentTextView : UITextView!
-    private var reminderSwitch : UISwitch!
+    private var headerTextField: UITextField!
+    private var contentTextView: UITextView!
+    private var reminderSwitch: UISwitch!
+    private var reminderIntervalSlider: UISlider!
     
     private let dataManager = DataManager.shared
 
@@ -32,7 +33,7 @@ internal class IdeaDataSheetView: UIView {
         headerTextField = viewWithTag(1) as! UITextField
         contentTextView = viewWithTag(2) as! UITextView
         reminderSwitch = viewWithTag(3) as! UISwitch
-
+        reminderIntervalSlider = viewWithTag(4) as! UISlider
         
     }
 
@@ -41,7 +42,9 @@ internal class IdeaDataSheetView: UIView {
             if let idea = idea {
                 dataManager.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: idea)
             }
-            let ideaData = IdeaData(addingDate: Date(), header: header, content: contentTextView.text)
+            let interval = TimeInterval(reminderIntervalSlider.value*30 + 10)
+            let notificationDate = reminderSwitch.isOn ? Date(timeIntervalSinceNow: interval) : nil
+            let ideaData = IdeaData(addingDate: Date(), header: header, content: contentTextView.text,notificationDate: notificationDate)
             dataManager.saveOneIdeaData(ideaData: ideaData)
         }
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 internal class MainViewController: UIViewController {
-    
+
     fileprivate let ideaDataManager = DataManager.shared
     
     fileprivate var existedIdeas = [IdeaData]()
@@ -18,8 +18,7 @@ internal class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +32,19 @@ internal class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "IdeaCellDetail", let destinationViewController = segue.destination as? CreateIdeaViewController,let cell = sender as? IdeaListTableViewCell {
-            let indexPath = ideaListTableView.indexPath(for: cell)!
-            destinationViewController.originIdeaData = existedIdeas[indexPath.row]
+        guard let identifier = segue.identifier else {return}
+        switch identifier {
+        case "IdeaCellDetail":
+            if let destinationViewController = segue.destination as? CreateIdeaViewController,let cell = sender as? IdeaListTableViewCell {
+                let indexPath = ideaListTableView.indexPath(for: cell)!
+                destinationViewController.originIdeaData = existedIdeas[indexPath.row]
+            }
+        case "ShowTrash":
+            if let destinationViewController = segue.destination as? TrashViewController {
+                destinationViewController.navigationController!.transitioningDelegate = self
+            }
+        default:
+            break
         }
     }
 }
@@ -46,7 +55,7 @@ extension MainViewController : UITableViewDelegate {
     }
 }
 
-extension MainViewController : UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -57,15 +66,14 @@ extension MainViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdeaListTableViewCell", for: indexPath) as! IdeaListTableViewCell
-        let idea = existedIdeas[indexPath.row]
+        cell.ideaData = existedIdeas[indexPath.row]
         cell.delegate = self
-        cell.header = idea.header
         
         return cell
     }
 }
 
-extension MainViewController : IdeaCellManagerDelegate {
+extension MainViewController: IdeaCellManagerDelegate {
     func deleteIdea(sender: UITableViewCell){
         guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
         ideaDataManager.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: existedIdeas[indexPath.row])
@@ -78,5 +86,20 @@ extension MainViewController : IdeaCellManagerDelegate {
         ideaDataManager.finishOneIdeaData(ideaData: existedIdeas[indexPath.row])
         existedIdeas.remove(at: indexPath.row)
         ideaListTableView.deleteRows(at: [indexPath], with: .fade)
+    }
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate{
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let revealPresentAnimationVC = RevealPresentAnimationController()
+        
+        return revealPresentAnimationVC
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let revealDismissAnimationVC = RevealDismissAnimationController()
+        
+        return revealDismissAnimationVC
     }
 }

@@ -18,10 +18,45 @@
 		567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */; };
 		567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
 		567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
+		56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */; };
+		56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */; };
+		56BAF73C1E0BF57F00218103 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */; };
+		56BAF7451E0C16A600218103 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BAF7441E0C16A600218103 /* NotificationCenter.framework */; };
+		56BAF7481E0C16A600218103 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BAF7471E0C16A600218103 /* TodayViewController.swift */; };
+		56BAF74B1E0C16A600218103 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BAF7491E0C16A600218103 /* MainInterface.storyboard */; };
+		56BAF74F1E0C16A600218103 /* CatchIdeaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56BAF7421E0C16A600218103 /* CatchIdeaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604C91E06C6BF001C465B /* TrashViewController.swift */; };
 		56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */; };
 		56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */; };
+		56FE13851E0CF1B3006A833A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
+		56FE13891E0CF56F006A833A /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13881E0CF56F006A833A /* Define.swift */; };
+		56FE138B1E0CFA71006A833A /* GeneralControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */; };
+		56FE138D1E0CFE49006A833A /* DispatchQueue+once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE138C1E0CFE49006A833A /* DispatchQueue+once.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56BAF74D1E0C16A600218103 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 567FA3C21E05628D00E4A293 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56BAF7411E0C16A600218103;
+			remoteInfo = CatchIdeaWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		56BAF7531E0C16A700218103 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				56BAF74F1E0C16A600218103 /* CatchIdeaWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
@@ -37,9 +72,23 @@
 		567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableViewCell.swift; sourceTree = "<group>"; };
 		567FA3E91E05736900E4A293 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		567FA3EB1E05744F00E4A293 /* IdeaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData.swift; sourceTree = "<group>"; };
+		56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealPresentAnimationController.swift; sourceTree = "<group>"; };
+		56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealDismissAnimationController.swift; sourceTree = "<group>"; };
+		56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		56BAF7421E0C16A600218103 /* CatchIdeaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CatchIdeaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		56BAF7441E0C16A600218103 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		56BAF7471E0C16A600218103 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		56BAF74A1E0C16A600218103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		56BAF74C1E0C16A600218103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdea.entitlements; sourceTree = "<group>"; };
+		56C7F13D1E0CC819008FF866 /* CatchIdeaWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdeaWidget.entitlements; sourceTree = "<group>"; };
 		56F604C91E06C6BF001C465B /* TrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
 		56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaCellManagerDelegate.swift; sourceTree = "<group>"; };
+		56FE13841E0CF1B3006A833A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		56FE13881E0CF56F006A833A /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralControlButton.swift; sourceTree = "<group>"; };
+		56FE138C1E0CFE49006A833A /* DispatchQueue+once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+once.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +96,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56BAF73F1E0C16A600218103 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56BAF7451E0C16A600218103 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				567FA3CC1E05628E00E4A293 /* CatchIdea */,
-				567FA3ED1E05752A00E4A293 /* IdeaData */,
+				567FA3ED1E05752A00E4A293 /* Manager */,
+				56BAF7461E0C16A600218103 /* CatchIdeaWidget */,
+				56BAF7431E0C16A600218103 /* Frameworks */,
 				567FA3CB1E05628E00E4A293 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				567FA3CA1E05628E00E4A293 /* CatchIdea.app */,
+				56BAF7421E0C16A600218103 /* CatchIdeaWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,10 +142,16 @@
 		567FA3CC1E05628E00E4A293 /* CatchIdea */ = {
 			isa = PBXGroup;
 			children = (
+				56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */,
+				56FE13841E0CF1B3006A833A /* Theme.swift */,
+				56FE13881E0CF56F006A833A /* Define.swift */,
+				56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */,
+				56FE138C1E0CFE49006A833A /* DispatchQueue+once.swift */,
 				567FA3E51E056D3100E4A293 /* Support */,
 				56F604CD1E06CA21001C465B /* MainVC */,
 				56F604CE1E06CA29001C465B /* TrashVC */,
 				564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */,
+				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
 			);
 			path = CatchIdea;
 			sourceTree = "<group>";
@@ -104,14 +170,43 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
-		567FA3ED1E05752A00E4A293 /* IdeaData */ = {
+		567FA3ED1E05752A00E4A293 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				567FA3EB1E05744F00E4A293 /* IdeaData.swift */,
 				567FA3E91E05736900E4A293 /* DataManager.swift */,
+				56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */,
 			);
-			name = IdeaData;
+			name = Manager;
 			path = CatchIdea;
+			sourceTree = "<group>";
+		};
+		56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */ = {
+			isa = PBXGroup;
+			children = (
+				56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */,
+				56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */,
+			);
+			name = AnimationTransitioningVC;
+			sourceTree = "<group>";
+		};
+		56BAF7431E0C16A600218103 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56BAF7441E0C16A600218103 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56BAF7461E0C16A600218103 /* CatchIdeaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				56C7F13D1E0CC819008FF866 /* CatchIdeaWidget.entitlements */,
+				56BAF7471E0C16A600218103 /* TodayViewController.swift */,
+				56BAF7491E0C16A600218103 /* MainInterface.storyboard */,
+				56BAF74C1E0C16A600218103 /* Info.plist */,
+			);
+			path = CatchIdeaWidget;
 			sourceTree = "<group>";
 		};
 		56F604CD1E06CA21001C465B /* MainVC */ = {
@@ -142,15 +237,34 @@
 				567FA3C61E05628D00E4A293 /* Sources */,
 				567FA3C71E05628D00E4A293 /* Frameworks */,
 				567FA3C81E05628D00E4A293 /* Resources */,
+				56BAF7531E0C16A700218103 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				56BAF74E1E0C16A600218103 /* PBXTargetDependency */,
 			);
 			name = CatchIdea;
 			productName = CatchIdea;
 			productReference = 567FA3CA1E05628E00E4A293 /* CatchIdea.app */;
 			productType = "com.apple.product-type.application";
+		};
+		56BAF7411E0C16A600218103 /* CatchIdeaWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56BAF7501E0C16A700218103 /* Build configuration list for PBXNativeTarget "CatchIdeaWidget" */;
+			buildPhases = (
+				56BAF73E1E0C16A600218103 /* Sources */,
+				56BAF73F1E0C16A600218103 /* Frameworks */,
+				56BAF7401E0C16A600218103 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CatchIdeaWidget;
+			productName = CatchIdeaWidget;
+			productReference = 56BAF7421E0C16A600218103 /* CatchIdeaWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -166,6 +280,21 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 4F6NMKB449;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					56BAF7411E0C16A600218103 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 4F6NMKB449;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -183,6 +312,7 @@
 			projectRoot = "";
 			targets = (
 				567FA3C91E05628D00E4A293 /* CatchIdea */,
+				56BAF7411E0C16A600218103 /* CatchIdeaWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -198,6 +328,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56BAF7401E0C16A600218103 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56BAF74B1E0C16A600218103 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -209,9 +347,16 @@
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
+				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
+				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
+				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
+				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
+				56FE138D1E0CFE49006A833A /* DispatchQueue+once.swift in Sources */,
+				56BAF73C1E0BF57F00218103 /* LocalNotificationManager.swift in Sources */,
 				567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */,
+				56FE138B1E0CFA71006A833A /* GeneralControlButton.swift in Sources */,
 				561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */,
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
@@ -219,7 +364,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56BAF73E1E0C16A600218103 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56BAF7481E0C16A600218103 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56BAF74E1E0C16A600218103 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56BAF7411E0C16A600218103 /* CatchIdeaWidget */;
+			targetProxy = 56BAF74D1E0C16A600218103 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		567FA3D11E05628E00E4A293 /* Main.storyboard */ = {
@@ -236,6 +397,14 @@
 				567FA3DA1E05628E00E4A293 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		56BAF7491E0C16A600218103 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56BAF74A1E0C16A600218103 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -337,10 +506,12 @@
 		567FA3E01E05628E00E4A293 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CatchIdea/CatchIdea.entitlements;
 				DEVELOPMENT_TEAM = 4F6NMKB449;
 				INFOPLIST_FILE = CatchIdea/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.CatchIdea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -351,13 +522,45 @@
 		567FA3E11E05628E00E4A293 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CatchIdea/CatchIdea.entitlements;
 				DEVELOPMENT_TEAM = 4F6NMKB449;
 				INFOPLIST_FILE = CatchIdea/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.CatchIdea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		56BAF7511E0C16A700218103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CatchIdeaWidget/CatchIdeaWidget.entitlements;
+				DEVELOPMENT_TEAM = 4F6NMKB449;
+				INFOPLIST_FILE = CatchIdeaWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.CatchIdea.CatchIdeaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		56BAF7521E0C16A700218103 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CatchIdeaWidget/CatchIdeaWidget.entitlements;
+				DEVELOPMENT_TEAM = 4F6NMKB449;
+				INFOPLIST_FILE = CatchIdeaWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.CatchIdea.CatchIdeaWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -379,6 +582,15 @@
 			buildConfigurations = (
 				567FA3E01E05628E00E4A293 /* Debug */,
 				567FA3E11E05628E00E4A293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56BAF7501E0C16A700218103 /* Build configuration list for PBXNativeTarget "CatchIdeaWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56BAF7511E0C16A700218103 /* Debug */,
+				56BAF7521E0C16A700218103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
