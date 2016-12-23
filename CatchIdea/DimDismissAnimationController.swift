@@ -1,5 +1,5 @@
 //
-//  RevealPresentAnimationController.swift
+//  DimDismissAnimationController.swift
 //  CatchIdea
 //
 //  Created by Linsw on 16/12/23.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-internal class RevealPresentAnimationController: NSObject {
-    var originFrame = CGRect.zero
-
+class DimDismissAnimationController: NSObject {
+    var destinationFrame = CGRect.zero
 }
 
-extension RevealPresentAnimationController: UIViewControllerAnimatedTransitioning{
+extension DimDismissAnimationController: UIViewControllerAnimatedTransitioning{
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.8
     }
@@ -24,22 +23,20 @@ extension RevealPresentAnimationController: UIViewControllerAnimatedTransitionin
                 return
         }
         let containerView = transitionContext.containerView
-        let initialFrame = originFrame
-        let finalFrame = transitionContext.finalFrame(for: toVC)
+        let finalFrame = destinationFrame
         
-        let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
+        let snapshot = fromVC.view.snapshotView(afterScreenUpdates: false)
         
-        snapshot?.frame = initialFrame
         snapshot?.layer.cornerRadius = 25
         snapshot?.layer.masksToBounds = true
         
         containerView.addSubview(toVC.view)
         containerView.addSubview(snapshot!)
-        toVC.view.isHidden = true
+        fromVC.view.isHidden = true
         
         AnimationHelper.perspectiveTransformForContainerView(containerView)
         
-        snapshot?.layer.transform = AnimationHelper.yRotation(M_PI_2)
+        toVC.view.layer.transform = AnimationHelper.yRotation(-M_PI_2)
         
         let duration = transitionDuration(using: transitionContext)
         
@@ -50,19 +47,19 @@ extension RevealPresentAnimationController: UIViewControllerAnimatedTransitionin
             animations: {
                 
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
-                    fromVC.view.layer.transform = AnimationHelper.yRotation(-M_PI_2)
+                    snapshot?.frame = finalFrame
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
-                    snapshot!.layer.transform = AnimationHelper.yRotation(0.0)
+                    snapshot!.layer.transform = AnimationHelper.yRotation(M_PI_2)
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
-                    snapshot?.frame = finalFrame
+                    toVC.view.layer.transform = AnimationHelper.yRotation(0.0)
                 })
         },
             completion: { _ in
-                toVC.view.isHidden = false
+                fromVC.view.isHidden = false
                 snapshot?.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })

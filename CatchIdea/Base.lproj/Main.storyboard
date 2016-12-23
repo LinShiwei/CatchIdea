@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AYi-BF-YUX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,8 +23,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xmE-NU-caR">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="eWz-gN-YTD"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Catch" id="ju2-ZU-h9E"/>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="80s-3i-QoA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="468"/>
+                                <rect key="frame" x="0.0" y="89" width="375" height="383"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdeaListTableViewCell" id="5TT-DG-qSK" customClass="IdeaListTableViewCell" customModule="CatchIdea" customModuleProvider="target">
@@ -100,7 +109,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Cgs-nw-3cb" secondAttribute="height" multiplier="1:1" id="dxh-l6-jp9"/>
                                 </constraints>
-                                <state key="normal" title="add"/>
                                 <connections>
                                     <segue destination="ifY-Y3-tiW" kind="showDetail" identifier="AddIdeaCell" action="showViewController:sender:" id="BZW-95-Vt3"/>
                                 </connections>
@@ -124,7 +132,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="njW-X9-06w" secondAttribute="height" multiplier="1:1" id="oet-8O-ubw"/>
                                 </constraints>
-                                <state key="normal" title="deskbin"/>
                                 <connections>
                                     <segue destination="i6A-da-cxW" kind="showDetail" identifier="ShowTrash" action="showViewController:sender:" id="wX2-LQ-02u"/>
                                 </connections>
@@ -133,9 +140,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cgs-nw-3cb" secondAttribute="bottom" constant="20" id="2pm-0d-aC1"/>
+                            <constraint firstAttribute="trailing" secondItem="xmE-NU-caR" secondAttribute="trailing" id="3Bv-sQ-AJb"/>
                             <constraint firstItem="njW-X9-06w" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="4Rr-vF-y0K"/>
                             <constraint firstItem="ZhI-Nm-g3H" firstAttribute="leading" secondItem="ELj-lQ-jeX" secondAttribute="trailing" id="Bwx-wT-07i"/>
+                            <constraint firstItem="xmE-NU-caR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="F5W-rD-Mx8"/>
                             <constraint firstAttribute="trailing" secondItem="80s-3i-QoA" secondAttribute="trailing" id="Fli-4N-RG5"/>
+                            <constraint firstItem="xmE-NU-caR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mes-NT-9ye"/>
+                            <constraint firstItem="80s-3i-QoA" firstAttribute="top" secondItem="xmE-NU-caR" secondAttribute="bottom" id="RyP-uu-eg8"/>
                             <constraint firstItem="njW-X9-06w" firstAttribute="width" secondItem="Cgs-nw-3cb" secondAttribute="width" id="WOc-dz-gvW"/>
                             <constraint firstItem="80s-3i-QoA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XUr-Qd-IbE"/>
                             <constraint firstItem="ELj-lQ-jeX" firstAttribute="leading" secondItem="Cgs-nw-3cb" secondAttribute="trailing" id="XeS-Aq-PdK"/>
@@ -148,7 +159,6 @@
                             <constraint firstItem="Cgs-nw-3cb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xxF-Q2-AkP"/>
                             <constraint firstItem="ELj-lQ-jeX" firstAttribute="width" secondItem="Cgs-nw-3cb" secondAttribute="width" id="yGP-ir-fC9"/>
                             <constraint firstItem="njW-X9-06w" firstAttribute="width" secondItem="njW-X9-06w" secondAttribute="height" multiplier="1:1" id="yvC-fO-TNK"/>
-                            <constraint firstItem="80s-3i-QoA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zic-B7-N9u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Catch" id="FdE-xy-Vpt"/>
@@ -172,8 +182,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-Be-lvp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Trash" id="KBd-sd-DO0"/>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6vC-VN-kEo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="468"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="394"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrashTableViewCell" id="9Cc-v7-NZR" customClass="TrashTableViewCell" customModule="CatchIdea" customModuleProvider="target">
@@ -218,13 +234,6 @@
                                     <outlet property="delegate" destination="i6A-da-cxW" id="gqT-de-sjX"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELF-M1-z6W" customClass="GeneralControlButton" customModule="CatchIdea" customModuleProvider="target">
-                                <rect key="frame" x="16" y="562" width="86" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ELF-M1-z6W" secondAttribute="height" multiplier="86:85" id="zi6-08-Leh"/>
-                                </constraints>
-                                <state key="normal" title="clear"/>
-                            </button>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1v-Y3-dug">
                                 <rect key="frame" x="102" y="607" width="86" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -232,12 +241,17 @@
                                     <constraint firstAttribute="height" constant="1" id="nYl-uv-BSA"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELF-M1-z6W" customClass="GeneralControlButton" customModule="CatchIdea" customModuleProvider="target">
+                                <rect key="frame" x="16" y="562" width="86" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ELF-M1-z6W" secondAttribute="height" multiplier="86:85" id="zi6-08-Leh"/>
+                                </constraints>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO8-Nx-NDY" customClass="GeneralControlButton" customModule="CatchIdea" customModuleProvider="target">
                                 <rect key="frame" x="273.5" y="561.5" width="85.5" height="85.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gO8-Nx-NDY" secondAttribute="height" multiplier="1:1" id="EVI-lB-yy8"/>
                                 </constraints>
-                                <state key="normal" title="main"/>
                                 <connections>
                                     <action selector="dismissTrashVC:" destination="i6A-da-cxW" eventType="touchUpInside" id="ErY-GP-l3T"/>
                                 </connections>
@@ -253,15 +267,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0Ta-9x-Hs8" firstAttribute="top" secondItem="6vC-VN-kEo" secondAttribute="bottom" id="0LE-Tq-lhg"/>
+                            <constraint firstItem="6vC-VN-kEo" firstAttribute="top" secondItem="lJM-Be-lvp" secondAttribute="bottom" id="5cA-0C-GYV"/>
                             <constraint firstItem="0Ta-9x-Hs8" firstAttribute="top" secondItem="X1v-Y3-dug" secondAttribute="bottom" constant="20" id="6X8-8z-uHT"/>
                             <constraint firstItem="Zbu-cD-3uT" firstAttribute="width" secondItem="ELF-M1-z6W" secondAttribute="width" id="8Uu-ef-PzW"/>
+                            <constraint firstItem="lJM-Be-lvp" firstAttribute="leading" secondItem="SxI-T3-26z" secondAttribute="leading" id="BIw-Xr-8JB"/>
                             <constraint firstItem="ELF-M1-z6W" firstAttribute="leading" secondItem="SxI-T3-26z" secondAttribute="leadingMargin" id="DLR-OT-9hG"/>
-                            <constraint firstItem="6vC-VN-kEo" firstAttribute="top" secondItem="SxI-T3-26z" secondAttribute="top" id="QNk-lU-sV0"/>
+                            <constraint firstAttribute="trailing" secondItem="lJM-Be-lvp" secondAttribute="trailing" id="FxT-TN-afV"/>
                             <constraint firstItem="Zbu-cD-3uT" firstAttribute="leading" secondItem="X1v-Y3-dug" secondAttribute="trailing" id="Thd-gC-JD8"/>
                             <constraint firstItem="gO8-Nx-NDY" firstAttribute="width" secondItem="ELF-M1-z6W" secondAttribute="width" id="W4z-Kf-iif"/>
                             <constraint firstItem="0Ta-9x-Hs8" firstAttribute="top" secondItem="Zbu-cD-3uT" secondAttribute="bottom" constant="20" id="XLb-db-lWp"/>
                             <constraint firstItem="0Ta-9x-Hs8" firstAttribute="top" secondItem="ELF-M1-z6W" secondAttribute="bottom" constant="20" id="XNL-yh-5eM"/>
                             <constraint firstAttribute="trailing" secondItem="6vC-VN-kEo" secondAttribute="trailing" id="YCy-BT-rm8"/>
+                            <constraint firstItem="lJM-Be-lvp" firstAttribute="top" secondItem="eWE-0U-ack" secondAttribute="bottom" constant="8" id="doK-4T-OJY"/>
                             <constraint firstItem="X1v-Y3-dug" firstAttribute="width" secondItem="ELF-M1-z6W" secondAttribute="width" id="mEa-1m-947"/>
                             <constraint firstItem="X1v-Y3-dug" firstAttribute="leading" secondItem="ELF-M1-z6W" secondAttribute="trailing" id="ngg-wo-xdc"/>
                             <constraint firstItem="gO8-Nx-NDY" firstAttribute="trailing" secondItem="SxI-T3-26z" secondAttribute="trailingMargin" id="o29-pB-cM8"/>
@@ -402,24 +419,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="972" y="728.18590704647681"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2ha-xb-6J3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AYi-BF-YUX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nnz-tY-IjR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="awv-mG-vpm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ltS-CV-Hqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="19.340329835082461"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

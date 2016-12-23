@@ -1,5 +1,5 @@
 //
-//  RevealPresentAnimationController.swift
+//  DimPresentAnimationController.swift
 //  CatchIdea
 //
 //  Created by Linsw on 16/12/23.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-internal class RevealPresentAnimationController: NSObject {
+class DimPresentAnimationController: NSObject {
     var originFrame = CGRect.zero
-
 }
 
-extension RevealPresentAnimationController: UIViewControllerAnimatedTransitioning{
+extension DimPresentAnimationController: UIViewControllerAnimatedTransitioning{
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.8
     }

@@ -38,10 +38,15 @@ internal class MainViewController: UIViewController {
             if let destinationViewController = segue.destination as? CreateIdeaViewController,let cell = sender as? IdeaListTableViewCell {
                 let indexPath = ideaListTableView.indexPath(for: cell)!
                 destinationViewController.originIdeaData = existedIdeas[indexPath.row]
+                destinationViewController.transitioningDelegate = self
+            }
+        case "AddIdeaCell":
+            if let destinationViewController = segue.destination as? CreateIdeaViewController {
+                destinationViewController.transitioningDelegate = self
             }
         case "ShowTrash":
             if let destinationViewController = segue.destination as? TrashViewController {
-                destinationViewController.navigationController!.transitioningDelegate = self
+                destinationViewController.transitioningDelegate = self
             }
         default:
             break
@@ -92,14 +97,34 @@ extension MainViewController: IdeaCellManagerDelegate {
 extension MainViewController: UIViewControllerTransitioningDelegate{
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let revealPresentAnimationVC = RevealPresentAnimationController()
+        switch presented {
+        case is TrashViewController:
+            let revealPresentAnimationController = RevealPresentAnimationController()
+            revealPresentAnimationController.originFrame = windowBounds
+            return revealPresentAnimationController
+        case is CreateIdeaViewController:
+            let dimPresentAnimationController = DimPresentAnimationController()
+            dimPresentAnimationController.originFrame = windowBounds
+            return dimPresentAnimationController
+        default:
+            return nil
+        }
         
-        return revealPresentAnimationVC
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let revealDismissAnimationVC = RevealDismissAnimationController()
+        switch dismissed {
+        case is TrashViewController:
+            let revealDismissAnimationVC = RevealDismissAnimationController()
+            revealDismissAnimationVC.destinationFrame = windowBounds
+            return revealDismissAnimationVC
+        case is CreateIdeaViewController:
+            let dimDismissAnimationVC = DimDismissAnimationController()
+            dimDismissAnimationVC.destinationFrame = windowBounds
+            return dimDismissAnimationVC
+        default:
+            return nil
+        }
         
-        return revealDismissAnimationVC
     }
 }

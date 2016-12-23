@@ -38,6 +38,6 @@ internal class CreateIdeaViewController: UIViewController {
     }
     
     @IBAction func cancleCreateIdea(_ sender: UIButton) {
-        navigationController!.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }

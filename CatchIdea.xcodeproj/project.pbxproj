@@ -20,6 +20,8 @@
 		567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
 		56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */; };
 		56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */; };
+		56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */; };
+		56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD561E0D544E0047DA5C /* DimDismissAnimationController.swift */; };
 		56BAF73C1E0BF57F00218103 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */; };
 		56BAF7451E0C16A600218103 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BAF7441E0C16A600218103 /* NotificationCenter.framework */; };
 		56BAF7481E0C16A600218103 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BAF7471E0C16A600218103 /* TodayViewController.swift */; };
@@ -74,6 +76,8 @@
 		567FA3EB1E05744F00E4A293 /* IdeaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData.swift; sourceTree = "<group>"; };
 		56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealPresentAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealDismissAnimationController.swift; sourceTree = "<group>"; };
+		56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimPresentAnimationController.swift; sourceTree = "<group>"; };
+		56A1DD561E0D544E0047DA5C /* DimDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimDismissAnimationController.swift; sourceTree = "<group>"; };
 		56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		56BAF7421E0C16A600218103 /* CatchIdeaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CatchIdeaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BAF7441E0C16A600218103 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -186,6 +190,8 @@
 			children = (
 				56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */,
 				56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */,
+				56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */,
+				56A1DD561E0D544E0047DA5C /* DimDismissAnimationController.swift */,
 			);
 			name = AnimationTransitioningVC;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
+				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
 				56FE138D1E0CFE49006A833A /* DispatchQueue+once.swift in Sources */,
@@ -360,6 +367,7 @@
 				561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */,
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
+				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
 				564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
