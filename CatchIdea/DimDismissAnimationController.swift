@@ -9,7 +9,7 @@
 import UIKit
 
 class DimDismissAnimationController: NSObject {
-    var destinationFrame = CGRect.zero
+    internal var dimCenter = CGPoint.zero
 }
 
 extension DimDismissAnimationController: UIViewControllerAnimatedTransitioning{
@@ -18,50 +18,37 @@ extension DimDismissAnimationController: UIViewControllerAnimatedTransitioning{
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+        guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? CreateIdeaViewController,
             let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
                 return
         }
         let containerView = transitionContext.containerView
-        let finalFrame = destinationFrame
         
-        let snapshot = fromVC.view.snapshotView(afterScreenUpdates: false)
+        let distance = dimCenter.maxDistanceToScreenCorner()
+        let maskView = UIView()
+        maskView.frame.size = CGSize(width: distance*2, height: distance*2)
+        maskView.center = dimCenter
+        maskView.backgroundColor = UIColor.blue
+        maskView.layer.cornerRadius = maskView.frame.width/2
+        maskView.layer.masksToBounds = true
         
-        snapshot?.layer.cornerRadius = 25
-        snapshot?.layer.masksToBounds = true
+        let snapshot = fromVC.view.snapshotView(afterScreenUpdates: true)
         
         containerView.addSubview(toVC.view)
         containerView.addSubview(snapshot!)
+        containerView.addSubview(maskView)
+        //注意：下面这一行｀snapshot?.mask = maskView｀要放在 containerView.addSubView之后，不然效果会不一样。
+        snapshot?.mask = maskView
+        
+        let duration = transitionDuration(using: transitionContext)*TimeInterval(distance/windowBounds.height)
         fromVC.view.isHidden = true
         
-        AnimationHelper.perspectiveTransformForContainerView(containerView)
-        
-        toVC.view.layer.transform = AnimationHelper.yRotation(-M_PI_2)
-        
-        let duration = transitionDuration(using: transitionContext)
-        
-        UIView.animateKeyframes(
-            withDuration: duration,
-            delay: 0,
-            options: .calculationModeCubic,
-            animations: {
-                
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
-                    snapshot?.frame = finalFrame
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
-                    snapshot!.layer.transform = AnimationHelper.yRotation(M_PI_2)
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
-                    toVC.view.layer.transform = AnimationHelper.yRotation(0.0)
-                })
-        },
-            completion: { _ in
-                fromVC.view.isHidden = false
-                snapshot?.removeFromSuperview()
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        UIView.animateKeyframes(withDuration: duration,delay: 0,options: .calculationModeCubic,animations: {
+            maskView.transform = CGAffineTransform(scaleX: 1.0/maskView.frame.width, y: 1.0/maskView.frame.height)
+        }, completion: { _ in
+            fromVC.view.isHidden = false
+            snapshot?.removeFromSuperview()
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
     

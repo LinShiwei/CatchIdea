@@ -9,7 +9,7 @@
 import UIKit
 
 class DimPresentAnimationController: NSObject {
-    var originFrame = CGRect.zero
+    internal var dimCenter = CGPoint.zero
 }
 
 extension DimPresentAnimationController: UIViewControllerAnimatedTransitioning{
@@ -19,52 +19,51 @@ extension DimPresentAnimationController: UIViewControllerAnimatedTransitioning{
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? CreateIdeaViewController else {
                 return
         }
         let containerView = transitionContext.containerView
-        let initialFrame = originFrame
-        let finalFrame = transitionContext.finalFrame(for: toVC)
+        
+        let distance = dimCenter.maxDistanceToScreenCorner()
+        let maskView = UIView()
+        maskView.frame.size = CGSize(width: distance*2, height: distance*2)
+        maskView.center = dimCenter
+        maskView.backgroundColor = UIColor.blue
+        maskView.layer.cornerRadius = maskView.frame.width/2
+        maskView.layer.masksToBounds = true
+        maskView.transform = CGAffineTransform(scaleX: 1.0/maskView.frame.width, y: 1.0/maskView.frame.height)
+        
         
         let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
         
-        snapshot?.frame = initialFrame
-        snapshot?.layer.cornerRadius = 25
-        snapshot?.layer.masksToBounds = true
-        
         containerView.addSubview(toVC.view)
         containerView.addSubview(snapshot!)
+        containerView.addSubview(maskView)
+        //注意：下面这一行｀snapshot?.mask = maskView｀要放在 containerView.addSubView之后，不然效果会不一样。
+        snapshot?.mask = maskView
+        
+        let duration = transitionDuration(using: transitionContext)*TimeInterval(distance/windowBounds.height)
         toVC.view.isHidden = true
         
-        AnimationHelper.perspectiveTransformForContainerView(containerView)
-        
-        snapshot?.layer.transform = AnimationHelper.yRotation(M_PI_2)
-        
-        let duration = transitionDuration(using: transitionContext)
-        
-        UIView.animateKeyframes(
-            withDuration: duration,
-            delay: 0,
-            options: .calculationModeCubic,
-            animations: {
-                
-                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
-                    fromVC.view.layer.transform = AnimationHelper.yRotation(-M_PI_2)
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
-                    snapshot!.layer.transform = AnimationHelper.yRotation(0.0)
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
-                    snapshot?.frame = finalFrame
-                })
-        },
-            completion: { _ in
-                toVC.view.isHidden = false
-                snapshot?.removeFromSuperview()
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        UIView.animateKeyframes(withDuration: duration,delay: 0,options: .beginFromCurrentState,animations: {
+            maskView.transform = .identity
+        },completion: { _ in
+            toVC.view.isHidden = false
+            snapshot?.removeFromSuperview()
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
+
     }
     
+}
+
+extension CGPoint {
+    func maxDistanceToScreenCorner()->CGFloat{
+        guard (self.x>0)&&(self.x<windowBounds.width)&&(self.y>0)&&(self.y<windowBounds.height) else {
+            return 0
+        }
+        let maxDeltaX = self.x > windowBounds.width/2 ? self.x : windowBounds.width-self.x
+        let maxDeltaY = self.y > windowBounds.height/2 ? self.y : windowBounds.height-self.y
+        return sqrt(maxDeltaX*maxDeltaX + maxDeltaY*maxDeltaY)
+    }
 }

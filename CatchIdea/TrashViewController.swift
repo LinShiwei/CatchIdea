@@ -30,8 +30,24 @@ class TrashViewController: UIViewController {
             }
         }
     }
+    @IBAction func clearTrashForever(_ sender: UIButton) {
+        guard trashTableView.numberOfRows(inSection: 0) > 0 else {return}
+        let alert = UIAlertController(title: "清空纸篓", message: "确定要清空纸篓吗？此操作不可恢复。", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "确定", style: .default,handler: { (action:UIAlertAction) -> Void in
+            self.ideaDataManager.deleteAllIdeaDataInTrash(){[unowned self] success in
+                if success {
+                    self.deletedIdeas.removeAll()
+                    self.trashTableView.reloadData()
+                }
+            }
+        })
+        let cancelAction = UIAlertAction(title: "取消", style: .default) { (action: UIAlertAction) -> Void in }
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func dismissTrashVC(_ sender: UIButton) {
-//        navigationController!.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
 }

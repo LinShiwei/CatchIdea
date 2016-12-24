@@ -38,7 +38,7 @@ internal class IdeaDataSheetView: UIView {
     }
 
     internal func saveIdea(){
-        if let header = headerTextField.text {
+        if let header = headerTextField.text, header != "" {
             if let idea = idea {
                 dataManager.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: idea)
             }

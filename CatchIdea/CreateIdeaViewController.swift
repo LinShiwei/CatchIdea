@@ -15,6 +15,7 @@ internal class CreateIdeaViewController: UIViewController {
     internal var originIdeaData: IdeaData?
     
     @IBOutlet weak var ideaDataSheetView: IdeaDataSheetView!
+    @IBOutlet weak var cancleButton: GeneralControlButton!
     
     private let dataManager = DataManager.shared
 
@@ -34,10 +35,12 @@ internal class CreateIdeaViewController: UIViewController {
     @IBAction func okToCreateIdea(_ sender: UIButton) {
         ideaDataSheetView.saveIdea()
         cancleCreateIdea(sender)
-
     }
     
     @IBAction func cancleCreateIdea(_ sender: UIButton) {
+        if let mainVC = transitioningDelegate as? MainViewController {
+            mainVC.dimDismissAnimationController.dimCenter = sender.center
+        }
         dismiss(animated: true, completion: nil)
     }
 }

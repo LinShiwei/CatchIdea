@@ -25,8 +25,6 @@ extension RevealPresentAnimationController: UIViewControllerAnimatedTransitionin
         }
         let containerView = transitionContext.containerView
         
-        
-        
         let center = toVC.backToMainVCButton.center
         let distance = sqrt(center.x*center.x + center.y*center.y)
         let maskView = UIView()

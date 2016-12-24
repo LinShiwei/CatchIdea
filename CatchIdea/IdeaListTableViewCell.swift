@@ -25,6 +25,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
     }
     
     internal var delegate: IdeaCellManagerDelegate?
+    internal var touchPointInWindow: CGPoint?
     
     private let gap: CGFloat = 4
     
@@ -45,7 +46,11 @@ internal class IdeaListTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         markColorView.layer.cornerRadius = markColorView.frame.width/2
     }
-
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchPointInWindow = touches.first?.location(in: nil)
+        super.touchesEnded(touches, with: event)
+    }
     private func addGesture(){
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftToDeleteIdeaCell(sender:)))
         swipeLeftGesture.direction = .left

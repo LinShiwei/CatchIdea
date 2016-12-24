@@ -52,22 +52,7 @@ internal final class DataManager {
         }
     }
     
-    private func getIdeaData(filter: ((NSManagedObject)->Bool), _ completion: @escaping (Bool,[IdeaData]?)->Void) {
-        var ideas = [IdeaData]()
-        for object in objects{
-            if filter(object) {
-                if let addingDate = object.value(forKey: "addingDate") as? Date,
-                    let header = object.value(forKey: "header") as? String ,
-                    let isFinish = object.value(forKey: "isFinish") as? Bool,
-                    let isDelete = object.value(forKey: "isDelete") as? Bool{
-                    let content = object.value(forKey: "content") as? String
-                    let notificationDate = object.value(forKey: "notificationDate") as? Date
-                    ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete,notificationDate:notificationDate))
-                }
-            }
-        }
-        completion(true,ideas)
-    }
+    
     //MARK: Public API - Delete
     internal func deleteOneIdeaData(deleteStyle: DeleteStyle, ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
         switch deleteStyle {
@@ -86,6 +71,18 @@ internal final class DataManager {
         deleteOneIdeaDataToTrash(ideaData: ideaData, completion)
     }
     
+    internal func deleteAllIdeaDataInTrash(_ completion:((Bool)->Void)?=nil){
+        var findObject = false
+        let managedContext = getManagedContext()
+        for (index,object) in objects.enumerated().reversed() where object.value(forKey: "isDelete") as! Bool == true {
+            managedContext.delete(object)
+            
+            objects.remove(at: index)
+            findObject = true
+        }
+        managedContextSave()
+        completion?(findObject)
+    }
     //MARK: Public API - Restore
     internal func restoreOneIdeaData(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
         var findObject = false
@@ -107,6 +104,22 @@ internal final class DataManager {
     }
     
     //MARK: Private help func
+    private func getIdeaData(filter: ((NSManagedObject)->Bool), _ completion: @escaping (Bool,[IdeaData]?)->Void) {
+        var ideas = [IdeaData]()
+        for object in objects{
+            if filter(object) {
+                if let addingDate = object.value(forKey: "addingDate") as? Date,
+                    let header = object.value(forKey: "header") as? String ,
+                    let isFinish = object.value(forKey: "isFinish") as? Bool,
+                    let isDelete = object.value(forKey: "isDelete") as? Bool{
+                    let content = object.value(forKey: "content") as? String
+                    let notificationDate = object.value(forKey: "notificationDate") as? Date
+                    ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete,notificationDate:notificationDate))
+                }
+            }
+        }
+        completion(true,ideas)
+    }
     
     private func deleteOneIdeaDataForever(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
         var findObject = false
