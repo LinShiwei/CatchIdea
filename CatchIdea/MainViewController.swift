@@ -18,7 +18,6 @@ internal class MainViewController: UIViewController {
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
     @IBOutlet weak var ideaListTableView: UITableView!
-    @IBOutlet weak var addIdeaButton: GeneralControlButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +46,10 @@ internal class MainViewController: UIViewController {
                     dimPresentAnimationController.dimCenter = touchCenter
                 }
             }
-        case "AddIdeaCell":
+        case "PullToCreateIdea":
             if let destinationViewController = segue.destination as? CreateIdeaViewController {
                 destinationViewController.transitioningDelegate = self
-                dimPresentAnimationController.dimCenter = addIdeaButton.center
+                dimPresentAnimationController.dimCenter = CGPoint(x: windowBounds.width/2, y: 88)
             }
         case "ShowTrash":
             if let destinationViewController = segue.destination as? TrashViewController {
@@ -67,6 +66,26 @@ extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
     }
+    
+    //MARK ScrollView delegate
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if let refreshControl = scrollView.refreshControl,refreshControl.isRefreshing == true {
+            performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if let refreshControl = scrollView.refreshControl,refreshControl.isRefreshing == true {
+//            performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
+//            refreshControl.endRefreshing()
+//        }
+    }
+    
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -109,21 +128,18 @@ extension MainViewController: UIViewControllerTransitioningDelegate{
         switch presented {
         case is TrashViewController:
             let revealPresentAnimationController = RevealPresentAnimationController()
-            revealPresentAnimationController.originFrame = windowBounds
             return revealPresentAnimationController
         case is CreateIdeaViewController:
             return dimPresentAnimationController
         default:
             return nil
         }
-        
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch dismissed {
         case is TrashViewController:
             let revealDismissAnimationController = RevealDismissAnimationController()
-            revealDismissAnimationController.destinationFrame = windowBounds
             return revealDismissAnimationController
         case is CreateIdeaViewController:
             return dimDismissAnimationController

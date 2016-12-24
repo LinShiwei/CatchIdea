@@ -15,7 +15,7 @@ internal class CreateIdeaViewController: UIViewController {
     internal var originIdeaData: IdeaData?
     
     @IBOutlet weak var ideaDataSheetView: IdeaDataSheetView!
-    @IBOutlet weak var cancleButton: GeneralControlButton!
+    @IBOutlet weak var cancleButton: UIButton!
     
     private let dataManager = DataManager.shared
 

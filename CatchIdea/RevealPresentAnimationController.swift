@@ -9,7 +9,6 @@
 import UIKit
 
 internal class RevealPresentAnimationController: NSObject {
-    var originFrame = CGRect.zero
 
 }
 
@@ -25,8 +24,8 @@ extension RevealPresentAnimationController: UIViewControllerAnimatedTransitionin
         }
         let containerView = transitionContext.containerView
         
-        let center = toVC.backToMainVCButton.center
-        let distance = sqrt(center.x*center.x + center.y*center.y)
+        let center = CGPoint(x: windowBounds.width-1, y: 1)
+        let distance = center.maxDistanceToScreenCorner()
         let maskView = UIView()
         maskView.frame.size = CGSize(width: distance*2, height: distance*2)
         maskView.center = center

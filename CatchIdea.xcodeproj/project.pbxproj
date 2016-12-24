@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E00671E09770B00E55313 /* CreateIdeaViewController.swift */; };
+		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
 		567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3CD1E05628E00E4A293 /* AppDelegate.swift */; };
 		567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D11E05628E00E4A293 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
+		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				567FA3E31E056CFA00E4A293 /* MainViewController.swift */,
+				563292121E0EB99F004C8EE1 /* MainVCTableView.swift */,
 				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
 			);
 			name = MainVC;
@@ -356,6 +359,7 @@
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
+				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,

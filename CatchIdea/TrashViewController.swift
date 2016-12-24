@@ -14,7 +14,7 @@ class TrashViewController: UIViewController {
     fileprivate var deletedIdeas = [IdeaData]()
     
     @IBOutlet weak var trashTableView: UITableView!
-    @IBOutlet weak var backToMainVCButton: GeneralControlButton!
+    @IBOutlet weak var backToMainVCButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class TrashViewController: UIViewController {
             }
         }
     }
-    @IBAction func clearTrashForever(_ sender: UIButton) {
+    @IBAction func clearTrashForever(_ sender: Any) {
         guard trashTableView.numberOfRows(inSection: 0) > 0 else {return}
         let alert = UIAlertController(title: "清空纸篓", message: "确定要清空纸篓吗？此操作不可恢复。", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "确定", style: .default,handler: { (action:UIAlertAction) -> Void in
@@ -47,7 +47,7 @@ class TrashViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func dismissTrashVC(_ sender: UIButton) {
+    @IBAction func dismissTrashVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
