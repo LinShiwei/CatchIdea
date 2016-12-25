@@ -14,4 +14,12 @@ internal class Theme {
     
     internal let tableViewCellBackgroundColor = UIColor(white: 0.9, alpha: 1)
     internal let generalControlButtonBackgroundColor = UIColor.red
+    internal let markColors : [UIColor] = [
+        UIColor.brown,
+        UIColor.blue,
+        UIColor.red,
+        UIColor.yellow,
+        UIColor.cyan,
+        UIColor.green
+    ]
 }

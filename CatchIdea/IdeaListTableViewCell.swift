@@ -14,13 +14,14 @@ internal class IdeaListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addingDateDescriptionLabel: UILabel!
     @IBOutlet weak var notificationControlButton: UIButton!
-    @IBOutlet weak var markColorView: UIView!
+    @IBOutlet weak var markColorIndicationView: UIView!
     @IBOutlet weak var contentHeaderLabel: UILabel!
     
     internal var ideaData: IdeaData?{
         didSet{
             addingDateDescriptionLabel.text = ideaData?.addingDate.description
             contentHeaderLabel.text = ideaData?.header
+            markColorIndicationView.layer.backgroundColor = ideaData?.markColor.cgColor
         }
     }
     
@@ -38,13 +39,13 @@ internal class IdeaListTableViewCell: UITableViewCell {
         contentLayer.backgroundColor = Theme.shared.tableViewCellBackgroundColor.cgColor
         layer.insertSublayer(contentLayer, at: 0)
         
-        markColorView.layer.backgroundColor = UIColor.red.cgColor
+        markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
         
         addGesture()
     }
     
     override func layoutSubviews() {
-        markColorView.layer.cornerRadius = markColorView.frame.width/2
+        markColorIndicationView.layer.cornerRadius = markColorIndicationView.frame.width/2
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

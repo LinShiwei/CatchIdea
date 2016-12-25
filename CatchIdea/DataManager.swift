@@ -111,10 +111,11 @@ internal final class DataManager {
                 if let addingDate = object.value(forKey: "addingDate") as? Date,
                     let header = object.value(forKey: "header") as? String ,
                     let isFinish = object.value(forKey: "isFinish") as? Bool,
-                    let isDelete = object.value(forKey: "isDelete") as? Bool{
+                    let isDelete = object.value(forKey: "isDelete") as? Bool,
+                    let markColor = object.value(forKey: "markColor") as? UIColor{
                     let content = object.value(forKey: "content") as? String
                     let notificationDate = object.value(forKey: "notificationDate") as? Date
-                    ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete,notificationDate:notificationDate))
+                    ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete, markColor: markColor, notificationDate:notificationDate))
                 }
             }
         }
@@ -196,6 +197,7 @@ internal final class DataManager {
         ideaObject.setValue(idea.content, forKey: "content")
         ideaObject.setValue(idea.isDelete, forKey: "isDelete")
         ideaObject.setValue(idea.isFinish, forKey: "isFinish")
+        ideaObject.setValue(idea.markColor, forKey: "markColor")
         ideaObject.setValue(idea.notificationDate, forKey: "notificationDate")
         return ideaObject
     }

@@ -13,16 +13,17 @@ internal class IdeaDataSheetView: UIView {
     private var headerTextField: UITextField!
     private var contentTextView: UITextView!
     private var reminderSwitch: UISwitch!
+    private var markColorView: MarkColorsView!
     private var reminderIntervalSlider: UISlider!
     
     private let dataManager = DataManager.shared
-
+    
     internal var idea : IdeaData?{
         didSet{
             guard let idea = idea else {return}
             headerTextField.text = idea.header
             contentTextView.text = idea.content
-            
+            markColorView.select(color: idea.markColor)
         }
     }
     
@@ -32,8 +33,9 @@ internal class IdeaDataSheetView: UIView {
         
         headerTextField = viewWithTag(1) as! UITextField
         contentTextView = viewWithTag(2) as! UITextView
-        reminderSwitch = viewWithTag(3) as! UISwitch
-        reminderIntervalSlider = viewWithTag(4) as! UISlider
+        markColorView = viewWithTag(3) as! MarkColorsView
+        reminderSwitch = viewWithTag(4) as! UISwitch
+        reminderIntervalSlider = viewWithTag(5) as! UISlider
         
     }
 
@@ -44,7 +46,7 @@ internal class IdeaDataSheetView: UIView {
             }
             let interval = TimeInterval(reminderIntervalSlider.value*30 + 10)
             let notificationDate = reminderSwitch.isOn ? Date(timeIntervalSinceNow: interval) : nil
-            let ideaData = IdeaData(addingDate: Date(), header: header, content: contentTextView.text,notificationDate: notificationDate)
+            let ideaData = IdeaData(addingDate: Date(), header: header, content: contentTextView.text,markColor: markColorView.currentSelectedColor, notificationDate: notificationDate)
             dataManager.saveOneIdeaData(ideaData: ideaData)
         }
     }

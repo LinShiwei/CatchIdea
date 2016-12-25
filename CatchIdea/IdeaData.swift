@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Linsw. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 internal class IdeaData {
     //These properties should store in CoreData
@@ -15,20 +15,21 @@ internal class IdeaData {
     internal var header: String
     internal var isFinish: Bool
     internal var isDelete: Bool
+    internal var markColor: UIColor
     internal var notificationDate: Date?
-    
-    //These propertise don't need to store 
+    //These propertise don't need to store
     internal var identifier: String {
         get{
             return addingDate.description
         }
     }
-    internal init(addingDate: Date, header: String, content: String?=nil,isFinish: Bool=false, isDelete: Bool=false, notificationDate: Date?=nil) {
+    internal init(addingDate: Date, header: String, content: String?=nil,isFinish: Bool=false, isDelete: Bool=false, markColor: UIColor=Theme.shared.markColors[0], notificationDate: Date?=nil) {
         self.addingDate = addingDate
         self.header = header
         self.content = content
         self.isFinish = isFinish
         self.isDelete = isDelete
+        self.markColor = markColor
         self.notificationDate = notificationDate
     }
 }
