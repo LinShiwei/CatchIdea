@@ -23,7 +23,9 @@ internal class IdeaDataSheetView: UIView {
             guard let idea = idea else {return}
             headerTextField.text = idea.header
             contentTextView.text = idea.content
+            reminderSwitch.isOn = (idea.notificationDate != nil) ? true : false
             markColorView.select(color: idea.markColor)
+            
         }
     }
     
@@ -44,7 +46,8 @@ internal class IdeaDataSheetView: UIView {
             if let idea = idea {
                 dataManager.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: idea)
             }
-            let interval = TimeInterval(reminderIntervalSlider.value*30 + 10)
+            //记得修改正确的时间间隔
+            let interval = TimeInterval(reminderIntervalSlider.value*0 + 10)
             let notificationDate = reminderSwitch.isOn ? Date(timeIntervalSinceNow: interval) : nil
             let ideaData = IdeaData(addingDate: Date(), header: header, content: contentTextView.text,markColor: markColorView.currentSelectedColor, notificationDate: notificationDate)
             dataManager.saveOneIdeaData(ideaData: ideaData)

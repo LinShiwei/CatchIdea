@@ -35,7 +35,6 @@
 		56FE13851E0CF1B3006A833A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
 		56FE13891E0CF56F006A833A /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13881E0CF56F006A833A /* Define.swift */; };
 		56FE138B1E0CFA71006A833A /* GeneralControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */; };
-		56FE138D1E0CFE49006A833A /* DispatchQueue+once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE138C1E0CFE49006A833A /* DispatchQueue+once.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +95,6 @@
 		56FE13841E0CF1B3006A833A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		56FE13881E0CF56F006A833A /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralControlButton.swift; sourceTree = "<group>"; };
-		56FE138C1E0CFE49006A833A /* DispatchQueue+once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+once.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +153,6 @@
 				56FE13841E0CF1B3006A833A /* Theme.swift */,
 				56FE13881E0CF56F006A833A /* Define.swift */,
 				56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */,
-				56FE138C1E0CFE49006A833A /* DispatchQueue+once.swift */,
 				567FA3E51E056D3100E4A293 /* Support */,
 				56F604CD1E06CA21001C465B /* MainVC */,
 				56F604CE1E06CA29001C465B /* TrashVC */,
@@ -366,7 +363,6 @@
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
-				56FE138D1E0CFE49006A833A /* DispatchQueue+once.swift in Sources */,
 				5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */,
 				56BAF73C1E0BF57F00218103 /* LocalNotificationManager.swift in Sources */,
 				567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */,

@@ -70,6 +70,23 @@ internal final class DataManager {
         }
         deleteOneIdeaDataToTrash(ideaData: ideaData, completion)
     }
+    internal func deleteIdeaDataNotification(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
+        var findObject = false
+        for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
+            object.setValue(nil, forKey: "notificationDate")
+            findObject = true
+        }
+        managedContextSave()
+        LocalNotificationManager.shared.deletePendingNotification(withIdeaData: ideaData)
+        completion?(findObject)
+    }
+    
+    internal func deleteIdeadataNotification(withIdentifier identifier: String){
+        for object in objects where (object.value(forKey: "addingDate") as! Date).description == identifier {
+            object.setValue(nil, forKey: "notificationDate")
+        }
+        managedContextSave()
+    }
     
     internal func deleteAllIdeaDataInTrash(_ completion:((Bool)->Void)?=nil){
         var findObject = false
@@ -115,10 +132,17 @@ internal final class DataManager {
                     let markColor = object.value(forKey: "markColor") as? UIColor{
                     let content = object.value(forKey: "content") as? String
                     let notificationDate = object.value(forKey: "notificationDate") as? Date
-                    ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete, markColor: markColor, notificationDate:notificationDate))
+                    if (notificationDate != nil)&&(notificationDate! <= Date()) {
+                        ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete, markColor: markColor, notificationDate:nil))
+                        object.setValue(nil, forKey: "notificationDate")
+                        managedContextSave()
+                    }else{
+                        ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete, markColor: markColor, notificationDate:notificationDate))
+                    }
                 }
             }
         }
+        
         completion(true,ideas)
     }
     
@@ -139,6 +163,8 @@ internal final class DataManager {
     private func deleteOneIdeaDataToTrash(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
         var findObject = false
         for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
+            let obj = object.value(forKey: "addingDate") as! Date
+            print(obj == ideaData.addingDate)
             object.setValue(true, forKey: "isDelete")
             managedContextSave()
             findObject = true

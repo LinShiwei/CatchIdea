@@ -39,8 +39,7 @@ internal class MainViewController: UIViewController {
         switch identifier {
         case "IdeaCellDetail":
             if let destinationViewController = segue.destination as? CreateIdeaViewController,let cell = sender as? IdeaListTableViewCell {
-                let indexPath = ideaListTableView.indexPath(for: cell)!
-                destinationViewController.originIdeaData = existedIdeas[indexPath.row]
+                destinationViewController.originIdeaData = cell.ideaData
                 destinationViewController.transitioningDelegate = self
                 if let touchCenter = cell.touchPointInWindow {
                     dimPresentAnimationController.dimCenter = touchCenter
@@ -59,7 +58,6 @@ internal class MainViewController: UIViewController {
             break
         }
     }
-    
 }
 
 extension MainViewController : UITableViewDelegate {
@@ -74,18 +72,6 @@ extension MainViewController : UITableViewDelegate {
             refreshControl.endRefreshing()
         }
     }
-    
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if let refreshControl = scrollView.refreshControl,refreshControl.isRefreshing == true {
-//            performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
-//            refreshControl.endRefreshing()
-//        }
-    }
-    
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -101,7 +87,6 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdeaListTableViewCell", for: indexPath) as! IdeaListTableViewCell
         cell.ideaData = existedIdeas[indexPath.row]
         cell.delegate = self
-        
         return cell
     }
 }

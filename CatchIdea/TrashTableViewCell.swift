@@ -10,12 +10,13 @@ import UIKit
 
 class TrashTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var markColorView: UIView!
+    @IBOutlet weak var markColorIndicationView: UIView!
     @IBOutlet weak var contentHeaderLabel: UILabel!
     
-    internal var header = "" {
+    internal var ideaData: IdeaData?{
         didSet{
-            contentHeaderLabel.text = header
+            contentHeaderLabel.text = ideaData?.header
+            markColorIndicationView.layer.backgroundColor = ideaData?.markColor.cgColor
         }
     }
     
@@ -32,14 +33,14 @@ class TrashTableViewCell: UITableViewCell {
         contentLayer.backgroundColor = Theme.shared.tableViewCellBackgroundColor.cgColor
         layer.insertSublayer(contentLayer, at: 0)
         
-        markColorView.layer.backgroundColor = UIColor.red.cgColor
+        markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
         
         addGesture()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        markColorView.layer.cornerRadius = markColorView.frame.width/2
+        markColorIndicationView.layer.cornerRadius = markColorIndicationView.frame.width/2
     }
     
     private func addGesture(){
@@ -59,4 +60,6 @@ class TrashTableViewCell: UITableViewCell {
     @objc private func swipeRightToRestoreIdeaCell(sender: UISwipeGestureRecognizer) {
         delegate?.restoreIdea?(sender: self)
     }
+    
+    
 }

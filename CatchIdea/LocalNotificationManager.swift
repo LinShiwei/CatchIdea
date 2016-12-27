@@ -9,13 +9,16 @@
 import UIKit
 import UserNotifications
 
-internal class LocalNotificationManager {
+internal class LocalNotificationManager: NSObject {
     static let shared = LocalNotificationManager()
+    dynamic internal var currentNotificationIdentifier: String = ""
     //注意：目前这是中国地区的日历，但是日历并不影响时区！
     private let calendar = Calendar(identifier: .republicOfChina)
     private let notificationCenter = UNUserNotificationCenter.current()
 
-    private init(){
+    private override init(){
+        super.init()
+        notificationCenter.delegate = self
     }
     
     internal func requestAuthorization(){
@@ -59,4 +62,20 @@ internal class LocalNotificationManager {
         }
 //        notificationCenter.removePendingNotificationRequests(withIdentifiers: [ideaData.identifier])
     }
+}
+
+extension LocalNotificationManager: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        self.currentNotificationIdentifier = notification.request.identifier
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        self.currentNotificationIdentifier = response.notification.request.identifier
+        center.getDeliveredNotifications(){[unowned self] notifications in
+            for notification in notifications {
+                self.currentNotificationIdentifier = notification.request.identifier
+            }
+        }
+    }
+
 }

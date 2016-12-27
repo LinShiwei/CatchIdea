@@ -71,7 +71,7 @@ extension TrashViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrashTableViewCell", for: indexPath) as! TrashTableViewCell
         cell.delegate = self
-        cell.header = deletedIdeas[indexPath.row].header
+        cell.ideaData = deletedIdeas[indexPath.row]
         
         return cell
     }
