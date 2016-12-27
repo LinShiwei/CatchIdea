@@ -19,6 +19,7 @@ internal class LocalNotificationManager: NSObject {
     private override init(){
         super.init()
         notificationCenter.delegate = self
+        
     }
     
     internal func requestAuthorization(){
@@ -67,6 +68,7 @@ internal class LocalNotificationManager: NSObject {
 extension LocalNotificationManager: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         self.currentNotificationIdentifier = notification.request.identifier
+        completionHandler(UNNotificationPresentationOptions.alert)
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

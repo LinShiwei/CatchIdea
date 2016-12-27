@@ -10,7 +10,14 @@ import UIKit
 
 internal class MarkColorsView: UIView {
 
-    internal var currentSelectedColor = Theme.shared.markColors[0]
+    internal var currentSelectedColor = Theme.shared.markColors[0]{
+        didSet{
+            for button in buttons where button.backgroundColor == currentSelectedColor{
+                buttonRingLayer.removeFromSuperlayer()
+                button.layer.addSublayer(buttonRingLayer)
+            }
+        }
+    }
     
     private var buttonRingLayer = CALayer()
     private var buttons = [UIButton]()
@@ -25,21 +32,13 @@ internal class MarkColorsView: UIView {
         buttonRingLayer.borderWidth = 2
         for view in subviews where view is UIButton {
             if let button = view as? UIButton {
-                button.layer.backgroundColor = Theme.shared.markColors[button.tag-1].cgColor
+                button.backgroundColor = Theme.shared.markColors[button.tag-1]
                 button.addTarget(self, action: #selector(didTapColorButton(sender:)), for: .touchUpInside)
                 buttons.append(button)
 
             }
         }
-//        print(viewWithTag(3) is UIButton)
-//        for index in 1...6 {
-//            
-//            if let button = viewWithTag(index) as? UIButton {
-//                button.layer.backgroundColor = Theme.shared.markColors[index-1].cgColor
-//                button.addTarget(self, action: #selector(didTapColorButton(sender:)), for: .touchUpInside)
-//                buttons.append(button)
-//            }
-//        }
+
         assert(buttons.count == 6)
         buttons[0].layer.addSublayer(buttonRingLayer)
         
@@ -53,15 +52,6 @@ internal class MarkColorsView: UIView {
     }
     
     @objc private func didTapColorButton(sender: UIButton){
-        currentSelectedColor = UIColor(cgColor: sender.layer.backgroundColor!)
-        buttonRingLayer.removeFromSuperlayer()
-        sender.layer.addSublayer(buttonRingLayer)
-    }
-    
-    internal func select(color: UIColor){
-        for button in buttons where button.layer.backgroundColor == color.cgColor{
-            buttonRingLayer.removeFromSuperlayer()
-            button.layer.addSublayer(buttonRingLayer)
-        }
+        currentSelectedColor = sender.backgroundColor!
     }
 }

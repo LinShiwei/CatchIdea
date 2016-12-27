@@ -10,7 +10,7 @@ import UIKit
 
 internal class IdeaDataSheetView: UIView {
 
-    private var headerTextField: UITextField!
+    fileprivate var headerTextField: UITextField!
     private var contentTextView: UITextView!
     private var reminderSwitch: UISwitch!
     private var markColorView: MarkColorsView!
@@ -24,7 +24,7 @@ internal class IdeaDataSheetView: UIView {
             headerTextField.text = idea.header
             contentTextView.text = idea.content
             reminderSwitch.isOn = (idea.notificationDate != nil) ? true : false
-            markColorView.select(color: idea.markColor)
+            markColorView.currentSelectedColor = idea.markColor
             
         }
     }
@@ -57,5 +57,12 @@ internal class IdeaDataSheetView: UIView {
     internal func resignSubviewsFirstResponder() {
         headerTextField.resignFirstResponder()
         contentTextView.resignFirstResponder()
+    }
+}
+
+extension IdeaDataSheetView: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        headerTextField.resignFirstResponder()
+        return true
     }
 }
