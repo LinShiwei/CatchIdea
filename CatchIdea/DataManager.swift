@@ -163,8 +163,6 @@ internal final class DataManager {
     private func deleteOneIdeaDataToTrash(ideaData: IdeaData, _ completion: ((Bool)->Void)?=nil){
         var findObject = false
         for object in objects where object.value(forKey: "addingDate") as! Date == ideaData.addingDate {
-            let obj = object.value(forKey: "addingDate") as! Date
-            print(obj == ideaData.addingDate)
             object.setValue(true, forKey: "isDelete")
             managedContextSave()
             findObject = true

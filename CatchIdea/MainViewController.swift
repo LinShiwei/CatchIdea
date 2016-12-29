@@ -12,24 +12,23 @@ internal class MainViewController: UIViewController {
 
     fileprivate let ideaDataManager = DataManager.shared
     
-    fileprivate var existedIdeas = [IdeaData]()
+    private var existedIdeas = [IdeaData]()
     
     internal let dimPresentAnimationController = DimPresentAnimationController()
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
-    @IBOutlet weak var mainSearchBar: UISearchBar!
-    @IBOutlet weak var ideaListTableView: UITableView!
+//    @IBOutlet weak var mainSearchBar: UISearchBar!
+    @IBOutlet weak var ideaListTableView: MainVCTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(ideaListTableView.tableHeaderView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ideaDataManager.getAllIdeaData(type:.existed){[unowned self](success,ideas) in
             if (success&&(ideas != nil)){
-                self.existedIdeas = ideas!
+                self.ideaListTableView.ideaData = ideas!
                 self.ideaListTableView.reloadData()
             }
         }
@@ -81,30 +80,19 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return existedIdeas.count
+        guard let table = tableView as? MainVCTableView else {
+            return 0
+        }
+        return table.ideaData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdeaListTableViewCell", for: indexPath) as! IdeaListTableViewCell
-        cell.ideaData = existedIdeas[indexPath.row]
-        cell.delegate = self
+        if let table = tableView as? MainVCTableView {
+            cell.ideaData = table.ideaData[indexPath.row]
+            cell.delegate = table
+        }
         return cell
-    }
-}
-
-extension MainViewController: IdeaCellManagerDelegate {
-    func deleteIdea(sender: UITableViewCell){
-        guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
-        ideaDataManager.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: existedIdeas[indexPath.row])
-        existedIdeas.remove(at: indexPath.row)
-        ideaListTableView.deleteRows(at: [indexPath], with: .fade)
-    }
-    
-    func finishIdea(sender: UITableViewCell){
-        guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
-        ideaDataManager.finishOneIdeaData(ideaData: existedIdeas[indexPath.row])
-        existedIdeas.remove(at: indexPath.row)
-        ideaListTableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
 

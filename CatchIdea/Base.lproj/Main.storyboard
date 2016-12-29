@@ -105,7 +105,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9QV-6D-2hZ"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="szv-cH-mPr"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="2tZ-0s-ZUX"/>
                                 </connections>
                             </tableView>
@@ -123,7 +123,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Catch" id="FdE-xy-Vpt"/>
                     <connections>
-                        <outlet property="ideaListTableView" destination="80s-3i-QoA" id="fZ7-Yr-8Oj"/>
+                        <outlet property="ideaListTableView" destination="80s-3i-QoA" id="35d-BK-dzz"/>
                         <segue destination="ifY-Y3-tiW" kind="showDetail" identifier="PullToCreateIdea" id="Piy-mF-gG8"/>
                     </connections>
                 </viewController>
