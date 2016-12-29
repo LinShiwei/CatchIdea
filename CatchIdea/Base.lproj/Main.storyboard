@@ -38,12 +38,21 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="80s-3i-QoA" customClass="MainVCTableView" customModule="CatchIdea" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="133" width="320" height="435"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="80s-3i-QoA" customClass="MainVCTableView" customModule="CatchIdea" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="320" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="k5O-7v-RIT">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdeaListTableViewCell" id="5TT-DG-qSK" customClass="IdeaListTableViewCell" customModule="CatchIdea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="88"/>
+                                        <rect key="frame" x="0.0" y="72" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5TT-DG-qSK" id="64R-MS-uUN">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
@@ -107,7 +116,7 @@
                             <constraint firstItem="xmE-NU-caR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="F5W-rD-Mx8"/>
                             <constraint firstAttribute="trailing" secondItem="80s-3i-QoA" secondAttribute="trailing" id="Fli-4N-RG5"/>
                             <constraint firstItem="xmE-NU-caR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mes-NT-9ye"/>
-                            <constraint firstItem="80s-3i-QoA" firstAttribute="top" secondItem="xmE-NU-caR" secondAttribute="bottom" id="RyP-uu-eg8"/>
+                            <constraint firstItem="80s-3i-QoA" firstAttribute="top" secondItem="xmE-NU-caR" secondAttribute="bottom" id="Uzs-XI-ALS"/>
                             <constraint firstItem="80s-3i-QoA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XUr-Qd-IbE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="80s-3i-QoA" secondAttribute="bottom" id="fps-2G-4JD"/>
                         </constraints>

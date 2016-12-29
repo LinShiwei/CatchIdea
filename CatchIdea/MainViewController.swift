@@ -17,11 +17,12 @@ internal class MainViewController: UIViewController {
     internal let dimPresentAnimationController = DimPresentAnimationController()
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
+    @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var ideaListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(ideaListTableView.tableHeaderView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +61,7 @@ internal class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController : UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
     }
@@ -107,7 +108,7 @@ extension MainViewController: IdeaCellManagerDelegate {
     }
 }
 
-extension MainViewController: UIViewControllerTransitioningDelegate{
+extension MainViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch presented {
@@ -133,4 +134,8 @@ extension MainViewController: UIViewControllerTransitioningDelegate{
         }
         
     }
+}
+
+extension MainViewController: UISearchBarDelegate {
+    
 }
