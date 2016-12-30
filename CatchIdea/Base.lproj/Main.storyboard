@@ -38,34 +38,44 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="80s-3i-QoA" customClass="MainVCTableView" customModule="CatchIdea" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="80s-3i-QoA" customClass="MainVCTableView" customModule="CatchIdea" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="320" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="k5O-7v-RIT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="zkO-rv-oNP" customClass="IdeaFilterView" customModule="CatchIdea" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Title</string>
-                                        <string>Title</string>
-                                    </scopeButtonTitles>
-                                </searchBar>
+                                    <subviews>
+                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-vB-F4t" customClass="ColorSeletcionView" customModule="CatchIdea" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="36" width="320" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="4R5-hU-yHT"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="mgD-vB-F4t" secondAttribute="trailing" id="8Fm-av-mmw"/>
+                                        <constraint firstItem="mgD-vB-F4t" firstAttribute="leading" secondItem="zkO-rv-oNP" secondAttribute="leading" id="Cbk-2V-FSW"/>
+                                        <constraint firstAttribute="bottom" secondItem="mgD-vB-F4t" secondAttribute="bottom" id="zw7-9h-rgk"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdeaListTableViewCell" id="5TT-DG-qSK" customClass="IdeaListTableViewCell" customModule="CatchIdea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="320" height="88"/>
+                                        <rect key="frame" x="0.0" y="94" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5TT-DG-qSK" id="64R-MS-uUN">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-Sd-8Ly">
-                                                    <rect key="frame" x="59" y="8" width="253" height="72"/>
+                                                    <rect key="frame" x="59" y="8" width="253" height="50"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-xd-P3z">
-                                                    <rect key="frame" x="8" y="23" width="42" height="42"/>
+                                                    <rect key="frame" x="8" y="12" width="42" height="42"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="ixm-eS-Y8i"/>
@@ -116,9 +126,9 @@
                             <constraint firstItem="xmE-NU-caR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="F5W-rD-Mx8"/>
                             <constraint firstAttribute="trailing" secondItem="80s-3i-QoA" secondAttribute="trailing" id="Fli-4N-RG5"/>
                             <constraint firstItem="xmE-NU-caR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Mes-NT-9ye"/>
-                            <constraint firstItem="80s-3i-QoA" firstAttribute="top" secondItem="xmE-NU-caR" secondAttribute="bottom" id="Uzs-XI-ALS"/>
                             <constraint firstItem="80s-3i-QoA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XUr-Qd-IbE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="80s-3i-QoA" secondAttribute="bottom" id="fps-2G-4JD"/>
+                            <constraint firstItem="80s-3i-QoA" firstAttribute="top" secondItem="xmE-NU-caR" secondAttribute="bottom" id="pMY-Ha-9Cr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Catch" id="FdE-xy-Vpt"/>
@@ -129,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971.25" y="19.014084507042252"/>
+            <point key="canvasLocation" x="954" y="82"/>
         </scene>
         <!--Trash View Controller-->
         <scene sceneID="TaM-bo-mrE">
@@ -160,25 +170,25 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6vC-VN-kEo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6vC-VN-kEo">
                                 <rect key="frame" x="0.0" y="72" width="320" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrashTableViewCell" id="9Cc-v7-NZR" customClass="TrashTableViewCell" customModule="CatchIdea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="88"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Cc-v7-NZR" id="NL5-Nm-Xf7">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFu-Em-acE">
-                                                    <rect key="frame" x="58" y="8" width="254" height="72"/>
+                                                    <rect key="frame" x="58" y="8" width="254" height="50"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0w-ub-hhO">
-                                                    <rect key="frame" x="8" y="23.5" width="42" height="42"/>
+                                                    <rect key="frame" x="8" y="12" width="42" height="42"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="u0w-ub-hhO" secondAttribute="height" multiplier="1:1" id="pnh-6a-F9F"/>
@@ -225,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uty-G3-WZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1816.8" y="18.440779610194905"/>
+            <point key="canvasLocation" x="1815" y="17.95774647887324"/>
         </scene>
         <!--Create Idea View Controller-->
         <scene sceneID="63R-0l-Xsf">
@@ -508,7 +518,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="256.5" y="17.5"/>
+            <point key="canvasLocation" x="180" y="83"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

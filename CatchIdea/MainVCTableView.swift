@@ -16,36 +16,52 @@ internal class MainVCTableView: UITableView {
         }
     }
 
-    private var filteredIdeaData = [IdeaData]()
-    private var searchBar: UISearchBar?
+    internal var filteredIdeaData = [IdeaData]()
+    
+    fileprivate var filterColor = UIColor.white
+    fileprivate var filterText = ""
+    
+    private var filterView: IdeaFilterView?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         refreshControl = UIRefreshControl()
         refreshControl?.backgroundColor = UIColor.red
-        if let bar = tableHeaderView as? UISearchBar {
-            bar.delegate = self
-            searchBar = bar
+
+        if let headerView = tableHeaderView as? IdeaFilterView {
+            filterView = headerView
+            filterView?.filterDelegate = self
         }
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
     }
-    
-    fileprivate func filterContent(filter:(IdeaData)->Bool){
-        
+
+    override func reloadData(){
+        filteredIdeaData = ideaData.filter{ (idea: IdeaData) -> Bool in
+            var containText = true
+            if filterText != "", !idea.header.contains(filterText){
+                containText = false
+            }else{
+                containText = true
+            }
+            
+            var matchColor = true
+            if filterColor != UIColor.white, filterColor != idea.markColor{
+                matchColor = false
+            }
+            return containText && matchColor
+        }
+        super.reloadData()
     }
 }
 
-extension MainVCTableView: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        
+extension MainVCTableView: IdeaFilterDelegate {
+    func filterIdea(withSearchText text: String, andMarkColor color: UIColor) {
+        filterColor = color
+        filterText = text
+        reloadData()
     }
 }
 

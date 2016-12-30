@@ -55,7 +55,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let notificationIdentifier = change?[NSKeyValueChangeKey.newKey] as? String,let ideaIdentifier = ideaData?.identifier {
+        if let notificationIdentifier = change?[.newKey] as? String,let ideaIdentifier = ideaData?.identifier {
             if notificationIdentifier == ideaIdentifier {
                 cancleNotification(notificationControlButton)
             }

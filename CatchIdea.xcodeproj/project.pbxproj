@@ -20,6 +20,10 @@
 		567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */; };
 		567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
 		567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
+		56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B981E162A1700567685 /* ColorSeletcionView.swift */; };
+		56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9A1E1648AF00567685 /* IdeaFilterView.swift */; };
+		56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9C1E167C4A00567685 /* CustomSearchController.swift */; };
+		56838B9F1E167C7700567685 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9E1E167C7700567685 /* CustomSearchBar.swift */; };
 		56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */; };
 		56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */; };
 		56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */; };
@@ -77,6 +81,10 @@
 		567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableViewCell.swift; sourceTree = "<group>"; };
 		567FA3E91E05736900E4A293 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		567FA3EB1E05744F00E4A293 /* IdeaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData.swift; sourceTree = "<group>"; };
+		56838B981E162A1700567685 /* ColorSeletcionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSeletcionView.swift; sourceTree = "<group>"; };
+		56838B9A1E1648AF00567685 /* IdeaFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaFilterView.swift; sourceTree = "<group>"; };
+		56838B9C1E167C4A00567685 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
+		56838B9E1E167C7700567685 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealPresentAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealDismissAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimPresentAnimationController.swift; sourceTree = "<group>"; };
@@ -124,6 +132,17 @@
 				5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */,
 			);
 			name = CreateIdeaVC;
+			sourceTree = "<group>";
+		};
+		567676F51E1693AA00555102 /* IdeaFilterView */ = {
+			isa = PBXGroup;
+			children = (
+				56838B9A1E1648AF00567685 /* IdeaFilterView.swift */,
+				56838B981E162A1700567685 /* ColorSeletcionView.swift */,
+				56838B9C1E167C4A00567685 /* CustomSearchController.swift */,
+				56838B9E1E167C7700567685 /* CustomSearchBar.swift */,
+			);
+			name = IdeaFilterView;
 			sourceTree = "<group>";
 		};
 		567FA3C11E05628D00E4A293 = {
@@ -220,8 +239,9 @@
 			isa = PBXGroup;
 			children = (
 				567FA3E31E056CFA00E4A293 /* MainViewController.swift */,
-				563292121E0EB99F004C8EE1 /* MainVCTableView.swift */,
 				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
+				563292121E0EB99F004C8EE1 /* MainVCTableView.swift */,
+				567676F51E1693AA00555102 /* IdeaFilterView */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -352,15 +372,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */,
+				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
+				56838B9F1E167C7700567685 /* CustomSearchBar.swift in Sources */,
+				56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
+				56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */,
 				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
 				5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */,

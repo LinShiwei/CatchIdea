@@ -54,7 +54,7 @@ class TrashViewController: UIViewController {
 
 extension TrashViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88
+        return 66
     }
     
 }

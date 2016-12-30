@@ -17,9 +17,7 @@ internal class MainViewController: UIViewController {
     internal let dimPresentAnimationController = DimPresentAnimationController()
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
-//    @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var ideaListTableView: MainVCTableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,6 +30,10 @@ internal class MainViewController: UIViewController {
                 self.ideaListTableView.reloadData()
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,7 +64,7 @@ internal class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 88
+        return 66
     }
     
     //MARK ScrollView delegate
@@ -83,13 +85,13 @@ extension MainViewController: UITableViewDataSource {
         guard let table = tableView as? MainVCTableView else {
             return 0
         }
-        return table.ideaData.count
+        return table.filteredIdeaData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdeaListTableViewCell", for: indexPath) as! IdeaListTableViewCell
         if let table = tableView as? MainVCTableView {
-            cell.ideaData = table.ideaData[indexPath.row]
+            cell.ideaData = table.filteredIdeaData[indexPath.row]
             cell.delegate = table
         }
         return cell
