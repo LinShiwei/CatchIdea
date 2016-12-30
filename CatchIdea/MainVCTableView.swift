@@ -55,6 +55,12 @@ internal class MainVCTableView: UITableView {
         }
         super.reloadData()
     }
+    
+    override func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()
+        let _ = filterView?.resignFirstResponder()
+        return true
+    }
 }
 
 extension MainVCTableView: IdeaFilterDelegate {

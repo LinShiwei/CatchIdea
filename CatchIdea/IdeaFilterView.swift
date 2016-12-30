@@ -16,7 +16,7 @@ class IdeaFilterView: UIView {
 
     internal var filterDelegate: IdeaFilterDelegate?
     
-    internal var colorSelectionView: ColorSeletcionView?
+    private var colorSelectionView: ColorSeletcionView?
     private var searchController: CustomSearchController!
     
     fileprivate var ideaSearchText = ""
@@ -36,7 +36,13 @@ class IdeaFilterView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        searchController.customSearchBar.frame = CGRect(x: 0, y: 0, width: frame.width, height: 30)
+        searchController.customSearchBar.frame = CGRect(x: 0, y: 0, width: frame.width, height: 44)
+    }
+    
+    override func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()    
+        return searchController.customSearchBar.resignFirstResponder()
+
     }
 }
 

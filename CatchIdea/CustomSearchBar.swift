@@ -12,18 +12,18 @@ class CustomSearchBar: UISearchBar {
 
     override func draw(_ rect: CGRect) {
         if let index = indexOfSearchFieldInSubviews() {
-            let searchField: UITextField = subviews[0].subviews[index] as! UITextField
-            
-            searchField.frame = CGRect(x: 5.0, y: 5.0, width: frame.size.width - 10.0, height: frame.size.height - 10.0)
-            
-            searchField.backgroundColor = barTintColor
+//            let searchField: UITextField = subviews[0].subviews[index] as! UITextField
+//            
+//            searchField.frame = CGRect(x: 5.0, y: 5.0, width: frame.size.width - 10.0, height: frame.size.height - 10.0)
+//            
+//            searchField.backgroundColor = barTintColor
         }
         
         super.draw(rect)
     }
     
     
-    func indexOfSearchFieldInSubviews() -> Int! {
+    private func indexOfSearchFieldInSubviews() -> Int! {
         var index: Int!
         let searchBarView = subviews[0]
         
@@ -36,5 +36,11 @@ class CustomSearchBar: UISearchBar {
         
         return index
     }
-
+    
+    override func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()
+        text = ""
+        setShowsCancelButton(false, animated: true)
+        return true
+    }
 }

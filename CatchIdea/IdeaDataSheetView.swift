@@ -61,6 +61,7 @@ internal class IdeaDataSheetView: UIView {
 }
 
 extension IdeaDataSheetView: UITextFieldDelegate{
+        
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         headerTextField.resignFirstResponder()
         return true

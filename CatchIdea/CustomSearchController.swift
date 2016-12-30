@@ -36,4 +36,13 @@ extension CustomSearchController: UISearchBarDelegate {
         guard  let bar = searchBar as? CustomSearchBar else {return}
         searchDelegate?.didChangeSearchTextInSearchBar(bar, searchText: searchText)
     }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
