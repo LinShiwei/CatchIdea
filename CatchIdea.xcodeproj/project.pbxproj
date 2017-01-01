@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A4A3E1E18CBF300457F2D /* TrashTableView.swift */; };
 		561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E00671E09770B00E55313 /* CreateIdeaViewController.swift */; };
 		5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */; };
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		561A4A3E1E18CBF300457F2D /* TrashTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableView.swift; sourceTree = "<group>"; };
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
 		5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorsView.swift; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			children = (
 				56F604C91E06C6BF001C465B /* TrashViewController.swift */,
 				56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */,
+				561A4A3E1E18CBF300457F2D /* TrashTableView.swift */,
 			);
 			name = TrashVC;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
+				561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,

@@ -22,7 +22,6 @@ class CustomSearchBar: UISearchBar {
         super.draw(rect)
     }
     
-    
     private func indexOfSearchFieldInSubviews() -> Int! {
         var index: Int!
         let searchBarView = subviews[0]
@@ -38,8 +37,8 @@ class CustomSearchBar: UISearchBar {
     }
     
     override func resignFirstResponder() -> Bool {
-        super.resignFirstResponder()
         text = ""
+        super.resignFirstResponder()
         setShowsCancelButton(false, animated: true)
         return true
     }

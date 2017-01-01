@@ -11,9 +11,9 @@ import UIKit
 class TrashViewController: UIViewController {
     
     fileprivate var ideaDataManager = DataManager.shared
-    fileprivate var deletedIdeas = [IdeaData]()
+//    fileprivate var deletedIdeas = [IdeaData]()
     
-    @IBOutlet weak var trashTableView: UITableView!
+    @IBOutlet weak var trashTableView: TrashTableView!
     @IBOutlet weak var backToMainVCButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -25,10 +25,15 @@ class TrashViewController: UIViewController {
         super.viewWillAppear(animated)
         ideaDataManager.getAllIdeaData(type:.deleted){[unowned self](success,ideas) in
             if (success&&(ideas != nil)){
-                self.deletedIdeas = ideas!
+                self.trashTableView.ideaData = ideas!
                 self.trashTableView.reloadData()
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let _ = trashTableView.resignFirstResponder()
+        super.viewWillDisappear(animated)   
     }
     @IBAction func clearTrashForever(_ sender: Any) {
         guard trashTableView.numberOfRows(inSection: 0) > 0 else {return}
@@ -36,7 +41,7 @@ class TrashViewController: UIViewController {
         let saveAction = UIAlertAction(title: "确定", style: .default,handler: { (action:UIAlertAction) -> Void in
             self.ideaDataManager.deleteAllIdeaDataInTrash(){[unowned self] success in
                 if success {
-                    self.deletedIdeas.removeAll()
+                    self.trashTableView.ideaData.removeAll()
                     self.trashTableView.reloadData()
                 }
             }
@@ -65,30 +70,34 @@ extension TrashViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return deletedIdeas.count
+        guard let table = tableView as? TrashTableView else {
+            return 0
+        }
+        return table.filteredIdeaData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrashTableViewCell", for: indexPath) as! TrashTableViewCell
-        cell.delegate = self
-        cell.ideaData = deletedIdeas[indexPath.row]
-        
+        if let table = tableView as? TrashTableView {
+            cell.delegate = table
+            cell.ideaData = table.filteredIdeaData[indexPath.row]
+        }
         return cell
     }
 }
-
-extension TrashViewController : IdeaCellManagerDelegate {
-    func deleteIdea(sender: UITableViewCell){
-        guard let indexPath = trashTableView.indexPath(for: sender) else {return}
-        ideaDataManager.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: deletedIdeas[indexPath.row])
-        deletedIdeas.remove(at: indexPath.row)
-        trashTableView.deleteRows(at: [indexPath], with: .fade)
-    }
-    
-    func restoreIdea(sender: UITableViewCell) {
-        guard let indexPath = trashTableView.indexPath(for: sender) else {return}
-        ideaDataManager.restoreOneIdeaData(ideaData: deletedIdeas[indexPath.row])
-        deletedIdeas.remove(at: indexPath.row)
-        trashTableView.deleteRows(at: [indexPath], with: .fade)
-    }
-}
+//
+//extension TrashViewController : IdeaCellManagerDelegate {
+//    func deleteIdea(sender: UITableViewCell){
+//        guard let indexPath = trashTableView.indexPath(for: sender) else {return}
+//        ideaDataManager.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: deletedIdeas[indexPath.row])
+//        deletedIdeas.remove(at: indexPath.row)
+//        trashTableView.deleteRows(at: [indexPath], with: .fade)
+//    }
+//    
+//    func restoreIdea(sender: UITableViewCell) {
+//        guard let indexPath = trashTableView.indexPath(for: sender) else {return}
+//        ideaDataManager.restoreOneIdeaData(ideaData: deletedIdeas[indexPath.row])
+//        deletedIdeas.remove(at: indexPath.row)
+//        trashTableView.deleteRows(at: [indexPath], with: .fade)
+//    }
+//}

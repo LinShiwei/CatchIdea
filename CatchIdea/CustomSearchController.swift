@@ -43,6 +43,7 @@ extension CustomSearchController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar(searchBar, textDidChange: "")
         searchBar.resignFirstResponder()
     }
 }
