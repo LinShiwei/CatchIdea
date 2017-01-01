@@ -24,7 +24,7 @@ class IdeaFilterView: UIView {
     
     required init?(coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.red
+        backgroundColor = Theme.shared.mainThemeColor
         colorSelectionView = viewWithTag(2) as? ColorSeletcionView
         colorSelectionView?.selectionDelegate = self
         

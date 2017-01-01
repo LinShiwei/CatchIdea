@@ -27,11 +27,11 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="zkO-rv-oNP" customClass="IdeaFilterView" customModule="CatchIdea" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-vB-F4t" customClass="ColorSeletcionView" customModule="CatchIdea" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="44" width="320" height="30"/>
+                                            <rect key="frame" x="0.0" y="51" width="320" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="4R5-hU-yHT"/>
@@ -42,12 +42,12 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="mgD-vB-F4t" secondAttribute="trailing" id="8Fm-av-mmw"/>
                                         <constraint firstItem="mgD-vB-F4t" firstAttribute="leading" secondItem="zkO-rv-oNP" secondAttribute="leading" id="Cbk-2V-FSW"/>
-                                        <constraint firstAttribute="bottom" secondItem="mgD-vB-F4t" secondAttribute="bottom" id="zw7-9h-rgk"/>
+                                        <constraint firstAttribute="bottom" secondItem="mgD-vB-F4t" secondAttribute="bottom" constant="7" id="zw7-9h-rgk"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdeaListTableViewCell" id="5TT-DG-qSK" customClass="IdeaListTableViewCell" customModule="CatchIdea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102" width="320" height="66"/>
+                                        <rect key="frame" x="0.0" y="116" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5TT-DG-qSK" id="64R-MS-uUN">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
@@ -138,6 +138,7 @@
                     <navigationItem key="navigationItem" title="Catch" id="FdE-xy-Vpt"/>
                     <connections>
                         <outlet property="ideaListTableView" destination="80s-3i-QoA" id="35d-BK-dzz"/>
+                        <outlet property="navigationBar" destination="xmE-NU-caR" id="RYn-EU-ig8"/>
                         <segue destination="ifY-Y3-tiW" kind="showDetail" identifier="PullToCreateIdea" id="Piy-mF-gG8"/>
                     </connections>
                 </viewController>
@@ -166,11 +167,11 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="oRZ-sH-7cu" customClass="IdeaFilterView" customModule="CatchIdea" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcm-eP-e8J" customClass="ColorSeletcionView" customModule="CatchIdea" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="44" width="320" height="30"/>
+                                            <rect key="frame" x="0.0" y="51" width="320" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Xxx-Nv-FKi"/>
@@ -180,13 +181,13 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="rcm-eP-e8J" secondAttribute="trailing" id="18g-CH-5TT"/>
-                                        <constraint firstAttribute="bottom" secondItem="rcm-eP-e8J" secondAttribute="bottom" id="DQW-Yn-vQU"/>
+                                        <constraint firstAttribute="bottom" secondItem="rcm-eP-e8J" secondAttribute="bottom" constant="7" id="DQW-Yn-vQU"/>
                                         <constraint firstItem="rcm-eP-e8J" firstAttribute="leading" secondItem="oRZ-sH-7cu" secondAttribute="leading" id="edJ-Uq-lGW"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrashTableViewCell" id="9Cc-v7-NZR" customClass="TrashTableViewCell" customModule="CatchIdea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102" width="320" height="66"/>
+                                        <rect key="frame" x="0.0" y="116" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Cc-v7-NZR" id="NL5-Nm-Xf7">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
@@ -547,6 +548,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Piy-mF-gG8"/>
+        <segue reference="GMp-GD-Uue"/>
     </inferredMetricsTieBreakers>
 </document>

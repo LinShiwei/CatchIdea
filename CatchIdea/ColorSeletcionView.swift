@@ -32,6 +32,8 @@ class ColorSeletcionView: UIView {
     
     required init?(coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)
+        backgroundColor = Theme.shared.mainThemeColor
+        
         buttonRingLayer.frame = CGRect(x: 0, y: 0, width: buttonSideLength, height: buttonSideLength)
         buttonRingLayer.cornerRadius = buttonSideLength/2
         buttonRingLayer.borderColor = UIColor.lightGray.cgColor

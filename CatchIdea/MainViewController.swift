@@ -17,9 +17,14 @@ internal class MainViewController: UIViewController {
     internal let dimPresentAnimationController = DimPresentAnimationController()
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var ideaListTableView: MainVCTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = Theme.shared.mainThemeColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
