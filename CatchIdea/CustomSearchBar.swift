@@ -37,6 +37,7 @@ class CustomSearchBar: UISearchBar {
     }
     
     override func resignFirstResponder() -> Bool {
+        self.delegate?.searchBar?(self, textDidChange: "")
         text = ""
         super.resignFirstResponder()
         setShowsCancelButton(false, animated: true)

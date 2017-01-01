@@ -35,6 +35,7 @@ class TrashViewController: UIViewController {
         let _ = trashTableView.resignFirstResponder()
         super.viewWillDisappear(animated)   
     }
+    
     @IBAction func clearTrashForever(_ sender: Any) {
         guard trashTableView.numberOfRows(inSection: 0) > 0 else {return}
         let alert = UIAlertController(title: "清空纸篓", message: "确定要清空纸篓吗？此操作不可恢复。", preferredStyle: .alert)
@@ -54,6 +55,10 @@ class TrashViewController: UIViewController {
     
     @IBAction func dismissTrashVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tapToResignFirstResponder(_ sender: Any) {
+        let _ = trashTableView.resignFirstResponder()
     }
 }
 

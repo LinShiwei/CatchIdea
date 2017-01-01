@@ -64,23 +64,26 @@ internal class IdeaListTableViewCell: UITableViewCell {
     }
     
     private func addGesture(){
-        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftToDeleteIdeaCell(sender:)))
-        swipeLeftGesture.direction = .left
-        addGestureRecognizer(swipeLeftGesture)
+        let cellSliderGestureRecognizer = DRCellSlideGestureRecognizer()
+        let squareAction = DRCellSlideAction(forFraction: 0.25)
+        squareAction?.icon = #imageLiteral(resourceName: "square")
+        squareAction?.activeBackgroundColor = UIColor.red
+        squareAction?.behavior = .pushBehavior
+        squareAction?.didTriggerBlock = { Void in
+            self.delegate?.finishIdea?(sender: self)
+        }
+        let circleAction = DRCellSlideAction(forFraction: -0.25)
+        circleAction?.icon = #imageLiteral(resourceName: "circle")
+        circleAction?.activeBackgroundColor = UIColor.red
+        circleAction?.behavior = .pushBehavior
+        circleAction?.didTriggerBlock = { Void in
+            self.delegate?.deleteIdea(sender: self)
+        }
         
-        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightToFinishIdeaCell(sender:)))
-        swipeRightGesture.direction = .right
-        addGestureRecognizer(swipeRightGesture)
+        cellSliderGestureRecognizer.addActions([squareAction, circleAction])
+        addGestureRecognizer(cellSliderGestureRecognizer)
     }
-    
-    @objc private func swipeLeftToDeleteIdeaCell(sender: UISwipeGestureRecognizer) {
-        delegate?.deleteIdea(sender: self)
-    }
-    
-    @objc private func swipeRightToFinishIdeaCell(sender: UISwipeGestureRecognizer) {
-        delegate?.finishIdea?(sender: self)
-    }
-    
+ 
     @IBAction func cancleNotification(_ sender: UIButton) {
         if let data = ideaData, data.notificationDate != nil {
             DataManager.shared.deleteIdeaDataNotification(ideaData: data)

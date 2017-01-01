@@ -61,6 +61,10 @@ internal class MainViewController: UIViewController {
             break
         }
     }
+    
+    @IBAction func tapToResignFirstResponder(_ sender: Any) {
+        let _ = ideaListTableView.resignFirstResponder()
+    }
 }
 
 extension MainViewController: UITableViewDelegate {
@@ -75,6 +79,10 @@ extension MainViewController: UITableViewDelegate {
             refreshControl.endRefreshing()
         }
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return tableView.tableHeaderView
+//    }
 }
 
 extension MainViewController: UITableViewDataSource {

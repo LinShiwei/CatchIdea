@@ -44,22 +44,25 @@ class TrashTableViewCell: UITableViewCell {
     }
     
     private func addGesture(){
-        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftToDeleteIdeaCell(sender:)))
-        swipeLeftGesture.direction = .left
-        addGestureRecognizer(swipeLeftGesture)
+        let cellSliderGestureRecognizer = DRCellSlideGestureRecognizer()
+        let squareAction = DRCellSlideAction(forFraction: 0.25)
+        squareAction?.icon = #imageLiteral(resourceName: "square")
+        squareAction?.activeBackgroundColor = UIColor.red
+        squareAction?.behavior = .pushBehavior
+        squareAction?.didTriggerBlock = { Void in
+            self.delegate?.restoreIdea?(sender: self)
+        }
+        let circleAction = DRCellSlideAction(forFraction: -0.25)
+        circleAction?.icon = #imageLiteral(resourceName: "circle")
+        circleAction?.activeBackgroundColor = UIColor.red
+        circleAction?.behavior = .pushBehavior
+        circleAction?.didTriggerBlock = { Void in
+            self.delegate?.deleteIdea(sender: self)
+        }
         
-        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightToRestoreIdeaCell(sender:)))
-        swipeRightGesture.direction = .right
-        addGestureRecognizer(swipeRightGesture)
+        cellSliderGestureRecognizer.addActions([squareAction, circleAction])
+        addGestureRecognizer(cellSliderGestureRecognizer)
+        
     }
-
-    @objc private func swipeLeftToDeleteIdeaCell(sender: UISwipeGestureRecognizer) {
-        delegate?.deleteIdea(sender: self)
-    }
-    
-    @objc private func swipeRightToRestoreIdeaCell(sender: UISwipeGestureRecognizer) {
-        delegate?.restoreIdea?(sender: self)
-    }
-    
     
 }

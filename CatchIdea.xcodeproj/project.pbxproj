@@ -12,6 +12,9 @@
 		5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */; };
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
+		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
+		56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */; };
+		56660BBB1E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB81E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m */; };
 		567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3CD1E05628E00E4A293 /* AppDelegate.swift */; };
 		567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D11E05628E00E4A293 /* Main.storyboard */; };
 		567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
@@ -72,6 +75,13 @@
 		5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorsView.swift; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
+		56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchIdea-Bridging-Header.h"; sourceTree = "<group>"; };
+		56660BB31E18EE6700FBA7EB /* DRCellSlideAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCellSlideAction.h; sourceTree = "<group>"; };
+		56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCellSlideAction.m; sourceTree = "<group>"; };
+		56660BB51E18EE6700FBA7EB /* DRCellSlideActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCellSlideActionView.h; sourceTree = "<group>"; };
+		56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCellSlideActionView.m; sourceTree = "<group>"; };
+		56660BB71E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCellSlideGestureRecognizer.h; sourceTree = "<group>"; };
+		56660BB81E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCellSlideGestureRecognizer.m; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567FA3D21E05628E00E4A293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,6 +146,19 @@
 			name = CreateIdeaVC;
 			sourceTree = "<group>";
 		};
+		56660BBC1E18EE7100FBA7EB /* DRCellSlide */ = {
+			isa = PBXGroup;
+			children = (
+				56660BB31E18EE6700FBA7EB /* DRCellSlideAction.h */,
+				56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */,
+				56660BB51E18EE6700FBA7EB /* DRCellSlideActionView.h */,
+				56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */,
+				56660BB71E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.h */,
+				56660BB81E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m */,
+			);
+			name = DRCellSlide;
+			sourceTree = "<group>";
+		};
 		567676F51E1693AA00555102 /* IdeaFilterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +192,8 @@
 		567FA3CC1E05628E00E4A293 /* CatchIdea */ = {
 			isa = PBXGroup;
 			children = (
+				56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */,
+				56660BBC1E18EE7100FBA7EB /* DRCellSlide */,
 				567FA3ED1E05752A00E4A293 /* Manager */,
 				56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */,
 				56FE13841E0CF1B3006A833A /* Theme.swift */,
@@ -178,6 +203,7 @@
 				56F604CD1E06CA21001C465B /* MainVC */,
 				56F604CE1E06CA29001C465B /* TrashVC */,
 				564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */,
+				567676F51E1693AA00555102 /* IdeaFilterView */,
 				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
 			);
 			path = CatchIdea;
@@ -243,7 +269,6 @@
 				567FA3E31E056CFA00E4A293 /* MainViewController.swift */,
 				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
 				563292121E0EB99F004C8EE1 /* MainVCTableView.swift */,
-				567676F51E1693AA00555102 /* IdeaFilterView */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -310,6 +335,7 @@
 					567FA3C91E05628D00E4A293 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 4F6NMKB449;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -380,6 +406,8 @@
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
 				561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
+				56660BBB1E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m in Sources */,
+				56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */,
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
 				56838B9F1E167C7700567685 /* CustomSearchBar.swift in Sources */,
@@ -399,6 +427,7 @@
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
 				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
+				56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */,
 				564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +576,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CatchIdea/CatchIdea.entitlements;
 				DEVELOPMENT_TEAM = 4F6NMKB449;
 				INFOPLIST_FILE = CatchIdea/Info.plist;
@@ -554,6 +584,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.CatchIdea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CatchIdea/CatchIdea-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -563,6 +595,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CatchIdea/CatchIdea.entitlements;
 				DEVELOPMENT_TEAM = 4F6NMKB449;
 				INFOPLIST_FILE = CatchIdea/Info.plist;
@@ -570,6 +603,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.CatchIdea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CatchIdea/CatchIdea-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

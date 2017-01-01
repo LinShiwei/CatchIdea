@@ -76,13 +76,15 @@ extension MainVCTableView: IdeaCellManagerDelegate{
         guard let indexPath = self.indexPath(for: sender) else {return}
         DataManager.shared.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: ideaData[indexPath.row])
         ideaData.remove(at: indexPath.row)
-        self.deleteRows(at: [indexPath], with: .fade)
+        self.deleteRows(at: [indexPath], with: .left)
     }
     
     func finishIdea(sender: UITableViewCell){
         guard let indexPath = self.indexPath(for: sender) else {return}
         DataManager.shared.finishOneIdeaData(ideaData: ideaData[indexPath.row])
         ideaData.remove(at: indexPath.row)
-        self.deleteRows(at: [indexPath], with: .fade)
+//        self.beginUpdates()
+        self.deleteRows(at: [indexPath], with: .right)
+//        self.endUpdates()   
     }
 }
