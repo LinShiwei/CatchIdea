@@ -15,7 +15,8 @@ internal class CreateIdeaViewController: UIViewController {
     internal var originIdeaData: IdeaData?
     
     @IBOutlet weak var ideaDataSheetView: IdeaDataSheetView!
-    @IBOutlet weak var cancleButton: UIButton!
+    
+    @IBOutlet weak var scrollViewBottomSpace: NSLayoutConstraint!
     
     private let dataManager = DataManager.shared
 
@@ -28,19 +29,56 @@ internal class CreateIdeaViewController: UIViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: .UIKeyboardDidHide, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ideaDataSheetView.textFieldBecomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
+        notificationCenter.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
+        
+        ideaDataSheetView.resignSubviewsFirstResponder()
+        
+        super.viewWillDisappear(animated)
+    }
+    
     @IBAction func tapToResignFirstResponse(_ sender: UITapGestureRecognizer) {
         ideaDataSheetView.resignSubviewsFirstResponder()
     }
-    
-    @IBAction func okToCreateIdea(_ sender: UIButton) {
+
+    @IBAction func saveIdea(_ sender: UIBarButtonItem) {
         ideaDataSheetView.saveIdea()
         cancleCreateIdea(sender)
     }
     
-    @IBAction func cancleCreateIdea(_ sender: UIButton) {
+    @IBAction func cancleCreateIdea(_ sender: UIBarButtonItem) {
         if let mainVC = transitioningDelegate as? MainViewController {
-            mainVC.dimDismissAnimationController.dimCenter = sender.center
+            mainVC.dimDismissAnimationController.dimCenter = mainVC.dimPresentAnimationController.dimCenter
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    internal func keyboardDidShow(_ notification: Notification) {
+        guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else{return}
+        let keyboardRectInView = self.view.convert(keyboardRect, from: nil)
+        
+        scrollViewBottomSpace.constant = keyboardRectInView.height
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    internal func keyboardDidHide(_ notification: Notification) {
+        scrollViewBottomSpace.constant = 0
+        self.view.layoutIfNeeded()
     }
 }

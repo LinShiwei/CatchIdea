@@ -38,9 +38,8 @@ internal class IdeaDataSheetView: UIView {
         markColorView = viewWithTag(3) as! MarkColorsView
         reminderSwitch = viewWithTag(4) as! UISwitch
         reminderIntervalSlider = viewWithTag(5) as! UISlider
-        
     }
-
+    
     internal func saveIdea(){
         if let header = headerTextField.text, header != "" {
             if let idea = idea {
@@ -57,6 +56,10 @@ internal class IdeaDataSheetView: UIView {
     internal func resignSubviewsFirstResponder() {
         headerTextField.resignFirstResponder()
         contentTextView.resignFirstResponder()
+    }
+    
+    internal func textFieldBecomeFirstResponder() {
+        headerTextField.becomeFirstResponder()
     }
 }
 
