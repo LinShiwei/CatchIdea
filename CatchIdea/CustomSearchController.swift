@@ -21,6 +21,8 @@ class CustomSearchController: UISearchController {
         super.init(searchResultsController: searchResultsController)
         customSearchBar.delegate = self
         customSearchBar.barTintColor = Theme.shared.mainThemeColor
+        customSearchBar.layer.borderWidth = 1
+        customSearchBar.layer.borderColor = customSearchBar.barTintColor?.cgColor
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

@@ -26,13 +26,7 @@ class TrashTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        let contentLayer = CALayer()
-        contentLayer.frame = CGRect(x: gap, y: gap, width: windowBounds.width-gap*2, height: self.frame.height-gap*2)
-        contentLayer.cornerRadius = 10
-        contentLayer.backgroundColor = Theme.shared.tableViewCellBackgroundColor.cgColor
-        layer.insertSublayer(contentLayer, at: 0)
-        
+
         markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
         
         addGesture()

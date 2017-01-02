@@ -28,24 +28,16 @@ internal class IdeaListTableViewCell: UITableViewCell {
     internal var delegate: IdeaCellManagerDelegate?
     internal var touchPointInWindow: CGPoint?
     
-    private let gap: CGFloat = 4
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        let contentLayer = CALayer()
-        contentLayer.frame = CGRect(x: gap, y: gap, width: windowBounds.width-gap*2, height: self.frame.height-gap*2)
-        contentLayer.cornerRadius = 10
-        contentLayer.backgroundColor = Theme.shared.tableViewCellBackgroundColor.cgColor
-        layer.insertSublayer(contentLayer, at: 0)
-        
+     
         markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
-//        addGesture()
-        print(isUserInteractionEnabled)
+        addGesture()
         LocalNotificationManager.shared.addObserver(self, forKeyPath: "currentNotificationIdentifier", options: .new, context: nil)
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         markColorIndicationView.layer.cornerRadius = markColorIndicationView.frame.width/2
     }
     

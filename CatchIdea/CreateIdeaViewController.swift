@@ -26,7 +26,7 @@ internal class CreateIdeaViewController: UIViewController {
         if let idea = originIdeaData {
             ideaDataSheetView.idea = idea
         }
-
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

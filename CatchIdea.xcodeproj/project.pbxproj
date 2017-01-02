@@ -43,6 +43,8 @@
 		56FE13851E0CF1B3006A833A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
 		56FE13891E0CF56F006A833A /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13881E0CF56F006A833A /* Define.swift */; };
 		56FE138B1E0CFA71006A833A /* GeneralControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */; };
+		56FED2E11E1A2F2800974D86 /* TopDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */; };
+		56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		56FE13841E0CF1B3006A833A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		56FE13881E0CF56F006A833A /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralControlButton.swift; sourceTree = "<group>"; };
+		56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopDecorationView.swift; sourceTree = "<group>"; };
+		56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,8 @@
 				567FA3DC1E05628E00E4A293 /* Info.plist */,
 				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
 				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
+				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
+				56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
+				56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */,
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */,
 				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,
@@ -428,6 +435,7 @@
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
 				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
 				56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */,
+				56FED2E11E1A2F2800974D86 /* TopDecorationView.swift in Sources */,
 				564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

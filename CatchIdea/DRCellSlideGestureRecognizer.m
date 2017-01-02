@@ -95,6 +95,15 @@ void safeFor(id arrayOrObject, void (^forBlock)(id object)) {
 		if ([self isActiveForCurrentCellPosition] != self.actionView.active) {
 			self.actionView.active = [self isActiveForCurrentCellPosition];
 			if (self.actionView.action.didChangeStateBlock) self.actionView.action.didChangeStateBlock(self.actionView.action, self.actionView.isActive);
+            
+            //LSW: revise
+            if (self.actionView.active) {
+                self.cell.layer.borderColor = self.actionView.action.activeBackgroundColor.CGColor;
+                self.cell.layer.borderWidth = 1;
+            }else{
+                self.cell.layer.borderWidth = 0;
+            }
+            //LSW: revise end
 		}
 		
 		if ([self actionForCurrentCellPosition] != self.actionView.action) {

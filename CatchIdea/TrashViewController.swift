@@ -11,14 +11,12 @@ import UIKit
 class TrashViewController: UIViewController {
     
     fileprivate var ideaDataManager = DataManager.shared
-//    fileprivate var deletedIdeas = [IdeaData]()
     
     @IBOutlet weak var trashTableView: TrashTableView!
     @IBOutlet weak var backToMainVCButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +65,9 @@ extension TrashViewController : UITableViewDelegate {
         return 66
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layer.borderWidth = 0
+    }
 }
 
 extension TrashViewController : UITableViewDataSource {

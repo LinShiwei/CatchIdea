@@ -32,6 +32,7 @@ internal class MainVCTableView: UITableView {
             filterView = headerView
             filterView?.filterDelegate = self
         }
+        tableFooterView = UIView()
     }
 
     override func layoutSubviews() {

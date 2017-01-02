@@ -17,14 +17,9 @@ internal class MainViewController: UIViewController {
     internal let dimPresentAnimationController = DimPresentAnimationController()
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
-    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var ideaListTableView: MainVCTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
-        navigationBar.isTranslucent = true
-        navigationBar.backgroundColor = Theme.shared.mainThemeColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +38,6 @@ internal class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(sender)
         guard let identifier = segue.identifier else {return}
         switch identifier {
         case "IdeaCellDetail":
@@ -84,17 +78,29 @@ extension MainViewController: UITableViewDelegate {
         return 66
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layer.borderWidth = 0
+    }
     //MARK ScrollView delegate
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if let refreshControl = scrollView.refreshControl,refreshControl.isRefreshing == true {
             performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
             refreshControl.endRefreshing()
         }
+        
+        let yOffset = scrollView.contentOffset.y
+        let xOffset = scrollView.contentOffset.x
+        if yOffset > 0 && yOffset < 22 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 0), animated: true)
+        }else if yOffset >= 22 && yOffset < 44 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 44), animated: true)
+        }else if yOffset > 44 && yOffset < 66 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 44), animated: true)
+        }else if yOffset >= 66 && yOffset < 88 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 88), animated: true)
+        }
+        
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return tableView.tableHeaderView
-//    }
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -114,7 +120,7 @@ extension MainViewController: UITableViewDataSource {
         if let table = tableView as? MainVCTableView {
             cell.ideaData = table.filteredIdeaData[indexPath.row]
             cell.delegate = table
-        }
+        }     
         return cell
     }
 }

@@ -30,6 +30,7 @@ class TrashTableView: UITableView {
             filterView = headerView
             filterView?.filterDelegate = self
         }
+        tableFooterView = UIView()
     }
     
     override func layoutSubviews() {
