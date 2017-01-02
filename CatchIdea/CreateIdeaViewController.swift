@@ -33,7 +33,7 @@ internal class CreateIdeaViewController: UIViewController {
         super.viewWillAppear(animated)
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: .UIKeyboardDidHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,7 +44,7 @@ internal class CreateIdeaViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
-        notificationCenter.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
+        notificationCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
         
         ideaDataSheetView.resignSubviewsFirstResponder()
         
@@ -77,7 +77,7 @@ internal class CreateIdeaViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
-    internal func keyboardDidHide(_ notification: Notification) {
+    internal func keyboardWillHide(_ notification: Notification) {
         scrollViewBottomSpace.constant = 0
         self.view.layoutIfNeeded()
     }

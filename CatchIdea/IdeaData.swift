@@ -17,7 +17,7 @@ internal class IdeaData {
     internal var isDelete: Bool
     internal var markColor: UIColor
     internal var notificationDate: Date?
-    //These propertise don't need to store
+    //These properties don't need to store
     internal var identifier: String {
         get{
             return addingDate.description

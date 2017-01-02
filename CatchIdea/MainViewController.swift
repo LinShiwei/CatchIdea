@@ -18,6 +18,7 @@ internal class MainViewController: UIViewController {
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
     @IBOutlet weak var ideaListTableView: MainVCTableView!
+    @IBOutlet weak var tableViewBottomSpace: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,11 +31,20 @@ internal class MainViewController: UIViewController {
                 self.ideaListTableView.reloadData()
             }
         }
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let _ = ideaListTableView.resignFirstResponder()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
+        notificationCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,6 +80,20 @@ internal class MainViewController: UIViewController {
         }else{
             let _ = ideaListTableView.resignFirstResponder()
         }
+    }
+    
+    internal func keyboardDidShow(_ notification: Notification) {
+        guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else{return}
+        let keyboardRectInView = self.view.convert(keyboardRect, from: nil)
+        
+        tableViewBottomSpace.constant = keyboardRectInView.height
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    internal func keyboardWillHide(_ notification: Notification) {
+        tableViewBottomSpace.constant = 0
+        self.view.layoutIfNeeded()
     }
 }
 

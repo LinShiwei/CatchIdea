@@ -15,6 +15,7 @@ class TrashViewController: UIViewController {
     @IBOutlet weak var trashTableView: TrashTableView!
     @IBOutlet weak var backToMainVCButton: UIBarButtonItem!
     
+    @IBOutlet weak var tableViewBottomSpace: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,11 +28,17 @@ class TrashViewController: UIViewController {
                 self.trashTableView.reloadData()
             }
         }
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         let _ = trashTableView.resignFirstResponder()
-        super.viewWillDisappear(animated)   
+        super.viewWillDisappear(animated)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
+        notificationCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
     @IBAction func clearTrashForever(_ sender: Any) {
@@ -58,6 +65,21 @@ class TrashViewController: UIViewController {
     @IBAction func tapToResignFirstResponder(_ sender: Any) {
         let _ = trashTableView.resignFirstResponder()
     }
+    
+    internal func keyboardDidShow(_ notification: Notification) {
+        guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else{return}
+        let keyboardRectInView = self.view.convert(keyboardRect, from: nil)
+        
+        tableViewBottomSpace.constant = keyboardRectInView.height
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    internal func keyboardWillHide(_ notification: Notification) {
+        tableViewBottomSpace.constant = 0
+        self.view.layoutIfNeeded()
+    }
+
 }
 
 extension TrashViewController : UITableViewDelegate {
@@ -67,6 +89,24 @@ extension TrashViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.layer.borderWidth = 0
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let yOffset = scrollView.contentOffset.y
+        let xOffset = scrollView.contentOffset.x
+        if yOffset > 0 && yOffset < 22 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 0), animated: true)
+        }else if yOffset >= 22 && yOffset < 44 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 44), animated: true)
+        }else if yOffset > 44 && yOffset < 66 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 44), animated: true)
+        }else if yOffset >= 66 && yOffset < 88 {
+            scrollView.setContentOffset(CGPoint(x: xOffset, y: 88), animated: true)
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset)
     }
 }
 
