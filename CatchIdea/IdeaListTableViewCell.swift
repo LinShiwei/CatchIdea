@@ -40,8 +40,8 @@ internal class IdeaListTableViewCell: UITableViewCell {
         layer.insertSublayer(contentLayer, at: 0)
         
         markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
-        addGesture()
-        
+//        addGesture()
+        print(isUserInteractionEnabled)
         LocalNotificationManager.shared.addObserver(self, forKeyPath: "currentNotificationIdentifier", options: .new, context: nil)
     }
     
@@ -67,14 +67,14 @@ internal class IdeaListTableViewCell: UITableViewCell {
         let cellSliderGestureRecognizer = DRCellSlideGestureRecognizer()
         let squareAction = DRCellSlideAction(forFraction: 0.25)
         squareAction?.icon = #imageLiteral(resourceName: "square")
-        squareAction?.activeBackgroundColor = UIColor.red
+        squareAction?.activeBackgroundColor = Theme.shared.mainVCCellSwipeRightColor
         squareAction?.behavior = .pushBehavior
         squareAction?.didTriggerBlock = { Void in
             self.delegate?.finishIdea?(sender: self)
         }
         let circleAction = DRCellSlideAction(forFraction: -0.25)
         circleAction?.icon = #imageLiteral(resourceName: "circle")
-        circleAction?.activeBackgroundColor = UIColor.red
+        circleAction?.activeBackgroundColor = Theme.shared.mainVCCellSwipeLeftColor
         circleAction?.behavior = .pushBehavior
         circleAction?.didTriggerBlock = { Void in
             self.delegate?.deleteIdea(sender: self)

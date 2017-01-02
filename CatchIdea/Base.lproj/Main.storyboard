@@ -132,7 +132,7 @@
                             <constraint firstItem="80s-3i-QoA" firstAttribute="top" secondItem="xmE-NU-caR" secondAttribute="bottom" id="pMY-Ha-9Cr"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="cJH-G3-dD4" appends="YES" id="y3E-Z2-7cd"/>
+                            <outletCollection property="gestureRecognizers" destination="YC9-uF-mQb" appends="YES" id="CC4-4L-jmq"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Catch" id="FdE-xy-Vpt"/>
@@ -143,9 +143,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="cJH-G3-dD4">
+                <tapGestureRecognizer id="YC9-uF-mQb">
                     <connections>
-                        <action selector="tapToResignFirstResponder:" destination="BYZ-38-t0r" id="tAp-mV-Kxu"/>
+                        <action selector="tapToResignFirstResponder:" destination="BYZ-38-t0r" id="ih9-zz-Idr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

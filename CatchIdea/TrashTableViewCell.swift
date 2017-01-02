@@ -47,14 +47,14 @@ class TrashTableViewCell: UITableViewCell {
         let cellSliderGestureRecognizer = DRCellSlideGestureRecognizer()
         let squareAction = DRCellSlideAction(forFraction: 0.25)
         squareAction?.icon = #imageLiteral(resourceName: "square")
-        squareAction?.activeBackgroundColor = UIColor.red
+        squareAction?.activeBackgroundColor = Theme.shared.trashVCCellSwipeRightColor
         squareAction?.behavior = .pushBehavior
         squareAction?.didTriggerBlock = { Void in
             self.delegate?.restoreIdea?(sender: self)
         }
         let circleAction = DRCellSlideAction(forFraction: -0.25)
         circleAction?.icon = #imageLiteral(resourceName: "circle")
-        circleAction?.activeBackgroundColor = UIColor.red
+        circleAction?.activeBackgroundColor = Theme.shared.trashVCCellSwipeLeftColor
         circleAction?.behavior = .pushBehavior
         circleAction?.didTriggerBlock = { Void in
             self.delegate?.deleteIdea(sender: self)

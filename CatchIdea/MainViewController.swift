@@ -43,6 +43,7 @@ internal class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(sender)
         guard let identifier = segue.identifier else {return}
         switch identifier {
         case "IdeaCellDetail":
@@ -67,8 +68,14 @@ internal class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func tapToResignFirstResponder(_ sender: Any) {
-        let _ = ideaListTableView.resignFirstResponder()
+    @IBAction func tapToResignFirstResponder(_ sender: UITapGestureRecognizer) {
+        
+        if let indexPath = ideaListTableView.indexPathForRow(at: sender.location(in: ideaListTableView)), let cell = ideaListTableView.cellForRow(at: indexPath) as? IdeaListTableViewCell{
+            cell.touchPointInWindow = sender.location(in: nil)
+            performSegue(withIdentifier: "IdeaCellDetail", sender: cell)
+        }else{
+            let _ = ideaListTableView.resignFirstResponder()
+        }
     }
 }
 
