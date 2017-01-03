@@ -8,7 +8,7 @@ import UIKit
 
 struct PullToRefreshConst {
     static let pullTag = 810
-    static let pushTag = 811
+//    static let pushTag = 811
     static let alpha = true
     static let height: CGFloat = 80
     static let imageName: String = "pulltorefresharrow.png"
