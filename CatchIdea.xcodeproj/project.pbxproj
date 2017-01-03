@@ -15,6 +15,9 @@
 		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
 		56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */; };
 		56660BBB1E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB81E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m */; };
+		56760ECC1E1B446800561854 /* PullToRefreshOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760EC91E1B446800561854 /* PullToRefreshOption.swift */; };
+		56760ECD1E1B446800561854 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ECA1E1B446800561854 /* PullToRefreshView.swift */; };
+		56760ECE1E1B446800561854 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ECB1E1B446800561854 /* UIScrollViewExtension.swift */; };
 		567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3CD1E05628E00E4A293 /* AppDelegate.swift */; };
 		567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D11E05628E00E4A293 /* Main.storyboard */; };
 		567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
@@ -84,6 +87,9 @@
 		56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCellSlideActionView.m; sourceTree = "<group>"; };
 		56660BB71E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCellSlideGestureRecognizer.h; sourceTree = "<group>"; };
 		56660BB81E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRCellSlideGestureRecognizer.m; sourceTree = "<group>"; };
+		56760EC91E1B446800561854 /* PullToRefreshOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshOption.swift; sourceTree = "<group>"; };
+		56760ECA1E1B446800561854 /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
+		56760ECB1E1B446800561854 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567FA3D21E05628E00E4A293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +146,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */ = {
+			isa = PBXGroup;
+			children = (
+				56760EC91E1B446800561854 /* PullToRefreshOption.swift */,
+				56760ECA1E1B446800561854 /* PullToRefreshView.swift */,
+				56760ECB1E1B446800561854 /* UIScrollViewExtension.swift */,
+			);
+			name = PullToAddIdeaView;
+			sourceTree = "<group>";
+		};
 		564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +225,7 @@
 				564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */,
 				567676F51E1693AA00555102 /* IdeaFilterView */,
 				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
+				56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */,
 			);
 			path = CatchIdea;
 			sourceTree = "<group>";
@@ -411,6 +428,7 @@
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
 				561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */,
+				56760ECD1E1B446800561854 /* PullToRefreshView.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
 				56660BBB1E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m in Sources */,
 				56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */,
@@ -424,6 +442,7 @@
 				56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */,
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */,
+				56760ECE1E1B446800561854 /* UIScrollViewExtension.swift in Sources */,
 				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
 				5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */,
@@ -434,6 +453,7 @@
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
 				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
+				56760ECC1E1B446800561854 /* PullToRefreshOption.swift in Sources */,
 				56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */,
 				56FED2E11E1A2F2800974D86 /* TopDecorationView.swift in Sources */,
 				564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */,

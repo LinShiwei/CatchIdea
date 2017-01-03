@@ -25,9 +25,13 @@ internal class MainVCTableView: UITableView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.red
-
+//        refreshControl = UIRefreshControl()
+//        refreshControl?.backgroundColor = UIColor.red
+        self.addPullRefresh{ [weak self] in
+            print("refresh")
+            self?.stopPullRefreshEver()
+        }
+        
         if let headerView = tableHeaderView as? IdeaFilterView {
             filterView = headerView
             filterView?.filterDelegate = self

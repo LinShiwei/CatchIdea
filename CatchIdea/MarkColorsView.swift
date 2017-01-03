@@ -55,3 +55,4 @@ internal class MarkColorsView: UIView {
         currentSelectedColor = sender.backgroundColor!
     }
 }
+

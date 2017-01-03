@@ -125,6 +125,10 @@ extension MainViewController: UITableViewDelegate {
         }
         
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print("scrollview offset \(scrollView.contentOffset.y)")
+//    }
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -175,8 +179,4 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
         }
         
     }
-}
-
-extension MainViewController: UISearchBarDelegate {
-    
 }

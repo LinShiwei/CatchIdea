@@ -104,10 +104,6 @@ extension TrashViewController : UITableViewDelegate {
             scrollView.setContentOffset(CGPoint(x: xOffset, y: 88), animated: true)
         }
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset)
-    }
 }
 
 extension TrashViewController : UITableViewDataSource {
@@ -131,19 +127,3 @@ extension TrashViewController : UITableViewDataSource {
         return cell
     }
 }
-//
-//extension TrashViewController : IdeaCellManagerDelegate {
-//    func deleteIdea(sender: UITableViewCell){
-//        guard let indexPath = trashTableView.indexPath(for: sender) else {return}
-//        ideaDataManager.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: deletedIdeas[indexPath.row])
-//        deletedIdeas.remove(at: indexPath.row)
-//        trashTableView.deleteRows(at: [indexPath], with: .fade)
-//    }
-//    
-//    func restoreIdea(sender: UITableViewCell) {
-//        guard let indexPath = trashTableView.indexPath(for: sender) else {return}
-//        ideaDataManager.restoreOneIdeaData(ideaData: deletedIdeas[indexPath.row])
-//        deletedIdeas.remove(at: indexPath.row)
-//        trashTableView.deleteRows(at: [indexPath], with: .fade)
-//    }
-//}

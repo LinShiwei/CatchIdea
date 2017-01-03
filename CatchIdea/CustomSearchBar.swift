@@ -10,17 +10,17 @@ import UIKit
 
 class CustomSearchBar: UISearchBar {
 
-    override func draw(_ rect: CGRect) {
-        if let index = indexOfSearchFieldInSubviews() {
-//            let searchField: UITextField = subviews[0].subviews[index] as! UITextField
-//            
-//            searchField.frame = CGRect(x: 5.0, y: 5.0, width: frame.size.width - 10.0, height: frame.size.height - 10.0)
-//            
-//            searchField.backgroundColor = barTintColor
-        }
-        
-        super.draw(rect)
-    }
+//    override func draw(_ rect: CGRect) {
+//        if let index = indexOfSearchFieldInSubviews() {
+////            let searchField: UITextField = subviews[0].subviews[index] as! UITextField
+////            
+////            searchField.frame = CGRect(x: 5.0, y: 5.0, width: frame.size.width - 10.0, height: frame.size.height - 10.0)
+////            
+////            searchField.backgroundColor = barTintColor
+//        }
+//        
+//        super.draw(rect)
+//    }
     
     private func indexOfSearchFieldInSubviews() -> Int! {
         var index: Int!
