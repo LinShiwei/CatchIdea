@@ -15,27 +15,35 @@ protocol ColorSelectionDelegate {
 class ColorSeletcionView: UIView {
 
     internal var selectionDelegate: ColorSelectionDelegate?
-    
-    private var currentSelectedColor = UIColor.white{
+
+    private var currentSelectedButton: UIButton? {
         didSet{
-            for button in buttons where button.backgroundColor == currentSelectedColor{
-                buttonRingLayer.removeFromSuperlayer()
-                button.layer.addSublayer(buttonRingLayer)
+            if let oldButton = oldValue {
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .beginFromCurrentState, animations: { Void in
+                    oldButton.transform = .identity
+                }, completion: nil)
             }
+            buttonRingLayer.removeFromSuperlayer()
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .beginFromCurrentState, animations: {[unowned self] Void in
+                self.currentSelectedButton?.transform = CGAffineTransform(scaleX: self.animateScale, y: self.animateScale)
+            }, completion: nil)
+            currentSelectedButton?.layer.addSublayer(buttonRingLayer)
+            
         }
     }
     
+    private let buttonSideLength: CGFloat = 20
+    private let animateScale: CGFloat = 1.2
+    
     private var buttonRingLayer = CALayer()
     private var buttons = [UIButton]()
-    
-    private let buttonSideLength: CGFloat = 30
     
     required init?(coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = Theme.shared.mainThemeColor
         
-        buttonRingLayer.frame = CGRect(x: 0, y: 0, width: buttonSideLength, height: buttonSideLength)
-        buttonRingLayer.cornerRadius = buttonSideLength/2
+        buttonRingLayer.frame = CGRect(x: -2, y: -2, width: buttonSideLength+4, height: buttonSideLength+4)
+        buttonRingLayer.cornerRadius = buttonRingLayer.frame.width/2
         buttonRingLayer.borderColor = UIColor.lightGray.cgColor
         buttonRingLayer.borderWidth = 2        
     }
@@ -57,7 +65,6 @@ class ColorSeletcionView: UIView {
             let button = UIButton(frame: CGRect(origin: CGPoint(x: 20+(buttonSize.width+buttonGap)*CGFloat(index),y: 0), size: buttonSize))
             if index == 0 {
                 button.backgroundColor = UIColor.white
-                button.layer.addSublayer(buttonRingLayer)
             }else{
                 button.backgroundColor = Theme.shared.markColors[index-1]
             }
@@ -66,10 +73,12 @@ class ColorSeletcionView: UIView {
             addSubview(button)
             buttons.append(button)
         }
+        currentSelectedButton = buttons[0]
     }
+    
     @objc private func didTapColorButton(sender: UIButton){
-        currentSelectedColor = sender.backgroundColor!
-        selectionDelegate?.didSelectColor(currentSelectedColor)
+        currentSelectedButton = sender
+        selectionDelegate?.didSelectColor(sender.backgroundColor!)
     }
 
 }
