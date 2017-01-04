@@ -73,7 +73,7 @@ extension TrashTableView: IdeaFilterDelegate {
 extension TrashTableView: IdeaCellManagerDelegate{
     func deleteIdea(sender: UITableViewCell){
         guard let indexPath = self.indexPath(for: sender) else {return}
-        DataManager.shared.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: ideaData[indexPath.row])
+        DataManager.shared.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: ideaData[indexPath.row])
         ideaData.remove(at: indexPath.row)
         self.deleteRows(at: [indexPath], with: .fade)
     }

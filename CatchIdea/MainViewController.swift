@@ -17,6 +17,7 @@ internal class MainViewController: UIViewController {
     internal let dimPresentAnimationController = DimPresentAnimationController()
     internal let dimDismissAnimationController = DimDismissAnimationController()
 
+    @IBOutlet weak var trashButton: UIBarButtonItem!
     @IBOutlet weak var ideaListTableView: MainVCTableView!
     @IBOutlet weak var tableViewBottomSpace: NSLayoutConstraint!
     override func viewDidLoad() {
@@ -33,6 +34,16 @@ internal class MainViewController: UIViewController {
             if (success&&(ideas != nil)){
                 self.ideaListTableView.ideaData = ideas!
                 self.ideaListTableView.reloadData()
+            }
+        }
+        
+        ideaDataManager.getAllIdeaData(type:.deleted){[unowned self](success,ideas) in
+            if (success&&(ideas != nil)){
+                if ideas!.count > 0 {
+                    self.trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
+                }else{
+                    self.trashButton.image = #imageLiteral(resourceName: "Delete")
+                }
             }
         }
         
@@ -151,9 +162,29 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdeaListTableViewCell", for: indexPath) as! IdeaListTableViewCell
         if let table = tableView as? MainVCTableView {
             cell.ideaData = table.filteredIdeaData[indexPath.row]
-            cell.delegate = table
+            cell.delegate = self
         }     
         return cell
+    }
+}
+
+extension MainViewController: IdeaCellManagerDelegate{
+    func deleteIdea(sender: UITableViewCell){
+        guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
+        DataManager.shared.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: ideaListTableView.ideaData[indexPath.row])
+        ideaListTableView.ideaData.remove(at: indexPath.row)
+        ideaListTableView.deleteRows(at: [indexPath], with: .left)
+        
+        trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
+    }
+    
+    func finishIdea(sender: UITableViewCell){
+        guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
+        DataManager.shared.finishOneIdeaData(ideaData: ideaListTableView.ideaData[indexPath.row])
+        ideaListTableView.ideaData.remove(at: indexPath.row)
+        ideaListTableView.deleteRows(at: [indexPath], with: .right)
+
+        trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
     }
 }
 

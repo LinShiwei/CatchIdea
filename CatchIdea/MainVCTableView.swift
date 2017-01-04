@@ -25,13 +25,6 @@ internal class MainVCTableView: UITableView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        refreshControl = UIRefreshControl()
-//        refreshControl?.backgroundColor = UIColor.red
-//        self.addPullRefresh{ [weak self] in
-//            print("refresh")
-//            self?.stopPullRefreshEver()
-//        }
-//        
         if let headerView = tableHeaderView as? IdeaFilterView {
             filterView = headerView
             filterView?.filterDelegate = self
@@ -53,8 +46,23 @@ internal class MainVCTableView: UITableView {
             }
             
             var matchColor = true
+            
             if filterColor != UIColor.white, filterColor != idea.markColor{
                 matchColor = false
+                
+//                var r: CGFloat = 0
+//                var g: CGFloat = 0
+//                var b: CGFloat = 0
+//                var a: CGFloat = 0
+//                filterColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+//                
+//                
+////                print("\(idea.markColor)  \(filterColor)")
+//                print("bbbb\(r) \(g) \(b)")
+//                idea.markColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+//                
+//                print("\(r) \(g) \(b)")
+                
             }
             return containText && matchColor
         }
@@ -76,20 +84,4 @@ extension MainVCTableView: IdeaFilterDelegate {
     }
 }
 
-extension MainVCTableView: IdeaCellManagerDelegate{
-    func deleteIdea(sender: UITableViewCell){
-        guard let indexPath = self.indexPath(for: sender) else {return}
-        DataManager.shared.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: ideaData[indexPath.row])
-        ideaData.remove(at: indexPath.row)
-        self.deleteRows(at: [indexPath], with: .left)
-    }
-    
-    func finishIdea(sender: UITableViewCell){
-        guard let indexPath = self.indexPath(for: sender) else {return}
-        DataManager.shared.finishOneIdeaData(ideaData: ideaData[indexPath.row])
-        ideaData.remove(at: indexPath.row)
-//        self.beginUpdates()
-        self.deleteRows(at: [indexPath], with: .right)
-//        self.endUpdates()   
-    }
-}
+

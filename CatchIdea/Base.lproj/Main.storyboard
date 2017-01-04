@@ -114,9 +114,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="eWz-gN-YTD"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Catch" id="ju2-ZU-h9E">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Y7T-6f-zMP">
+                                        <barButtonItem key="rightBarButtonItem" image="Delete" id="Y7T-6f-zMP">
                                             <connections>
                                                 <segue destination="i6A-da-cxW" kind="showDetail" identifier="ShowTrash" id="nc2-Vp-rgV"/>
                                             </connections>
@@ -148,6 +153,7 @@
                     <connections>
                         <outlet property="ideaListTableView" destination="80s-3i-QoA" id="35d-BK-dzz"/>
                         <outlet property="tableViewBottomSpace" destination="fps-2G-4JD" id="0hB-ZN-IgR"/>
+                        <outlet property="trashButton" destination="Y7T-6f-zMP" id="Mzj-hm-4Pe"/>
                         <segue destination="ifY-Y3-tiW" kind="showDetail" identifier="PullToCreateIdea" id="Piy-mF-gG8"/>
                     </connections>
                 </viewController>
@@ -244,14 +250,19 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJM-Be-lvp" customClass="SharedNavigationBar" customModule="CatchIdea" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Trash" id="KBd-sd-DO0">
-                                        <barButtonItem key="leftBarButtonItem" title="Clear" id="bmZ-0e-eVt">
+                                        <barButtonItem key="leftBarButtonItem" image="Clear" id="bmZ-0e-eVt">
                                             <connections>
                                                 <action selector="clearTrashForever:" destination="i6A-da-cxW" id="d1d-Fs-Hkm"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="main" id="rZV-fO-Y7U">
+                                        <barButtonItem key="rightBarButtonItem" image="Menu" id="rZV-fO-Y7U">
                                             <connections>
                                                 <action selector="dismissTrashVC:" destination="i6A-da-cxW" id="obJ-Mv-hKQ"/>
                                             </connections>
@@ -524,6 +535,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fZS-1z-yAh"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Idea" id="Dwf-wr-5DW">
                                         <barButtonItem key="leftBarButtonItem" title="Cancle" id="4io-b6-8fY">
@@ -574,6 +590,11 @@
             <point key="canvasLocation" x="180" y="82.394366197183103"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Clear" width="22" height="22"/>
+        <image name="Delete" width="22" height="22"/>
+        <image name="Menu" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GMp-GD-Uue"/>
     </inferredMetricsTieBreakers>
