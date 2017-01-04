@@ -18,6 +18,9 @@
 		56760ECC1E1B446800561854 /* PullToRefreshOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760EC91E1B446800561854 /* PullToRefreshOption.swift */; };
 		56760ECD1E1B446800561854 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ECA1E1B446800561854 /* PullToRefreshView.swift */; };
 		56760ECE1E1B446800561854 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ECB1E1B446800561854 /* UIScrollViewExtension.swift */; };
+		56760ED01E1B82F300561854 /* AddingIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ECF1E1B82F300561854 /* AddingIconView.swift */; };
+		56760ED21E1B956D00561854 /* IndicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ED11E1B956D00561854 /* IndicationView.swift */; };
+		56760ED41E1B962500561854 /* RefreshContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ED31E1B962500561854 /* RefreshContainerView.swift */; };
 		567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3CD1E05628E00E4A293 /* AppDelegate.swift */; };
 		567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D11E05628E00E4A293 /* Main.storyboard */; };
 		567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
@@ -90,6 +93,9 @@
 		56760EC91E1B446800561854 /* PullToRefreshOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshOption.swift; sourceTree = "<group>"; };
 		56760ECA1E1B446800561854 /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
 		56760ECB1E1B446800561854 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		56760ECF1E1B82F300561854 /* AddingIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingIconView.swift; sourceTree = "<group>"; };
+		56760ED11E1B956D00561854 /* IndicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicationView.swift; sourceTree = "<group>"; };
+		56760ED31E1B962500561854 /* RefreshContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContainerView.swift; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567FA3D21E05628E00E4A293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +158,9 @@
 				56760EC91E1B446800561854 /* PullToRefreshOption.swift */,
 				56760ECA1E1B446800561854 /* PullToRefreshView.swift */,
 				56760ECB1E1B446800561854 /* UIScrollViewExtension.swift */,
+				56760ED31E1B962500561854 /* RefreshContainerView.swift */,
+				56760ECF1E1B82F300561854 /* AddingIconView.swift */,
+				56760ED11E1B956D00561854 /* IndicationView.swift */,
 			);
 			name = PullToAddIdeaView;
 			sourceTree = "<group>";
@@ -427,6 +436,7 @@
 				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
+				56760ED21E1B956D00561854 /* IndicationView.swift in Sources */,
 				561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */,
 				56760ECD1E1B446800561854 /* PullToRefreshView.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
@@ -440,6 +450,7 @@
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
 				56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */,
+				56760ED41E1B962500561854 /* RefreshContainerView.swift in Sources */,
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */,
 				56760ECE1E1B446800561854 /* UIScrollViewExtension.swift in Sources */,
@@ -452,6 +463,7 @@
 				561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */,
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
+				56760ED01E1B82F300561854 /* AddingIconView.swift in Sources */,
 				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
 				56760ECC1E1B446800561854 /* PullToRefreshOption.swift in Sources */,
 				56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */,

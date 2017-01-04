@@ -21,6 +21,10 @@ internal class MainViewController: UIViewController {
     @IBOutlet weak var tableViewBottomSpace: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ideaListTableView.addPullRefresh{ [weak self] in
+            self?.performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
+            self?.ideaListTableView.stopPullRefreshEver()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -107,10 +111,10 @@ extension MainViewController: UITableViewDelegate {
     }
     //MARK ScrollView delegate
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if let refreshControl = scrollView.refreshControl,refreshControl.isRefreshing == true {
-            performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
-            refreshControl.endRefreshing()
-        }
+//        if let refreshControl = scrollView.refreshControl,refreshControl.isRefreshing == true {
+//            performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
+//            refreshControl.endRefreshing()
+//        }
         
         let yOffset = scrollView.contentOffset.y
         let xOffset = scrollView.contentOffset.x
