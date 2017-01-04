@@ -21,11 +21,8 @@ open class PullToRefreshView: UIView {
     var kvoContext = "PullToRefreshKVOContext"
     
     fileprivate var options: PullToRefreshOption
-    fileprivate var backgroundView: UIView
     fileprivate var refreshContrainerView: RefreshContainerView
     
-//    private var addingIcon: AddingIconView
-
     fileprivate var scrollViewInsets: UIEdgeInsets = UIEdgeInsets.zero
     fileprivate var refreshCompletion: ((Void) -> Void)?
     
@@ -62,9 +59,9 @@ open class PullToRefreshView: UIView {
             case .refreshing:
                 startAnimating()
             case .pulling: //starting point
-                arrowRotationBack()
+                refreshViewInactive()
             case .triggered:
-                arrowRotation()
+                refreshViewActive()
             }
         }
     }
@@ -81,18 +78,9 @@ open class PullToRefreshView: UIView {
     public init(options: PullToRefreshOption, frame: CGRect, refreshCompletion :((Void) -> Void)?, down:Bool=true) {
         self.options = options
         self.refreshCompletion = refreshCompletion
-
-        self.backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        self.backgroundView.backgroundColor = self.options.backgroundColor
-        self.backgroundView.autoresizingMask = UIViewAutoresizing.flexibleWidth
-        
         self.refreshContrainerView = RefreshContainerView(frame: CGRect(origin: CGPoint.zero, size: frame.size))
-//        self.addingIcon = AddingIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-
         
         super.init(frame: frame)
-        self.addSubview(backgroundView)
-//        self.addSubview(addingIcon)
         self.addSubview(refreshContrainerView)
         self.autoresizingMask = .flexibleWidth
     }
@@ -100,7 +88,6 @@ open class PullToRefreshView: UIView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         self.refreshContrainerView.frame = bounds
-//        self.addingIcon.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
     }
     
     open override func willMove(toSuperview superView: UIView!) {
@@ -149,14 +136,14 @@ open class PullToRefreshView: UIView {
             if alpha > 0.8 {
                 alpha = 0.8
             }
-//            self.addingIcon.alpha = alpha
             self.refreshContrainerView.alpha = alpha
         }
         
         if offsetY <= 0 {
 
-
-            if offsetY < -self.frame.size.height {
+            if offsetY < -PullToRefreshConst.triggerDistance {
+                
+                updateViewFrame(withYOffset: offsetY)
                 // pulling or refreshing
                 if scrollView.isDragging == false && self.state != .refreshing && self.state != .stop { //release the finger
                     self.state = .refreshing //startAnimating
@@ -171,7 +158,7 @@ open class PullToRefreshView: UIView {
         }
     }
     
-    // MARK: private
+    //MARK: private
     
     fileprivate func startAnimating() {
         guard let _ = superview as? UIScrollView else {
@@ -195,25 +182,28 @@ open class PullToRefreshView: UIView {
         }
         let duration = PullToRefreshConst.animationDuration
         UIView.animate(withDuration: duration,animations: {
-//            self.addingIcon.active = false
             self.refreshContrainerView.active = false
         }, completion: { _ in
             self.state = .pulling
         })
     }
     
-    fileprivate func arrowRotation() {
+    fileprivate func refreshViewActive() {
         UIView.animate(withDuration: 0.2, delay: 0, options:[], animations: {
             self.refreshContrainerView.active = true
-//            self.addingIcon.active = true
         }, completion:nil)
     }
     
-    fileprivate func arrowRotationBack() {
+    fileprivate func refreshViewInactive() {
         UIView.animate(withDuration: 0.2, animations: {
             self.refreshContrainerView.active = false
-//            self.addingIcon.active = false
 
         })
+    }
+    
+    fileprivate func updateViewFrame(withYOffset yOffset: CGFloat){
+        assert(yOffset < 0)
+        frame = CGRect(x: frame.minX, y: yOffset, width: frame.width, height: -yOffset)
+        layoutIfNeeded()
     }
 }
