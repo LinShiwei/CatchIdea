@@ -17,14 +17,44 @@ class IndicationView: UIView {
         // Drawing code
     }
     */
+    internal var active = false {
+        didSet{
+            active ? performActiveAction() : performInaciveAction()
+        }
+    }
+    
+    private var indicationLabel: UILabel
     
     
     override init(frame: CGRect){
+        assert(frame.width > 199)
+        assert(frame.height > 20)
+        
+        indicationLabel = UILabel(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 200, height: 21)))
+        indicationLabel.text = "Pull to create idea."
+        indicationLabel.textColor = UIColor.lightGray
+        indicationLabel.font = UIFont.systemFont(ofSize: 14)
         super.init(frame: frame)
         
+        addSubview(indicationLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        indicationLabel.center = CGPoint(x: frame.width-indicationLabel.frame.width/2, y: frame.height-indicationLabel.frame.height/2)
+    }
+    
+    private func performActiveAction(){
+        indicationLabel.text = "Release to create idea."
+        indicationLabel.textColor = Theme.shared.mainThemeColor
+    }
+    
+    private func performInaciveAction(){
+        indicationLabel.text = "Pull to create idea."
+        indicationLabel.textColor = UIColor.lightGray
     }
 }

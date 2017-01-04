@@ -22,10 +22,9 @@ open class PullToRefreshView: UIView {
     
     fileprivate var options: PullToRefreshOption
     fileprivate var backgroundView: UIView
-//    fileprivate var refreshContrainerView: RefreshContainerView
+    fileprivate var refreshContrainerView: RefreshContainerView
     
-    
-    private var addingIcon: AddingIconView
+//    private var addingIcon: AddingIconView
 
     fileprivate var scrollViewInsets: UIEdgeInsets = UIEdgeInsets.zero
     fileprivate var refreshCompletion: ((Void) -> Void)?
@@ -87,20 +86,21 @@ open class PullToRefreshView: UIView {
         self.backgroundView.backgroundColor = self.options.backgroundColor
         self.backgroundView.autoresizingMask = UIViewAutoresizing.flexibleWidth
         
-       //        self.refreshContrainerView = RefreshContainerView(frame: CGRect(origin: CGPoint.zero, size: frame.size))
-        self.addingIcon = AddingIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        self.refreshContrainerView = RefreshContainerView(frame: CGRect(origin: CGPoint.zero, size: frame.size))
+//        self.addingIcon = AddingIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
 
         
         super.init(frame: frame)
         self.addSubview(backgroundView)
-        self.addSubview(addingIcon)
+//        self.addSubview(addingIcon)
+        self.addSubview(refreshContrainerView)
         self.autoresizingMask = .flexibleWidth
     }
    
     open override func layoutSubviews() {
         super.layoutSubviews()
-//        self.refreshContrainerView.frame = bounds
-        self.addingIcon.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        self.refreshContrainerView.frame = bounds
+//        self.addingIcon.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
     }
     
     open override func willMove(toSuperview superView: UIView!) {
@@ -149,8 +149,8 @@ open class PullToRefreshView: UIView {
             if alpha > 0.8 {
                 alpha = 0.8
             }
-            self.addingIcon.alpha = alpha
-//            self.refreshContrainerView.alpha = alpha
+//            self.addingIcon.alpha = alpha
+            self.refreshContrainerView.alpha = alpha
         }
         
         if offsetY <= 0 {
@@ -174,7 +174,7 @@ open class PullToRefreshView: UIView {
     // MARK: private
     
     fileprivate func startAnimating() {
-        guard let scrollView = superview as? UIScrollView else {
+        guard let _ = superview as? UIScrollView else {
             return
         }
 
@@ -190,12 +190,13 @@ open class PullToRefreshView: UIView {
     }
     
     fileprivate func stopAnimating() {
-        guard let scrollView = superview as? UIScrollView else {
+        guard let _ = superview as? UIScrollView else {
             return
         }
         let duration = PullToRefreshConst.animationDuration
         UIView.animate(withDuration: duration,animations: {
-            self.addingIcon.active = false
+//            self.addingIcon.active = false
+            self.refreshContrainerView.active = false
         }, completion: { _ in
             self.state = .pulling
         })
@@ -203,15 +204,15 @@ open class PullToRefreshView: UIView {
     
     fileprivate func arrowRotation() {
         UIView.animate(withDuration: 0.2, delay: 0, options:[], animations: {
-//            self.refreshContrainerView.active = true
-            self.addingIcon.active = true
+            self.refreshContrainerView.active = true
+//            self.addingIcon.active = true
         }, completion:nil)
     }
     
     fileprivate func arrowRotationBack() {
         UIView.animate(withDuration: 0.2, animations: {
-//            self.refreshContrainerView.active = false
-            self.addingIcon.active = false
+            self.refreshContrainerView.active = false
+//            self.addingIcon.active = false
 
         })
     }
