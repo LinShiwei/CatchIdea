@@ -14,6 +14,11 @@ internal class CreateIdeaViewController: UIViewController {
 
     internal var originIdeaData: IdeaData?
     
+    @IBOutlet weak var titleSectionView: CreateIdeaSectionView!
+    @IBOutlet weak var markColorSectionView: CreateIdeaSectionView!
+    @IBOutlet weak var contentSectionView: CreateIdeaSectionView!
+    @IBOutlet weak var notificationSectionView: CreateIdeaSectionView!
+    
     @IBOutlet weak var ideaDataSheetView: IdeaDataSheetView!
     
     @IBOutlet weak var scrollViewBottomSpace: NSLayoutConstraint!
@@ -22,6 +27,10 @@ internal class CreateIdeaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleSectionView.sectionTitle = "Title"
+        markColorSectionView.sectionTitle = "Mark Color"
+        contentSectionView.sectionTitle = "Content"
+        notificationSectionView.sectionTitle = "Notification"
         
         if let idea = originIdeaData {
             ideaDataSheetView.idea = idea

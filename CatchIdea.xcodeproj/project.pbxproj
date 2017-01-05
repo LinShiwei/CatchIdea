@@ -43,6 +43,7 @@
 		56BAF7481E0C16A600218103 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BAF7471E0C16A600218103 /* TodayViewController.swift */; };
 		56BAF74B1E0C16A600218103 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BAF7491E0C16A600218103 /* MainInterface.storyboard */; };
 		56BAF74F1E0C16A600218103 /* CatchIdeaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56BAF7421E0C16A600218103 /* CatchIdeaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		56DFCCBA1E1E2BC600EF79F8 /* CreateIdeaSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DFCCB91E1E2BC600EF79F8 /* CreateIdeaSectionView.swift */; };
 		56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604C91E06C6BF001C465B /* TrashViewController.swift */; };
 		56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */; };
 		56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */; };
@@ -123,6 +124,7 @@
 		56BAF74C1E0C16A600218103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdea.entitlements; sourceTree = "<group>"; };
 		56C7F13D1E0CC819008FF866 /* CatchIdeaWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdeaWidget.entitlements; sourceTree = "<group>"; };
+		56DFCCB91E1E2BC600EF79F8 /* CreateIdeaSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaSectionView.swift; sourceTree = "<group>"; };
 		56F604C91E06C6BF001C465B /* TrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
 		56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaCellManagerDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				561E00671E09770B00E55313 /* CreateIdeaViewController.swift */,
 				564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */,
 				5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */,
+				56DFCCB91E1E2BC600EF79F8 /* CreateIdeaSectionView.swift */,
 			);
 			name = CreateIdeaVC;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
 				56838B9F1E167C7700567685 /* CustomSearchBar.swift in Sources */,
+				56DFCCBA1E1E2BC600EF79F8 /* CreateIdeaSectionView.swift in Sources */,
 				56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,

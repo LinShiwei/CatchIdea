@@ -32,7 +32,7 @@ internal class MarkColorsView: UIView {
         buttonRingLayer.borderWidth = 2
         for view in subviews where view is UIButton {
             if let button = view as? UIButton {
-                button.backgroundColor = Theme.shared.markColors[button.tag-1]
+                button.backgroundColor = Theme.shared.markColors[button.tag-10-1]
                 button.addTarget(self, action: #selector(didTapColorButton(sender:)), for: .touchUpInside)
                 buttons.append(button)
 
