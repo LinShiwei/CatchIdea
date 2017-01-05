@@ -38,16 +38,18 @@ class TrashTableViewCell: UITableViewCell {
     }
     
     private func addGesture(){
+        //restore action
         let cellSliderGestureRecognizer = DRCellSlideGestureRecognizer()
         let squareAction = DRCellSlideAction(forFraction: 0.25)
-        squareAction?.icon = #imageLiteral(resourceName: "square")
+        squareAction?.icon = #imageLiteral(resourceName: "Restart")
         squareAction?.activeBackgroundColor = Theme.shared.trashVCCellSwipeRightColor
         squareAction?.behavior = .pushBehavior
         squareAction?.didTriggerBlock = { Void in
             self.delegate?.restoreIdea?(sender: self)
         }
+        //delete action
         let circleAction = DRCellSlideAction(forFraction: -0.25)
-        circleAction?.icon = #imageLiteral(resourceName: "circle")
+        circleAction?.icon = #imageLiteral(resourceName: "Clear")
         circleAction?.activeBackgroundColor = Theme.shared.trashVCCellSwipeLeftColor
         circleAction?.behavior = .pushBehavior
         circleAction?.didTriggerBlock = { Void in

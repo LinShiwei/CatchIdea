@@ -76,7 +76,6 @@ internal class CreateIdeaViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     internal func keyboardDidShow(_ notification: Notification) {
         guard let keyboardRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else{return}
         let keyboardRectInView = self.view.convert(keyboardRect, from: nil)

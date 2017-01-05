@@ -21,6 +21,7 @@ class CustomSearchController: UISearchController {
         super.init(searchResultsController: searchResultsController)
         customSearchBar.delegate = self
         customSearchBar.barTintColor = Theme.shared.mainThemeColor
+        customSearchBar.tintColor = UIColor.white
         customSearchBar.layer.borderWidth = 1
         customSearchBar.layer.borderColor = customSearchBar.barTintColor?.cgColor
     }

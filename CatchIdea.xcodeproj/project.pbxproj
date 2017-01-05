@@ -10,6 +10,7 @@
 		561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A4A3E1E18CBF300457F2D /* TrashTableView.swift */; };
 		561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E00671E09770B00E55313 /* CreateIdeaViewController.swift */; };
 		5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */; };
+		5625D0461E1E7D3400EE2CB1 /* ContextTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */; };
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
 		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
@@ -82,6 +83,7 @@
 		561A4A3E1E18CBF300457F2D /* TrashTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableView.swift; sourceTree = "<group>"; };
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
 		5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorsView.swift; sourceTree = "<group>"; };
+		5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTextView.swift; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
 		56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchIdea-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -167,6 +169,22 @@
 			name = PullToAddIdeaView;
 			sourceTree = "<group>";
 		};
+		563782741E1E9FA9008A4367 /* SharedCalss */ = {
+			isa = PBXGroup;
+			children = (
+				56FE13841E0CF1B3006A833A /* Theme.swift */,
+				56FE13881E0CF56F006A833A /* Define.swift */,
+				56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */,
+				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
+				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
+				56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */,
+				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
+				567676F51E1693AA00555102 /* IdeaFilterView */,
+				56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */,
+			);
+			name = SharedCalss;
+			sourceTree = "<group>";
+		};
 		564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +192,7 @@
 				564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */,
 				5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */,
 				56DFCCB91E1E2BC600EF79F8 /* CreateIdeaSectionView.swift */,
+				5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */,
 			);
 			name = CreateIdeaVC;
 			sourceTree = "<group>";
@@ -227,17 +246,10 @@
 				56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */,
 				56660BBC1E18EE7100FBA7EB /* DRCellSlide */,
 				567FA3ED1E05752A00E4A293 /* Manager */,
-				56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */,
-				56FE13841E0CF1B3006A833A /* Theme.swift */,
-				56FE13881E0CF56F006A833A /* Define.swift */,
-				56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */,
 				567FA3E51E056D3100E4A293 /* Support */,
 				56F604CD1E06CA21001C465B /* MainVC */,
 				56F604CE1E06CA29001C465B /* TrashVC */,
 				564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */,
-				567676F51E1693AA00555102 /* IdeaFilterView */,
-				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
-				56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */,
 			);
 			path = CatchIdea;
 			sourceTree = "<group>";
@@ -250,10 +262,9 @@
 				567FA3CD1E05628E00E4A293 /* AppDelegate.swift */,
 				567FA3D91E05628E00E4A293 /* LaunchScreen.storyboard */,
 				567FA3DC1E05628E00E4A293 /* Info.plist */,
+				56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */,
 				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
-				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
-				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
-				56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */,
+				563782741E1E9FA9008A4367 /* SharedCalss */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -458,6 +469,7 @@
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */,
 				56760ECE1E1B446800561854 /* UIScrollViewExtension.swift in Sources */,
+				5625D0461E1E7D3400EE2CB1 /* ContextTextView.swift in Sources */,
 				56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */,
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
 				5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */,

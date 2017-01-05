@@ -58,14 +58,14 @@ internal class IdeaListTableViewCell: UITableViewCell {
     private func addGesture(){
         let cellSliderGestureRecognizer = DRCellSlideGestureRecognizer()
         let squareAction = DRCellSlideAction(forFraction: 0.25)
-        squareAction?.icon = #imageLiteral(resourceName: "square")
+        squareAction?.icon = #imageLiteral(resourceName: "Delete")
         squareAction?.activeBackgroundColor = Theme.shared.mainVCCellSwipeRightColor
         squareAction?.behavior = .pushBehavior
         squareAction?.didTriggerBlock = { Void in
             self.delegate?.finishIdea?(sender: self)
         }
         let circleAction = DRCellSlideAction(forFraction: -0.25)
-        circleAction?.icon = #imageLiteral(resourceName: "circle")
+        circleAction?.icon = #imageLiteral(resourceName: "Delete")
         circleAction?.activeBackgroundColor = Theme.shared.mainVCCellSwipeLeftColor
         circleAction?.behavior = .pushBehavior
         circleAction?.didTriggerBlock = { Void in

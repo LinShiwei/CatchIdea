@@ -10,19 +10,37 @@ import UIKit
 
 internal class MarkColorsView: UIView {
 
-    internal var currentSelectedColor = Theme.shared.markColors[0]{
+    internal var currentSelectedColor = Theme.shared.markColors[0] {
         didSet{
             for button in buttons where button.backgroundColor == currentSelectedColor{
-                buttonRingLayer.removeFromSuperlayer()
-                button.layer.addSublayer(buttonRingLayer)
+                currentSelectedButton = button
             }
+        }
+    }
+
+    private var currentSelectedButton: UIButton?{
+        didSet{
+            if let oldButton = oldValue {
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .beginFromCurrentState, animations: { Void in
+                    oldButton.transform = .identity
+                }, completion: nil)
+            }
+            buttonRingLayer.removeFromSuperlayer()
+            guard currentSelectedButton != nil else {
+                return
+            }
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .beginFromCurrentState, animations: {[unowned self] Void in
+                self.currentSelectedButton!.transform = CGAffineTransform(scaleX: self.animateScale, y: self.animateScale)
+                }, completion: nil)
+            currentSelectedButton?.layer.addSublayer(buttonRingLayer)
         }
     }
     
     private var buttonRingLayer = CALayer()
     private var buttons = [UIButton]()
     
-    private let buttonSideLength: CGFloat = 30
+    private let buttonSideLength: CGFloat = 20
+    private let animateScale: CGFloat = 1.2
     
     required init?(coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)
@@ -40,8 +58,11 @@ internal class MarkColorsView: UIView {
         }
 
         assert(buttons.count == 6)
-        buttons[0].layer.addSublayer(buttonRingLayer)
-        
+        defer {
+            if currentSelectedButton == nil {
+                currentSelectedButton = buttons[0]
+            }
+        }
     }
     
     override func layoutSubviews() {
@@ -52,7 +73,8 @@ internal class MarkColorsView: UIView {
     }
     
     @objc private func didTapColorButton(sender: UIButton){
-        currentSelectedColor = sender.backgroundColor!
+        currentSelectedButton = sender
+        currentSelectedColor = currentSelectedButton!.backgroundColor!
     }
 }
 
