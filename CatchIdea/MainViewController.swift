@@ -33,13 +33,15 @@ internal class MainViewController: UIViewController {
         ideaDataManager.getAllIdeaData(type:.all){[unowned self](success,ideas) in
             if (success&&(ideas != nil)){
                 self.trashButton.image = #imageLiteral(resourceName: "Delete")
+                var existedIdeas = [IdeaData]()
                 for idea in ideas! {
                     if idea.isDelete == true {
                         self.trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
                     }else{
-                        self.ideaListTableView.ideaData.append(idea)
+                        existedIdeas.append(idea)
                     }
                 }
+                self.ideaListTableView.ideaData = existedIdeas
                 self.ideaListTableView.reloadData()
             }
         }
@@ -158,6 +160,9 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IdeaListTableViewCell", for: indexPath) as! IdeaListTableViewCell
         if let table = tableView as? MainVCTableView {
+            if indexPath.row == 0{
+                
+            }
             cell.ideaData = table.filteredIdeaData[indexPath.row]
             cell.delegate = self
         }     

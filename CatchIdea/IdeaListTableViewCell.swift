@@ -21,7 +21,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
             notificationControlButton.isHidden = (ideaData?.notificationDate != nil) ? false : true
             markColorIndicationView.layer.backgroundColor = ideaData?.markColor.cgColor
             contentHeaderLabel.text = ideaData?.header
-
+            
         }
     }
     

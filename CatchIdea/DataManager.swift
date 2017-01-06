@@ -83,13 +83,6 @@ internal final class DataManager {
         completion?(findObject)
     }
     
-//    internal func deleteIdeadataNotification(withIdentifier identifier: String){
-//        for object in objects where (object.value(forKey: "addingDate") as! Date).description == identifier {
-//            object.setValue(nil, forKey: "notificationDate")
-//        }
-//        managedContextSave()
-//    }
-    
     internal func deleteAllIdeaDataInTrash(_ completion:((Bool)->Void)?=nil){
         var findObject = false
         let managedContext = getManagedContext()
@@ -190,9 +183,6 @@ internal final class DataManager {
         }else{
             completion(true)
         }
-//        for obj in objects {
-//            print(obj.value(forKey: "isDelete"))
-//        }
     }
   
     private func saveMockIdeaData(ideas: [IdeaData],_ completion: @escaping ((Bool)->Void)) {
