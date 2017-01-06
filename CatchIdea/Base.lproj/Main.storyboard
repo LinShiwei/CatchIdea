@@ -455,7 +455,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="jSf-0E-5um"/>
                                                 </constraints>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 mins later" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifo-Tm-RVw">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 mins later" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifo-Tm-RVw">
                                                 <rect key="frame" x="8" y="433" width="304" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="G4a-dD-mt7"/>
@@ -500,6 +500,13 @@
                                                     <constraint firstAttribute="height" constant="1" id="ddP-tf-gE8"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vaQ-hV-saa">
+                                                <rect key="frame" x="0.0" y="500" width="320" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="awE-0n-c31"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -529,6 +536,7 @@
                                             <constraint firstAttribute="trailing" secondItem="aKu-f7-2ai" secondAttribute="trailing" id="Qvp-sd-mPY"/>
                                             <constraint firstItem="ICW-Ox-WIP" firstAttribute="height" secondItem="wXi-zm-dFl" secondAttribute="height" id="Qzf-Ls-HvA"/>
                                             <constraint firstItem="u7X-LX-7i5" firstAttribute="leading" secondItem="kbO-Vx-qyB" secondAttribute="leading" constant="8" id="StM-1a-Otk"/>
+                                            <constraint firstItem="vaQ-hV-saa" firstAttribute="leading" secondItem="kbO-Vx-qyB" secondAttribute="leading" id="YWA-J8-ZgZ"/>
                                             <constraint firstAttribute="trailing" secondItem="u7X-LX-7i5" secondAttribute="trailing" constant="8" id="Yaw-Nw-QPs"/>
                                             <constraint firstItem="DtI-IX-BHC" firstAttribute="height" secondItem="wXi-zm-dFl" secondAttribute="height" id="YbU-ln-uyx"/>
                                             <constraint firstItem="ANY-1e-Emj" firstAttribute="leading" secondItem="kbO-Vx-qyB" secondAttribute="leading" constant="8" id="YjB-1D-h5f"/>
@@ -546,8 +554,10 @@
                                             <constraint firstItem="BqY-fj-SOQ" firstAttribute="top" secondItem="ANY-1e-Emj" secondAttribute="bottom" constant="8" id="gXw-na-Ls2"/>
                                             <constraint firstItem="aKu-f7-2ai" firstAttribute="leading" secondItem="kbO-Vx-qyB" secondAttribute="leading" id="hd0-NK-2Cp"/>
                                             <constraint firstAttribute="trailing" secondItem="5Hl-tJ-kxR" secondAttribute="trailing" id="l4s-hP-bHd"/>
+                                            <constraint firstItem="vaQ-hV-saa" firstAttribute="top" secondItem="u7X-LX-7i5" secondAttribute="bottom" constant="8" id="lVE-bf-8S9"/>
                                             <constraint firstAttribute="trailing" secondItem="oDM-Tq-4ge" secondAttribute="trailing" id="ljM-Sg-e1S"/>
                                             <constraint firstAttribute="trailing" secondItem="ANY-1e-Emj" secondAttribute="trailing" constant="8" id="oHv-wC-CKt"/>
+                                            <constraint firstAttribute="trailing" secondItem="vaQ-hV-saa" secondAttribute="trailing" id="pUs-PK-duL"/>
                                             <constraint firstItem="5Hl-tJ-kxR" firstAttribute="leading" secondItem="kbO-Vx-qyB" secondAttribute="leading" id="pgT-7Q-cky"/>
                                             <constraint firstItem="aKu-f7-2ai" firstAttribute="top" secondItem="56w-rm-goi" secondAttribute="bottom" constant="8" id="sz8-1d-foR"/>
                                             <constraint firstAttribute="trailing" secondItem="5Hl-tJ-kxR" secondAttribute="trailing" id="vkj-gV-0Fd"/>

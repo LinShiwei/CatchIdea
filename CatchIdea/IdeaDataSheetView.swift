@@ -15,17 +15,28 @@ internal class IdeaDataSheetView: UIView {
     private var reminderSwitch: UISwitch!
     private var markColorView: MarkColorsView!
     private var reminderIntervalSlider: UISlider!
-    
+    private var notificationIntervalLabel: UILabel!
     private let dataManager = DataManager.shared
     
-    private var notificationInterval: TimeInterval = 300
+    private var notificationInterval: TimeInterval = 300 {
+        didSet{
+            let minutes = Int(floor(notificationInterval/60))
+            if minutes < 60 {
+                notificationIntervalLabel.text = "\(minutes) minutes later"
+            }else{
+                let hours = minutes/60
+                notificationIntervalLabel.text = "\(hours) hour(s) later"
+            }
+        }
+    }
     
     internal var idea : IdeaData?{
         didSet{
             guard let idea = idea else {return}
             headerTextField.text = idea.header
 
-            reminderSwitch.isOn = (idea.notificationDate != nil) ? true : false
+//            reminderSwitch.isOn = (idea.notificationDate != nil) ? true : false
+            reminderSwitch.isOn = false
             markColorView.currentSelectedColor = idea.markColor
             
             if let content = idea.content,content != "" {
@@ -44,8 +55,9 @@ internal class IdeaDataSheetView: UIView {
         markColorView = viewWithTag(3) as! MarkColorsView
         reminderSwitch = viewWithTag(4) as! UISwitch
         reminderIntervalSlider = viewWithTag(5) as! UISlider
+        notificationIntervalLabel = viewWithTag(6) as! UILabel
         
-        reminderSwitch.addTarget(self, action: #selector(switchDidChangeValue(sender:)), for: .valueChanged)
+        reminderIntervalSlider.addTarget(self, action: #selector(sliderDidChangeValue(sender:)), for: .valueChanged)
     }
     
     internal func saveIdea(){
@@ -69,8 +81,8 @@ internal class IdeaDataSheetView: UIView {
         headerTextField.becomeFirstResponder()
     }
     
-    @objc private func switchDidChangeValue(sender: UISwitch){
-        notificationInterval += TimeInterval((reminderIntervalSlider.value*100)*(reminderIntervalSlider.value*100))
+    @objc private func sliderDidChangeValue(sender: UISlider){
+        notificationInterval = TimeInterval((reminderIntervalSlider.value*294)*(reminderIntervalSlider.value*294)) + 300
 
     }
 }

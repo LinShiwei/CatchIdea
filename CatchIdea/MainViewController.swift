@@ -30,23 +30,20 @@ internal class MainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ideaDataManager.getAllIdeaData(type:.existed){[unowned self](success,ideas) in
+        ideaDataManager.getAllIdeaData(type:.all){[unowned self](success,ideas) in
             if (success&&(ideas != nil)){
-                self.ideaListTableView.ideaData = ideas!
+                self.trashButton.image = #imageLiteral(resourceName: "Delete")
+                for idea in ideas! {
+                    if idea.isDelete == true {
+                        self.trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
+                    }else{
+                        self.ideaListTableView.ideaData.append(idea)
+                    }
+                }
                 self.ideaListTableView.reloadData()
             }
         }
-        
-        ideaDataManager.getAllIdeaData(type:.deleted){[unowned self](success,ideas) in
-            if (success&&(ideas != nil)){
-                if ideas!.count > 0 {
-                    self.trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
-                }else{
-                    self.trashButton.image = #imageLiteral(resourceName: "Delete")
-                }
-            }
-        }
-        
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)

@@ -11,7 +11,7 @@ import CoreData
 
 
 internal enum IdeaDataType {
-    case existed,deleted
+    case existed,deleted,all
 }
 
 internal enum DeleteStyle {
@@ -48,6 +48,8 @@ internal final class DataManager {
                 self.getIdeaData(filter: {$0.value(forKey: "isDelete") as? Bool == false}, completion)
             case .deleted:
                 self.getIdeaData(filter: {$0.value(forKey: "isDelete") as? Bool == true}, completion)
+            case .all:
+                self.getIdeaData(filter: {_ in return true}, completion)
             }
         }
     }
@@ -81,12 +83,12 @@ internal final class DataManager {
         completion?(findObject)
     }
     
-    internal func deleteIdeadataNotification(withIdentifier identifier: String){
-        for object in objects where (object.value(forKey: "addingDate") as! Date).description == identifier {
-            object.setValue(nil, forKey: "notificationDate")
-        }
-        managedContextSave()
-    }
+//    internal func deleteIdeadataNotification(withIdentifier identifier: String){
+//        for object in objects where (object.value(forKey: "addingDate") as! Date).description == identifier {
+//            object.setValue(nil, forKey: "notificationDate")
+//        }
+//        managedContextSave()
+//    }
     
     internal func deleteAllIdeaDataInTrash(_ completion:((Bool)->Void)?=nil){
         var findObject = false
@@ -188,6 +190,9 @@ internal final class DataManager {
         }else{
             completion(true)
         }
+//        for obj in objects {
+//            print(obj.value(forKey: "isDelete"))
+//        }
     }
   
     private func saveMockIdeaData(ideas: [IdeaData],_ completion: @escaping ((Bool)->Void)) {
@@ -228,7 +233,7 @@ internal final class DataManager {
     
     private func getManagedContext()->NSManagedObjectContext{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.managedObjectContext
+        return appDelegate.persistentContainer.viewContext
     }
     
     private func managedContextSave(){
