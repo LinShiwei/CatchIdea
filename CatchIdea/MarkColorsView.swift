@@ -40,7 +40,7 @@ internal class MarkColorsView: UIView {
     private var buttons = [UIButton]()
     
     private let buttonSideLength: CGFloat = 20
-    private let animateScale: CGFloat = 1.2
+    private let animateScale: CGFloat = 1.3
     
     required init?(coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)

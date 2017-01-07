@@ -47,9 +47,9 @@ internal class MainVCTableView: UITableView {
             
             var matchColor = true
             
-            if filterColor != UIColor.white, filterColor != idea.markColor{
+            if filterColor != UIColor.white, !(filterColor ~= idea.markColor){
                 matchColor = false
-                
+//                
 //                var r: CGFloat = 0
 //                var g: CGFloat = 0
 //                var b: CGFloat = 0
@@ -62,7 +62,7 @@ internal class MainVCTableView: UITableView {
 //                idea.markColor.getRed(&r, green: &g, blue: &b, alpha: &a)
 //                
 //                print("\(r) \(g) \(b)")
-                
+//                
             }
             return containText && matchColor
         }
@@ -83,5 +83,6 @@ extension MainVCTableView: IdeaFilterDelegate {
         reloadData()
     }
 }
+
 
 

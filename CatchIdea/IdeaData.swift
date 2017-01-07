@@ -32,4 +32,8 @@ internal class IdeaData {
         self.markColor = markColor
         self.notificationDate = notificationDate
     }
+    
+    static func == (left: IdeaData, right: IdeaData)->Bool {
+        return left.identifier == right.identifier
+    }
 }

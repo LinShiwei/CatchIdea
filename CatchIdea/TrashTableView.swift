@@ -47,7 +47,7 @@ class TrashTableView: UITableView {
             }
             
             var matchColor = true
-            if filterColor != UIColor.white, filterColor != idea.markColor{
+            if filterColor != UIColor.white, !(filterColor ~= idea.markColor){
                 matchColor = false
             }
             return containText && matchColor
@@ -74,14 +74,30 @@ extension TrashTableView: IdeaCellManagerDelegate{
     func deleteIdea(sender: UITableViewCell){
         guard let indexPath = self.indexPath(for: sender) else {return}
         DataManager.shared.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: ideaData[indexPath.row])
-        ideaData.remove(at: indexPath.row)
+        var tempFilterIdeaData = filteredIdeaData
+        for index in 0...ideaData.count-1 {
+            if ideaData[index] == filteredIdeaData[indexPath.row]{
+                ideaData.remove(at: index)
+                break
+            }
+        }
+        tempFilterIdeaData.remove(at: indexPath.row)
+        filteredIdeaData = tempFilterIdeaData
         self.deleteRows(at: [indexPath], with: .fade)
     }
     
     func restoreIdea(sender: UITableViewCell) {
         guard let indexPath = self.indexPath(for: sender) else {return}
         DataManager.shared.restoreOneIdeaData(ideaData: ideaData[indexPath.row])
-        ideaData.remove(at: indexPath.row)
+        var tempFilterIdeaData = filteredIdeaData
+        for index in 0...ideaData.count-1 {
+            if ideaData[index] == filteredIdeaData[indexPath.row]{
+                ideaData.remove(at: index)
+                break
+            }
+        }
+        tempFilterIdeaData.remove(at: indexPath.row)
+        filteredIdeaData = tempFilterIdeaData
         self.deleteRows(at: [indexPath], with: .fade)
     }
 }

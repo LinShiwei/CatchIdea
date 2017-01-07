@@ -174,16 +174,37 @@ extension MainViewController: IdeaCellManagerDelegate{
     func deleteIdea(sender: UITableViewCell){
         guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
         DataManager.shared.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: ideaListTableView.ideaData[indexPath.row])
-        ideaListTableView.ideaData.remove(at: indexPath.row)
+        //remove ideaData will trigger didSet to reset filterIdeaData, so copy filterIdeaData for later use
+        var tempFilterIdeaData = ideaListTableView.filteredIdeaData
+        for index in 0...ideaListTableView.ideaData.count-1 {
+            if ideaListTableView.ideaData[index] == ideaListTableView.filteredIdeaData[indexPath.row]{
+                ideaListTableView.ideaData.remove(at: index)
+                break
+            }
+        }
+        tempFilterIdeaData.remove(at: indexPath.row)
+        ideaListTableView.filteredIdeaData = tempFilterIdeaData
         ideaListTableView.deleteRows(at: [indexPath], with: .left)
         
         trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
+        
+        
+        
+        
     }
     
     func finishIdea(sender: UITableViewCell){
         guard let indexPath = ideaListTableView.indexPath(for: sender) else {return}
         DataManager.shared.finishOneIdeaData(ideaData: ideaListTableView.ideaData[indexPath.row])
-        ideaListTableView.ideaData.remove(at: indexPath.row)
+        var tempFilterIdeaData = ideaListTableView.filteredIdeaData
+        for index in 0...ideaListTableView.ideaData.count-1 {
+            if ideaListTableView.ideaData[index] == ideaListTableView.filteredIdeaData[indexPath.row]{
+                ideaListTableView.ideaData.remove(at: index)
+                break
+            }
+        }
+        tempFilterIdeaData.remove(at: indexPath.row)
+        ideaListTableView.filteredIdeaData = tempFilterIdeaData
         ideaListTableView.deleteRows(at: [indexPath], with: .right)
 
         trashButton.image = #imageLiteral(resourceName: "DeleteFilled")

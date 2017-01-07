@@ -33,7 +33,7 @@ class ColorSeletcionView: UIView {
     }
     
     private let buttonSideLength: CGFloat = 20
-    private let animateScale: CGFloat = 1.2
+    private let animateScale: CGFloat = 1.3
     
     private var buttonRingLayer = CALayer()
     private var buttons = [UIButton]()

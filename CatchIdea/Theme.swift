@@ -28,16 +28,14 @@ internal class Theme {
     internal let generalControlButtonBackgroundColor = UIColor.red
     
     internal let markColors : [UIColor] = {
-        let saturation: CGFloat = 0.36
-        let brightness: CGFloat = 0.95
         
         return [
-            UIColor(hue: 0.15, saturation: saturation, brightness: brightness, alpha: 1),
-            UIColor(hue: 0.03, saturation: saturation, brightness: brightness, alpha: 1),
-            UIColor(hue: 0.86, saturation: saturation, brightness: brightness, alpha: 1),
-            UIColor(hue: 0.79, saturation: saturation, brightness: brightness, alpha: 1),
-            UIColor(hue: 0.65, saturation: saturation, brightness: brightness, alpha: 1),
-            UIColor(hue: 0.54, saturation: saturation, brightness: brightness, alpha: 1)
+            UIColor(red: 0.95, green: 0.82, blue: 0.23, alpha: 1),
+            UIColor(red: 0.96, green: 0.55, blue: 0.15, alpha: 1),
+            UIColor(red: 1, green: 0.1, blue: 0.06, alpha: 1),
+            UIColor(red: 1, green: 0.27, blue: 0.69, alpha: 1),
+            UIColor(red: 0.71, green: 0.35, blue: 0.89, alpha: 1),
+            UIColor(red: 0.29, green: 0.32, blue: 0.92, alpha: 1)
         ]
     }()
 }
