@@ -11,6 +11,7 @@
 		561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E00671E09770B00E55313 /* CreateIdeaViewController.swift */; };
 		561FAA151E20C2C900206894 /* NotificationIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */; };
 		561FAA171E20CBC000206894 /* UIColor+~=.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561FAA161E20CBC000206894 /* UIColor+~=.swift */; };
+		561FAA1A1E21247300206894 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561FAA191E21247300206894 /* GuideViewController.swift */; };
 		5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */; };
 		5625D0461E1E7D3400EE2CB1 /* ContextTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */; };
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
@@ -86,6 +87,7 @@
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
 		561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationIndicatorButton.swift; sourceTree = "<group>"; };
 		561FAA161E20CBC000206894 /* UIColor+~=.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+~=.swift"; sourceTree = "<group>"; };
+		561FAA191E21247300206894 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorsView.swift; sourceTree = "<group>"; };
 		5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTextView.swift; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				567676F51E1693AA00555102 /* IdeaFilterView */,
 				56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */,
 				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
+				561FAA191E21247300206894 /* GuideViewController.swift */,
 			);
 			name = SharedCalss;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				56DFCCBA1E1E2BC600EF79F8 /* CreateIdeaSectionView.swift in Sources */,
 				56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
+				561FAA1A1E21247300206894 /* GuideViewController.swift in Sources */,
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
 				56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */,

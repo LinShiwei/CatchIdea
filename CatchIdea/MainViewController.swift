@@ -51,6 +51,13 @@ internal class MainViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        defer {
+            performSegue(withIdentifier: "ShowGuide", sender: nil)
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let _ = ideaListTableView.resignFirstResponder()
@@ -81,6 +88,13 @@ internal class MainViewController: UIViewController {
             if let destinationViewController = segue.destination as? TrashViewController {
                 destinationViewController.transitioningDelegate = self
             }
+        case "ShowGuide":
+            if let destinationViewController = segue.destination as? GuideViewController {
+                if let snapshot = view.snapshotView(afterScreenUpdates: true) {
+                    destinationViewController.snapshot = snapshot
+                }
+            }
+            break
         default:
             break
         }
