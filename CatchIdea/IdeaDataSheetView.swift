@@ -39,7 +39,7 @@ internal class IdeaDataSheetView: UIView {
             reminderSwitch.isOn = false
             markColorView.currentSelectedColor = idea.markColor
             
-            if let content = idea.content,content != "" {
+            if idea.content != "" {
                 contentTextView.text = idea.content
                 contentTextView.textColor = UIColor.black
             }

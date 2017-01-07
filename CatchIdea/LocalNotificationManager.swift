@@ -37,7 +37,7 @@ internal class LocalNotificationManager: NSObject {
         
         let content = UNMutableNotificationContent()
         content.title = NSString.localizedUserNotificationString(forKey: ideaData.header, arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: ideaData.content == nil ? "" : ideaData.content!, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: ideaData.content, arguments: nil)
         //使用当地时区配置触发时间
 //        let trigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents(in: TimeZone.current, from: notificationDate), repeats: false)
         let interval = notificationDate.timeIntervalSince(Date())

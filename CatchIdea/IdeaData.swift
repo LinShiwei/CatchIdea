@@ -11,7 +11,7 @@ import UIKit
 internal class IdeaData {
     //These properties should store in CoreData
     internal let addingDate: Date
-    internal var content: String?
+    internal var content: String
     internal var header: String
     internal var isFinish: Bool
     internal var isDelete: Bool
@@ -23,7 +23,7 @@ internal class IdeaData {
             return addingDate.description
         }
     }
-    internal init(addingDate: Date, header: String, content: String?=nil,isFinish: Bool=false, isDelete: Bool=false, markColor: UIColor=Theme.shared.markColors[0], notificationDate: Date?=nil) {
+    internal init(addingDate: Date, header: String, content: String="",isFinish: Bool=false, isDelete: Bool=false, markColor: UIColor=Theme.shared.markColors[0], notificationDate: Date?=nil) {
         self.addingDate = addingDate
         self.header = header
         self.content = content

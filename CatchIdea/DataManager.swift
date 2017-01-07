@@ -124,8 +124,9 @@ internal final class DataManager {
                     let header = object.value(forKey: "header") as? String ,
                     let isFinish = object.value(forKey: "isFinish") as? Bool,
                     let isDelete = object.value(forKey: "isDelete") as? Bool,
-                    let markColor = object.value(forKey: "markColor") as? UIColor{
-                    let content = object.value(forKey: "content") as? String
+                    let markColor = object.value(forKey: "markColor") as? UIColor,
+                    let content = object.value(forKey: "content") as? String {
+                    
                     let notificationDate = object.value(forKey: "notificationDate") as? Date
                     if (notificationDate != nil)&&(notificationDate! <= Date()) {
                         ideas.append(IdeaData(addingDate: addingDate, header: header, content: content,isFinish: isFinish,isDelete: isDelete, markColor: markColor, notificationDate:nil))
@@ -178,7 +179,8 @@ internal final class DataManager {
                 completion(true)
             }else{
                 //当要使用模拟数据的时候，解除下注释
-                saveMockIdeaData(ideas: mockIdeaData(),completion)
+//                saveMockIdeaData(ideas: mockIdeaData(),completion)
+                saveMockIdeaData(ideas: guidelineMockIdeaData(), completion)
             }
         }else{
             completion(true)
@@ -194,18 +196,6 @@ internal final class DataManager {
             completion(true)
         }
     }
-
-    private func mockIdeaData()->[IdeaData] {
-        var ideas = [IdeaData]()
-        var date = Date(timeIntervalSinceReferenceDate: 0)
-        for _ in 0...20 {
-            let header = date.description
-            let content = date.description
-            date.addTimeInterval(-100)
-            ideas.append(IdeaData(addingDate: date, header: header, content: content))
-        }
-        return ideas
-    }
     
     private func createIdeaObject(fromIdeaData idea: IdeaData)->NSManagedObject{
         let managedContext = self.getManagedContext()
@@ -220,6 +210,29 @@ internal final class DataManager {
         ideaObject.setValue(idea.notificationDate, forKey: "notificationDate")
         return ideaObject
     }
+    
+    private func mockIdeaData()->[IdeaData] {
+        var ideas = [IdeaData]()
+        var date = Date(timeIntervalSinceReferenceDate: 0)
+        for _ in 0...20 {
+            let header = date.description
+            let content = date.description
+            date.addTimeInterval(-100)
+            ideas.append(IdeaData(addingDate: date, header: header, content: content))
+        }
+        return ideas
+    }
+    
+    private func guidelineMockIdeaData()->[IdeaData]{
+        var ideas = [IdeaData]()
+        let date = Date(timeIntervalSinceReferenceDate: 0)
+        let idea1 = IdeaData(addingDate: date, header: "Swipe to delete.")
+        ideas.append(idea1)
+        
+        return ideas
+    }
+    
+    
     
     private func getManagedContext()->NSManagedObjectContext{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
