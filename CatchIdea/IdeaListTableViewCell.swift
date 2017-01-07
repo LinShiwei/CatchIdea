@@ -12,13 +12,13 @@ import UIKit
 
 internal class IdeaListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var notificationControlButton: UIButton!
+    @IBOutlet weak var notificationIndicatorButton: NotificationIndicatorButton!
     @IBOutlet weak var markColorIndicationView: UIView!
     @IBOutlet weak var contentHeaderLabel: UILabel!
     
     internal var ideaData: IdeaData?{
         didSet{
-            notificationControlButton.isHidden = (ideaData?.notificationDate != nil) ? false : true
+            notificationIndicatorButton.isHidden = (ideaData?.notificationDate != nil) ? false : true
             markColorIndicationView.layer.backgroundColor = ideaData?.markColor.cgColor
             contentHeaderLabel.text = ideaData?.header
             
@@ -34,6 +34,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
         markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
         addGesture()
         LocalNotificationManager.shared.addObserver(self, forKeyPath: "currentNotificationIdentifier", options: .new, context: nil)
+        
     }
     
     override func layoutSubviews() {
@@ -49,7 +50,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let notificationIdentifier = change?[.newKey] as? String,let ideaIdentifier = ideaData?.identifier {
             if notificationIdentifier == ideaIdentifier {
-                cancleNotification(notificationControlButton)
+                cancleNotification(notificationIndicatorButton)
             }
             
         }

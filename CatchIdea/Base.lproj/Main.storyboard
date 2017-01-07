@@ -59,7 +59,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-Sd-8Ly">
-                                                    <rect key="frame" x="59" y="8" width="253" height="50"/>
+                                                    <rect key="frame" x="59" y="8" width="223" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -72,13 +72,12 @@
                                                         <constraint firstAttribute="width" constant="42" id="mCt-kS-4nr"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkS-kK-aIA">
-                                                    <rect key="frame" x="282" y="8" width="30" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkS-kK-aIA" customClass="NotificationIndicatorButton" customModule="CatchIdea" customModuleProvider="target">
+                                                    <rect key="frame" x="290" y="22" width="22" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="A8p-Nd-a8L"/>
-                                                        <constraint firstAttribute="width" constant="30" id="RZZ-hn-lF6"/>
+                                                        <constraint firstAttribute="height" constant="22" id="A8p-Nd-a8L"/>
+                                                        <constraint firstAttribute="width" constant="22" id="RZZ-hn-lF6"/>
                                                     </constraints>
-                                                    <state key="normal" title="B"/>
                                                     <connections>
                                                         <action selector="cancleNotification:" destination="5TT-DG-qSK" eventType="touchUpInside" id="flJ-Oi-4EO"/>
                                                     </connections>
@@ -87,19 +86,19 @@
                                             <constraints>
                                                 <constraint firstItem="Yyd-Sd-8Ly" firstAttribute="top" secondItem="64R-MS-uUN" secondAttribute="topMargin" id="7eO-Sz-qBI"/>
                                                 <constraint firstItem="RNS-xd-P3z" firstAttribute="centerY" secondItem="64R-MS-uUN" secondAttribute="centerY" id="Aja-1S-C1O"/>
+                                                <constraint firstItem="DkS-kK-aIA" firstAttribute="centerY" secondItem="64R-MS-uUN" secondAttribute="centerY" id="FMh-cG-AOe"/>
+                                                <constraint firstItem="DkS-kK-aIA" firstAttribute="leading" secondItem="Yyd-Sd-8Ly" secondAttribute="trailing" constant="8" id="Mpg-xX-Po9"/>
                                                 <constraint firstItem="Yyd-Sd-8Ly" firstAttribute="leading" secondItem="RNS-xd-P3z" secondAttribute="trailing" constant="9" id="Npi-qz-xcF"/>
+                                                <constraint firstItem="DkS-kK-aIA" firstAttribute="trailing" secondItem="64R-MS-uUN" secondAttribute="trailingMargin" id="WLt-1a-CCs"/>
                                                 <constraint firstItem="RNS-xd-P3z" firstAttribute="leading" secondItem="64R-MS-uUN" secondAttribute="leadingMargin" id="YTV-dI-M2k"/>
-                                                <constraint firstItem="Yyd-Sd-8Ly" firstAttribute="trailing" secondItem="64R-MS-uUN" secondAttribute="trailingMargin" id="ZRB-MT-rxd"/>
-                                                <constraint firstItem="DkS-kK-aIA" firstAttribute="trailing" secondItem="64R-MS-uUN" secondAttribute="trailingMargin" id="j2V-Rg-uTU"/>
                                                 <constraint firstItem="Yyd-Sd-8Ly" firstAttribute="bottom" secondItem="64R-MS-uUN" secondAttribute="bottomMargin" id="oH1-Oe-u46"/>
-                                                <constraint firstItem="DkS-kK-aIA" firstAttribute="top" secondItem="64R-MS-uUN" secondAttribute="topMargin" id="puG-hd-2eb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="contentHeaderLabel" destination="Yyd-Sd-8Ly" id="c3e-l3-oe9"/>
                                             <outlet property="markColorIndicationView" destination="RNS-xd-P3z" id="QMf-Pr-fgN"/>
-                                            <outlet property="notificationControlButton" destination="DkS-kK-aIA" id="dDi-iY-3Jr"/>
+                                            <outlet property="notificationIndicatorButton" destination="DkS-kK-aIA" id="0kN-Oq-Lc5"/>
                                             <segue destination="ifY-Y3-tiW" kind="show" identifier="IdeaCellDetail" id="GMp-GD-Uue"/>
                                         </connections>
                                     </tableViewCell>
