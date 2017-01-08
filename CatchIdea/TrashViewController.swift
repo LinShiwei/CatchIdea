@@ -33,6 +33,20 @@ class TrashViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        defer {
+            let userDefault = UserDefaults.standard
+            if let hasShownMainVCGuide = userDefault.value(forKey: "HasShownTrashVCGuide") as? Bool, hasShownMainVCGuide == true{
+                //comment out the following line when use
+//                userDefault.set(false, forKey: "HasShownTrashVCGuide")
+            }else{
+                performSegue(withIdentifier: "ShowGuide", sender: nil)
+                userDefault.set(true, forKey: "HasShownTrashVCGuide")
+            }
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         let _ = trashTableView.resignFirstResponder()
         super.viewWillDisappear(animated)
@@ -41,10 +55,28 @@ class TrashViewController: UIViewController {
         notificationCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {return}
+        switch identifier {
+        case "ShowGuide":
+            if let destinationViewController = segue.destination as? GuideViewController {
+                if let snapshot = view.snapshotView(afterScreenUpdates: true) {
+                    destinationViewController.snapshot = snapshot
+                    let imageView = UIImageView(image: #imageLiteral(resourceName: "TrashGuide"))
+                    imageView.center = CGPoint(x: windowBounds.width/2, y: imageView.frame.height/2+152)
+                    destinationViewController.containerView.addSubview(imageView)
+                }
+            }
+            break
+        default:
+            break
+        }
+    }
+    
     @IBAction func clearTrashForever(_ sender: Any) {
         guard trashTableView.numberOfRows(inSection: 0) > 0 else {return}
-        let alert = UIAlertController(title: "清空纸篓", message: "确定要清空纸篓吗？此操作不可恢复。", preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "确定", style: .default,handler: { (action:UIAlertAction) -> Void in
+        let alert = UIAlertController(title: "Clear Trash", message: "Delete all ideas forever?", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Yes", style: .default,handler: { (action:UIAlertAction) -> Void in
             self.ideaDataManager.deleteAllIdeaDataInTrash(){[unowned self] success in
                 if success {
                     self.trashTableView.ideaData.removeAll()
@@ -52,7 +84,7 @@ class TrashViewController: UIViewController {
                 }
             }
         })
-        let cancelAction = UIAlertAction(title: "取消", style: .default) { (action: UIAlertAction) -> Void in }
+        let cancelAction = UIAlertAction(title: "No", style: .default) { (action: UIAlertAction) -> Void in }
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

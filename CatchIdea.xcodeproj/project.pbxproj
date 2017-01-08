@@ -185,13 +185,13 @@
 				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
 				56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */,
 				561FAA161E20CBC000206894 /* UIColor+~=.swift */,
+				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
+				561FAA191E21247300206894 /* GuideViewController.swift */,
 				56660BBC1E18EE7100FBA7EB /* DRCellSlide */,
 				567FA3ED1E05752A00E4A293 /* Manager */,
 				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
 				567676F51E1693AA00555102 /* IdeaFilterView */,
 				56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */,
-				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
-				561FAA191E21247300206894 /* GuideViewController.swift */,
 			);
 			name = SharedCalss;
 			sourceTree = "<group>";

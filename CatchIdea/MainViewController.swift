@@ -23,7 +23,15 @@ internal class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ideaListTableView.addPullRefresh{ [weak self] in
-            self?.performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
+            var shouldPresent = true
+            if let childVC = self?.childViewControllers {
+                for vc in childVC where vc is CreateIdeaViewController {
+                    shouldPresent = false
+                }
+            }
+            if shouldPresent {
+                self?.performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
+            }
             self?.ideaListTableView.stopPullRefreshEver()
         }
     }
@@ -54,7 +62,14 @@ internal class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         defer {
-            performSegue(withIdentifier: "ShowGuide", sender: nil)
+            let userDefault = UserDefaults.standard
+            if let hasShownMainVCGuide = userDefault.value(forKey: "HasShownMainVCGuide") as? Bool, hasShownMainVCGuide == true{
+                //comment out the following line when use
+//                userDefault.set(false, forKey: "HasShownMainVCGuide")
+            }else{
+                performSegue(withIdentifier: "ShowGuide", sender: nil)
+                userDefault.set(true, forKey: "HasShownMainVCGuide")
+            }
         }
     }
     
@@ -90,8 +105,11 @@ internal class MainViewController: UIViewController {
             }
         case "ShowGuide":
             if let destinationViewController = segue.destination as? GuideViewController {
-                if let snapshot = view.snapshotView(afterScreenUpdates: true) {
+                if let snapshot = view.snapshotView(afterScreenUpdates: false) {
                     destinationViewController.snapshot = snapshot
+                    let imageView = UIImageView(image: #imageLiteral(resourceName: "MainGuide"))
+                    imageView.center = CGPoint(x: windowBounds.width/2, y: imageView.frame.height/2+152)
+                    destinationViewController.containerView.addSubview(imageView)
                 }
             }
             break
@@ -135,10 +153,6 @@ extension MainViewController: UITableViewDelegate {
     }
     //MARK ScrollView delegate
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        if let refreshControl = scrollView.refreshControl,refreshControl.isRefreshing == true {
-//            performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
-//            refreshControl.endRefreshing()
-//        }
         
         let yOffset = scrollView.contentOffset.y
         let xOffset = scrollView.contentOffset.x

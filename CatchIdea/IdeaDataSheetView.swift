@@ -12,7 +12,7 @@ internal class IdeaDataSheetView: UIView {
 
     fileprivate var headerTextField: UITextField!
     private var contentTextView: ContextTextView!
-    private var reminderSwitch: UISwitch!
+    dynamic private var reminderSwitch: UISwitch!
     private var markColorView: MarkColorsView!
     private var reminderIntervalSlider: UISlider!
     private var notificationIntervalLabel: UILabel!
@@ -58,6 +58,9 @@ internal class IdeaDataSheetView: UIView {
         notificationIntervalLabel = viewWithTag(6) as! UILabel
         
         reminderIntervalSlider.addTarget(self, action: #selector(sliderDidChangeValue(sender:)), for: .valueChanged)
+        reminderIntervalSlider.isEnabled = reminderSwitch.isOn
+        
+        reminderSwitch.addTarget(self, action: #selector(switchDidChangeValue(sender:)), for: .valueChanged)
     }
     
     internal func saveIdea(){
@@ -81,10 +84,15 @@ internal class IdeaDataSheetView: UIView {
         headerTextField.becomeFirstResponder()
     }
     
+    @objc private func switchDidChangeValue(sender: UISwitch){
+        reminderIntervalSlider.isEnabled = sender.isOn
+    }
+    
     @objc private func sliderDidChangeValue(sender: UISlider){
         notificationInterval = TimeInterval((reminderIntervalSlider.value*294)*(reminderIntervalSlider.value*294)) + 300
 
     }
+
 }
 
 extension IdeaDataSheetView: UITextFieldDelegate{

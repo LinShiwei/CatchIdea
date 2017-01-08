@@ -28,7 +28,6 @@ class GuideViewController: UIViewController {
         okButton.layer.borderColor = UIColor.white.cgColor
         okButton.layer.borderWidth = 2
         okButton.addTarget(self, action: #selector(tapToDismiss(sender:)), for: .touchUpInside)
-//        view.addSubview(snapshot)
         view.backgroundColor = UIColor.clear
         view.addSubview(maskView)
         view.addSubview(containerView)

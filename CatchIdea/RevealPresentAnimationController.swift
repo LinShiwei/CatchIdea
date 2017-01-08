@@ -34,26 +34,18 @@ extension RevealPresentAnimationController: UIViewControllerAnimatedTransitionin
         maskView.layer.masksToBounds = true
         maskView.transform = CGAffineTransform(scaleX: 1.0/maskView.frame.width, y: 1.0/maskView.frame.height)
         
-        
-//        let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
-
         containerView.addSubview(toVC.view)
-//        containerView.addSubview(snapshot!)
         containerView.addSubview(maskView)
-        //注意：下面这一行｀snapshot?.mask = maskView｀要放在 containerView.addSubView之后，不然效果会不一样。
-//        snapshot!.mask = maskView
+        //注意：下面这一行｀.mask = maskView｀要放在 containerView.addSubView之后，不然效果会不一样。
         toVC.view.mask = maskView
         
         let duration = transitionDuration(using: transitionContext)
-//        toVC.view.isHidden = true
 
         UIView.animateKeyframes(withDuration: duration,delay: 0,options: .beginFromCurrentState,animations: {
                 maskView.transform = .identity
         },completion: { _ in
-//                toVC.view.isHidden = false
                 toVC.view.mask = nil
                 maskView.removeFromSuperview()
-//                snapshot?.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }

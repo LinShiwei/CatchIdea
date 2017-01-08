@@ -29,6 +29,24 @@
             </objects>
             <point key="canvasLocation" x="953" y="-599"/>
         </scene>
+        <!--Guide View Controller-->
+        <scene sceneID="dZF-B7-n4k">
+            <objects>
+                <viewController id="q6M-Nk-y7W" customClass="GuideViewController" customModule="CatchIdea" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1SR-aS-TIu"/>
+                        <viewControllerLayoutGuide type="bottom" id="HFR-JD-3mr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QQj-b1-dmI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opE-RY-nw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800" y="-600"/>
+        </scene>
         <!--Catch-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -73,12 +91,12 @@
                                         <rect key="frame" x="0.0" y="116" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5TT-DG-qSK" id="64R-MS-uUN">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-Sd-8Ly">
                                                     <rect key="frame" x="59" y="8" width="223" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -173,7 +191,7 @@
                         <outlet property="tableViewBottomSpace" destination="fps-2G-4JD" id="0hB-ZN-IgR"/>
                         <outlet property="trashButton" destination="Y7T-6f-zMP" id="Mzj-hm-4Pe"/>
                         <segue destination="ifY-Y3-tiW" kind="showDetail" identifier="PullToCreateIdea" id="Piy-mF-gG8"/>
-                        <segue destination="WM9-2c-KNg" kind="presentation" identifier="ShowGuide" id="XU8-dB-Azk"/>
+                        <segue destination="WM9-2c-KNg" kind="showDetail" identifier="ShowGuide" id="XU8-dB-Azk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,12 +247,12 @@
                                         <rect key="frame" x="0.0" y="116" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Cc-v7-NZR" id="NL5-Nm-Xf7">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFu-Em-acE">
                                                     <rect key="frame" x="58" y="8" width="254" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -314,6 +332,7 @@
                         <outlet property="backToMainVCButton" destination="rZV-fO-Y7U" id="g1U-wM-Aum"/>
                         <outlet property="tableViewBottomSpace" destination="0LE-Tq-lhg" id="QV0-rD-Tso"/>
                         <outlet property="trashTableView" destination="6vC-VN-kEo" id="lW1-QF-Nm0"/>
+                        <segue destination="q6M-Nk-y7W" kind="showDetail" identifier="ShowGuide" id="bpU-kK-eaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uty-G3-WZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
