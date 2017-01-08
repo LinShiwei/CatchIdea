@@ -29,6 +29,8 @@ class GuideViewController: UIViewController {
         okButton.layer.borderWidth = 2
         okButton.addTarget(self, action: #selector(tapToDismiss(sender:)), for: .touchUpInside)
         view.backgroundColor = UIColor.clear
+        snapshot.alpha = 0
+        view.insertSubview(snapshot, at: 0)
         view.addSubview(maskView)
         view.addSubview(containerView)
         view.addSubview(okButton)
@@ -46,7 +48,7 @@ class GuideViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        view.insertSubview(snapshot, at: 0)
+        snapshot.alpha = 1
     }
     
     override func viewWillDisappear(_ animated: Bool) {

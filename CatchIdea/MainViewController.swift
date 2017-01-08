@@ -105,7 +105,7 @@ internal class MainViewController: UIViewController {
             }
         case "ShowGuide":
             if let destinationViewController = segue.destination as? GuideViewController {
-                if let snapshot = view.snapshotView(afterScreenUpdates: false) {
+                if let snapshot = view.snapshotView(afterScreenUpdates: true) {
                     destinationViewController.snapshot = snapshot
                     let imageView = UIImageView(image: #imageLiteral(resourceName: "MainGuide"))
                     imageView.center = CGPoint(x: windowBounds.width/2, y: imageView.frame.height/2+152)
