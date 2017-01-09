@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.catchidea</string>
+		<string>group.catchidea.linshiwei</string>
 	</array>
 </dict>
 </plist>
