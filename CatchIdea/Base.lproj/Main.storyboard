@@ -95,17 +95,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-Sd-8Ly">
-                                                    <rect key="frame" x="59" y="8" width="223" height="50"/>
+                                                    <rect key="frame" x="47" y="8" width="235" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-xd-P3z">
-                                                    <rect key="frame" x="8" y="12" width="42" height="42"/>
+                                                    <rect key="frame" x="8" y="18" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="42" id="ixm-eS-Y8i"/>
-                                                        <constraint firstAttribute="width" constant="42" id="mCt-kS-4nr"/>
+                                                        <constraint firstAttribute="height" constant="30" id="ixm-eS-Y8i"/>
+                                                        <constraint firstAttribute="width" constant="30" id="mCt-kS-4nr"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkS-kK-aIA" customClass="NotificationIndicatorButton" customModule="CatchIdea" customModuleProvider="target">
@@ -251,17 +251,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFu-Em-acE">
-                                                    <rect key="frame" x="58" y="8" width="254" height="50"/>
+                                                    <rect key="frame" x="46" y="8" width="266" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0w-ub-hhO">
-                                                    <rect key="frame" x="8" y="12" width="42" height="42"/>
+                                                    <rect key="frame" x="8" y="18" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="u0w-ub-hhO" secondAttribute="height" multiplier="1:1" id="pnh-6a-F9F"/>
-                                                        <constraint firstAttribute="height" constant="42" id="sx4-8j-aDZ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="sx4-8j-aDZ"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

@@ -57,6 +57,7 @@ internal class IdeaDataSheetView: UIView {
         reminderIntervalSlider = viewWithTag(5) as! UISlider
         notificationIntervalLabel = viewWithTag(6) as! UILabel
         
+        headerTextField.borderStyle = .none
         reminderIntervalSlider.addTarget(self, action: #selector(sliderDidChangeValue(sender:)), for: .valueChanged)
         reminderIntervalSlider.isEnabled = reminderSwitch.isOn
         

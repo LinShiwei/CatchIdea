@@ -184,7 +184,13 @@ internal final class DataManager {
             }else{
                 //当要使用模拟数据的时候，解除下注释
 //                saveMockIdeaData(ideas: mockIdeaData(),completion)
-                saveMockIdeaData(ideas: guidelineMockIdeaData(), completion)
+                let userDefault = UserDefaults.standard
+                if let hasCreateMockData = userDefault.value(forKey: "HasCreateMockData") as? Bool, hasCreateMockData == true{
+                    
+                }else{
+                    saveMockIdeaData(ideas: guidelineMockIdeaData(), completion)
+                    userDefault.set(true, forKey: "HasCreateMockData")
+                }
             }
         }else{
             completion(true)
