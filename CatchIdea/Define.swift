@@ -9,3 +9,5 @@
 import UIKit
 
 internal let windowBounds = UIScreen.main.bounds
+
+internal let leastNotificationInterval: TimeInterval = 300

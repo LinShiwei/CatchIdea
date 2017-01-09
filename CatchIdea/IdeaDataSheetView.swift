@@ -18,7 +18,7 @@ internal class IdeaDataSheetView: UIView {
     private var notificationIntervalLabel: UILabel!
     private let dataManager = DataManager.shared
     
-    private var notificationInterval: TimeInterval = 300 {
+    private var notificationInterval: TimeInterval = leastNotificationInterval {
         didSet{
             let minutes = Int(floor(notificationInterval/60))
             if minutes < 60 {
@@ -89,7 +89,7 @@ internal class IdeaDataSheetView: UIView {
     }
     
     @objc private func sliderDidChangeValue(sender: UISlider){
-        notificationInterval = TimeInterval((reminderIntervalSlider.value*294)*(reminderIntervalSlider.value*294)) + 300
+        notificationInterval = TimeInterval((reminderIntervalSlider.value*294)*(reminderIntervalSlider.value*294)) + leastNotificationInterval
 
     }
 

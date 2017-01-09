@@ -74,6 +74,14 @@ internal class MainVCTableView: UITableView {
         let _ = filterView?.resignFirstResponder()
         return true
     }
+    
+    internal func checkoutCellsNotification(){
+        for cell in visibleCells {
+            if let ideaCell = cell as? IdeaListTableViewCell {
+                ideaCell.checkoutCellNotification()
+            }
+        }
+    }
 }
 
 extension MainVCTableView: IdeaFilterDelegate {

@@ -23,16 +23,16 @@ internal class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ideaListTableView.addPullRefresh{ [weak self] in
-            var shouldPresent = true
-            if let childVC = self?.childViewControllers {
-                for vc in childVC where vc is CreateIdeaViewController {
-                    shouldPresent = false
-                }
-            }
-            if shouldPresent {
+            
+            if ViewControllermanager.shared.createVC == nil {
                 self?.performSegue(withIdentifier: "PullToCreateIdea", sender: nil)
+                
+            }else{
+                
             }
+           
             self?.ideaListTableView.stopPullRefreshEver()
+      
         }
     }
 
@@ -96,6 +96,7 @@ internal class MainViewController: UIViewController {
             }
         case "PullToCreateIdea":
             if let destinationViewController = segue.destination as? CreateIdeaViewController {
+                ViewControllermanager.shared.createVC = destinationViewController
                 destinationViewController.transitioningDelegate = self
                 dimPresentAnimationController.dimCenter = CGPoint(x: windowBounds.width/2, y: 88)
             }
@@ -150,6 +151,9 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.layer.borderWidth = 0
+        if let ideaCell = cell as? IdeaListTableViewCell {
+            ideaCell.checkoutCellNotification()
+        }
     }
     //MARK ScrollView delegate
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

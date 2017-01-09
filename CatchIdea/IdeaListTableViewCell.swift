@@ -18,7 +18,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
     
     internal var ideaData: IdeaData?{
         didSet{
-            notificationIndicatorButton.isHidden = (ideaData?.notificationDate != nil) ? false : true
+            checkoutCellNotification()
             markColorIndicationView.layer.backgroundColor = ideaData?.markColor.cgColor
             contentHeaderLabel.text = ideaData?.header
             
@@ -77,6 +77,14 @@ internal class IdeaListTableViewCell: UITableViewCell {
         addGestureRecognizer(cellSliderGestureRecognizer)
     }
  
+    internal func checkoutCellNotification(){
+        if let notificationDate = ideaData?.notificationDate,notificationDate <= Date() {
+            cancleNotification(notificationIndicatorButton)
+        }else{
+            notificationIndicatorButton.isHidden = (ideaData?.notificationDate != nil) ? false : true
+        }
+    }
+    
     @IBAction func cancleNotification(_ sender: UIButton) {
         if let data = ideaData, data.notificationDate != nil {
             DataManager.shared.deleteIdeaDataNotification(ideaData: data)

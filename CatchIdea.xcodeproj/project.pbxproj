@@ -15,6 +15,7 @@
 		5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */; };
 		5625D0461E1E7D3400EE2CB1 /* ContextTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */; };
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
+		56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56429BCD1E236DF100C38466 /* ViewControllerManager.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
 		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
 		56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */; };
@@ -91,6 +92,7 @@
 		5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorsView.swift; sourceTree = "<group>"; };
 		5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTextView.swift; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
+		56429BCD1E236DF100C38466 /* ViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerManager.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
 		56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchIdea-Bridging-Header.h"; sourceTree = "<group>"; };
 		56660BB31E18EE6700FBA7EB /* DRCellSlideAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCellSlideAction.h; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				561FAA161E20CBC000206894 /* UIColor+~=.swift */,
 				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
 				561FAA191E21247300206894 /* GuideViewController.swift */,
+				56429BCD1E236DF100C38466 /* ViewControllerManager.swift */,
 				56660BBC1E18EE7100FBA7EB /* DRCellSlide */,
 				567FA3ED1E05752A00E4A293 /* Manager */,
 				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
@@ -496,6 +499,7 @@
 				56760ECC1E1B446800561854 /* PullToRefreshOption.swift in Sources */,
 				56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */,
 				56FED2E11E1A2F2800974D86 /* TopDecorationView.swift in Sources */,
+				56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */,
 				564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

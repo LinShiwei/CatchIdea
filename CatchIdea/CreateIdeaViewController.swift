@@ -56,7 +56,8 @@ internal class CreateIdeaViewController: UIViewController {
         notificationCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
         
         ideaDataSheetView.resignSubviewsFirstResponder()
-        
+     
+        ViewControllermanager.shared.createVC = nil
         super.viewWillDisappear(animated)
     }
     
