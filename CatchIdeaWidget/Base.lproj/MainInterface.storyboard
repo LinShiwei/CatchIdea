@@ -23,31 +23,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="88R-eC-w9U">
-                                <rect key="frame" x="16" y="49" width="343" height="598"/>
+                                <rect key="frame" x="16" y="29" width="343" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-oD-oEd">
-                                <rect key="frame" x="16" y="20" width="343" height="21"/>
+                                <rect key="frame" x="45" y="8" width="314" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="NFO-zF-0sk"/>
+                                    <constraint firstAttribute="height" constant="21" id="tfE-i1-Y4x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sw9-pV-6Xq">
+                                <rect key="frame" x="16" y="8" width="21" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="tpf-5G-ydJ"/>
+                                    <constraint firstAttribute="width" constant="21" id="wKD-om-Yxj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="zFR-oD-oEd" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="8db-uP-6nZ"/>
-                            <constraint firstItem="88R-eC-w9U" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="LoU-xD-tXr"/>
-                            <constraint firstItem="zFR-oD-oEd" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="20" id="Y9x-mO-h0b"/>
-                            <constraint firstItem="zFR-oD-oEd" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="fu9-fE-nqf"/>
-                            <constraint firstItem="88R-eC-w9U" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="m2V-W5-fCf"/>
-                            <constraint firstItem="88R-eC-w9U" firstAttribute="top" secondItem="zFR-oD-oEd" secondAttribute="bottom" constant="8" id="rkX-Gf-Veq"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="88R-eC-w9U" secondAttribute="bottom" constant="20" id="yUm-Rq-tsC"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="88R-eC-w9U" secondAttribute="bottom" constant="20" id="21R-ad-Kj0"/>
+                            <constraint firstItem="zFR-oD-oEd" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="ABQ-Ac-2fl"/>
+                            <constraint firstItem="88R-eC-w9U" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="BfA-s6-QIo"/>
+                            <constraint firstItem="88R-eC-w9U" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="Gju-L3-QB0"/>
+                            <constraint firstItem="Sw9-pV-6Xq" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="gJc-zo-MxP"/>
+                            <constraint firstItem="zFR-oD-oEd" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="kxb-7X-jaO"/>
+                            <constraint firstItem="zFR-oD-oEd" firstAttribute="leading" secondItem="Sw9-pV-6Xq" secondAttribute="trailing" constant="8" id="p3S-Bm-tgg"/>
+                            <constraint firstItem="Sw9-pV-6Xq" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="ryw-cD-18W"/>
+                            <constraint firstItem="88R-eC-w9U" firstAttribute="top" secondItem="Sw9-pV-6Xq" secondAttribute="bottom" id="v4a-ay-ZkW"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Opr-VW-YII" appends="YES" id="4lL-va-gQW"/>
@@ -62,6 +72,7 @@
                     <connections>
                         <outlet property="contentTextView" destination="88R-eC-w9U" id="e3w-9f-GRP"/>
                         <outlet property="headerLabel" destination="zFR-oD-oEd" id="etF-rf-e88"/>
+                        <outlet property="markColorView" destination="Sw9-pV-6Xq" id="0nZ-Cl-xYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

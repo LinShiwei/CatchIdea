@@ -13,21 +13,30 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     
     
+    @IBOutlet weak var markColorView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        markColorView.layer.cornerRadius = markColorView.frame.width/2
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let userDefault = UserDefaults(suiteName: "group.catchidea")
-        let dic = userDefault?.value(forKey: "firstIdea") as? Dictionary<String, String>
-        if let dic = dic {
-            headerLabel.text = dic["header"]
-            contentTextView.text = dic["content"]
+        if let dic = userDefault?.value(forKey: "firstIdea") as? Dictionary<String, Any> {
+            headerLabel.text = dic["header"] as? String ?? ""
+            contentTextView.text = dic["content"] as? String ?? ""
+            if let colorData = dic["markColor"] as? Data {
+                markColorView.backgroundColor = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor ?? UIColor.blue
+            }
+            
+            
         }
+        
+    
     }
     
     override func didReceiveMemoryWarning() {
