@@ -29,7 +29,7 @@ internal final class DataManager {
     private var objects = [NSManagedObject](){
         didSet{
             for object in objects where (object.value(forKey: "isDelete") as! Bool)==false {
-                let userDefault = UserDefaults(suiteName: "group.catchidea")
+                let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
                 let dic = [ "header" : object.value(forKey: "header") ?? "",
                         "content": object.value(forKey: "content") ?? "",
                         "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])

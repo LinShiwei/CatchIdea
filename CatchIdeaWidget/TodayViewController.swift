@@ -25,7 +25,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let userDefault = UserDefaults(suiteName: "group.catchidea")
+        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
         if let dic = userDefault?.value(forKey: "firstIdea") as? Dictionary<String, Any> {
             headerLabel.text = dic["header"] as? String ?? ""
             contentTextView.text = dic["content"] as? String ?? ""
