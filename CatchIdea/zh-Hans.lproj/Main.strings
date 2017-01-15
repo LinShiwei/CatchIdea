@@ -1,0 +1,33 @@
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "3Yh-MS-wq1"; */
+"3Yh-MS-wq1.title" = "保存";
+
+/* Class = "UIBarButtonItem"; title = "Cancle"; ObjectID = "4io-b6-8fY"; */
+"4io-b6-8fY.title" = "取消";
+
+/* Class = "UITextField"; placeholder = "Your idea's title"; ObjectID = "56w-rm-goi"; */
+"56w-rm-goi.placeholder" = "主题";
+
+/* Class = "UINavigationItem"; title = "Idea"; ObjectID = "Dwf-wr-5DW"; */
+"Dwf-wr-5DW.title" = "灵感";
+
+/* Class = "UINavigationItem"; title = "Catch"; ObjectID = "FdE-xy-Vpt"; */
+"FdE-xy-Vpt.title" = "Catch";
+
+/* Class = "UINavigationItem"; title = "Trash"; ObjectID = "KBd-sd-DO0"; */
+"KBd-sd-DO0.title" = "废纸篓";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Yyd-Sd-8Ly"; */
+"Yyd-Sd-8Ly.text" = "Label";
+
+/* Class = "UILabel"; text = "Enable"; ObjectID = "egm-AW-kkt"; */
+"egm-AW-kkt.text" = "启用";
+
+/* Class = "UILabel"; text = "5 mins later"; ObjectID = "ifo-Tm-RVw"; */
+"ifo-Tm-RVw.text" = "5 分钟后";
+
+/* Class = "UINavigationItem"; title = "QuickNote"; ObjectID = "ju2-ZU-h9E"; */
+"ju2-ZU-h9E.title" = "Catch";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pFu-Em-acE"; */
+"pFu-Em-acE.text" = "Label";

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  CatchIdea
+
+  Created by Linsw on 17/1/15.
+  Copyright © 2017年 Linsw. All rights reserved.
+*/
+
+CFBundleDisplayName = "Catch";

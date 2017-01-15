@@ -22,10 +22,10 @@ internal class IdeaDataSheetView: UIView {
         didSet{
             let minutes = Int(floor(notificationInterval/60))
             if minutes < 60 {
-                notificationIntervalLabel.text = "\(minutes) minutes later"
+                notificationIntervalLabel.text = "\(minutes)"+LocalizationStrings.shared.createIdeaNotificationMinSuffix
             }else{
                 let hours = minutes/60
-                notificationIntervalLabel.text = "\(hours) hour(s) later"
+                notificationIntervalLabel.text = "\(hours)"+LocalizationStrings.shared.createIdeaNotificationHourSuffix
             }
         }
     }

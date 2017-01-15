@@ -155,7 +155,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="QuickNote" id="ju2-ZU-h9E">
+                                    <navigationItem title="Catch" id="ju2-ZU-h9E">
                                         <barButtonItem key="rightBarButtonItem" image="Delete" id="Y7T-6f-zMP">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>

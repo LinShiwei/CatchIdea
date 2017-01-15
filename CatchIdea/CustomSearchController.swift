@@ -24,6 +24,7 @@ class CustomSearchController: UISearchController {
         customSearchBar.tintColor = UIColor.white
         customSearchBar.layer.borderWidth = 1
         customSearchBar.layer.borderColor = customSearchBar.barTintColor?.cgColor
+        customSearchBar.setValue(LocalizationStrings.shared.searchBarCancleButtonTitle, forKey: "_cancelButtonText")
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

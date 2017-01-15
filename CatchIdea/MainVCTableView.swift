@@ -100,7 +100,7 @@ extension MainVCTableView: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
 //    }
     
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let text = NSAttributedString(string: "Drag down to create new idea.")
+        let text = NSAttributedString(string: LocalizationStrings.shared.mainTableEmptyString)
         return text
     }
     

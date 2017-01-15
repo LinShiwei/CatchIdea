@@ -40,6 +40,8 @@
 		56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9A1E1648AF00567685 /* IdeaFilterView.swift */; };
 		56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9C1E167C4A00567685 /* CustomSearchController.swift */; };
 		56838B9F1E167C7700567685 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9E1E167C7700567685 /* CustomSearchBar.swift */; };
+		569238FB1E2B555D005F74C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 569238FD1E2B555D005F74C9 /* InfoPlist.strings */; };
+		569239001E2B5711005F74C9 /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */; };
 		56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */; };
 		56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */; };
 		56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */; };
@@ -110,6 +112,9 @@
 		56760ED31E1B962500561854 /* RefreshContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContainerView.swift; sourceTree = "<group>"; };
 		567A76931E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		567A76941E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		567A76971E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		567A76981E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		567A76991E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567FA3D21E05628E00E4A293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +130,8 @@
 		56838B9A1E1648AF00567685 /* IdeaFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaFilterView.swift; sourceTree = "<group>"; };
 		56838B9C1E167C4A00567685 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		56838B9E1E167C7700567685 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		569238FC1E2B555D005F74C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
 		56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealPresentAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealDismissAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimPresentAnimationController.swift; sourceTree = "<group>"; };
@@ -185,6 +192,7 @@
 			children = (
 				56FE13841E0CF1B3006A833A /* Theme.swift */,
 				56FE13881E0CF56F006A833A /* Define.swift */,
+				569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */,
 				56FE138A1E0CFA71006A833A /* GeneralControlButton.swift */,
 				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
 				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
@@ -288,6 +296,7 @@
 				567FA3CD1E05628E00E4A293 /* AppDelegate.swift */,
 				567FA3D91E05628E00E4A293 /* LaunchScreen.storyboard */,
 				567FA3DC1E05628E00E4A293 /* Info.plist */,
+				569238FD1E2B555D005F74C9 /* InfoPlist.strings */,
 				56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */,
 				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
 			);
@@ -451,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				567FA3DB1E05628E00E4A293 /* LaunchScreen.storyboard in Resources */,
+				569238FB1E2B555D005F74C9 /* InfoPlist.strings in Resources */,
 				567FA3D81E05628E00E4A293 /* Assets.xcassets in Resources */,
 				567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */,
 			);
@@ -504,6 +514,7 @@
 				56BAF73C1E0BF57F00218103 /* LocalNotificationManager.swift in Sources */,
 				561FAA151E20C2C900206894 /* NotificationIndicatorButton.swift in Sources */,
 				567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */,
+				569239001E2B5711005F74C9 /* LocalizationStrings.swift in Sources */,
 				56FE138B1E0CFA71006A833A /* GeneralControlButton.swift in Sources */,
 				561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */,
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
@@ -541,6 +552,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				567FA3D21E05628E00E4A293 /* Base */,
+				567A76971E2B52CB00D2B646 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -549,14 +561,24 @@
 			isa = PBXVariantGroup;
 			children = (
 				567FA3DA1E05628E00E4A293 /* Base */,
+				567A76981E2B52CB00D2B646 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		569238FD1E2B555D005F74C9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				569238FC1E2B555D005F74C9 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		56BAF7491E0C16A600218103 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				56BAF74A1E0C16A600218103 /* Base */,
+				567A76991E2B52CB00D2B646 /* zh-Hans */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -568,6 +590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -618,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

@@ -31,7 +31,7 @@ class IndicationView: UIView {
         assert(frame.height > 20)
         
         indicationLabel = UILabel(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 200, height: 21)))
-        indicationLabel.text = "Pull to create idea."
+        indicationLabel.text = LocalizationStrings.shared.pullIndicationText
         indicationLabel.textColor = UIColor.lightGray
         indicationLabel.font = UIFont.systemFont(ofSize: 14)
         super.init(frame: frame)
@@ -49,12 +49,12 @@ class IndicationView: UIView {
     }
     
     private func performActiveAction(){
-        indicationLabel.text = "Release to create idea."
+        indicationLabel.text = LocalizationStrings.shared.releaseIndicationText
         indicationLabel.textColor = Theme.shared.mainThemeColor
     }
     
     private func performInaciveAction(){
-        indicationLabel.text = "Pull to create idea."
+        indicationLabel.text = LocalizationStrings.shared.pullIndicationText
         indicationLabel.textColor = UIColor.lightGray
     }
 }

@@ -27,10 +27,11 @@ internal class CreateIdeaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleSectionView.sectionTitle = "Title"
-        markColorSectionView.sectionTitle = "Mark Color"
-        contentSectionView.sectionTitle = "Content"
-        notificationSectionView.sectionTitle = "Notification"
+        let strings = LocalizationStrings.shared
+        titleSectionView.sectionTitle = strings.createIdeaTitleSectionTitle
+        markColorSectionView.sectionTitle = strings.createIdeaMarkColorSectionTitle
+        contentSectionView.sectionTitle = strings.createIdeaContentSectionTitle
+        notificationSectionView.sectionTitle = strings.createIdeaNotificationSectionTitle   
         
         if let idea = originIdeaData {
             ideaDataSheetView.idea = idea
