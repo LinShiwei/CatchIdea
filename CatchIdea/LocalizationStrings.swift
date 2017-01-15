@@ -17,25 +17,30 @@ internal class LocalizationStrings {
     internal let createIdeaMarkColorSectionTitle: String
     internal let createIdeaContentSectionTitle: String
     internal let createIdeaNotificationSectionTitle: String
+    internal let createIdeaContextViewPlaceholder: String
     internal let createIdeaNotificationMinSuffix: String
     internal let createIdeaNotificationHourSuffix: String
     
     internal let pullIndicationText: String
     internal let releaseIndicationText: String
     
-    internal let searchBarCancleButtonTitle: String
-    
+    internal let trashClearMessageTitle: String
+    internal let trashClearMessageContent: String
 
+    internal let okString: String
+    internal let cancleString: String
+    
     private init(){
         
         if isLanguageChineseSimple {
             mainTableEmptyString = "下拉记录新的灵感"
-            trashTableEmptyString = "这里什么都没有"
+            trashTableEmptyString = "纸篓清空啦"
             
             createIdeaTitleSectionTitle = "主题"
             createIdeaMarkColorSectionTitle = "标记颜色"
             createIdeaContentSectionTitle = "内容"
             createIdeaNotificationSectionTitle = "推送通知"
+            createIdeaContextViewPlaceholder = "详细内容..."
             createIdeaNotificationMinSuffix = " 分钟后"
             createIdeaNotificationHourSuffix = " 小时后"
             
@@ -43,23 +48,32 @@ internal class LocalizationStrings {
             pullIndicationText = "下拉记录新的灵感"
             releaseIndicationText = "释放记录新的灵感"
             
-            searchBarCancleButtonTitle = "取消"
+            trashClearMessageTitle = "清空纸篓"
+            trashClearMessageContent = "要清空纸篓吗？此操作不可恢复。"
+            
+            okString = "好"
+            cancleString = "取消"
             
         }else{
             mainTableEmptyString = "Drag down to create new idea."
-            trashTableEmptyString = "There is nothing."
+            trashTableEmptyString = "Trash is empty."
             
             createIdeaTitleSectionTitle = "Title"
             createIdeaMarkColorSectionTitle = "MarkColor"
             createIdeaContentSectionTitle = "Content"
             createIdeaNotificationSectionTitle = "Notification"
+            createIdeaContextViewPlaceholder = "Write down your idea's content here."
             createIdeaNotificationMinSuffix = " mins later"
             createIdeaNotificationHourSuffix = " hour(s) later"
             
             pullIndicationText = "Pull to create a new idea."
             releaseIndicationText = "Release to create a new idea."
             
-            searchBarCancleButtonTitle = "Cancle"
+            trashClearMessageTitle = "Clear Trash"
+            trashClearMessageContent = "Delete all ideas forever?"
+            
+            okString = "OK"
+            cancleString = "Cancle"
         }
     
     

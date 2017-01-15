@@ -110,7 +110,10 @@ extension TrashTableView: IdeaCellManagerDelegate{
 
 extension TrashTableView: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let text = NSAttributedString(string: LocalizationStrings.shared.trashTableEmptyString)
+        let dic = [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 17)
+        ]
+        let text = NSAttributedString(string: LocalizationStrings.shared.trashTableEmptyString, attributes: dic)
         
         return text
     }

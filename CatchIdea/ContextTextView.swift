@@ -10,7 +10,7 @@ import UIKit
 
 class ContextTextView: UITextView {
 
-    internal let placeholder = "Write down your idea's content here."
+    internal let placeholder = LocalizationStrings.shared.createIdeaContextViewPlaceholder
     
     internal var contentText: String {
         get{

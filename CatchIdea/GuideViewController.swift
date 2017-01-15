@@ -20,7 +20,7 @@ class GuideViewController: UIViewController {
         super.viewDidLoad()
         maskView.backgroundColor = UIColor(white: 0.1, alpha: 0.5)
         
-        okButton.setTitle("OK", for: .normal)
+        okButton.setTitle(LocalizationStrings.shared.okString, for: .normal)
         okButton.setTitleColor(UIColor.white, for: .normal)
         okButton.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
         okButton.backgroundColor = UIColor.clear

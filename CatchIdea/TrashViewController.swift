@@ -75,8 +75,9 @@ class TrashViewController: UIViewController {
     
     @IBAction func clearTrashForever(_ sender: Any) {
         guard trashTableView.numberOfRows(inSection: 0) > 0 else {return}
-        let alert = UIAlertController(title: "Clear Trash", message: "Delete all ideas forever?", preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Yes", style: .default,handler: { (action:UIAlertAction) -> Void in
+        let strings = LocalizationStrings.shared
+        let alert = UIAlertController(title: strings.trashClearMessageTitle, message: strings.trashClearMessageContent, preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: strings.okString, style: .default,handler: { (action:UIAlertAction) -> Void in
             self.ideaDataManager.deleteAllIdeaDataInTrash(){[unowned self] success in
                 if success {
                     self.trashTableView.ideaData.removeAll()
@@ -84,7 +85,7 @@ class TrashViewController: UIViewController {
                 }
             }
         })
-        let cancelAction = UIAlertAction(title: "No", style: .default) { (action: UIAlertAction) -> Void in }
+        let cancelAction = UIAlertAction(title: strings.cancleString, style: .default) { (action: UIAlertAction) -> Void in }
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

@@ -100,7 +100,10 @@ extension MainVCTableView: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
 //    }
     
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let text = NSAttributedString(string: LocalizationStrings.shared.mainTableEmptyString)
+        let dic = [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 17)
+        ]
+        let text = NSAttributedString(string: LocalizationStrings.shared.mainTableEmptyString, attributes: dic)
         return text
     }
     
