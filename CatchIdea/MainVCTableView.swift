@@ -29,6 +29,8 @@ internal class MainVCTableView: UITableView {
             filterView = headerView
             filterView?.filterDelegate = self
         }
+        emptyDataSetSource = self
+        emptyDataSetDelegate = self
         tableFooterView = UIView()
     }
 
@@ -92,5 +94,18 @@ extension MainVCTableView: IdeaFilterDelegate {
     }
 }
 
-
+extension MainVCTableView: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
+//    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
+//        return #imageLiteral(resourceName: "AlarmClock")
+//    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let text = NSAttributedString(string: "Drag down to create new idea.")
+        return text
+    }
+    
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
+        return true
+    }
+}
 

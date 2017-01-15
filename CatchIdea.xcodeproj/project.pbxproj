@@ -26,6 +26,7 @@
 		56760ED01E1B82F300561854 /* AddingIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ECF1E1B82F300561854 /* AddingIconView.swift */; };
 		56760ED21E1B956D00561854 /* IndicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ED11E1B956D00561854 /* IndicationView.swift */; };
 		56760ED41E1B962500561854 /* RefreshContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ED31E1B962500561854 /* RefreshContainerView.swift */; };
+		567A76951E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A76941E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m */; };
 		567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3CD1E05628E00E4A293 /* AppDelegate.swift */; };
 		567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D11E05628E00E4A293 /* Main.storyboard */; };
 		567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
@@ -107,6 +108,8 @@
 		56760ECF1E1B82F300561854 /* AddingIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingIconView.swift; sourceTree = "<group>"; };
 		56760ED11E1B956D00561854 /* IndicationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicationView.swift; sourceTree = "<group>"; };
 		56760ED31E1B962500561854 /* RefreshContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContainerView.swift; sourceTree = "<group>"; };
+		567A76931E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		567A76941E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567FA3D21E05628E00E4A293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,6 +238,15 @@
 			name = IdeaFilterView;
 			sourceTree = "<group>";
 		};
+		567A76961E2B4A4A00D2B646 /* EmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				567A76931E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.h */,
+				567A76941E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m */,
+			);
+			name = EmptyDataSet;
+			sourceTree = "<group>";
+		};
 		567FA3C11E05628D00E4A293 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +269,7 @@
 		567FA3CC1E05628E00E4A293 /* CatchIdea */ = {
 			isa = PBXGroup;
 			children = (
+				567A76961E2B4A4A00D2B646 /* EmptyDataSet */,
 				56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */,
 				563782741E1E9FA9008A4367 /* SharedCalss */,
 				567FA3E51E056D3100E4A293 /* Support */,
@@ -325,8 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				567FA3E31E056CFA00E4A293 /* MainViewController.swift */,
-				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
 				563292121E0EB99F004C8EE1 /* MainVCTableView.swift */,
+				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -335,8 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				56F604C91E06C6BF001C465B /* TrashViewController.swift */,
-				56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */,
 				561A4A3E1E18CBF300457F2D /* TrashTableView.swift */,
+				56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */,
 			);
 			name = TrashVC;
 			sourceTree = "<group>";
@@ -480,6 +493,7 @@
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
 				56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */,
 				56760ED41E1B962500561854 /* RefreshContainerView.swift in Sources */,
+				567A76951E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m in Sources */,
 				56A1DD571E0D544E0047DA5C /* DimDismissAnimationController.swift in Sources */,
 				56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */,
 				56760ECE1E1B446800561854 /* UIScrollViewExtension.swift in Sources */,

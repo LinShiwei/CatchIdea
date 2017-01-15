@@ -216,7 +216,9 @@ extension MainViewController: IdeaCellManagerDelegate{
         }
         tempFilterIdeaData.remove(at: indexPath.row)
         ideaListTableView.filteredIdeaData = tempFilterIdeaData
+        ideaListTableView.beginUpdates()
         ideaListTableView.deleteRows(at: [indexPath], with: .left)
+        ideaListTableView.endUpdates()
         
         trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
         
@@ -237,8 +239,10 @@ extension MainViewController: IdeaCellManagerDelegate{
         }
         tempFilterIdeaData.remove(at: indexPath.row)
         ideaListTableView.filteredIdeaData = tempFilterIdeaData
+        ideaListTableView.beginUpdates()
         ideaListTableView.deleteRows(at: [indexPath], with: .right)
-
+        ideaListTableView.endUpdates()
+        
         trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
     }
 }

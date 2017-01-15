@@ -30,6 +30,8 @@ class TrashTableView: UITableView {
             filterView = headerView
             filterView?.filterDelegate = self
         }
+        emptyDataSetDelegate = self
+        emptyDataSetSource = self
         tableFooterView = UIView()
     }
     
@@ -83,7 +85,9 @@ extension TrashTableView: IdeaCellManagerDelegate{
         }
         tempFilterIdeaData.remove(at: indexPath.row)
         filteredIdeaData = tempFilterIdeaData
-        self.deleteRows(at: [indexPath], with: .fade)
+        beginUpdates()
+        deleteRows(at: [indexPath], with: .fade)
+        endUpdates()
     }
     
     func restoreIdea(sender: UITableViewCell) {
@@ -98,6 +102,16 @@ extension TrashTableView: IdeaCellManagerDelegate{
         }
         tempFilterIdeaData.remove(at: indexPath.row)
         filteredIdeaData = tempFilterIdeaData
-        self.deleteRows(at: [indexPath], with: .fade)
+        beginUpdates()
+        deleteRows(at: [indexPath], with: .fade)
+        endUpdates()
     }
+}
+
+extension TrashTableView: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let text = NSAttributedString(string: "There is nothing.")
+        return text
+    }
+    
 }
