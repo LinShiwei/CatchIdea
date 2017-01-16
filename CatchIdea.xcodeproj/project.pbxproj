@@ -277,8 +277,8 @@
 		567FA3CC1E05628E00E4A293 /* CatchIdea */ = {
 			isa = PBXGroup;
 			children = (
-				567A76961E2B4A4A00D2B646 /* EmptyDataSet */,
 				56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */,
+				567A76961E2B4A4A00D2B646 /* EmptyDataSet */,
 				563782741E1E9FA9008A4367 /* SharedCalss */,
 				567FA3E51E056D3100E4A293 /* Support */,
 				56F604CD1E06CA21001C465B /* MainVC */,

@@ -30,6 +30,9 @@ internal class LocalizationStrings {
     internal let okString: String
     internal let cancleString: String
     
+    internal let mainGuideImage: UIImage
+    internal let trashGuideImage: UIImage
+    
     private init(){
         
         if isLanguageChineseSimple {
@@ -54,6 +57,9 @@ internal class LocalizationStrings {
             okString = "好"
             cancleString = "取消"
             
+            mainGuideImage = #imageLiteral(resourceName: "MainGuide_cn")
+            trashGuideImage = #imageLiteral(resourceName: "TrashGuide_cn")
+            
         }else{
             mainTableEmptyString = "Drag down to create new idea."
             trashTableEmptyString = "Trash is empty."
@@ -74,6 +80,9 @@ internal class LocalizationStrings {
             
             okString = "OK"
             cancleString = "Cancle"
+            
+            mainGuideImage = #imageLiteral(resourceName: "MainGuide")
+            trashGuideImage = #imageLiteral(resourceName: "TrashGuide") 
         }
     
     

@@ -108,7 +108,7 @@ internal class MainViewController: UIViewController {
             if let destinationViewController = segue.destination as? GuideViewController {
                 if let snapshot = view.snapshotView(afterScreenUpdates: true) {
                     destinationViewController.snapshot = snapshot
-                    let imageView = UIImageView(image: #imageLiteral(resourceName: "MainGuide"))
+                    let imageView = UIImageView(image: LocalizationStrings.shared.mainGuideImage)
                     imageView.center = CGPoint(x: windowBounds.width/2, y: imageView.frame.height/2+152)
                     destinationViewController.containerView.addSubview(imageView)
                 }
@@ -134,13 +134,16 @@ internal class MainViewController: UIViewController {
         let keyboardRectInView = self.view.convert(keyboardRect, from: nil)
         
         tableViewBottomSpace.constant = keyboardRectInView.height
-        
-        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [unowned self] Void in
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     internal func keyboardWillHide(_ notification: Notification) {
         tableViewBottomSpace.constant = 0
-        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [unowned self] Void in
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
 }
 
