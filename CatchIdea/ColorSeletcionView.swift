@@ -45,15 +45,20 @@ class ColorSeletcionView: UIView {
         buttonRingLayer.frame = CGRect(x: -2, y: -2, width: buttonSideLength+4, height: buttonSideLength+4)
         buttonRingLayer.cornerRadius = buttonRingLayer.frame.width/2
         buttonRingLayer.borderColor = UIColor.lightGray.cgColor
-        buttonRingLayer.borderWidth = 2        
+        buttonRingLayer.borderWidth = 2
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
+        addGestureRecognizer(tapGesture)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
+        addGestureRecognizer(panGesture)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         initButtons(withContainerViewFrame: frame)
     }
-    
+
     private func initButtons(withContainerViewFrame containerViewFrame: CGRect){
         guard buttons.count == 0 else {return}
         let sideSpace: CGFloat = 20
@@ -68,17 +73,32 @@ class ColorSeletcionView: UIView {
             }else{
                 button.backgroundColor = Theme.shared.markColors[index-1]
             }
-            button.addTarget(self, action: #selector(didTapColorButton(sender:)), for: .touchUpInside)
             button.layer.cornerRadius = button.frame.width/2
+            button.isUserInteractionEnabled = false
             addSubview(button)
             buttons.append(button)
         }
         currentSelectedButton = buttons[0]
     }
     
-    @objc private func didTapColorButton(sender: UIButton){
-        currentSelectedButton = sender
-        selectionDelegate?.didSelectColor(sender.backgroundColor!)
+    
+    @objc private func didTap(sender: UITapGestureRecognizer) {
+        selectButton(atPoint: sender.location(in: self))
     }
-
+    
+    @objc private func didPan(sender: UIPanGestureRecognizer) {
+        selectButton(atPoint: sender.location(in: self))
+    
+    }
+    
+    private func selectButton(atPoint point: CGPoint) {
+        for btn in buttons {
+            if fabs(btn.center.x - point.x) < buttonSideLength/2 {
+                guard currentSelectedButton != btn else { return }
+                currentSelectedButton = btn
+                selectionDelegate?.didSelectColor(btn.backgroundColor!)
+                break
+            }
+        }
+    }
 }

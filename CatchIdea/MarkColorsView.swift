@@ -48,12 +48,18 @@ internal class MarkColorsView: UIView {
         buttonRingLayer.cornerRadius = buttonSideLength/2
         buttonRingLayer.borderColor = UIColor.lightGray.cgColor
         buttonRingLayer.borderWidth = 2
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(sender:)))
+        addGestureRecognizer(tapGesture)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(sender:)))
+        addGestureRecognizer(panGesture)
+        
         for view in subviews where view is UIButton {
             if let button = view as? UIButton {
                 button.backgroundColor = Theme.shared.markColors[button.tag-10-1]
-                button.addTarget(self, action: #selector(didTapColorButton(sender:)), for: .touchUpInside)
+                button.isUserInteractionEnabled = false
                 buttons.append(button)
-
             }
         }
 
@@ -72,9 +78,24 @@ internal class MarkColorsView: UIView {
         }
     }
     
-    @objc private func didTapColorButton(sender: UIButton){
-        currentSelectedButton = sender
-        currentSelectedColor = currentSelectedButton!.backgroundColor!
+    @objc private func didTap(sender: UITapGestureRecognizer) {
+        selectButton(atPoint: sender.location(in: self))
+    }
+    
+    @objc private func didPan(sender: UIPanGestureRecognizer) {
+        selectButton(atPoint: sender.location(in: self))
+        
+    }
+    
+    private func selectButton(atPoint point: CGPoint) {
+        for btn in buttons {
+            if fabs(btn.center.x - point.x) < buttonSideLength/2 {
+                guard currentSelectedButton != btn else { return }
+                currentSelectedButton = btn
+                currentSelectedColor = btn.backgroundColor!
+                break
+            }
+        }
     }
 }
 
