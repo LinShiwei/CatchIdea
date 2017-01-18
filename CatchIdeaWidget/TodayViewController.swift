@@ -21,6 +21,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         
         markColorView.layer.cornerRadius = markColorView.frame.width/2
+        markColorView.backgroundColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -17,32 +17,58 @@ internal enum IdeaDataType {
 internal enum DeleteStyle {
     case moveToTrash,deleteForever
 }
-internal final class DataManager {
+internal final class DataManager: NSObject {
     private let entityName = "Idea"
     
     static let shared = DataManager()
-    private init(){
+    private override init(){
+        super.init()
+        addObserver(self, forKeyPath: "objects", options: .new, context: nil)
     }
     
+    deinit {
+        removeObserver(self, forKeyPath: "object")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        updateUserDefaultData()
+    }
     //objects 里的数据是按照 date 由新到旧排列，最新的数据在［0］。
     //newest ideaData in objects is at index 0.
-    private var objects = [NSManagedObject](){
-        didSet{
-            for object in objects where (object.value(forKey: "isDelete") as! Bool)==false {
-                let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
-                let dic = [ "header" : object.value(forKey: "header") ?? "",
+    dynamic private var objects = [NSManagedObject]()
+//        didSet{
+//            updateUserDefaultData()
+//        }
+//    }
+    
+    
+    private func updateUserDefaultData(){
+        let existedOjbects = objects.filter{ object in
+            return (object.value(forKey: "isDelete") as! Bool)==false
+        }
+        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
+        if existedOjbects.count == 0 {
+            userDefault?.set(nil, forKey: "firstIdea")
+        }else{
+            let object = existedOjbects[0]
+            let dic = [ "header" : object.value(forKey: "header") ?? "",
                         "content": object.value(forKey: "content") ?? "",
                         "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
                 ] as [String : Any]
-                
-                
-                userDefault?.set(dic, forKey: "firstIdea")
-//                userDefault?.set(object, forKey: "FirstIdeaData")
-                break
-            }
-            
+            userDefault?.set(dic, forKey: "firstIdea")
         }
+//        
+//        for object in objects where (object.value(forKey: "isDelete") as! Bool)==false {
+//            let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
+//            let dic = [ "header" : object.value(forKey: "header") ?? "",
+//                        "content": object.value(forKey: "content") ?? "",
+//                        "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
+//                ] as [String : Any]
+//            userDefault?.set(dic, forKey: "firstIdea")
+//            break
+//        }
     }
+    
     
     //MARK: Public API - Get
     internal func getAllIdeaData(type: IdeaDataType, _ completion: @escaping (Bool,[IdeaData]?)->Void) {
@@ -90,12 +116,13 @@ internal final class DataManager {
     internal func deleteAllIdeaDataInTrash(_ completion:((Bool)->Void)?=nil){
         var findObject = false
         let managedContext = getManagedContext()
+        var reservedObjects = objects
         for (index,object) in objects.enumerated().reversed() where object.value(forKey: "isDelete") as! Bool == true {
             managedContext.delete(object)
-            
-            objects.remove(at: index)
+            reservedObjects.remove(at: index)
             findObject = true
         }
+        objects = reservedObjects
         managedContextSave()
         completion?(findObject)
     }
@@ -108,6 +135,7 @@ internal final class DataManager {
             findObject = true
         }
         managedContextSave()
+        updateUserDefaultData()
         completion?(findObject)
     }
     
@@ -167,6 +195,7 @@ internal final class DataManager {
             managedContextSave()
             findObject = true
         }
+        updateUserDefaultData()
         completion?(findObject)
     }
     
