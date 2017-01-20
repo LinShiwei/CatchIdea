@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560209621E30C34E006DA4A0 /* WidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560209611E30C34E006DA4A0 /* WidgetTableViewCell.swift */; };
 		561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A4A3E1E18CBF300457F2D /* TrashTableView.swift */; };
 		561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E00671E09770B00E55313 /* CreateIdeaViewController.swift */; };
 		561FAA151E20C2C900206894 /* NotificationIndicatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */; };
@@ -27,6 +28,7 @@
 		56760ED21E1B956D00561854 /* IndicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ED11E1B956D00561854 /* IndicationView.swift */; };
 		56760ED41E1B962500561854 /* RefreshContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56760ED31E1B962500561854 /* RefreshContainerView.swift */; };
 		567A76951E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A76941E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m */; };
+		567D97DC1E32095700AEDA2E /* WidgetLocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567D97DB1E32095700AEDA2E /* WidgetLocalizationStrings.swift */; };
 		567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3CD1E05628E00E4A293 /* AppDelegate.swift */; };
 		567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D11E05628E00E4A293 /* Main.storyboard */; };
 		567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
@@ -40,6 +42,14 @@
 		56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9A1E1648AF00567685 /* IdeaFilterView.swift */; };
 		56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9C1E167C4A00567685 /* CustomSearchController.swift */; };
 		56838B9F1E167C7700567685 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9E1E167C7700567685 /* CustomSearchBar.swift */; };
+		5687643B1E2F68D000DB6C89 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687643A1E2F68D000DB6C89 /* CoreDataStack.swift */; };
+		5687643D1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687643C1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift */; };
+		5687643E1E2F727B00DB6C89 /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
+		5687643F1E2F728800DB6C89 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687643A1E2F68D000DB6C89 /* CoreDataStack.swift */; };
+		568764401E2F728B00DB6C89 /* SharedPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5687643C1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift */; };
+		568764421E2F741C00DB6C89 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
+		568764451E2F745600DB6C89 /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568764441E2F745600DB6C89 /* WidgetDataManager.swift */; };
+		568764471E2F7D3700DB6C89 /* IdeaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568764461E2F7D3700DB6C89 /* IdeaItem.swift */; };
 		569238FB1E2B555D005F74C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 569238FD1E2B555D005F74C9 /* InfoPlist.strings */; };
 		569239001E2B5711005F74C9 /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */; };
 		56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */; };
@@ -87,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		560209611E30C34E006DA4A0 /* WidgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewCell.swift; sourceTree = "<group>"; };
 		561A4A3E1E18CBF300457F2D /* TrashTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableView.swift; sourceTree = "<group>"; };
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
 		561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationIndicatorButton.swift; sourceTree = "<group>"; };
@@ -115,6 +126,7 @@
 		567A76971E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		567A76981E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		567A76991E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		567D97DB1E32095700AEDA2E /* WidgetLocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetLocalizationStrings.swift; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567FA3D21E05628E00E4A293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +142,10 @@
 		56838B9A1E1648AF00567685 /* IdeaFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaFilterView.swift; sourceTree = "<group>"; };
 		56838B9C1E167C4A00567685 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		56838B9E1E167C7700567685 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		5687643A1E2F68D000DB6C89 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		5687643C1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedPersistentContainer.swift; sourceTree = "<group>"; };
+		568764441E2F745600DB6C89 /* WidgetDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetDataManager.swift; sourceTree = "<group>"; };
+		568764461E2F7D3700DB6C89 /* IdeaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaItem.swift; sourceTree = "<group>"; };
 		569238FC1E2B555D005F74C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
 		56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealPresentAnimationController.swift; sourceTree = "<group>"; };
@@ -174,6 +190,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		560209631E30C35C006DA4A0 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				568764441E2F745600DB6C89 /* WidgetDataManager.swift */,
+				568764461E2F7D3700DB6C89 /* IdeaItem.swift */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
 		56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +215,7 @@
 		563782741E1E9FA9008A4367 /* SharedCalss */ = {
 			isa = PBXGroup;
 			children = (
+				568764411E2F729300DB6C89 /* SharedCoreData */,
 				56FE13841E0CF1B3006A833A /* Theme.swift */,
 				56FE13881E0CF56F006A833A /* Define.swift */,
 				569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */,
@@ -298,7 +324,6 @@
 				567FA3DC1E05628E00E4A293 /* Info.plist */,
 				569238FD1E2B555D005F74C9 /* InfoPlist.strings */,
 				56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */,
-				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -311,6 +336,16 @@
 				56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */,
 			);
 			name = Manager;
+			sourceTree = "<group>";
+		};
+		568764411E2F729300DB6C89 /* SharedCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5687643C1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift */,
+				5687643A1E2F68D000DB6C89 /* CoreDataStack.swift */,
+				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
+			);
+			name = SharedCoreData;
 			sourceTree = "<group>";
 		};
 		56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */ = {
@@ -337,6 +372,9 @@
 			children = (
 				56C7F13D1E0CC819008FF866 /* CatchIdeaWidget.entitlements */,
 				56BAF7471E0C16A600218103 /* TodayViewController.swift */,
+				560209611E30C34E006DA4A0 /* WidgetTableViewCell.swift */,
+				567D97DB1E32095700AEDA2E /* WidgetLocalizationStrings.swift */,
+				560209631E30C35C006DA4A0 /* DataManager */,
 				56BAF7491E0C16A600218103 /* MainInterface.storyboard */,
 				56BAF74C1E0C16A600218103 /* Info.plist */,
 			);
@@ -482,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */,
+				5687643B1E2F68D000DB6C89 /* CoreDataStack.swift in Sources */,
 				561FAA171E20CBC000206894 /* UIColor+~=.swift in Sources */,
 				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
@@ -501,6 +540,7 @@
 				561FAA1A1E21247300206894 /* GuideViewController.swift in Sources */,
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
+				5687643D1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift in Sources */,
 				56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */,
 				56760ED41E1B962500561854 /* RefreshContainerView.swift in Sources */,
 				567A76951E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m in Sources */,
@@ -533,6 +573,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5687643F1E2F728800DB6C89 /* CoreDataStack.swift in Sources */,
+				568764471E2F7D3700DB6C89 /* IdeaItem.swift in Sources */,
+				568764451E2F745600DB6C89 /* WidgetDataManager.swift in Sources */,
+				560209621E30C34E006DA4A0 /* WidgetTableViewCell.swift in Sources */,
+				568764401E2F728B00DB6C89 /* SharedPersistentContainer.swift in Sources */,
+				568764421E2F741C00DB6C89 /* Theme.swift in Sources */,
+				567D97DC1E32095700AEDA2E /* WidgetLocalizationStrings.swift in Sources */,
+				5687643E1E2F727B00DB6C89 /* CatchIdea.xcdatamodeld in Sources */,
 				56BAF7481E0C16A600218103 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

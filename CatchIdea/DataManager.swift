@@ -19,8 +19,12 @@ internal enum DeleteStyle {
 }
 internal final class DataManager: NSObject {
     private let entityName = "Idea"
-    
     static let shared = DataManager()
+    
+    //objects 里的数据是按照 date 由新到旧排列，最新的数据在［0］。
+    //newest ideaData in objects is at index 0.
+    dynamic private var objects = [NSManagedObject]()
+
     private override init(){
         super.init()
         addObserver(self, forKeyPath: "objects", options: .new, context: nil)
@@ -33,42 +37,48 @@ internal final class DataManager: NSObject {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         updateUserDefaultData()
     }
-    //objects 里的数据是按照 date 由新到旧排列，最新的数据在［0］。
-    //newest ideaData in objects is at index 0.
-    dynamic private var objects = [NSManagedObject]()
-//        didSet{
-//            updateUserDefaultData()
-//        }
-//    }
-    
-    
+    //MARK: widget & userDefault
     private func updateUserDefaultData(){
         let existedOjbects = objects.filter{ object in
             return (object.value(forKey: "isDelete") as! Bool)==false
         }
-        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
         if existedOjbects.count == 0 {
-            userDefault?.set(nil, forKey: "firstIdea")
+            saveIdeaObjectToUserDefault(object: nil)
         }else{
-            let object = existedOjbects[0]
-            let dic = [ "header" : object.value(forKey: "header") ?? "",
-                        "content": object.value(forKey: "content") ?? "",
-                        "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
-                ] as [String : Any]
-            userDefault?.set(dic, forKey: "firstIdea")
+            saveIdeaObjectToUserDefault(object: existedOjbects[0])
         }
-//        
-//        for object in objects where (object.value(forKey: "isDelete") as! Bool)==false {
-//            let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
-//            let dic = [ "header" : object.value(forKey: "header") ?? "",
-//                        "content": object.value(forKey: "content") ?? "",
-//                        "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
-//                ] as [String : Any]
-//            userDefault?.set(dic, forKey: "firstIdea")
-//            break
-//        }
     }
     
+    private func saveIdeaObjectToUserDefault(object: NSManagedObject?){
+        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
+        if let object = object {
+            let dic = [ "header" : object.value(forKey: "header") ?? "",
+                    "content": object.value(forKey: "content") ?? "",
+                    "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
+            ] as [String : Any]
+            userDefault?.set(dic, forKey: "firstIdea")
+        }else{
+            userDefault?.set(nil, forKey: "firstIdea")
+        }
+        
+    }
+    
+//    private func saveIdeaObjectsToUserDefault(objects: [NSManagedObject]) {
+//        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
+//        if objects.count == 0 {
+//            userDefault?.set(nil, forKey: "firstIdea")
+//        }else{
+//            let dics = [Dictionary]()
+//            for object in objects {
+//                let dic = [ "header" : object.value(forKey: "header") ?? "",
+//                            "content": object.value(forKey: "content") ?? "",
+//                            "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
+//                ] as [String : Any]
+////                dics.append(dic)
+//            }
+//            userDefault?.set(dics, forKey: "firstIdea")
+//        }
+//    }
     
     //MARK: Public API - Get
     internal func getAllIdeaData(type: IdeaDataType, _ completion: @escaping (Bool,[IdeaData]?)->Void) {
@@ -279,12 +289,7 @@ internal final class DataManager: NSObject {
     }
     
     private func managedContextSave(){
-        let managedContext = getManagedContext()
-        do{
-            try managedContext.save()
-        }
-        catch let error as NSError {
-            print("Could not save \(error), \(error.userInfo)")
-        }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.saveContext()
     }
 }

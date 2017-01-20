@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,41 +22,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="88R-eC-w9U">
-                                <rect key="frame" x="16" y="29" width="343" height="618"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record your inspiration." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFR-oD-oEd">
-                                <rect key="frame" x="45" y="8" width="314" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="tfE-i1-Y4x"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sw9-pV-6Xq">
-                                <rect key="frame" x="16" y="8" width="21" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="tpf-5G-ydJ"/>
-                                    <constraint firstAttribute="width" constant="21" id="wKD-om-Yxj"/>
-                                </constraints>
-                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Z7-Np-sXh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WidgetTableViewCell" id="I26-7Z-Sfr" customClass="WidgetTableViewCell" customModule="CatchIdeaWidget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I26-7Z-Sfr" id="RIs-az-MII">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-EF-6YB">
+                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="LHB-EF-6YB" secondAttribute="height" multiplier="1:1" id="goQ-6Z-1jT"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record new inspiration." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrl-qo-O3j">
+                                                    <rect key="frame" x="43" y="8" width="324" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lrl-qo-O3j" firstAttribute="leading" secondItem="LHB-EF-6YB" secondAttribute="trailing" constant="8" id="Nzq-Xh-Hc8"/>
+                                                <constraint firstAttribute="bottom" secondItem="lrl-qo-O3j" secondAttribute="bottom" constant="8" id="SFV-l2-DKG"/>
+                                                <constraint firstItem="LHB-EF-6YB" firstAttribute="leading" secondItem="RIs-az-MII" secondAttribute="leading" constant="8" id="TVB-xS-iA5"/>
+                                                <constraint firstItem="lrl-qo-O3j" firstAttribute="top" secondItem="RIs-az-MII" secondAttribute="top" constant="8" id="cXG-AV-Ryh"/>
+                                                <constraint firstAttribute="bottom" secondItem="LHB-EF-6YB" secondAttribute="bottom" constant="8" id="gis-9p-Sfv"/>
+                                                <constraint firstItem="LHB-EF-6YB" firstAttribute="top" secondItem="RIs-az-MII" secondAttribute="top" constant="8" id="t6Q-YQ-wQb"/>
+                                                <constraint firstAttribute="trailing" secondItem="lrl-qo-O3j" secondAttribute="trailing" constant="8" id="yfL-az-kDn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="colorIndicationView" destination="LHB-EF-6YB" id="PIq-fP-M63"/>
+                                            <outlet property="headerLabel" destination="lrl-qo-O3j" id="UfJ-2D-BWV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="C8b-DY-wwi"/>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="U0z-rA-61t"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="88R-eC-w9U" secondAttribute="bottom" constant="20" id="21R-ad-Kj0"/>
-                            <constraint firstItem="zFR-oD-oEd" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="ABQ-Ac-2fl"/>
-                            <constraint firstItem="88R-eC-w9U" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="BfA-s6-QIo"/>
-                            <constraint firstItem="88R-eC-w9U" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="Gju-L3-QB0"/>
-                            <constraint firstItem="Sw9-pV-6Xq" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="gJc-zo-MxP"/>
-                            <constraint firstItem="zFR-oD-oEd" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="kxb-7X-jaO"/>
-                            <constraint firstItem="zFR-oD-oEd" firstAttribute="leading" secondItem="Sw9-pV-6Xq" secondAttribute="trailing" constant="8" id="p3S-Bm-tgg"/>
-                            <constraint firstItem="Sw9-pV-6Xq" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="ryw-cD-18W"/>
-                            <constraint firstItem="88R-eC-w9U" firstAttribute="top" secondItem="Sw9-pV-6Xq" secondAttribute="bottom" id="v4a-ay-ZkW"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="1Z7-Np-sXh" secondAttribute="bottom" id="0aE-ui-EtU"/>
+                            <constraint firstAttribute="trailing" secondItem="1Z7-Np-sXh" secondAttribute="trailing" id="eOM-ef-Jb5"/>
+                            <constraint firstItem="1Z7-Np-sXh" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="lGH-ce-kIS"/>
+                            <constraint firstItem="1Z7-Np-sXh" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="xNV-CG-GLS"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Opr-VW-YII" appends="YES" id="4lL-va-gQW"/>
@@ -69,9 +87,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="contentTextView" destination="88R-eC-w9U" id="e3w-9f-GRP"/>
-                        <outlet property="headerLabel" destination="zFR-oD-oEd" id="etF-rf-e88"/>
-                        <outlet property="markColorView" destination="Sw9-pV-6Xq" id="0nZ-Cl-xYB"/>
+                        <outlet property="widgetTableView" destination="1Z7-Np-sXh" id="CmT-Mm-8Sx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,33 +11,27 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
+    @IBOutlet weak var widgetTableView: UITableView!
     
-    
-    @IBOutlet weak var markColorView: UIView!
-    @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var contentTextView: UITextView!
-    
+    fileprivate var ideaItem = [IdeaItem]()
+    fileprivate var hasItem: Bool {
+        get{
+            return ideaItem.count > 0 ? true : false
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        markColorView.layer.cornerRadius = markColorView.frame.width/2
-        markColorView.backgroundColor = UIColor.white
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
-        if let dic = userDefault?.value(forKey: "firstIdea") as? Dictionary<String, Any> {
-            headerLabel.text = dic["header"] as? String ?? ""
-            contentTextView.text = dic["content"] as? String ?? ""
-            if let colorData = dic["markColor"] as? Data {
-                markColorView.backgroundColor = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor ?? UIColor.blue
-            }
-            
-            
+        WidgetDataManager.shared.getAllExistedIdeaData{[unowned self] (success, items) in
+            guard success else { return }
+            self.ideaItem = items
+            self.widgetTableView.reloadData()
         }
-        
-    
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,4 +56,32 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
         }
     }
+}
+
+extension TodayViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if hasItem {
+            return ideaItem.count
+        }else{
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WidgetTableViewCell", for: indexPath) as! WidgetTableViewCell
+        if hasItem {
+            cell.markColor = ideaItem[indexPath.row].markColor
+            cell.header = ideaItem[indexPath.row].header
+        }else{
+            cell.markColor = UIColor.white
+            cell.header = WidgetLocalizationStrings.shared.defaultCellHeader
+        }
+        
+        return cell
+    }
+    
+}
+
+extension TodayViewController: UITableViewDelegate {
+    
 }
