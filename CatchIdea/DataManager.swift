@@ -27,57 +27,40 @@ internal final class DataManager: NSObject {
 
     private override init(){
         super.init()
-        addObserver(self, forKeyPath: "objects", options: .new, context: nil)
+//        addObserver(self, forKeyPath: "objects", options: .new, context: nil)
     }
     
-    deinit {
-        removeObserver(self, forKeyPath: "object")
-    }
+//    deinit {
+//        removeObserver(self, forKeyPath: "object")
+//    }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        updateUserDefaultData()
-    }
-    //MARK: widget & userDefault
-    private func updateUserDefaultData(){
-        let existedOjbects = objects.filter{ object in
-            return (object.value(forKey: "isDelete") as! Bool)==false
-        }
-        if existedOjbects.count == 0 {
-            saveIdeaObjectToUserDefault(object: nil)
-        }else{
-            saveIdeaObjectToUserDefault(object: existedOjbects[0])
-        }
-    }
-    
-    private func saveIdeaObjectToUserDefault(object: NSManagedObject?){
-        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
-        if let object = object {
-            let dic = [ "header" : object.value(forKey: "header") ?? "",
-                    "content": object.value(forKey: "content") ?? "",
-                    "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
-            ] as [String : Any]
-            userDefault?.set(dic, forKey: "firstIdea")
-        }else{
-            userDefault?.set(nil, forKey: "firstIdea")
-        }
-        
-    }
-    
-//    private func saveIdeaObjectsToUserDefault(objects: [NSManagedObject]) {
-//        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
-//        if objects.count == 0 {
-//            userDefault?.set(nil, forKey: "firstIdea")
-//        }else{
-//            let dics = [Dictionary]()
-//            for object in objects {
-//                let dic = [ "header" : object.value(forKey: "header") ?? "",
-//                            "content": object.value(forKey: "content") ?? "",
-//                            "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
-//                ] as [String : Any]
-////                dics.append(dic)
-//            }
-//            userDefault?.set(dics, forKey: "firstIdea")
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        updateUserDefaultData()
+//    }
+//    //MARK: widget & userDefault
+//    private func updateUserDefaultData(){
+//        let existedOjbects = objects.filter{ object in
+//            return (object.value(forKey: "isDelete") as! Bool)==false
 //        }
+//        if existedOjbects.count == 0 {
+//            saveIdeaObjectToUserDefault(object: nil)
+//        }else{
+//            saveIdeaObjectToUserDefault(object: existedOjbects[0])
+//        }
+//    }
+//    
+//    private func saveIdeaObjectToUserDefault(object: NSManagedObject?){
+//        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
+//        if let object = object {
+//            let dic = [ "header" : object.value(forKey: "header") ?? "",
+//                    "content": object.value(forKey: "content") ?? "",
+//                    "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
+//            ] as [String : Any]
+//            userDefault?.set(dic, forKey: "firstIdea")
+//        }else{
+//            userDefault?.set(nil, forKey: "firstIdea")
+//        }
+//        
 //    }
     
     //MARK: Public API - Get
@@ -145,7 +128,6 @@ internal final class DataManager: NSObject {
             findObject = true
         }
         managedContextSave()
-        updateUserDefaultData()
         completion?(findObject)
     }
     
@@ -161,6 +143,7 @@ internal final class DataManager: NSObject {
     private func getIdeaData(filter: ((NSManagedObject)->Bool), _ completion: @escaping (Bool,[IdeaData]?)->Void) {
         var ideas = [IdeaData]()
         for object in objects{
+            CoreDataStack.persistentContainer.viewContext.refresh(object, mergeChanges: true)
             if filter(object) {
                 if let addingDate = object.value(forKey: "addingDate") as? Date,
                     let header = object.value(forKey: "header") as? String ,
@@ -205,7 +188,6 @@ internal final class DataManager: NSObject {
             managedContextSave()
             findObject = true
         }
-        updateUserDefaultData()
         completion?(findObject)
     }
     

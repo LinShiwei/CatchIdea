@@ -31,7 +31,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             guard success else { return }
             self.ideaItem = items
             self.widgetTableView.reloadData()
+            if let context = self.extensionContext {
+                self.widgetActiveDisplayModeDidChange(context.widgetActiveDisplayMode, withMaximumSize: context.widgetMaximumSize(for: .expanded))
+            }
         }
+        
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -87,14 +91,16 @@ extension TodayViewController: UITableViewDataSource {
         if hasItem {
             cell.markColor = ideaItem[indexPath.row].markColor
             cell.header = ideaItem[indexPath.row].header
+            cell.deleteButton.isHidden = false
+            cell.delegate = self
         }else{
             cell.markColor = UIColor.white
             cell.header = WidgetLocalizationStrings.shared.defaultCellHeader
+            cell.deleteButton.isHidden = true
         }
         
         return cell
     }
-    
 }
 
 extension TodayViewController: UITableViewDelegate {
@@ -113,5 +119,26 @@ extension TodayViewController: UITableViewDelegate {
         separatorLayer.lineDashPhase = 0
         
         cell.layer.addSublayer(separatorLayer)
+    }
+}
+
+extension TodayViewController: WidgetCellManagerDelegate {
+    func deleteCell(sender: UITableViewCell) {
+        if let indexPath = widgetTableView.indexPath(for: sender) {
+            WidgetDataManager.shared.deleteOneIdeaDataToTrash(ideaData: ideaItem[indexPath.row]){ success in
+                if success == false {
+                    
+                }
+            }
+            ideaItem.remove(at: indexPath.row)
+            if widgetTableView.numberOfRows(inSection: 0) == 1 && indexPath.row == 0 {
+                widgetTableView.reloadData()
+            }else{
+                widgetTableView.beginUpdates()
+                widgetTableView.deleteRows(at: [indexPath], with: .top)
+                widgetTableView.endUpdates()
+            }
+
+        }
     }
 }

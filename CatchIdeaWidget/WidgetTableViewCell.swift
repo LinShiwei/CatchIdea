@@ -8,7 +8,11 @@
 
 import UIKit
 
-class WidgetTableViewCell: UITableViewCell {
+internal protocol WidgetCellManagerDelegate {
+    func deleteCell(sender: UITableViewCell)
+}
+
+internal class WidgetTableViewCell: UITableViewCell {
 
     internal var header = "" {
         didSet{
@@ -21,15 +25,14 @@ class WidgetTableViewCell: UITableViewCell {
         }
     }
     
+    internal var delegate: WidgetCellManagerDelegate?
+    
     @IBOutlet weak var colorIndicationView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-//        let image = #imageLiteral(resourceName: "Delete").withRenderingMode(.alwaysTemplate)
-//        deleteButton.setImage(image, for: .normal)
-//        deleteButton.tintColor = UIColor.black
-        
+
     }
 
     override func layoutSubviews() {
@@ -41,5 +44,6 @@ class WidgetTableViewCell: UITableViewCell {
 //        super.setSelected(selected, animated: animated)
 //    }
     @IBAction func deleteCell(_ sender: UIButton) {
+        delegate?.deleteCell(sender: self)
     }
 }
