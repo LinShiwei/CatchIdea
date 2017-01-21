@@ -16,6 +16,7 @@
 		5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */; };
 		5625D0461E1E7D3400EE2CB1 /* ContextTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */; };
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
+		563311711E334FD400409217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D71E05628E00E4A293 /* Assets.xcassets */; };
 		56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56429BCD1E236DF100C38466 /* ViewControllerManager.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
 		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
@@ -508,6 +509,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563311711E334FD400409217 /* Assets.xcassets in Resources */,
 				56BAF74B1E0C16A600218103 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

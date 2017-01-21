@@ -22,9 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Z7-Np-sXh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Z7-Np-sXh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WidgetTableViewCell" id="I26-7Z-Sfr" customClass="WidgetTableViewCell" customModule="CatchIdeaWidget" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -34,31 +35,46 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-EF-6YB">
-                                                    <rect key="frame" x="8" y="8" width="27" height="27"/>
+                                                    <rect key="frame" x="8" y="12" width="20" height="20"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="LHB-EF-6YB" secondAttribute="height" multiplier="1:1" id="goQ-6Z-1jT"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record new inspiration." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrl-qo-O3j">
-                                                    <rect key="frame" x="43" y="8" width="324" height="27"/>
+                                                    <rect key="frame" x="36" y="8" width="279" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQf-DK-dY6">
+                                                    <rect key="frame" x="323" y="0.0" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="wQf-DK-dY6" secondAttribute="height" multiplier="1:1" id="hXS-6K-UF1"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" image="Delete"/>
+                                                    <connections>
+                                                        <action selector="deleteCell:" destination="I26-7Z-Sfr" eventType="touchUpInside" id="Xdc-kG-NCF"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="wQf-DK-dY6" secondAttribute="trailing" constant="8" id="Nsw-A9-m0h"/>
                                                 <constraint firstItem="lrl-qo-O3j" firstAttribute="leading" secondItem="LHB-EF-6YB" secondAttribute="trailing" constant="8" id="Nzq-Xh-Hc8"/>
+                                                <constraint firstAttribute="bottom" secondItem="wQf-DK-dY6" secondAttribute="bottom" id="PA6-rh-Tah"/>
                                                 <constraint firstAttribute="bottom" secondItem="lrl-qo-O3j" secondAttribute="bottom" constant="8" id="SFV-l2-DKG"/>
+                                                <constraint firstItem="wQf-DK-dY6" firstAttribute="top" secondItem="RIs-az-MII" secondAttribute="top" id="TPS-iX-9mo"/>
                                                 <constraint firstItem="LHB-EF-6YB" firstAttribute="leading" secondItem="RIs-az-MII" secondAttribute="leading" constant="8" id="TVB-xS-iA5"/>
                                                 <constraint firstItem="lrl-qo-O3j" firstAttribute="top" secondItem="RIs-az-MII" secondAttribute="top" constant="8" id="cXG-AV-Ryh"/>
-                                                <constraint firstAttribute="bottom" secondItem="LHB-EF-6YB" secondAttribute="bottom" constant="8" id="gis-9p-Sfv"/>
-                                                <constraint firstItem="LHB-EF-6YB" firstAttribute="top" secondItem="RIs-az-MII" secondAttribute="top" constant="8" id="t6Q-YQ-wQb"/>
-                                                <constraint firstAttribute="trailing" secondItem="lrl-qo-O3j" secondAttribute="trailing" constant="8" id="yfL-az-kDn"/>
+                                                <constraint firstItem="wQf-DK-dY6" firstAttribute="leading" secondItem="lrl-qo-O3j" secondAttribute="trailing" constant="8" id="dgT-TT-tfX"/>
+                                                <constraint firstAttribute="bottom" secondItem="LHB-EF-6YB" secondAttribute="bottom" constant="12" id="gis-9p-Sfv"/>
+                                                <constraint firstItem="LHB-EF-6YB" firstAttribute="top" secondItem="RIs-az-MII" secondAttribute="top" constant="12" id="t6Q-YQ-wQb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="colorIndicationView" destination="LHB-EF-6YB" id="PIq-fP-M63"/>
+                                            <outlet property="deleteButton" destination="wQf-DK-dY6" id="2MF-6S-EiZ"/>
                                             <outlet property="headerLabel" destination="lrl-qo-O3j" id="UfJ-2D-BWV"/>
                                         </connections>
                                     </tableViewCell>
@@ -100,4 +116,7 @@
             <point key="canvasLocation" x="63.200000000000003" y="38.23088455772114"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Delete" width="22" height="22"/>
+    </resources>
 </document>

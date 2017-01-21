@@ -21,7 +21,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
     }
     
@@ -33,12 +33,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             self.widgetTableView.reloadData()
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
@@ -47,6 +42,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
         
         completionHandler(NCUpdateResult.newData)
+    }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .compact {
+            UIView.animate(withDuration: 0.25){[unowned self] in
+                self.preferredContentSize = maxSize
+                self.view.layoutIfNeeded()
+            }
+        }else if activeDisplayMode == .expanded {
+            
+            UIView.animate(withDuration: 0.25){[unowned self] in
+                var newHeight = 44 * CGFloat(self.widgetTableView.numberOfRows(inSection: 0))
+                print(self.widgetTableView.numberOfRows(inSection: 0))
+                print(newHeight)
+                newHeight = newHeight > maxSize.height ? maxSize.height : newHeight
+                self.preferredContentSize = CGSize(width: 0, height: newHeight)
+                
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     @IBAction func tapToJumpToApp(_ sender: UITapGestureRecognizer) {
@@ -83,5 +98,20 @@ extension TodayViewController: UITableViewDataSource {
 }
 
 extension TodayViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        //custom tableview separator
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 8, y: cell.frame.height-1))
+        path.addLine(to: CGPoint(x: cell.frame.width, y: cell.frame.height-1))
+        let separatorLayer = CAShapeLayer()
+        separatorLayer.backgroundColor = UIColor.darkGray.cgColor
+        separatorLayer.path = path.cgPath
+        separatorLayer.lineWidth = 1
+        separatorLayer.strokeColor = UIColor(white: 0.5, alpha: 1).cgColor
+        separatorLayer.lineDashPattern = [2,2]
+        separatorLayer.lineDashPhase = 0
+        
+        cell.layer.addSublayer(separatorLayer)
+    }
 }

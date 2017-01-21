@@ -224,10 +224,6 @@ extension MainViewController: IdeaCellManagerDelegate{
         ideaListTableView.endUpdates()
         
         trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
-        
-        
-        
-        
     }
     
     func finishIdea(sender: UITableViewCell){
