@@ -52,7 +52,6 @@
 		568764421E2F741C00DB6C89 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
 		568764451E2F745600DB6C89 /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568764441E2F745600DB6C89 /* WidgetDataManager.swift */; };
 		568764471E2F7D3700DB6C89 /* IdeaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568764461E2F7D3700DB6C89 /* IdeaItem.swift */; };
-		569238FB1E2B555D005F74C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 569238FD1E2B555D005F74C9 /* InfoPlist.strings */; };
 		569239001E2B5711005F74C9 /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */; };
 		56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */; };
 		56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */; };
@@ -106,6 +105,9 @@
 		561FAA191E21247300206894 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		5620ABAB1E0FF84A005992F9 /* MarkColorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorsView.swift; sourceTree = "<group>"; };
 		5625D0451E1E7D3400EE2CB1 /* ContextTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTextView.swift; sourceTree = "<group>"; };
+		562EB0B91E34C032009B9CF0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		562EB0BA1E34C032009B9CF0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		562EB0BB1E34C032009B9CF0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
 		56429BCD1E236DF100C38466 /* ViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerManager.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
@@ -124,9 +126,6 @@
 		56760ED31E1B962500561854 /* RefreshContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContainerView.swift; sourceTree = "<group>"; };
 		567A76931E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		567A76941E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
-		567A76971E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		567A76981E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		567A76991E2B52CB00D2B646 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		567D97DB1E32095700AEDA2E /* WidgetLocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetLocalizationStrings.swift; sourceTree = "<group>"; };
 		567FA3CA1E05628E00E4A293 /* CatchIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567FA3CD1E05628E00E4A293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,7 +146,6 @@
 		5687643C1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedPersistentContainer.swift; sourceTree = "<group>"; };
 		568764441E2F745600DB6C89 /* WidgetDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetDataManager.swift; sourceTree = "<group>"; };
 		568764461E2F7D3700DB6C89 /* IdeaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaItem.swift; sourceTree = "<group>"; };
-		569238FC1E2B555D005F74C9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
 		56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealPresentAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealDismissAnimationController.swift; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				567FA3CD1E05628E00E4A293 /* AppDelegate.swift */,
 				567FA3D91E05628E00E4A293 /* LaunchScreen.storyboard */,
 				567FA3DC1E05628E00E4A293 /* Info.plist */,
-				569238FD1E2B555D005F74C9 /* InfoPlist.strings */,
 				56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */,
 			);
 			name = Support;
@@ -505,7 +502,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				567FA3DB1E05628E00E4A293 /* LaunchScreen.storyboard in Resources */,
-				569238FB1E2B555D005F74C9 /* InfoPlist.strings in Resources */,
 				567FA3D81E05628E00E4A293 /* Assets.xcassets in Resources */,
 				567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */,
 			);
@@ -608,7 +604,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				567FA3D21E05628E00E4A293 /* Base */,
-				567A76971E2B52CB00D2B646 /* zh-Hans */,
+				562EB0B91E34C032009B9CF0 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -617,24 +613,16 @@
 			isa = PBXVariantGroup;
 			children = (
 				567FA3DA1E05628E00E4A293 /* Base */,
-				567A76981E2B52CB00D2B646 /* zh-Hans */,
+				562EB0BA1E34C032009B9CF0 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		569238FD1E2B555D005F74C9 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				569238FC1E2B555D005F74C9 /* zh-Hans */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		56BAF7491E0C16A600218103 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				56BAF74A1E0C16A600218103 /* Base */,
-				567A76991E2B52CB00D2B646 /* zh-Hans */,
+				562EB0BB1E34C032009B9CF0 /* zh-Hans */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
