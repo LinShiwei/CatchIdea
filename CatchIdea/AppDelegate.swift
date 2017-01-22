@@ -38,20 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        var topViewController = window?.rootViewController
-        guard topViewController != nil else {
-            return
-        }
-        while (topViewController!.presentedViewController != nil) {
-            topViewController = topViewController!.presentedViewController
-        }
-        if topViewController is MainViewController || topViewController is TrashViewController {
-            topViewController?.viewWillAppear(true)
-        }
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        mergeChangesFromWidget()
         LocalNotificationManager.shared.checkoutDeliveredNotification()
         if let mainVC = window?.rootViewController as? MainViewController {
             mainVC.ideaListTableView.checkoutCellsNotification()
@@ -91,5 +83,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    private func mergeChangesFromWidget() {
+        let userDefaults = UserDefaults(suiteName: "group.catchidea.linshiwei")
+        guard let data = userDefaults!.object(forKey: widgetCoreDataChangeKey) as? Data else {
+            return
+        }
+        guard let notificationsArray = NSKeyedUnarchiver.unarchiveObject(with: data) as? [AnyObject] else {
+            return
+        }
+        self.persistentContainer.viewContext.perform {[unowned self] in
+            for notificationData in notificationsArray {
+                guard let notificationData = notificationData as? [NSObject : AnyObject] else {
+                    continue
+                }
+                NSManagedObjectContext.mergeChanges(fromRemoteContextSave: notificationData, into: [self.persistentContainer.viewContext])
+            }
+            self.refreshViewController()
+        }
+        
+        defer {
+            userDefaults!.removeObject(forKey: widgetCoreDataChangeKey)
+            userDefaults!.synchronize()
+        }
+    }
+    
+    private func refreshViewController(){
+        var topViewController = self.window?.rootViewController
+        guard topViewController != nil else {
+            return
+        }
+        while (topViewController!.presentedViewController != nil) {
+            topViewController = topViewController!.presentedViewController
+        }
+        if topViewController is MainViewController || topViewController is TrashViewController {
+            topViewController?.viewWillAppear(true)
+        }
+    }
 }
 

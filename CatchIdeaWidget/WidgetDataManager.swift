@@ -11,10 +11,15 @@ import CoreData
 
 internal class WidgetDataManager {
     static var shared = WidgetDataManager()
-    private init(){}
+    private init(){
+        NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave(notification:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: context)
+    }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSManagedObjectContextDidSave, object: context)
+    }
     private var objects = [NSManagedObject]()
-    
+    private let context = CoreDataStack.persistentContainer.viewContext
     private let entityName = "Idea"
 
     internal func getAllExistedIdeaData(_ completion: @escaping (Bool,[IdeaItem])->Void){
@@ -65,5 +70,48 @@ internal class WidgetDataManager {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    @objc private func contextDidSave(notification: NSNotification){
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        
+        let userDefaults = UserDefaults(suiteName: "group.catchidea.linshiwei")
+        
+        var notificationData = [AnyHashable : Any]()
+        
+        for (key, value) in userInfo {
+            guard let value = value as? NSSet else {
+                continue
+            }
+            
+            var uriRepresentations = [AnyObject]()
+            
+            for element in value {
+                guard let managedObject = element as? NSManagedObject else {
+                    continue
+                }
+                
+                uriRepresentations.append(managedObject.objectID.uriRepresentation() as AnyObject)
+            }
+            
+            notificationData[key] = uriRepresentations
+        }
+        
+        var notificationDatas = [AnyObject]()
+        
+        if let data = userDefaults!.object(forKey: widgetCoreDataChangeKey) as? Data,
+            let existingNotificationDatas = NSKeyedUnarchiver.unarchiveObject(with: data) as? [AnyObject] {
+            notificationDatas.append(contentsOf: existingNotificationDatas)
+        }
+        
+        notificationDatas.append(notificationData as AnyObject)
+        
+        let archivedData: Data = NSKeyedArchiver.archivedData(withRootObject: notificationDatas)
+        
+        userDefaults!.set(archivedData, forKey: widgetCoreDataChangeKey)
+        
+        userDefaults!.synchronize()
     }
 }

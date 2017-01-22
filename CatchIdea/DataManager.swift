@@ -27,42 +27,8 @@ internal final class DataManager: NSObject {
 
     private override init(){
         super.init()
-//        addObserver(self, forKeyPath: "objects", options: .new, context: nil)
     }
-    
-//    deinit {
-//        removeObserver(self, forKeyPath: "object")
-//    }
-    
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        updateUserDefaultData()
-//    }
-//    //MARK: widget & userDefault
-//    private func updateUserDefaultData(){
-//        let existedOjbects = objects.filter{ object in
-//            return (object.value(forKey: "isDelete") as! Bool)==false
-//        }
-//        if existedOjbects.count == 0 {
-//            saveIdeaObjectToUserDefault(object: nil)
-//        }else{
-//            saveIdeaObjectToUserDefault(object: existedOjbects[0])
-//        }
-//    }
-//    
-//    private func saveIdeaObjectToUserDefault(object: NSManagedObject?){
-//        let userDefault = UserDefaults(suiteName: "group.catchidea.linshiwei")
-//        if let object = object {
-//            let dic = [ "header" : object.value(forKey: "header") ?? "",
-//                    "content": object.value(forKey: "content") ?? "",
-//                    "markColor": NSKeyedArchiver.archivedData(withRootObject: object.value(forKey: "markColor") ?? Theme.shared.markColors[0])
-//            ] as [String : Any]
-//            userDefault?.set(dic, forKey: "firstIdea")
-//        }else{
-//            userDefault?.set(nil, forKey: "firstIdea")
-//        }
-//        
-//    }
-    
+
     //MARK: Public API - Get
     internal func getAllIdeaData(type: IdeaDataType, _ completion: @escaping (Bool,[IdeaData]?)->Void) {
         getIdeaDataObjects{[unowned self] success in
@@ -77,8 +43,21 @@ internal final class DataManager: NSObject {
         }
     }
     
-    
     //MARK: Public API - Delete
+    internal func deleteAllIdeaDataInTrash(_ completion:((Bool)->Void)?=nil){
+        var findObject = false
+        let managedContext = getManagedContext()
+        var reservedObjects = objects
+        for (index,object) in objects.enumerated().reversed() where object.value(forKey: "isDelete") as! Bool == true {
+            managedContext.delete(object)
+            reservedObjects.remove(at: index)
+            findObject = true
+        }
+        objects = reservedObjects
+        managedContextSave()
+        completion?(findObject)
+    }
+
     internal func deleteOneIdeaData(deleteStyle: DeleteStyle, ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
         switch deleteStyle {
         case .moveToTrash:
@@ -106,19 +85,7 @@ internal final class DataManager: NSObject {
         completion?(findObject)
     }
     
-    internal func deleteAllIdeaDataInTrash(_ completion:((Bool)->Void)?=nil){
-        var findObject = false
-        let managedContext = getManagedContext()
-        var reservedObjects = objects
-        for (index,object) in objects.enumerated().reversed() where object.value(forKey: "isDelete") as! Bool == true {
-            managedContext.delete(object)
-            reservedObjects.remove(at: index)
-            findObject = true
-        }
-        objects = reservedObjects
-        managedContextSave()
-        completion?(findObject)
-    }
+    
     //MARK: Public API - Restore
     internal func restoreOneIdeaData(ideaData: IdeaData, _ completion:((Bool)->Void)?=nil){
         var findObject = false
@@ -262,8 +229,6 @@ internal final class DataManager: NSObject {
         
         return ideas
     }
-    
-    
     
     private func getManagedContext()->NSManagedObjectContext{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

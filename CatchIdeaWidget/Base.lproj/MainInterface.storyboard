@@ -36,7 +36,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-EF-6YB">
                                                     <rect key="frame" x="8" y="12" width="20" height="20"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="LHB-EF-6YB" secondAttribute="height" multiplier="1:1" id="goQ-6Z-1jT"/>
                                                     </constraints>

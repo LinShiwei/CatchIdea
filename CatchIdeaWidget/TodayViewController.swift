@@ -12,11 +12,12 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var widgetTableView: UITableView!
+    fileprivate let dataManager = WidgetDataManager.shared
+    static fileprivate var ideaItem = [IdeaItem]()
     
-    fileprivate var ideaItem = [IdeaItem]()
     fileprivate var hasItem: Bool {
         get{
-            return ideaItem.count > 0 ? true : false
+            return TodayViewController.ideaItem.count > 0 ? true : false
         }
     }
     override func viewDidLoad() {
@@ -27,14 +28,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        WidgetDataManager.shared.getAllExistedIdeaData{[unowned self] (success, items) in
-            guard success else { return }
-            self.ideaItem = items
-            self.widgetTableView.reloadData()
-            if let context = self.extensionContext {
-                self.widgetActiveDisplayModeDidChange(context.widgetActiveDisplayMode, withMaximumSize: context.widgetMaximumSize(for: .expanded))
-            }
-        }
+        
         
     }
 
@@ -44,8 +38,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        
-        completionHandler(NCUpdateResult.newData)
+        dataManager.getAllExistedIdeaData{[unowned self] (success, items) in
+            guard success else { return }
+            TodayViewController.ideaItem = items
+            self.widgetTableView.reloadData()
+            if let context = self.extensionContext {
+                self.widgetActiveDisplayModeDidChange(context.widgetActiveDisplayMode, withMaximumSize: context.widgetMaximumSize(for: .expanded))
+            }
+            completionHandler(NCUpdateResult.newData)
+        }
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
@@ -80,7 +81,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 extension TodayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if hasItem {
-            return ideaItem.count
+            return TodayViewController.ideaItem.count
         }else{
             return 1
         }
@@ -89,8 +90,8 @@ extension TodayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WidgetTableViewCell", for: indexPath) as! WidgetTableViewCell
         if hasItem {
-            cell.markColor = ideaItem[indexPath.row].markColor
-            cell.header = ideaItem[indexPath.row].header
+            cell.markColor = TodayViewController.ideaItem[indexPath.row].markColor
+            cell.header = TodayViewController.ideaItem[indexPath.row].header
             cell.deleteButton.isHidden = false
             cell.delegate = self
         }else{
@@ -125,12 +126,12 @@ extension TodayViewController: UITableViewDelegate {
 extension TodayViewController: WidgetCellManagerDelegate {
     func deleteCell(sender: UITableViewCell) {
         if let indexPath = widgetTableView.indexPath(for: sender) {
-            WidgetDataManager.shared.deleteOneIdeaDataToTrash(ideaData: ideaItem[indexPath.row]){ success in
+            dataManager.deleteOneIdeaDataToTrash(ideaData: TodayViewController.ideaItem[indexPath.row]){ success in
                 if success == false {
                     
                 }
             }
-            ideaItem.remove(at: indexPath.row)
+            TodayViewController.ideaItem.remove(at: indexPath.row)
             if widgetTableView.numberOfRows(inSection: 0) == 1 && indexPath.row == 0 {
                 widgetTableView.reloadData()
             }else{

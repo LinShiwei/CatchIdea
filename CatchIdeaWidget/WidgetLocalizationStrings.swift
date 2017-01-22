@@ -10,13 +10,6 @@ import Foundation
 
 internal class WidgetLocalizationStrings {
     static let shared = WidgetLocalizationStrings()
-    private let isLanguageChineseSimple : Bool = {
-        if let languageID = Bundle.main.preferredLocalizations.first,languageID.contains("zh-Hans"){
-            return true
-        }else{
-            return false
-        }
-    }()
     
     internal var defaultCellHeader: String
     

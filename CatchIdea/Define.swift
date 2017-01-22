@@ -19,3 +19,5 @@ internal let isLanguageChineseSimple : Bool = {
         return false
     }
 }()
+
+internal let widgetCoreDataChangeKey = "WidgetObjectChangesKey"
