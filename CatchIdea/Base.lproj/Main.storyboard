@@ -101,7 +101,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-xd-P3z">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNS-xd-P3z" customClass="CellColorSelectionView" customModule="CatchIdea" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="18" width="30" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -134,7 +134,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="contentHeaderLabel" destination="Yyd-Sd-8Ly" id="c3e-l3-oe9"/>
-                                            <outlet property="markColorIndicationView" destination="RNS-xd-P3z" id="QMf-Pr-fgN"/>
+                                            <outlet property="markColorIndicationView" destination="RNS-xd-P3z" id="Gzx-ab-1pN"/>
                                             <outlet property="notificationIndicatorButton" destination="DkS-kK-aIA" id="0kN-Oq-Lc5"/>
                                             <segue destination="ifY-Y3-tiW" kind="show" identifier="IdeaCellDetail" id="GMp-GD-Uue"/>
                                         </connections>

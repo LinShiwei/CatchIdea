@@ -19,6 +19,7 @@
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
 		563311711E334FD400409217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D71E05628E00E4A293 /* Assets.xcassets */; };
 		56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56429BCD1E236DF100C38466 /* ViewControllerManager.swift */; };
+		564A44E61E3C896F00B8895D /* CellColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A44E51E3C896F00B8895D /* CellColorSelectionView.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
 		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
 		56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */; };
@@ -110,6 +111,7 @@
 		562EB0BB1E34C032009B9CF0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
 		56429BCD1E236DF100C38466 /* ViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerManager.swift; sourceTree = "<group>"; };
+		564A44E51E3C896F00B8895D /* CellColorSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellColorSelectionView.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
 		56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchIdea-Bridging-Header.h"; sourceTree = "<group>"; };
 		56660BB31E18EE6700FBA7EB /* DRCellSlideAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCellSlideAction.h; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				567FA3E31E056CFA00E4A293 /* MainViewController.swift */,
 				563292121E0EB99F004C8EE1 /* MainVCTableView.swift */,
 				567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */,
+				564A44E51E3C896F00B8895D /* CellColorSelectionView.swift */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				561FAA171E20CBC000206894 /* UIColor+~=.swift in Sources */,
 				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
+				564A44E61E3C896F00B8895D /* CellColorSelectionView.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
 				56760ED21E1B956D00561854 /* IndicationView.swift in Sources */,
 				561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */,

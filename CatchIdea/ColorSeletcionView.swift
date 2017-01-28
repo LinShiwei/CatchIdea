@@ -88,7 +88,6 @@ class ColorSeletcionView: UIView {
     
     @objc private func didPan(sender: UIPanGestureRecognizer) {
         selectButton(atPoint: sender.location(in: self))
-    
     }
     
     private func selectButton(atPoint point: CGPoint) {

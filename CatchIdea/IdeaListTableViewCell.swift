@@ -12,14 +12,14 @@ import UIKit
 
 internal class IdeaListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var markColorIndicationView: CellColorSelectionView!
     @IBOutlet weak var notificationIndicatorButton: NotificationIndicatorButton!
-    @IBOutlet weak var markColorIndicationView: UIView!
     @IBOutlet weak var contentHeaderLabel: UILabel!
     
     internal var ideaData: IdeaData?{
         didSet{
             checkoutCellNotification()
-            markColorIndicationView.layer.backgroundColor = ideaData?.markColor.cgColor
+            markColorIndicationView.currentMarkColor = ideaData?.markColor
             contentHeaderLabel.text = ideaData?.header
             
         }
@@ -31,7 +31,8 @@ internal class IdeaListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
      
-        markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
+//        markColorIndicationView.layer.backgroundColor = UIColor.red.cgColor
+        markColorIndicationView.currentMarkColor = UIColor.red
         addGesture()
         LocalNotificationManager.shared.addObserver(self, forKeyPath: "currentNotificationIdentifier", options: .new, context: nil)
         
@@ -39,7 +40,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        markColorIndicationView.layer.cornerRadius = markColorIndicationView.frame.width/2
+//        markColorIndicationView.layer.cornerRadius = markColorIndicationView.frame.width/2
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -86,7 +86,7 @@ extension TrashTableView: IdeaCellManagerDelegate{
         tempFilterIdeaData.remove(at: indexPath.row)
         filteredIdeaData = tempFilterIdeaData
         beginUpdates()
-        deleteRows(at: [indexPath], with: .fade)
+        deleteRows(at: [indexPath], with: .left)
         endUpdates()
     }
     
@@ -103,7 +103,7 @@ extension TrashTableView: IdeaCellManagerDelegate{
         tempFilterIdeaData.remove(at: indexPath.row)
         filteredIdeaData = tempFilterIdeaData
         beginUpdates()
-        deleteRows(at: [indexPath], with: .fade)
+        deleteRows(at: [indexPath], with: .right)
         endUpdates()
     }
 }

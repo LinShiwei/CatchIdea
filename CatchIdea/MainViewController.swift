@@ -118,6 +118,24 @@ internal class MainViewController: UIViewController {
             break
         }
     }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print(sender)
+        if sender is UITableViewCell {
+            
+        }else{
+            
+        }
+        
+        return true
+    }
+    
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        guard shouldPerformSegue(withIdentifier: identifier, sender: sender) else {
+            return
+        }
+        super.performSegue(withIdentifier: identifier, sender: sender)
+    }
+    
     
     @IBAction func tapToResignFirstResponder(_ sender: UITapGestureRecognizer) {
         
