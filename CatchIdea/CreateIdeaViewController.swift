@@ -62,18 +62,26 @@ internal class CreateIdeaViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        ideaDataSheetView.resignSubviewsFirstResponder()
+        super.dismiss(animated: flag, completion: completion)
+    }
+    
     @IBAction func tapToResignFirstResponse(_ sender: UITapGestureRecognizer) {
         ideaDataSheetView.resignSubviewsFirstResponder()
     }
 
     @IBAction func saveIdea(_ sender: UIBarButtonItem) {
         ideaDataSheetView.saveIdea()
-        cancleCreateIdea(sender)
+        if let mainVC = transitioningDelegate as? MainViewController {
+            mainVC.dimDismissAnimationController.dimCenter = CGPoint(x: windowBounds.width-22, y: 22)
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancleCreateIdea(_ sender: UIBarButtonItem) {
         if let mainVC = transitioningDelegate as? MainViewController {
-            mainVC.dimDismissAnimationController.dimCenter = mainVC.dimPresentAnimationController.dimCenter
+            mainVC.dimDismissAnimationController.dimCenter = CGPoint(x: 22, y: 22)
         }
         dismiss(animated: true, completion: nil)
     }
@@ -91,4 +99,5 @@ internal class CreateIdeaViewController: UIViewController {
         scrollViewBottomSpace.constant = 0
         self.view.layoutIfNeeded()
     }
+    
 }
