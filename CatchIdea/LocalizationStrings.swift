@@ -13,6 +13,8 @@ internal class LocalizationStrings {
     internal let mainTableEmptyString: String
     internal let trashTableEmptyString: String
     
+    internal let mainTableDefaultCellTitle: String
+    
     internal let createIdeaTitleSectionTitle: String
     internal let createIdeaMarkColorSectionTitle: String
     internal let createIdeaContentSectionTitle: String
@@ -39,6 +41,8 @@ internal class LocalizationStrings {
             mainTableEmptyString = "下拉记录新的灵感"
             trashTableEmptyString = "纸篓清空啦"
             
+            mainTableDefaultCellTitle = "滑动删除"
+            
             createIdeaTitleSectionTitle = "主题"
             createIdeaMarkColorSectionTitle = "标记颜色"
             createIdeaContentSectionTitle = "内容"
@@ -63,6 +67,8 @@ internal class LocalizationStrings {
         }else{
             mainTableEmptyString = "Drag down to create new idea."
             trashTableEmptyString = "Trash is empty."
+            
+            mainTableDefaultCellTitle = "Swipe to delete."
             
             createIdeaTitleSectionTitle = "Title"
             createIdeaMarkColorSectionTitle = "MarkColor"

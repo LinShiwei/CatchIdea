@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560036AC1E4483AA00C0AEC4 /* UIVIew+snapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560036AB1E4483AA00C0AEC4 /* UIVIew+snapshotView.swift */; };
 		560209621E30C34E006DA4A0 /* WidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560209611E30C34E006DA4A0 /* WidgetTableViewCell.swift */; };
 		561A4A3F1E18CBF300457F2D /* TrashTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561A4A3E1E18CBF300457F2D /* TrashTableView.swift */; };
 		561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E00671E09770B00E55313 /* CreateIdeaViewController.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		560036AB1E4483AA00C0AEC4 /* UIVIew+snapshotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+snapshotView.swift"; sourceTree = "<group>"; };
 		560209611E30C34E006DA4A0 /* WidgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTableViewCell.swift; sourceTree = "<group>"; };
 		561A4A3E1E18CBF300457F2D /* TrashTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableView.swift; sourceTree = "<group>"; };
 		561E00671E09770B00E55313 /* CreateIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		560036AD1E44840F00C0AEC4 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				561FAA161E20CBC000206894 /* UIColor+~=.swift */,
+				560036AB1E4483AA00C0AEC4 /* UIVIew+snapshotView.swift */,
+			);
+			name = extension;
+			sourceTree = "<group>";
+		};
 		560209631E30C35C006DA4A0 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,10 +240,10 @@
 				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
 				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
 				56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */,
-				561FAA161E20CBC000206894 /* UIColor+~=.swift */,
 				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
 				561FAA191E21247300206894 /* GuideViewController.swift */,
 				56429BCD1E236DF100C38466 /* ViewControllerManager.swift */,
+				560036AD1E44840F00C0AEC4 /* extension */,
 				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
 				567676F51E1693AA00555102 /* IdeaFilterView */,
 				56256CC71E1A97C100C4FEFB /* PullToAddIdeaView */,
@@ -529,6 +540,7 @@
 				56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */,
 				5687643B1E2F68D000DB6C89 /* CoreDataStack.swift in Sources */,
 				561FAA171E20CBC000206894 /* UIColor+~=.swift in Sources */,
+				560036AC1E4483AA00C0AEC4 /* UIVIew+snapshotView.swift in Sources */,
 				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				564A44E61E3C896F00B8895D /* CellColorSelectionView.swift in Sources */,

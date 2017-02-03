@@ -174,10 +174,11 @@ internal final class DataManager: NSObject {
 //                saveMockIdeaData(ideas: mockIdeaData(),completion)
                 let userDefault = UserDefaults.standard
                 if let hasCreateMockData = userDefault.value(forKey: "HasCreateMockData") as? Bool, hasCreateMockData == true{
-                    
+                    completion(true)
                 }else{
                     saveMockIdeaData(ideas: guidelineMockIdeaData(), completion)
                     userDefault.set(true, forKey: "HasCreateMockData")
+                    completion(true)
                 }
             }
         }else{
@@ -224,7 +225,7 @@ internal final class DataManager: NSObject {
     private func guidelineMockIdeaData()->[IdeaData]{
         var ideas = [IdeaData]()
         let date = Date(timeIntervalSinceReferenceDate: 0)
-        let idea1 = IdeaData(addingDate: date, header: "Swipe to delete.")
+        let idea1 = IdeaData(addingDate: date, header: LocalizationStrings.shared.mainTableDefaultCellTitle)
         ideas.append(idea1)
         
         return ideas

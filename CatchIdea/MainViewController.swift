@@ -106,12 +106,14 @@ internal class MainViewController: UIViewController {
             }
         case "ShowGuide":
             if let destinationViewController = segue.destination as? GuideViewController {
-                if let snapshot = view.snapshotView(afterScreenUpdates: true) {
-                    destinationViewController.snapshot = snapshot
-                    let imageView = UIImageView(image: LocalizationStrings.shared.mainGuideImage)
-                    imageView.center = CGPoint(x: windowBounds.width/2, y: imageView.frame.height/2+152)
-                    destinationViewController.containerView.addSubview(imageView)
-                }
+//                    if let snapshot = self.view.snapshotView(afterScreenUpdates: true) {
+                    if let snapshot = self.view.snapshotView {
+                        destinationViewController.snapshot = snapshot
+                        let imageView = UIImageView(image: LocalizationStrings.shared.mainGuideImage)
+                        imageView.center = CGPoint(x: windowBounds.width/2, y: imageView.frame.height/2+152)
+                        destinationViewController.containerView.addSubview(imageView)
+                    }
+
             }
             break
         default:
@@ -119,7 +121,7 @@ internal class MainViewController: UIViewController {
         }
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        print(sender)
+        print("sender\(sender)")
         if sender is UITableViewCell {
             
         }else{

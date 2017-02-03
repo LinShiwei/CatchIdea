@@ -39,6 +39,7 @@ class GuideViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         maskView.frame = view.bounds
         containerView.frame = view.bounds
+        snapshot.frame = view.bounds
         okButton.center = CGPoint(x: view.frame.width/2, y: view.frame.height-20-okButton.frame.height/2)
     }
     
