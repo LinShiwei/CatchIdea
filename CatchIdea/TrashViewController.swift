@@ -25,7 +25,10 @@ class TrashViewController: UIViewController {
         ideaDataManager.getAllIdeaData(type:.deleted){[unowned self](success,ideas) in
             if (success&&(ideas != nil)){
                 self.trashTableView.ideaData = ideas!
-                self.trashTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.trashTableView.reloadData()
+                }
+                
             }
         }
         let notificationCenter = NotificationCenter.default

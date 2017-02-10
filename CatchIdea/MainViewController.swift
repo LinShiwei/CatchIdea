@@ -50,7 +50,9 @@ internal class MainViewController: UIViewController {
                     }
                 }
                 self.ideaListTableView.ideaData = existedIdeas
-                self.ideaListTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.ideaListTableView.reloadData()
+                }
             }
         }
 

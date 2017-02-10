@@ -178,7 +178,7 @@ internal final class DataManager: NSObject {
                 }else{
                     saveMockIdeaData(ideas: guidelineMockIdeaData(), completion)
                     userDefault.set(true, forKey: "HasCreateMockData")
-                    completion(true)
+//                    completion(true)
                 }
             }
         }else{
