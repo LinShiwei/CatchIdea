@@ -65,6 +65,10 @@
 		56BAF74B1E0C16A600218103 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56BAF7491E0C16A600218103 /* MainInterface.storyboard */; };
 		56BAF74F1E0C16A600218103 /* CatchIdeaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56BAF7421E0C16A600218103 /* CatchIdeaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56DFCCBA1E1E2BC600EF79F8 /* CreateIdeaSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DFCCB91E1E2BC600EF79F8 /* CreateIdeaSectionView.swift */; };
+		56EEFBA01E5988B800083C24 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 56EEFB9D1E5988B800083C24 /* iRate.bundle */; };
+		56EEFBA11E5988B800083C24 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EEFB9F1E5988B800083C24 /* iRate.m */; };
+		56EEFBA51E5988F800083C24 /* Siren.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 56EEFBA31E5988F800083C24 /* Siren.bundle */; };
+		56EEFBA61E5988F800083C24 /* Siren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EEFBA41E5988F800083C24 /* Siren.swift */; };
 		56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604C91E06C6BF001C465B /* TrashViewController.swift */; };
 		56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */; };
 		56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */; };
@@ -164,6 +168,11 @@
 		56C7F13C1E0CC72C008FF866 /* CatchIdea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdea.entitlements; sourceTree = "<group>"; };
 		56C7F13D1E0CC819008FF866 /* CatchIdeaWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdeaWidget.entitlements; sourceTree = "<group>"; };
 		56DFCCB91E1E2BC600EF79F8 /* CreateIdeaSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateIdeaSectionView.swift; sourceTree = "<group>"; };
+		56EEFB9D1E5988B800083C24 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		56EEFB9E1E5988B800083C24 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		56EEFB9F1E5988B800083C24 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		56EEFBA31E5988F800083C24 /* Siren.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Siren.bundle; sourceTree = "<group>"; };
+		56EEFBA41E5988F800083C24 /* Siren.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Siren.swift; sourceTree = "<group>"; };
 		56F604C91E06C6BF001C465B /* TrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
 		56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaCellManagerDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +245,8 @@
 		563782741E1E9FA9008A4367 /* SharedCalss */ = {
 			isa = PBXGroup;
 			children = (
+				56EEFBA71E59890000083C24 /* Siren */,
+				56EEFBA21E5988BD00083C24 /* iRate */,
 				569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */,
 				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
 				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
@@ -398,6 +409,25 @@
 			path = CatchIdeaWidget;
 			sourceTree = "<group>";
 		};
+		56EEFBA21E5988BD00083C24 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				56EEFB9D1E5988B800083C24 /* iRate.bundle */,
+				56EEFB9E1E5988B800083C24 /* iRate.h */,
+				56EEFB9F1E5988B800083C24 /* iRate.m */,
+			);
+			name = iRate;
+			sourceTree = "<group>";
+		};
+		56EEFBA71E59890000083C24 /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				56EEFBA31E5988F800083C24 /* Siren.bundle */,
+				56EEFBA41E5988F800083C24 /* Siren.swift */,
+			);
+			name = Siren;
+			sourceTree = "<group>";
+		};
 		56F604CD1E06CA21001C465B /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +546,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				567FA3DB1E05628E00E4A293 /* LaunchScreen.storyboard in Resources */,
+				56EEFBA51E5988F800083C24 /* Siren.bundle in Resources */,
+				56EEFBA01E5988B800083C24 /* iRate.bundle in Resources */,
 				567FA3D81E05628E00E4A293 /* Assets.xcassets in Resources */,
 				567FA3D31E05628E00E4A293 /* Main.storyboard in Resources */,
 			);
@@ -550,6 +582,7 @@
 				56760ECD1E1B446800561854 /* PullToRefreshView.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
 				56660BBB1E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m in Sources */,
+				56EEFBA61E5988F800083C24 /* Siren.swift in Sources */,
 				56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */,
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
@@ -581,6 +614,7 @@
 				56760ED01E1B82F300561854 /* AddingIconView.swift in Sources */,
 				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
 				56760ECC1E1B446800561854 /* PullToRefreshOption.swift in Sources */,
+				56EEFBA11E5988B800083C24 /* iRate.m in Sources */,
 				56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */,
 				56FED2E11E1A2F2800974D86 /* TopDecorationView.swift in Sources */,
 				56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */,

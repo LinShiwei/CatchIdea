@@ -4,3 +4,5 @@
 
 #import "DRCellSlideGestureRecognizer.h"
 #import "UIScrollView+EmptyDataSet.h"
+
+#import "iRate.h"
