@@ -20,6 +20,10 @@
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
 		563311711E334FD400409217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D71E05628E00E4A293 /* Assets.xcassets */; };
 		56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56429BCD1E236DF100C38466 /* ViewControllerManager.swift */; };
+		5645A2DE1E5EAB3800A88603 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A2DD1E5EAB3800A88603 /* InfoViewController.swift */; };
+		5645A2E11E5EAF9A00A88603 /* InfoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A2E01E5EAF9A00A88603 /* InfoTableView.swift */; };
+		5645A2E31E5EAFF100A88603 /* InfoAboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A2E21E5EAFF100A88603 /* InfoAboutTableViewCell.swift */; };
+		5645A2E51E5EB00200A88603 /* InfoBuyingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A2E41E5EB00200A88603 /* InfoBuyingTableViewCell.swift */; };
 		564A44E61E3C896F00B8895D /* CellColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A44E51E3C896F00B8895D /* CellColorSelectionView.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
 		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
@@ -117,6 +121,10 @@
 		562EB0BB1E34C032009B9CF0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
 		56429BCD1E236DF100C38466 /* ViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerManager.swift; sourceTree = "<group>"; };
+		5645A2DD1E5EAB3800A88603 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		5645A2E01E5EAF9A00A88603 /* InfoTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableView.swift; sourceTree = "<group>"; };
+		5645A2E21E5EAFF100A88603 /* InfoAboutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoAboutTableViewCell.swift; sourceTree = "<group>"; };
+		5645A2E41E5EB00200A88603 /* InfoBuyingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoBuyingTableViewCell.swift; sourceTree = "<group>"; };
 		564A44E51E3C896F00B8895D /* CellColorSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellColorSelectionView.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
 		56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchIdea-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -265,6 +273,17 @@
 			name = SharedCalss;
 			sourceTree = "<group>";
 		};
+		5645A2DF1E5EAB4500A88603 /* InfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				5645A2DD1E5EAB3800A88603 /* InfoViewController.swift */,
+				5645A2E01E5EAF9A00A88603 /* InfoTableView.swift */,
+				5645A2E21E5EAFF100A88603 /* InfoAboutTableViewCell.swift */,
+				5645A2E41E5EB00200A88603 /* InfoBuyingTableViewCell.swift */,
+			);
+			name = InfoVC;
+			sourceTree = "<group>";
+		};
 		564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +358,7 @@
 				56F604CD1E06CA21001C465B /* MainVC */,
 				56F604CE1E06CA29001C465B /* TrashVC */,
 				564AFB671E0A6C19001FB9D4 /* CreateIdeaVC */,
+				5645A2DF1E5EAB4500A88603 /* InfoVC */,
 			);
 			path = CatchIdea;
 			sourceTree = "<group>";
@@ -582,6 +602,7 @@
 				56760ECD1E1B446800561854 /* PullToRefreshView.swift in Sources */,
 				56F604CA1E06C6BF001C465B /* TrashViewController.swift in Sources */,
 				56660BBB1E18EE6700FBA7EB /* DRCellSlideGestureRecognizer.m in Sources */,
+				5645A2E31E5EAFF100A88603 /* InfoAboutTableViewCell.swift in Sources */,
 				56EEFBA61E5988F800083C24 /* Siren.swift in Sources */,
 				56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */,
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
@@ -594,6 +615,7 @@
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
 				5687643D1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift in Sources */,
+				5645A2DE1E5EAB3800A88603 /* InfoViewController.swift in Sources */,
 				56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */,
 				56760ED41E1B962500561854 /* RefreshContainerView.swift in Sources */,
 				567A76951E2B4A4400D2B646 /* UIScrollView+EmptyDataSet.m in Sources */,
@@ -605,6 +627,7 @@
 				567FA3E41E056CFA00E4A293 /* MainViewController.swift in Sources */,
 				5620ABAC1E0FF84A005992F9 /* MarkColorsView.swift in Sources */,
 				56BAF73C1E0BF57F00218103 /* LocalNotificationManager.swift in Sources */,
+				5645A2E11E5EAF9A00A88603 /* InfoTableView.swift in Sources */,
 				561FAA151E20C2C900206894 /* NotificationIndicatorButton.swift in Sources */,
 				567FA3D61E05628E00E4A293 /* CatchIdea.xcdatamodeld in Sources */,
 				569239001E2B5711005F74C9 /* LocalizationStrings.swift in Sources */,
@@ -619,6 +642,7 @@
 				56FED2E11E1A2F2800974D86 /* TopDecorationView.swift in Sources */,
 				56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */,
 				564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */,
+				5645A2E51E5EB00200A88603 /* InfoBuyingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

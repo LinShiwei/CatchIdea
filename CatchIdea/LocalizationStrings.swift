@@ -34,7 +34,14 @@ internal class LocalizationStrings {
     
     internal let mainGuideImage: UIImage
     internal let trashGuideImage: UIImage
-    
+    //Info VC
+    internal let titleForSection0: String
+    internal let titleForSection1: String
+    internal let authorEmailAddress: String
+    internal let sendAdvice: String
+    internal let scoringApp: String
+    internal let purchaseItem1: String
+    internal let purchaseItem2: String
     private init(){
         
         if isLanguageChineseSimple {
@@ -64,6 +71,13 @@ internal class LocalizationStrings {
             mainGuideImage = #imageLiteral(resourceName: "MainGuide_cn")
             trashGuideImage = #imageLiteral(resourceName: "TrashGuide_cn")
             
+            titleForSection0 = "支持 Catch"
+            titleForSection1 = "给作者买点吃的"
+            authorEmailAddress = "作者邮箱"
+            sendAdvice = "意见反馈"
+            scoringApp = "给应用评分"
+            purchaseItem1 = "一包辣条"
+            purchaseItem2 = "一瓶饮料"
         }else{
             mainTableEmptyString = "Drag down to create new idea."
             trashTableEmptyString = "Trash is empty."
@@ -88,7 +102,15 @@ internal class LocalizationStrings {
             cancleString = "Cancle"
             
             mainGuideImage = #imageLiteral(resourceName: "MainGuide")
-            trashGuideImage = #imageLiteral(resourceName: "TrashGuide") 
+            trashGuideImage = #imageLiteral(resourceName: "TrashGuide")
+            
+            titleForSection0 = "Support Catch"
+            titleForSection1 = "Buy developer something"
+            authorEmailAddress = "E-mail of developer"
+            sendAdvice = "Send advice"
+            scoringApp = "Scoring this app"
+            purchaseItem1 = "A packet of latiao"
+            purchaseItem2 = "A bottle of drink"
         }
     
     

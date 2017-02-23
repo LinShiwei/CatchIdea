@@ -19,7 +19,7 @@ extension DimPresentAnimationController: UIViewControllerAnimatedTransitioning{
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let _ = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? CreateIdeaViewController else {
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)else {
                 return
         }
         let containerView = transitionContext.containerView

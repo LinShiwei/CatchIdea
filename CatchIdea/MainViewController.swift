@@ -117,6 +117,12 @@ internal class MainViewController: UIViewController {
                     }
 
             }
+        case "ShowInfo":
+            if let destinationViewController = segue.destination as? InfoViewController {
+                destinationViewController.transitioningDelegate = self
+                dimPresentAnimationController.dimCenter = CGPoint(x: 30, y: 42)
+
+            }
             break
         default:
             break
@@ -272,7 +278,7 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
         case is TrashViewController:
             let revealPresentAnimationController = RevealPresentAnimationController()
             return revealPresentAnimationController
-        case is CreateIdeaViewController:
+        case is CreateIdeaViewController, is InfoViewController:
             return dimPresentAnimationController
         default:
             return nil
@@ -284,7 +290,7 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
         case is TrashViewController:
             let revealDismissAnimationController = RevealDismissAnimationController()
             return revealDismissAnimationController
-        case is CreateIdeaViewController:
+        case is CreateIdeaViewController, is InfoViewController:
             return dimDismissAnimationController
         default:
             return nil
