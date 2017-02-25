@@ -37,7 +37,8 @@ internal class LocalizationStrings {
     //Info VC
     internal let titleForSection0: String
     internal let titleForSection1: String
-    internal let authorEmailAddress: String
+    internal let emailAlertTitle: String
+    internal let emailAlertMessage: String
     internal let sendAdvice: String
     internal let scoringApp: String
     internal let purchaseItem1: String
@@ -73,7 +74,8 @@ internal class LocalizationStrings {
             
             titleForSection0 = "支持 Catch"
             titleForSection1 = "给作者买点吃的"
-            authorEmailAddress = "作者邮箱"
+            emailAlertTitle = "邮箱不可用"
+            emailAlertMessage = "地址已拷贝到剪贴板："
             sendAdvice = "意见反馈"
             scoringApp = "给应用评分"
             purchaseItem1 = "一包辣条"
@@ -106,7 +108,8 @@ internal class LocalizationStrings {
             
             titleForSection0 = "Support Catch"
             titleForSection1 = "Buy developer something"
-            authorEmailAddress = "E-mail of developer"
+            emailAlertTitle = "No account in Mail app"
+            emailAlertMessage = "E-mail address has been copied to pasteboard: "
             sendAdvice = "Send advice"
             scoringApp = "Scoring this app"
             purchaseItem1 = "A packet of latiao"

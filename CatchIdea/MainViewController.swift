@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 internal class MainViewController: UIViewController {
 
     fileprivate let ideaDataManager = DataManager.shared
@@ -32,7 +31,6 @@ internal class MainViewController: UIViewController {
             }
            
             self?.ideaListTableView.stopPullRefreshEver()
-      
         }
     }
 

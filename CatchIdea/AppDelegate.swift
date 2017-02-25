@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let siren = Siren.sharedInstance
         siren.alertType = .skip
         siren.checkVersion(checkType: .daily)
+        
+        completeIAPTransactions()
+
         return true
     }
 
@@ -126,6 +130,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if topViewController is MainViewController || topViewController is TrashViewController {
             topViewController?.viewWillAppear(true)
+        }
+    }
+    
+    private func completeIAPTransactions() {
+        
+        SwiftyStoreKit.completeTransactions(atomically: true) { products in
+            
+            for product in products {
+                
+                if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
+                    
+                    if product.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(product.transaction)
+                    }
+                    print("purchased: \(product.productId)")
+                }
+            }
         }
     }
 }
