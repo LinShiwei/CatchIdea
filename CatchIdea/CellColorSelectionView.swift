@@ -71,7 +71,7 @@ class CellColorSelectionView: UIView {
 //        super.touchesBegan(touches, with: event)
 //        print(superview?.superview)
         if let cell = superview?.superview as? IdeaListTableViewCell {
-            cell.isUserInteractionEnabled = false
+//            cell.isUserInteractionEnabled = false
         }
     }
     

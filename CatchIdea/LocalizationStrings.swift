@@ -111,7 +111,7 @@ internal class LocalizationStrings {
             emailAlertTitle = "No account in Mail app"
             emailAlertMessage = "E-mail address has been copied to pasteboard: "
             sendAdvice = "Send advice"
-            scoringApp = "Scoring this app"
+            scoringApp = "Score this app"
             purchaseItem1 = "A packet of latiao"
             purchaseItem2 = "A bottle of drink"
         }

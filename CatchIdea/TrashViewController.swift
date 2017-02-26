@@ -89,8 +89,9 @@ class TrashViewController: UIViewController {
             }
         })
         let cancelAction = UIAlertAction(title: strings.cancleString, style: .default) { (action: UIAlertAction) -> Void in }
-        alert.addAction(saveAction)
         alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+
         present(alert, animated: true, completion: nil)
     }
     

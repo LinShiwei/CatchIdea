@@ -62,6 +62,8 @@
 		568764451E2F745600DB6C89 /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568764441E2F745600DB6C89 /* WidgetDataManager.swift */; };
 		568764471E2F7D3700DB6C89 /* IdeaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568764461E2F7D3700DB6C89 /* IdeaItem.swift */; };
 		569239001E2B5711005F74C9 /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */; };
+		569D0E051E62B3A400445D92 /* TableViewTopBounceDecorateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D0E041E62B3A400445D92 /* TableViewTopBounceDecorateView.swift */; };
+		569D0E081E62B61E00445D92 /* UITableView+addTopDecorateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D0E071E62B61E00445D92 /* UITableView+addTopDecorateView.swift */; };
 		56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */; };
 		56A1DD4E1E0D0E160047DA5C /* RevealDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */; };
 		56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */; };
@@ -169,6 +171,8 @@
 		568764441E2F745600DB6C89 /* WidgetDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetDataManager.swift; sourceTree = "<group>"; };
 		568764461E2F7D3700DB6C89 /* IdeaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaItem.swift; sourceTree = "<group>"; };
 		569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
+		569D0E041E62B3A400445D92 /* TableViewTopBounceDecorateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTopBounceDecorateView.swift; sourceTree = "<group>"; };
+		569D0E071E62B61E00445D92 /* UITableView+addTopDecorateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+addTopDecorateView.swift"; sourceTree = "<group>"; };
 		56A1DD4B1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealPresentAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD4D1E0D0E160047DA5C /* RevealDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealDismissAnimationController.swift; sourceTree = "<group>"; };
 		56A1DD541E0D543B0047DA5C /* DimPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimPresentAnimationController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 				567A76961E2B4A4A00D2B646 /* EmptyDataSet */,
 				56660BBC1E18EE7100FBA7EB /* DRCellSlide */,
 				567FA3ED1E05752A00E4A293 /* Manager */,
+				569D0E061E62B3BD00445D92 /* TableViewTopBounceDecorateView */,
 			);
 			name = SharedCalss;
 			sourceTree = "<group>";
@@ -411,6 +416,15 @@
 				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
 			);
 			name = SharedCoreData;
+			sourceTree = "<group>";
+		};
+		569D0E061E62B3BD00445D92 /* TableViewTopBounceDecorateView */ = {
+			isa = PBXGroup;
+			children = (
+				569D0E041E62B3A400445D92 /* TableViewTopBounceDecorateView.swift */,
+				569D0E071E62B61E00445D92 /* UITableView+addTopDecorateView.swift */,
+			);
+			name = TableViewTopBounceDecorateView;
 			sourceTree = "<group>";
 		};
 		56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */ = {
@@ -648,6 +662,7 @@
 				56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
 				561FAA1A1E21247300206894 /* GuideViewController.swift in Sources */,
+				569D0E081E62B61E00445D92 /* UITableView+addTopDecorateView.swift in Sources */,
 				563B19AB1E6163E50093BB95 /* NetworkActivityIndicatorManager.swift in Sources */,
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
@@ -672,6 +687,7 @@
 				561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */,
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
+				569D0E051E62B3A400445D92 /* TableViewTopBounceDecorateView.swift in Sources */,
 				56760ED01E1B82F300561854 /* AddingIconView.swift in Sources */,
 				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
 				56760ECC1E1B446800561854 /* PullToRefreshOption.swift in Sources */,

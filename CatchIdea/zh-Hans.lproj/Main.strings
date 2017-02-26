@@ -31,3 +31,8 @@
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "pFu-Em-acE"; */
 "pFu-Em-acE.text" = "Label";
+
+/* InfoViewController navigationtiem title*/
+"IoG-yP-MXB.title" = "支持";
+/* InfoBuyingTableViewCell default text */
+"CFX-lx-elW.text" = "获取数据...";

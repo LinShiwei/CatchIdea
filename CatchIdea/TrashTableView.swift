@@ -33,6 +33,7 @@ class TrashTableView: UITableView {
         emptyDataSetDelegate = self
         emptyDataSetSource = self
         tableFooterView = UIView()
+        addTopDecorateView()
     }
     
     override func layoutSubviews() {
@@ -118,4 +119,7 @@ extension TrashTableView: DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
         return text
     }
     
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
+        return true
+    }
 }
