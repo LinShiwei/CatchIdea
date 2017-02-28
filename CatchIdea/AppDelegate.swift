@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         siren.alertType = .skip
         siren.checkVersion(checkType: .daily)
         
+        application.statusBarStyle = .lightContent
+        
         completeIAPTransactions()
 
         return true
