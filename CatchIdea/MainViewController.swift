@@ -36,20 +36,20 @@ internal class MainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ideaDataManager.getAllIdeaData(type:.all){[unowned self](success,ideas) in
+        ideaDataManager.getAllIdeaData(type:.all){[weak self](success,ideas) in
             if (success&&(ideas != nil)){
-                self.trashButton.image = #imageLiteral(resourceName: "Delete")
+                self?.trashButton.image = #imageLiteral(resourceName: "Delete")
                 var existedIdeas = [IdeaData]()
                 for idea in ideas! {
                     if idea.isDelete == true {
-                        self.trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
+                        self?.trashButton.image = #imageLiteral(resourceName: "DeleteFilled")
                     }else{
                         existedIdeas.append(idea)
                     }
                 }
-                self.ideaListTableView.ideaData = existedIdeas
+                self?.ideaListTableView.ideaData = existedIdeas
                 DispatchQueue.main.async {
-                    self.ideaListTableView.reloadData()
+                    self?.ideaListTableView.reloadData()
                 }
             }
         }
@@ -160,15 +160,15 @@ internal class MainViewController: UIViewController {
         let keyboardRectInView = self.view.convert(keyboardRect, from: nil)
         
         tableViewBottomSpace.constant = keyboardRectInView.height
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [unowned self] Void in
-            self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [weak self] Void in
+            self?.view.layoutIfNeeded()
         }, completion: nil)
     }
     
     internal func keyboardWillHide(_ notification: Notification) {
         tableViewBottomSpace.constant = 0
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [unowned self] Void in
-            self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [weak self] Void in
+            self?.view.layoutIfNeeded()
             }, completion: nil)
     }
 }

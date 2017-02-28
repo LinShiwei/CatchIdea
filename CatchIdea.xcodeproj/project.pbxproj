@@ -19,7 +19,6 @@
 		562EB0B71E34B554009B9CF0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13881E0CF56F006A833A /* Define.swift */; };
 		563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563292121E0EB99F004C8EE1 /* MainVCTableView.swift */; };
 		563311711E334FD400409217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567FA3D71E05628E00E4A293 /* Assets.xcassets */; };
-		563B19AB1E6163E50093BB95 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563B19AA1E6163E40093BB95 /* NetworkActivityIndicatorManager.swift */; };
 		56429BCE1E236DF100C38466 /* ViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56429BCD1E236DF100C38466 /* ViewControllerManager.swift */; };
 		5645A2DE1E5EAB3800A88603 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A2DD1E5EAB3800A88603 /* InfoViewController.swift */; };
 		5645A2E11E5EAF9A00A88603 /* InfoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A2E01E5EAF9A00A88603 /* InfoTableView.swift */; };
@@ -49,6 +48,7 @@
 		567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */; };
 		567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
 		567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
+		5681B5971E645C7000E367E0 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681B5961E645C7000E367E0 /* NetworkActivityIndicatorManager.swift */; };
 		56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B981E162A1700567685 /* ColorSeletcionView.swift */; };
 		56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9A1E1648AF00567685 /* IdeaFilterView.swift */; };
 		56838B9D1E167C4A00567685 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56838B9C1E167C4A00567685 /* CustomSearchController.swift */; };
@@ -125,7 +125,6 @@
 		562EB0BA1E34C032009B9CF0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		562EB0BB1E34C032009B9CF0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		563292121E0EB99F004C8EE1 /* MainVCTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableView.swift; sourceTree = "<group>"; };
-		563B19AA1E6163E40093BB95 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkActivityIndicatorManager.swift; path = "/Volumes/LINSW/SwiftyStoreKit-master/SwiftyStoreKit-iOS-Demo/NetworkActivityIndicatorManager.swift"; sourceTree = "<absolute>"; };
 		56429BCD1E236DF100C38466 /* ViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerManager.swift; sourceTree = "<group>"; };
 		5645A2DD1E5EAB3800A88603 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		5645A2E01E5EAF9A00A88603 /* InfoTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableView.swift; sourceTree = "<group>"; };
@@ -162,6 +161,7 @@
 		567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableViewCell.swift; sourceTree = "<group>"; };
 		567FA3E91E05736900E4A293 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		567FA3EB1E05744F00E4A293 /* IdeaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData.swift; sourceTree = "<group>"; };
+		5681B5961E645C7000E367E0 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		56838B981E162A1700567685 /* ColorSeletcionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSeletcionView.swift; sourceTree = "<group>"; };
 		56838B9A1E1648AF00567685 /* IdeaFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaFilterView.swift; sourceTree = "<group>"; };
 		56838B9C1E167C4A00567685 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
 				561FAA191E21247300206894 /* GuideViewController.swift */,
 				56429BCD1E236DF100C38466 /* ViewControllerManager.swift */,
-				563B19AA1E6163E40093BB95 /* NetworkActivityIndicatorManager.swift */,
+				5681B5961E645C7000E367E0 /* NetworkActivityIndicatorManager.swift */,
 				560036AD1E44840F00C0AEC4 /* extension */,
 				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
 				567676F51E1693AA00555102 /* IdeaFilterView */,
@@ -662,8 +662,8 @@
 				56838B9B1E1648AF00567685 /* IdeaFilterView.swift in Sources */,
 				567FA3EA1E05736900E4A293 /* DataManager.swift in Sources */,
 				561FAA1A1E21247300206894 /* GuideViewController.swift in Sources */,
+				5681B5971E645C7000E367E0 /* NetworkActivityIndicatorManager.swift in Sources */,
 				569D0E081E62B61E00445D92 /* UITableView+addTopDecorateView.swift in Sources */,
-				563B19AB1E6163E50093BB95 /* NetworkActivityIndicatorManager.swift in Sources */,
 				563292131E0EB99F004C8EE1 /* MainVCTableView.swift in Sources */,
 				56FE13891E0CF56F006A833A /* Define.swift in Sources */,
 				5687643D1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift in Sources */,

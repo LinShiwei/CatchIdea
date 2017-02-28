@@ -21,13 +21,13 @@ class InfoBuyingTableViewCell: UITableViewCell {
                 return
             }
             NetworkActivityIndicatorManager.networkOperationStarted()
-            SwiftyStoreKit.retrieveProductsInfo([productID]) {[unowned self ] result in
+            SwiftyStoreKit.retrieveProductsInfo([productID]) {[weak self ] result in
                 NetworkActivityIndicatorManager.networkOperationFinished()
                 if let product = result.retrievedProducts.first {
                     let priceString = product.localizedPrice!
                     print("Product: \(product.localizedDescription), price: \(priceString)")
-                    self.titleLabel.text = product.localizedTitle
-                    self.priceLabel.text = priceString
+                    self?.titleLabel.text = product.localizedTitle
+                    self?.priceLabel.text = priceString
                 }
                 else if let invalidProductId = result.invalidProductIDs.first {
                     print("Could not retrieve product info .Invalid product identifier: \(invalidProductId)")

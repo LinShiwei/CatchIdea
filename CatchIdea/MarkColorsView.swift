@@ -29,8 +29,10 @@ internal class MarkColorsView: UIView {
             guard currentSelectedButton != nil else {
                 return
             }
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .beginFromCurrentState, animations: {[unowned self] Void in
-                self.currentSelectedButton!.transform = CGAffineTransform(scaleX: self.animateScale, y: self.animateScale)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .beginFromCurrentState, animations: {[weak self] Void in
+                if let safeSelf = self {
+                    safeSelf.currentSelectedButton!.transform = CGAffineTransform(scaleX: safeSelf.animateScale, y: safeSelf.animateScale)
+                }
                 }, completion: nil)
             currentSelectedButton?.layer.addSublayer(buttonRingLayer)
         }

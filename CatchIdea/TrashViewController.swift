@@ -22,11 +22,11 @@ class TrashViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ideaDataManager.getAllIdeaData(type:.deleted){[unowned self](success,ideas) in
+        ideaDataManager.getAllIdeaData(type:.deleted){[weak self](success,ideas) in
             if (success&&(ideas != nil)){
-                self.trashTableView.ideaData = ideas!
+                self?.trashTableView.ideaData = ideas!
                 DispatchQueue.main.async {
-                    self.trashTableView.reloadData()
+                    self?.trashTableView.reloadData()
                 }
                 
             }
@@ -81,10 +81,10 @@ class TrashViewController: UIViewController {
         let strings = LocalizationStrings.shared
         let alert = UIAlertController(title: strings.trashClearMessageTitle, message: strings.trashClearMessageContent, preferredStyle: .alert)
         let saveAction = UIAlertAction(title: strings.okString, style: .default,handler: { (action:UIAlertAction) -> Void in
-            self.ideaDataManager.deleteAllIdeaDataInTrash(){[unowned self] success in
+            self.ideaDataManager.deleteAllIdeaDataInTrash(){[weak self] success in
                 if success {
-                    self.trashTableView.ideaData.removeAll()
-                    self.trashTableView.reloadData()
+                    self?.trashTableView.ideaData.removeAll()
+                    self?.trashTableView.reloadData()
                 }
             }
         })
@@ -109,15 +109,15 @@ class TrashViewController: UIViewController {
         
         tableViewBottomSpace.constant = keyboardRectInView.height
         
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [unowned self] Void in
-            self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [weak self] Void in
+            self?.view.layoutIfNeeded()
             }, completion: nil)
     }
     
     internal func keyboardWillHide(_ notification: Notification) {
         tableViewBottomSpace.constant = 0
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [unowned self] Void in
-            self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [weak self] Void in
+            self?.view.layoutIfNeeded()
             }, completion: nil)
     }
 
