@@ -799,7 +799,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Idea" id="Dwf-wr-5DW">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancle" id="4io-b6-8fY">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="4io-b6-8fY">
                                             <connections>
                                                 <action selector="cancleCreateIdea:" destination="ifY-Y3-tiW" id="FOI-2y-5gZ"/>
                                             </connections>

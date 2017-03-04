@@ -101,7 +101,7 @@ internal class LocalizationStrings {
             trashClearMessageContent = "Delete all ideas forever?"
             
             okString = "OK"
-            cancleString = "Cancle"
+            cancleString = "Cancel"
             
             mainGuideImage = #imageLiteral(resourceName: "MainGuide")
             trashGuideImage = #imageLiteral(resourceName: "TrashGuide")
