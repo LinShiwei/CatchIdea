@@ -10,12 +10,6 @@ import UIKit
 import SwiftyStoreKit
 import MessageUI
 
-//enum RegisteredPurchase : String {
-//    
-//    case purchase1 = "latiao1"
-//    case purchase2 = "drink2"
-//}
-//
 class InfoViewController: UIViewController {
 
     @IBOutlet weak var infoTableView: InfoTableView!
@@ -45,11 +39,6 @@ class InfoViewController: UIViewController {
         super.viewWillAppear(animated)
         infoTableView.isUserInteractionEnabled = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func dismissVC(_ sender: UIBarButtonItem) {
         if let mainVC = transitioningDelegate as? MainViewController {
@@ -58,15 +47,6 @@ class InfoViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     fileprivate func getProductID(withSuffix suffix:String)->String{
         return appBundleID + "." + suffix
     }
