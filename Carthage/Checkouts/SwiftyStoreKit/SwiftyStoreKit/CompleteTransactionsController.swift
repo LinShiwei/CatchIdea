@@ -42,6 +42,7 @@ class CompleteTransactionsController: TransactionController {
     func processTransactions(_ transactions: [SKPaymentTransaction], on paymentQueue: PaymentQueue) -> [SKPaymentTransaction] {
 
         guard let completeTransactions = completeTransactions else {
+            print("SwiftyStoreKit.completeTransactions() should be called once when the app launches.")
             return transactions
         }
 
@@ -67,7 +68,9 @@ class CompleteTransactionsController: TransactionController {
                 unhandledTransactions.append(transaction)
             }
         }
-        completeTransactions.callback(products)
+        if products.count > 0 {
+            completeTransactions.callback(products)
+        }
 
         return unhandledTransactions
     }

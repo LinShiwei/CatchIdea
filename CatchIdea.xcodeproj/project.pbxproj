@@ -27,6 +27,9 @@
 		5645A2E81E5F30CD00A88603 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645A2E71E5F30CD00A88603 /* IAPHelper.swift */; };
 		564A44E61E3C896F00B8895D /* CellColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A44E51E3C896F00B8895D /* CellColorSelectionView.swift */; };
 		564AFB691E0A6C75001FB9D4 /* IdeaDataSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */; };
+		56580A091E6BC5C00043BF67 /* WebServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56580A081E6BC5C00043BF67 /* WebServerManager.swift */; };
+		56580A0B1E6BCF200043BF67 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56580A0A1E6BCF200043BF67 /* Alamofire.framework */; };
+		56580A0D1E6BCF260043BF67 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56580A0C1E6BCF260043BF67 /* SwiftyJSON.framework */; };
 		56649B4D1E5FC89400313A03 /* SwiftyStoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56649B4C1E5FC89400313A03 /* SwiftyStoreKit.framework */; };
 		56660BB91E18EE6700FBA7EB /* DRCellSlideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB41E18EE6700FBA7EB /* DRCellSlideAction.m */; };
 		56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56660BB61E18EE6700FBA7EB /* DRCellSlideActionView.m */; };
@@ -138,6 +141,9 @@
 		5645A2E71E5F30CD00A88603 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		564A44E51E3C896F00B8895D /* CellColorSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellColorSelectionView.swift; sourceTree = "<group>"; };
 		564AFB681E0A6C75001FB9D4 /* IdeaDataSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaDataSheetView.swift; sourceTree = "<group>"; };
+		56580A081E6BC5C00043BF67 /* WebServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServerManager.swift; sourceTree = "<group>"; };
+		56580A0A1E6BCF200043BF67 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		56580A0C1E6BCF260043BF67 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		56649B4C1E5FC89400313A03 /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyStoreKit.framework; path = Carthage/Build/iOS/SwiftyStoreKit.framework; sourceTree = "<group>"; };
 		56660BB21E18EE6700FBA7EB /* CatchIdea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatchIdea-Bridging-Header.h"; sourceTree = "<group>"; };
 		56660BB31E18EE6700FBA7EB /* DRCellSlideAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRCellSlideAction.h; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56649B4D1E5FC89400313A03 /* SwiftyStoreKit.framework in Frameworks */,
+				56580A0B1E6BCF200043BF67 /* Alamofire.framework in Frameworks */,
+				56580A0D1E6BCF260043BF67 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +434,7 @@
 				567FA3EB1E05744F00E4A293 /* IdeaData.swift */,
 				567FA3E91E05736900E4A293 /* DataManager.swift */,
 				56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */,
+				56580A081E6BC5C00043BF67 /* WebServerManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -463,6 +472,8 @@
 		56BAF7431E0C16A600218103 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56580A0C1E6BCF260043BF67 /* SwiftyJSON.framework */,
+				56580A0A1E6BCF200043BF67 /* Alamofire.framework */,
 				56649B4C1E5FC89400313A03 /* SwiftyStoreKit.framework */,
 				56BAF7441E0C16A600218103 /* NotificationCenter.framework */,
 			);
@@ -692,6 +703,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyStoreKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -708,6 +721,7 @@
 			files = (
 				56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */,
 				5687643B1E2F68D000DB6C89 /* CoreDataStack.swift in Sources */,
+				56580A091E6BC5C00043BF67 /* WebServerManager.swift in Sources */,
 				561FAA171E20CBC000206894 /* UIColor+~=.swift in Sources */,
 				560036AC1E4483AA00C0AEC4 /* UIVIew+snapshotView.swift in Sources */,
 				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,

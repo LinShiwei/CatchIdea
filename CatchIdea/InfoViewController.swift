@@ -10,12 +10,6 @@ import UIKit
 import SwiftyStoreKit
 import MessageUI
 
-enum RegisteredPurchase : String {
-    
-    case purchase1 = "latiao1"
-    case purchase2 = "drink2"
-}
-
 class InfoViewController: UIViewController {
 
     @IBOutlet weak var infoTableView: InfoTableView!
@@ -23,20 +17,27 @@ class InfoViewController: UIViewController {
     fileprivate let localizationStrings = LocalizationStrings.shared
     fileprivate let appBundleID = Bundle.main.bundleIdentifier ?? "com.catchidea.linshiwei"
     fileprivate let authorEmailAddress = "linshiweicn@126.com"
-    
+    fileprivate var registeredPurchase = [String](){
+        didSet{
+            if registeredPurchase.count > 0 {
+                infoTableView.reloadSections(IndexSet(arrayLiteral:1), with: .automatic)
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        WebServerManager.shared.getDataFromServer(){ [weak self] (success,suffixs) in
+            if success && suffixs != nil {
+                self?.registeredPurchase = suffixs!
+            }else{
+                self?.registeredPurchase = ["latiao1","drink2"]
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         infoTableView.isUserInteractionEnabled = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func dismissVC(_ sender: UIBarButtonItem) {
@@ -46,15 +47,6 @@ class InfoViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     fileprivate func getProductID(withSuffix suffix:String)->String{
         return appBundleID + "." + suffix
     }
@@ -180,7 +172,7 @@ extension InfoViewController: UITableViewDataSource {
         case 0:
             return 2
         case 1:
-            return 2
+            return registeredPurchase.count
         default:
             return 0
         }
@@ -203,17 +195,17 @@ extension InfoViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoBuyingTableViewCell", for: indexPath) as! InfoBuyingTableViewCell
-            switch indexPath.row {
-            case 0:
-                cell.cellImageView.image = #imageLiteral(resourceName: "French Fries")
-                cell.productID = getProductID(withSuffix: RegisteredPurchase.purchase1.rawValue)
-            case 1:
+            let suffix = registeredPurchase[indexPath.row]
+            if suffix.contains("drink"){
                 cell.cellImageView.image = #imageLiteral(resourceName: "Wine Bottle")
-                cell.productID = getProductID(withSuffix: RegisteredPurchase.purchase2.rawValue)
-            default:
-                fatalError("only 2 row in section 1")
-
+            }else if suffix.contains("latiao") {
+                cell.cellImageView.image = #imageLiteral(resourceName: "French Fries")
+            }else if suffix.contains("fruit"){
+                cell.cellImageView.image = #imageLiteral(resourceName: "Citrus")
+            }else {
+                cell.cellImageView.image = #imageLiteral(resourceName: "Sandwich")
             }
+            cell.productID = getProductID(withSuffix: suffix)
             return cell
         default:
             fatalError("There are only two sections")
