@@ -6,7 +6,13 @@
 //  Copyright © 2016年 Linsw. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
+protocol MarkColor {
+    associatedtype Color
+    func markColor() -> Color?
+    func setMarkColor(_ markColor: Color)
+}
 
 internal class IdeaData {
     //These properties should store in CoreData

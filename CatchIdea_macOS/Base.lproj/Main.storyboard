@@ -699,10 +699,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="CatchIdea_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="CatchIdea_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="596" height="411"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -825,7 +825,7 @@
                                                         <rect key="frame" x="1" y="0.0" width="522" height="364"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B">
+                                                            <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="BaseTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="522" height="341"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -845,7 +845,7 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView id="eTS-gK-xgQ">
+                                                                            <tableCellView identifier="MarkColorCell" id="eTS-gK-xgQ">
                                                                                 <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -878,7 +878,7 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView id="aCq-IH-Dpk">
+                                                                            <tableCellView identifier="ContentCell" id="aCq-IH-Dpk">
                                                                                 <rect key="frame" x="120" y="1" width="400" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -899,6 +899,10 @@
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
                                                                 </tableColumns>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="XfG-lQ-9wD" id="5T9-9a-x1A"/>
+                                                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="EWg-qu-3SY"/>
+                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                     </clipView>
@@ -935,7 +939,7 @@
                                                         <rect key="frame" x="1" y="0.0" width="522" height="364"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR">
+                                                            <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="BaseTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="522" height="341"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -955,7 +959,7 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView id="RhN-BB-rTs">
+                                                                            <tableCellView identifier="MarkColorCell" id="RhN-BB-rTs">
                                                                                 <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -988,7 +992,7 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView id="hTK-Nx-NoD">
+                                                                            <tableCellView identifier="ContentCell" id="hTK-Nx-NoD">
                                                                                 <rect key="frame" x="120" y="1" width="400" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -1009,11 +1013,15 @@
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
                                                                 </tableColumns>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="XfG-lQ-9wD" id="0QT-gf-QH8"/>
+                                                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="QO4-0u-Yho"/>
+                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                     </clipView>
                                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="MDf-z8-VJF">
-                                                        <rect key="frame" x="1" y="117.5" width="237" height="16"/>
+                                                        <rect key="frame" x="1" y="117" width="237" height="16"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="GzF-hp-ikI">
@@ -1047,10 +1055,14 @@
                             <constraint firstAttribute="bottom" secondItem="dHw-M8-Ddj" secondAttribute="bottom" id="zLm-fa-8E4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ideaTableView" destination="wjd-GL-58B" id="MJj-S0-NsC"/>
+                        <outlet property="trashTableView" destination="8GI-1l-KWR" id="7lG-LE-hSG"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161" y="717.5"/>
+            <point key="canvasLocation" x="75" y="757"/>
         </scene>
     </scenes>
     <resources>
