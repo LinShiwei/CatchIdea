@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Linsw. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import CoreData
 
 
@@ -17,8 +17,28 @@ internal enum IdeaDataType {
 internal enum DeleteStyle {
     case moveToTrash,deleteForever
 }
+
+
+#if os(iOS)
+    import UIKit
+    typealias Color = UIColor
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+#else
+#if os(macOS)
+    import Cocoa
+    typealias Color = NSColor
+    let appDelegate = NSApplication.shared().delegate as! AppDelegate
+#endif
+    //fatal error
+ 
+#endif
+
+
+
 internal final class DataManager: NSObject {
+
     private let entityName = "Idea"
+
     static let shared = DataManager()
     
     //objects 里的数据是按照 date 由新到旧排列，最新的数据在［0］。
@@ -110,13 +130,15 @@ internal final class DataManager: NSObject {
     private func getIdeaData(filter: ((NSManagedObject)->Bool), _ completion: @escaping (Bool,[IdeaData]?)->Void) {
         var ideas = [IdeaData]()
         for object in objects{
-            CoreDataStack.persistentContainer.viewContext.refresh(object, mergeChanges: true)
+            #if os(iOS)
+                CoreDataStack.persistentContainer.viewContext.refresh(object, mergeChanges: true)
+            #endif
             if filter(object) {
                 if let addingDate = object.value(forKey: "addingDate") as? Date,
                     let header = object.value(forKey: "header") as? String ,
                     let isFinish = object.value(forKey: "isFinish") as? Bool,
                     let isDelete = object.value(forKey: "isDelete") as? Bool,
-                    let markColor = object.value(forKey: "markColor") as? UIColor,
+                    let markColor = object.value(forKey: "markColor") as? Color,
                     let content = object.value(forKey: "content") as? String {
                     
                     let notificationDate = object.value(forKey: "notificationDate") as? Date
@@ -232,12 +254,10 @@ internal final class DataManager: NSObject {
     }
     
     private func getManagedContext()->NSManagedObjectContext{
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
     
     private func managedContextSave(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.saveContext()
+        appDelegate.saveAction(nil)
     }
 }

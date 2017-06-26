@@ -14,7 +14,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var trashTableView: BaseTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -37,10 +37,9 @@ extension MainViewController: NSTableViewDelegate {
             cellIdentifier = "ContentCell"
         }
         
-        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
+        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
             cell.wantsLayer = true
             cell.layer?.backgroundColor = CGColor.black
-            
             return cell
         }
         
@@ -53,7 +52,7 @@ extension MainViewController: NSTableViewDataSource {
         guard let identifier = tableView.identifier else {
             return 0
         }
-        switch identifier.rawValue {
+        switch identifier {
         case "IdeaTableView":
             return 1
         case "TrashTableView":

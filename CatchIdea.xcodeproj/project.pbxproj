@@ -90,12 +90,17 @@
 		56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */; };
 		FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A41F000407007D6BA1 /* AppDelegate.swift */; };
 		FA06D9A71F000407007D6BA1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A61F000407007D6BA1 /* MainViewController.swift */; };
-		FA06D9AA1F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A81F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld */; };
 		FA06D9AC1F000407007D6BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AB1F000407007D6BA1 /* Assets.xcassets */; };
 		FA06D9AF1F000407007D6BA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AD1F000407007D6BA1 /* Main.storyboard */; };
 		FA06D9B61F009F02007D6BA1 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */; };
 		FA06D9B91F00CF28007D6BA1 /* IdeaData_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9B81F00CF28007D6BA1 /* IdeaData_iOS.swift */; };
 		FA06D9BB1F00D219007D6BA1 /* AppStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */; };
+		FA46E58A1F011D0A0038D59B /* IdeaData_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46E5891F011D0A0038D59B /* IdeaData_macOS.swift */; };
+		FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
+		FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
+		FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
+		FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */; };
+		FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,8 +178,8 @@
 		567FA3DC1E05628E00E4A293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		567FA3E31E056CFA00E4A293 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		567FA3E61E056DB100E4A293 /* IdeaListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableViewCell.swift; sourceTree = "<group>"; };
-		567FA3E91E05736900E4A293 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		567FA3EB1E05744F00E4A293 /* IdeaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData.swift; sourceTree = "<group>"; };
+		567FA3E91E05736900E4A293 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = CatchIdea/DataManager.swift; sourceTree = "<group>"; };
+		567FA3EB1E05744F00E4A293 /* IdeaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdeaData.swift; path = CatchIdea/IdeaData.swift; sourceTree = "<group>"; };
 		5681B5961E645C7000E367E0 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		56838B981E162A1700567685 /* ColorSeletcionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSeletcionView.swift; sourceTree = "<group>"; };
 		56838B9A1E1648AF00567685 /* IdeaFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaFilterView.swift; sourceTree = "<group>"; };
@@ -223,6 +228,9 @@
 		FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		FA06D9B81F00CF28007D6BA1 /* IdeaData_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaData_iOS.swift; sourceTree = "<group>"; };
 		FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreManager.swift; sourceTree = "<group>"; };
+		FA46E5891F011D0A0038D59B /* IdeaData_macOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData_macOS.swift; sourceTree = "<group>"; };
+		FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
+		FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,8 +447,6 @@
 			isa = PBXGroup;
 			children = (
 				FA06D9B81F00CF28007D6BA1 /* IdeaData_iOS.swift */,
-				567FA3EB1E05744F00E4A293 /* IdeaData.swift */,
-				567FA3E91E05736900E4A293 /* DataManager.swift */,
 				56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */,
 				56580A081E6BC5C00043BF67 /* WebServerManager.swift */,
 				FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */,
@@ -453,7 +459,6 @@
 			children = (
 				5687643C1E2F6FBB00DB6C89 /* SharedPersistentContainer.swift */,
 				5687643A1E2F68D000DB6C89 /* CoreDataStack.swift */,
-				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
 			);
 			name = SharedCoreData;
 			sourceTree = "<group>";
@@ -554,6 +559,9 @@
 				FA06D9B11F000407007D6BA1 /* CatchIdea_macOS.entitlements */,
 				FA06D9A81F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld */,
 				FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */,
+				FA46E5891F011D0A0038D59B /* IdeaData_macOS.swift */,
+				FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */,
+				FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */,
 			);
 			path = CatchIdea_macOS;
 			sourceTree = "<group>";
@@ -561,6 +569,9 @@
 		FA06D9B71F00C973007D6BA1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				567FA3EB1E05744F00E4A293 /* IdeaData.swift */,
+				567FA3E91E05736900E4A293 /* DataManager.swift */,
+				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -821,10 +832,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */,
+				FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */,
+				FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */,
 				FA06D9B61F009F02007D6BA1 /* BaseTableView.swift in Sources */,
 				FA06D9A71F000407007D6BA1 /* MainViewController.swift in Sources */,
-				FA06D9AA1F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld in Sources */,
 				FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */,
+				FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */,
+				FA46E58A1F011D0A0038D59B /* IdeaData_macOS.swift in Sources */,
+				FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,7 +1171,8 @@
 				567FA3D51E05628E00E4A293 /* CatchIdea.xcdatamodel */,
 			);
 			currentVersion = 567FA3D51E05628E00E4A293 /* CatchIdea.xcdatamodel */;
-			path = CatchIdea.xcdatamodeld;
+			name = CatchIdea.xcdatamodeld;
+			path = CatchIdea/CatchIdea.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
