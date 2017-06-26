@@ -15,7 +15,8 @@ class AppStoreManager: NSObject {
     private override init() {
     }
     
-    internal func purchaseProductWith(productID: String, completion: @escaping (()->Void)) {
+    internal func purchaseProductWith(productID: String, completion: @escaping ((PurchaseResult)->Void)) {
+        NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.purchaseProduct(productID, atomically: true) {result in
             NetworkActivityIndicatorManager.networkOperationFinished()
             if case .success(let product) = result {
@@ -24,25 +25,22 @@ class AppStoreManager: NSObject {
                     SwiftyStoreKit.finishTransaction(product.transaction)
                 }
             }
-            completion()
+            completion(result)
         }
     }
     
     internal func retrieveProductsInfoWith(productID:String, completion: @escaping ((SKProduct)->Void)){
-        SwiftyStoreKit.retrieveProductsInfo([productID]) {[weak self ] result in
+        NetworkActivityIndicatorManager.networkOperationStarted()
+        SwiftyStoreKit.retrieveProductsInfo([productID]) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
             if let product = result.retrievedProducts.first {
-//                let priceString = product.localizedPrice!
-//                print("Product: \(product.localizedDescription), price: \(priceString)")
-//                self?.titleLabel.text = product.localizedTitle
-//                self?.priceLabel.text = priceString
                 completion(product)
             }
             else if let invalidProductId = result.invalidProductIDs.first {
                 print("Could not retrieve product info .Invalid product identifier: \(invalidProductId)")
             }
             else {
-                print("Error: \(result.error)")
+                print("Error: \(String(describing: result.error))")
             }
         }
     }

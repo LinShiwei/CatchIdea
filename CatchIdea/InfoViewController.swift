@@ -52,21 +52,30 @@ class InfoViewController: UIViewController {
     }
     
     func purchase(_ productID: ProductIdentifier) {
-        NetworkActivityIndicatorManager.networkOperationStarted()
         infoTableView.isUserInteractionEnabled = false
-        SwiftyStoreKit.purchaseProduct(productID, atomically: true) { [weak self] result in
-            NetworkActivityIndicatorManager.networkOperationFinished()
+        AppStoreManager.shared.purchaseProductWith(productID: productID, completion: { [weak self] result in
+            
             self?.infoTableView.isUserInteractionEnabled = true
-            if case .success(let product) = result {
-                // Deliver content from server, then:
-                if product.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(product.transaction)
-                }
-            }
             if let alert = self?.alertForPurchaseResult(result) {
                 self?.showAlert(alert)
             }
-        }
+        })
+        
+        
+//        NetworkActivityIndicatorManager.networkOperationStarted()
+//        SwiftyStoreKit.purchaseProduct(productID, atomically: true) { [weak self] result in
+//            NetworkActivityIndicatorManager.networkOperationFinished()
+//            if case .success(let product) = result {
+//                // Deliver content from server, then:
+//                if product.needsFinishTransaction {
+//                    SwiftyStoreKit.finishTransaction(product.transaction)
+//                }
+//            }
+//            self?.infoTableView.isUserInteractionEnabled = true
+//            if let alert = self?.alertForPurchaseResult(result) {
+//                self?.showAlert(alert)
+//            }
+//        }
     }
     func alertForPurchaseResult(_ result: PurchaseResult) -> UIAlertController? {
         switch result {

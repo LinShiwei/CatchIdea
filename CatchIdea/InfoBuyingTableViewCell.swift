@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyStoreKit
 
 class InfoBuyingTableViewCell: UITableViewCell {
 
@@ -20,22 +19,28 @@ class InfoBuyingTableViewCell: UITableViewCell {
             guard let productID = productID else {
                 return
             }
-            NetworkActivityIndicatorManager.networkOperationStarted()
-            SwiftyStoreKit.retrieveProductsInfo([productID]) {[weak self ] result in
-                NetworkActivityIndicatorManager.networkOperationFinished()
-                if let product = result.retrievedProducts.first {
-                    let priceString = product.localizedPrice!
-                    print("Product: \(product.localizedDescription), price: \(priceString)")
-                    self?.titleLabel.text = product.localizedTitle
-                    self?.priceLabel.text = priceString
-                }
-                else if let invalidProductId = result.invalidProductIDs.first {
-                    print("Could not retrieve product info .Invalid product identifier: \(invalidProductId)")
-                }
-                else {
-                    print("Error: \(result.error)")
-                }
-            }
+            AppStoreManager.shared.retrieveProductsInfoWith(productID: productID, completion: {[weak self] skProduct in
+                let priceString = skProduct.localizedPrice!
+                print("Product: \(skProduct.localizedDescription), price: \(priceString)")
+                self?.titleLabel.text = skProduct.localizedTitle
+                self?.priceLabel.text = priceString
+            })
+//            
+//            SwiftyStoreKit.retrieveProductsInfo([productID]) {[weak self ] result in
+//                NetworkActivityIndicatorManager.networkOperationFinished()
+//                if let product = result.retrievedProducts.first {
+//                    let priceString = product.localizedPrice!
+//                    print("Product: \(product.localizedDescription), price: \(priceString)")
+//                    self?.titleLabel.text = product.localizedTitle
+//                    self?.priceLabel.text = priceString
+//                }
+//                else if let invalidProductId = result.invalidProductIDs.first {
+//                    print("Could not retrieve product info .Invalid product identifier: \(invalidProductId)")
+//                }
+//                else {
+//                    print("Error: \(result.error)")
+//                }
+//            }
         }
     }
     

@@ -12,12 +12,15 @@ extension IdeaData :MarkColor {
     
     typealias Color = UIColor
     
-    func getMarkColor()-> UIColor?{
-        
-        return UIColor.red
+    func markColor()-> UIColor{
+        if (self._markColor != nil)&&(self._markColor is UIColor) {
+            return self._markColor as! UIColor
+        }else{
+            return Theme.shared.markColors[0]
+        }
     }
     
     func setMarkColor(_ markColor: UIColor) {
-        self.markColor = markColor
+        self._markColor = markColor
     }
 }

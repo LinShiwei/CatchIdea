@@ -205,7 +205,7 @@ internal final class DataManager: NSObject {
         ideaObject.setValue(idea.content, forKey: "content")
         ideaObject.setValue(idea.isDelete, forKey: "isDelete")
         ideaObject.setValue(idea.isFinish, forKey: "isFinish")
-        ideaObject.setValue(idea.markColor, forKey: "markColor")
+        ideaObject.setValue(idea.markColor(), forKey: "markColor")
         ideaObject.setValue(idea.notificationDate, forKey: "notificationDate")
         return ideaObject
     }

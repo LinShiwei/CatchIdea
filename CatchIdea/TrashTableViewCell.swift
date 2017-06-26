@@ -16,7 +16,7 @@ class TrashTableViewCell: UITableViewCell {
     internal var ideaData: IdeaData?{
         didSet{
             contentHeaderLabel.text = ideaData?.header
-            markColorIndicationView.layer.backgroundColor = ideaData?.markColor.cgColor
+            markColorIndicationView.layer.backgroundColor = ideaData?.markColor().cgColor
         }
     }
     

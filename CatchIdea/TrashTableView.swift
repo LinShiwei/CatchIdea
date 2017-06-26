@@ -50,7 +50,7 @@ class TrashTableView: UITableView {
             }
             
             var matchColor = true
-            if filterColor != UIColor.white, !(filterColor ~= idea.markColor){
+            if filterColor != UIColor.white, !(filterColor ~= idea.markColor()){
                 matchColor = false
             }
             return containText && matchColor

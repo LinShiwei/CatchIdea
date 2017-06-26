@@ -19,7 +19,7 @@ internal class IdeaListTableViewCell: UITableViewCell {
     internal var ideaData: IdeaData?{
         didSet{
             checkoutCellNotification()
-            markColorIndicationView.currentMarkColor = ideaData?.markColor
+            markColorIndicationView.currentMarkColor = ideaData?.markColor()
             contentHeaderLabel.text = ideaData?.header
             
         }
