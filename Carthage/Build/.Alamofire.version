@@ -1,0 +1,15 @@
+{
+  "iOS" : [
+    {
+      "hash" : "16881ec280306378dc35cdf5c06dbcd435defc9837e4eea55793398317c35fa2",
+      "name" : "Alamofire"
+    }
+  ],
+  "commitish" : "4.5.0",
+  "Mac" : [
+    {
+      "hash" : "4c9507a2a206859150a67bb3a31054b5844cf61db74bb210628ef9422de96f54",
+      "name" : "Alamofire"
+    }
+  ]
+}

@@ -9,9 +9,10 @@
 import UIKit
 
 extension IdeaData :MarkColor {
+    
     typealias Color = UIColor
     
-    func markColor(){
+    func getMarkColor()-> UIColor?{
         
         return UIColor.red
     }

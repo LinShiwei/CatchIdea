@@ -40,7 +40,7 @@ class AddingIconView: UIView {
     }
     
     private func performActiveAnimation(){
-        self.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI-0.0000001))
+        self.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi-0.0000001))
         self.layer.borderColor = Theme.shared.mainThemeColor.cgColor
         transverseLineLayer.backgroundColor = layer.borderColor
         verticalLineLayer.backgroundColor = layer.borderColor

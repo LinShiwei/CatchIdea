@@ -1,3 +1,3 @@
-github "bizz84/SwiftyStoreKit"
-github "Alamofire/Alamofire" ~> 4.4
+github "bizz84/SwiftyStoreKit" ~> 0.8.5
+github "Alamofire/Alamofire" ~> 4.4 
 github "SwiftyJSON/SwiftyJSON"

@@ -94,11 +94,9 @@ class ViewController: NSViewController {
 
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
 
-            for product in results.restoredProducts {
+            for product in results.restoredProducts where product.needsFinishTransaction {
                 // Deliver content from server, then:
-                if product.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(product.transaction)
-                }
+                SwiftyStoreKit.finishTransaction(product.transaction)
             }
 
             self.showAlert(self.alertForRestorePurchases(results))
@@ -131,15 +129,22 @@ class ViewController: NSViewController {
 
                 let productId = self.appBundleId + "." + purchase.rawValue
 
-                // Specific behaviour for AutoRenewablePurchase
-                if purchase == .autoRenewablePurchase {
+                switch purchase {
+                case .autoRenewablePurchase:
                     let purchaseResult = SwiftyStoreKit.verifySubscription(
+                        type: .autoRenewable,
                         productId: productId,
-                        inReceipt: receipt,
-                        validUntil: Date()
+                        inReceipt: receipt
                     )
                     self.showAlert(self.alertForVerifySubscription(purchaseResult))
-                } else {
+                case .nonRenewingPurchase:
+                    let purchaseResult = SwiftyStoreKit.verifySubscription(
+                        type: .nonRenewing(validDuration: 60),
+                        productId: productId,
+                        inReceipt: receipt
+                    )
+                    self.showAlert(self.alertForVerifySubscription(purchaseResult))
+                default:
                     let purchaseResult = SwiftyStoreKit.verifyPurchase(
                         productId: productId,
                         inReceipt: receipt
@@ -249,12 +254,12 @@ extension ViewController {
     func alertForVerifySubscription(_ result: VerifySubscriptionResult) -> NSAlert {
 
         switch result {
-        case .purchased(let expiresDate):
-            print("Product is valid until \(expiresDate)")
-            return alertWithTitle("Product is purchased", message: "Product is valid until \(expiresDate)")
-        case .expired(let expiresDate):
-            print("Product is expired since \(expiresDate)")
-            return alertWithTitle("Product expired", message: "Product is expired since \(expiresDate)")
+        case .purchased(let expiryDate):
+            print("Product is valid until \(expiryDate)")
+            return alertWithTitle("Product is purchased", message: "Product is valid until \(expiryDate)")
+        case .expired(let expiryDate):
+            print("Product is expired since \(expiryDate)")
+            return alertWithTitle("Product expired", message: "Product is expired since \(expiryDate)")
         case .notPurchased:
             print("This product has never been purchased")
             return alertWithTitle("Not purchased", message: "This product has never been purchased")

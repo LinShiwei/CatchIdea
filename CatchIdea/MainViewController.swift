@@ -127,7 +127,7 @@ internal class MainViewController: UIViewController {
         }
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        print("sender\(sender)")
+        print("sender\(String(describing: sender))")
         if sender is UITableViewCell {
             
         }else{

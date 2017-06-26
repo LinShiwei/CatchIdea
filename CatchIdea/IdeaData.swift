@@ -10,7 +10,7 @@ import Foundation
 
 protocol MarkColor {
     associatedtype Color
-    func markColor() -> Color?
+    func getMarkColor() -> Color?
     func setMarkColor(_ markColor: Color)
 }
 

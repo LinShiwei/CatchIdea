@@ -92,6 +92,8 @@ class InfoViewController: UIViewController {
                 return alertWithTitle("Purchase failed", message: "Access to cloud service information is not allowed")
             case .cloudServiceNetworkConnectionFailed: // the device could not connect to the nework
                 return alertWithTitle("Purchase failed", message: "Could not connect to the network")
+            default:
+                return nil
             }
         }
     }
