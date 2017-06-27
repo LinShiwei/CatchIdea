@@ -8,48 +8,22 @@
 
 import Cocoa
 
-class TrashTableView: BaseFilterTableView {
-
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-
-        // Drawing code here.
-    }
+class TrashTableView: FilterTableView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        dataSource = self
-        delegate = self
-    }
-}
-extension TrashTableView: NSTableViewDelegate {
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var cellIdentifier = ""
-        
-        if tableColumn == tableView.tableColumns[0] {
-            cellIdentifier = "MarkColorCell"
-        }else{
-            cellIdentifier = "ContentCell"
-        }
-        
-        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-            cell.wantsLayer = true
-            cell.layer?.backgroundColor = CGColor.black
-            return cell
-        }
-        
-        return nil
-    }
-}
-
-extension TrashTableView: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        guard let _ = tableView as? TrashTableView else {
-            return 0
-        }
-        return 4
-        
     }
     
-    
+    override func clickAtMarkColorCellToDelete(sender: NSGestureRecognizer) {
+        guard let v = sender.view as? MarkColorView,let cell = v.superview as? NSTableCellView else {
+            return
+        }
+        let index = self.row(for: cell)
+        
+        DataManager.shared.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: self.ideaData[index])
+        self.ideaData.remove(at: index)
+        self.beginUpdates()
+        self.removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
+        self.endUpdates()
+    }
 }

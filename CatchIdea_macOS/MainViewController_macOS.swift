@@ -11,7 +11,7 @@ import Cocoa
 class MainViewController_macOS: NSViewController {
 
     @IBOutlet weak var ideaListTableView: IdeaListTableView!
-    @IBOutlet weak var TrashTableView: TrashTableView!
+    @IBOutlet weak var trashTableView: TrashTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +49,16 @@ class MainViewController_macOS: NSViewController {
                 }
             }
         })
+        
+        DataManager.shared.getAllIdeaData(type: .deleted, {[weak self](success, ideas) in
+            if (success&&(ideas != nil)){
+                self?.trashTableView.ideaData = ideas!
+                DispatchQueue.main.async {
+                    self?.trashTableView.reloadData()
+                    print(self?.trashTableView.numberOfRows)
+                }
+            }
+        })
     }
     
     override var representedObject: Any? {
@@ -61,7 +71,9 @@ class MainViewController_macOS: NSViewController {
         let idea = IdeaData(addingDate: Date(), header: Date().description)
         DataManager.shared.saveOneIdeaData(ideaData: idea)
         ideaListTableView.ideaData.insert(idea, at: 0)
-        ideaListTableView.reloadData()
+        ideaListTableView.beginUpdates()
+        ideaListTableView.insertRows(at: [0], withAnimation: NSTableViewAnimationOptions.slideLeft)
+        ideaListTableView.endUpdates()
     }
 
 }

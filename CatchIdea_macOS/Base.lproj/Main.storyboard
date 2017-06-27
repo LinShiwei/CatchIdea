@@ -971,7 +971,7 @@
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                 <tableColumns>
-                                                                    <tableColumn width="116" minWidth="40" maxWidth="1000" id="yx1-iy-usl">
+                                                                    <tableColumn width="30" minWidth="30" maxWidth="30" id="yx1-iy-usl">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -984,14 +984,14 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="MarkColorCell" id="RhN-BB-rTs">
-                                                                                <rect key="frame" x="1" y="1" width="116" height="17"/>
+                                                                            <tableCellView identifier="MarkColorCell" id="RhN-BB-rTs" customClass="MarkColorCell" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                                                <rect key="frame" x="1" y="1" width="30" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0k-1Q-wqB">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="idea cell" id="ihf-g0-auR">
+                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="ihf-g0-auR">
                                                                                             <font key="font" metaFont="system"/>
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1018,7 +1018,7 @@
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
                                                                             <tableCellView identifier="ContentCell" id="hTK-Nx-NoD">
-                                                                                <rect key="frame" x="120" y="1" width="400" height="17"/>
+                                                                                <rect key="frame" x="34" y="1" width="400" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNz-by-K7M">
@@ -1077,8 +1077,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TrashTableView" destination="8GI-1l-KWR" id="MA5-ZX-D4M"/>
                         <outlet property="ideaListTableView" destination="wjd-GL-58B" id="fsd-5g-H61"/>
+                        <outlet property="trashTableView" destination="8GI-1l-KWR" id="gNz-Pg-hbu"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

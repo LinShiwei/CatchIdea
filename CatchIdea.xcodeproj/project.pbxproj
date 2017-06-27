@@ -96,6 +96,7 @@
 		FA33719F1F0235240011DECC /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33719E1F0235240011DECC /* Define.swift */; };
 		FA3371A11F0279CB0011DECC /* MarkColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371A01F0279CB0011DECC /* MarkColorView.swift */; };
 		FA3371A31F027B6F0011DECC /* MarkColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371A21F027B6F0011DECC /* MarkColorCell.swift */; };
+		FA3371A61F0297280011DECC /* FilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371A51F0297280011DECC /* FilterTableView.swift */; };
 		FA3A6DB61F02041E00123867 /* FilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB51F02041E00123867 /* FilterTableView.swift */; };
 		FA3A6DB91F020B6200123867 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */; };
 		FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */; };
@@ -238,6 +239,7 @@
 		FA33719E1F0235240011DECC /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		FA3371A01F0279CB0011DECC /* MarkColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorView.swift; sourceTree = "<group>"; };
 		FA3371A21F027B6F0011DECC /* MarkColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorCell.swift; sourceTree = "<group>"; };
+		FA3371A51F0297280011DECC /* FilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableView.swift; sourceTree = "<group>"; };
 		FA3A6DB51F02041E00123867 /* FilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableView.swift; sourceTree = "<group>"; };
 		FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdeaFilterDelegate.swift; path = CatchIdea/IdeaFilterDelegate.swift; sourceTree = "<group>"; };
 		FA3A6DBB1F021E3200123867 /* BaseFilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFilterTableView.swift; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */,
+				FA3371A71F02989E0011DECC /* SharedClass */,
 				FA3371A41F027B820011DECC /* IdeaListTableView */,
 				FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */,
 				FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */,
@@ -592,6 +595,14 @@
 				FA3371A21F027B6F0011DECC /* MarkColorCell.swift */,
 			);
 			name = IdeaListTableView;
+			sourceTree = "<group>";
+		};
+		FA3371A71F02989E0011DECC /* SharedClass */ = {
+			isa = PBXGroup;
+			children = (
+				FA3371A51F0297280011DECC /* FilterTableView.swift */,
+			);
+			name = SharedClass;
 			sourceTree = "<group>";
 		};
 		FA3A6DB71F020A3F00123867 /* SharedView&VC */ = {
@@ -890,6 +901,7 @@
 				FA3371A11F0279CB0011DECC /* MarkColorView.swift in Sources */,
 				FA06D9A71F000407007D6BA1 /* MainViewController_macOS.swift in Sources */,
 				FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */,
+				FA3371A61F0297280011DECC /* FilterTableView.swift in Sources */,
 				FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */,
 				FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */,
 				FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */,
