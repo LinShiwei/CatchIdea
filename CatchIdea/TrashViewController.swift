@@ -18,6 +18,7 @@ class TrashViewController: UIViewController {
     @IBOutlet weak var tableViewBottomSpace: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

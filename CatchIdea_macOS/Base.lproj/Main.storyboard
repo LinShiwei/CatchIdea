@@ -699,10 +699,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Main View Controller macOS-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="CatchIdea_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewController_macOS" customModule="CatchIdea_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="596" height="411"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -787,9 +787,36 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x8G-fn-Z2p">
+                                        <rect key="frame" x="10" y="45" width="30" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9ha-3L-zsk"/>
+                                            <constraint firstAttribute="width" constant="30" id="tpP-ui-4RX"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xCQ-FF-KUL">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-WE-6xg">
+                                        <rect key="frame" x="10" y="7" width="30" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="HKG-eQ-Aam"/>
+                                            <constraint firstAttribute="height" constant="30" id="Qoq-QL-fIc"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Z2Z-vc-i6F">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="addOneIdea:" target="XfG-lQ-9wD" id="sa7-e5-JFQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0Bq-nG-GyF" secondAttribute="bottom" priority="250" constant="208" id="1Fy-8E-fnP"/>
+                                    <constraint firstItem="x8G-fn-Z2p" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="22X-K2-inj"/>
+                                    <constraint firstAttribute="bottom" secondItem="QcM-WE-6xg" secondAttribute="bottom" constant="8" id="48W-kT-PDE"/>
                                     <constraint firstItem="Piw-OE-785" firstAttribute="top" secondItem="5sg-Qo-mUh" secondAttribute="bottom" constant="8" id="54q-eQ-X5E"/>
                                     <constraint firstItem="3br-MS-Uqj" firstAttribute="top" secondItem="tlM-ZE-12G" secondAttribute="bottom" constant="8" id="627-d6-0D9"/>
                                     <constraint firstItem="tlM-ZE-12G" firstAttribute="top" secondItem="Y0i-9U-3hq" secondAttribute="bottom" constant="8" id="7VW-c5-Pei"/>
@@ -803,7 +830,9 @@
                                     <constraint firstItem="0Bq-nG-GyF" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="dxT-U8-Q3t"/>
                                     <constraint firstItem="3br-MS-Uqj" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="ekO-gg-0si"/>
                                     <constraint firstItem="Y0i-9U-3hq" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="fJP-cD-gz8"/>
+                                    <constraint firstItem="QcM-WE-6xg" firstAttribute="top" secondItem="x8G-fn-Z2p" secondAttribute="bottom" constant="8" id="iM4-Bq-K7h"/>
                                     <constraint firstItem="lCZ-jn-ypU" firstAttribute="top" secondItem="dHw-M8-Ddj" secondAttribute="top" constant="8" id="k5G-my-1Q9"/>
+                                    <constraint firstItem="QcM-WE-6xg" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="kSt-JU-ge2"/>
                                     <constraint firstItem="5sg-Qo-mUh" firstAttribute="top" secondItem="3br-MS-Uqj" secondAttribute="bottom" constant="8" id="mwx-L0-YFA"/>
                                 </constraints>
                             </customView>
@@ -825,14 +854,14 @@
                                                         <rect key="frame" x="1" y="0.0" width="522" height="364"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="BaseFilterTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                            <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="IdeaListTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="522" height="341"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                 <tableColumns>
-                                                                    <tableColumn width="116" minWidth="40" maxWidth="1000" id="2CU-uC-bdU">
+                                                                    <tableColumn width="30" minWidth="30" maxWidth="30" id="2CU-uC-bdU">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -845,14 +874,14 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="MarkColorCell" id="eTS-gK-xgQ">
-                                                                                <rect key="frame" x="1" y="1" width="116" height="17"/>
+                                                                            <tableCellView identifier="MarkColorCell" id="eTS-gK-xgQ" customClass="MarkColorCell" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                                                <rect key="frame" x="1" y="1" width="30" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tb-ZE-LPu">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="YjF-FD-PxT">
+                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="YjF-FD-PxT">
                                                                                             <font key="font" metaFont="system"/>
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -879,7 +908,7 @@
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
                                                                             <tableCellView identifier="ContentCell" id="aCq-IH-Dpk">
-                                                                                <rect key="frame" x="120" y="1" width="400" height="17"/>
+                                                                                <rect key="frame" x="34" y="1" width="400" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpb-DF-G5Y">
@@ -899,10 +928,6 @@
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
                                                                 </tableColumns>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="XfG-lQ-9wD" id="5T9-9a-x1A"/>
-                                                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="EWg-qu-3SY"/>
-                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                     </clipView>
@@ -939,7 +964,7 @@
                                                         <rect key="frame" x="1" y="0.0" width="522" height="364"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="BaseFilterTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                            <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="TrashTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="522" height="341"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -1013,10 +1038,6 @@
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
                                                                 </tableColumns>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="XfG-lQ-9wD" id="0QT-gf-QH8"/>
-                                                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="QO4-0u-Yho"/>
-                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                     </clipView>
@@ -1056,8 +1077,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ideaTableView" destination="wjd-GL-58B" id="RnH-mE-Edf"/>
-                        <outlet property="trashTableView" destination="8GI-1l-KWR" id="nDB-gY-RBJ"/>
+                        <outlet property="TrashTableView" destination="8GI-1l-KWR" id="MA5-ZX-D4M"/>
+                        <outlet property="ideaListTableView" destination="wjd-GL-58B" id="fsd-5g-H61"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -6,11 +6,11 @@
 //  Copyright © 2017年 Linsw. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-extension UIColor {
+extension Color {
     
-    static func ~= (left: UIColor, right: UIColor)-> Bool {
+    static func ~= (left: Color, right: Color)-> Bool {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
