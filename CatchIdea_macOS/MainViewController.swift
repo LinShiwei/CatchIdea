@@ -16,8 +16,29 @@ class MainViewController: NSViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        
+//        DataManager.shared.saveOneIdeaData(ideaData: IdeaData(addingDate: Date(), header: "newItem"), { Void in
+//            DataManager.shared.getAllIdeaData(type: .all, {(success,ideas) in
+//                print(success)
+//                print(ideas?.count)
+//                
+//            })
+//        })
+//        
+//        DataManager.shared.getAllIdeaData(type: .all, {(success,ideas) in
+//            print(!success)
+//            print(ideas?.count)
+//            
+//        })
     }
 
+    override func viewWillAppear() {
+        DataManager.shared.getAllIdeaData(type: .all, {[weak self](success, ideas) in
+            
+        })
+    }
+    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.

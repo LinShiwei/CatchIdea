@@ -93,14 +93,15 @@
 		FA06D9AC1F000407007D6BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AB1F000407007D6BA1 /* Assets.xcassets */; };
 		FA06D9AF1F000407007D6BA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AD1F000407007D6BA1 /* Main.storyboard */; };
 		FA06D9B61F009F02007D6BA1 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */; };
-		FA06D9B91F00CF28007D6BA1 /* IdeaData_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9B81F00CF28007D6BA1 /* IdeaData_iOS.swift */; };
 		FA06D9BB1F00D219007D6BA1 /* AppStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */; };
-		FA46E58A1F011D0A0038D59B /* IdeaData_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46E5891F011D0A0038D59B /* IdeaData_macOS.swift */; };
 		FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
 		FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
 		FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
 		FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */; };
 		FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */; };
+		FA81264F1F01F6CA001F5CF0 /* IdeaListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */; };
+		FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */; };
+		FA8126521F01FC2E001F5CF0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,7 +214,7 @@
 		56F604C91E06C6BF001C465B /* TrashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		56F604CB1E06CA19001C465B /* TrashTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableViewCell.swift; sourceTree = "<group>"; };
 		56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaCellManagerDelegate.swift; sourceTree = "<group>"; };
-		56FE13841E0CF1B3006A833A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		56FE13841E0CF1B3006A833A /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = CatchIdea/Theme.swift; sourceTree = "<group>"; };
 		56FE13881E0CF56F006A833A /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopDecorationView.swift; sourceTree = "<group>"; };
 		56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationBar.swift; sourceTree = "<group>"; };
@@ -226,11 +227,11 @@
 		FA06D9B01F000407007D6BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA06D9B11F000407007D6BA1 /* CatchIdea_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdea_macOS.entitlements; sourceTree = "<group>"; };
 		FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
-		FA06D9B81F00CF28007D6BA1 /* IdeaData_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaData_iOS.swift; sourceTree = "<group>"; };
 		FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreManager.swift; sourceTree = "<group>"; };
-		FA46E5891F011D0A0038D59B /* IdeaData_macOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaData_macOS.swift; sourceTree = "<group>"; };
 		FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
 		FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableView.swift; sourceTree = "<group>"; };
+		FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,7 +297,6 @@
 		562EB0B81E34B572009B9CF0 /* SharedClassWithWidget */ = {
 			isa = PBXGroup;
 			children = (
-				56FE13841E0CF1B3006A833A /* Theme.swift */,
 				56FE13881E0CF56F006A833A /* Define.swift */,
 				568764411E2F729300DB6C89 /* SharedCoreData */,
 			);
@@ -446,7 +446,6 @@
 		567FA3ED1E05752A00E4A293 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				FA06D9B81F00CF28007D6BA1 /* IdeaData_iOS.swift */,
 				56BAF73B1E0BF57F00218103 /* LocalNotificationManager.swift */,
 				56580A081E6BC5C00043BF67 /* WebServerManager.swift */,
 				FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */,
@@ -559,9 +558,10 @@
 				FA06D9B11F000407007D6BA1 /* CatchIdea_macOS.entitlements */,
 				FA06D9A81F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld */,
 				FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */,
-				FA46E5891F011D0A0038D59B /* IdeaData_macOS.swift */,
 				FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */,
 				FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */,
+				FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */,
+				FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */,
 			);
 			path = CatchIdea_macOS;
 			sourceTree = "<group>";
@@ -569,6 +569,7 @@
 		FA06D9B71F00C973007D6BA1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				56FE13841E0CF1B3006A833A /* Theme.swift */,
 				567FA3EB1E05744F00E4A293 /* IdeaData.swift */,
 				567FA3E91E05736900E4A293 /* DataManager.swift */,
 				567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */,
@@ -747,6 +748,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
+				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */,
 				5687643B1E2F68D000DB6C89 /* CoreDataStack.swift in Sources */,
 				56580A091E6BC5C00043BF67 /* WebServerManager.swift in Sources */,
@@ -755,7 +758,6 @@
 				56838B991E162A1700567685 /* ColorSeletcionView.swift in Sources */,
 				56F604CC1E06CA19001C465B /* TrashTableViewCell.swift in Sources */,
 				564A44E61E3C896F00B8895D /* CellColorSelectionView.swift in Sources */,
-				FA06D9B91F00CF28007D6BA1 /* IdeaData_iOS.swift in Sources */,
 				567FA3E71E056DB100E4A293 /* IdeaListTableViewCell.swift in Sources */,
 				FA06D9BB1F00D219007D6BA1 /* AppStoreManager.swift in Sources */,
 				56760ED21E1B956D00561854 /* IndicationView.swift in Sources */,
@@ -766,7 +768,6 @@
 				5645A2E31E5EAFF100A88603 /* InfoAboutTableViewCell.swift in Sources */,
 				56EEFBA61E5988F800083C24 /* Siren.swift in Sources */,
 				56660BBA1E18EE6700FBA7EB /* DRCellSlideActionView.m in Sources */,
-				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56A1DD4C1E0D0DAB0047DA5C /* RevealPresentAnimationController.swift in Sources */,
 				56838B9F1E167C7700567685 /* CustomSearchBar.swift in Sources */,
 				56DFCCBA1E1E2BC600EF79F8 /* CreateIdeaSectionView.swift in Sources */,
@@ -797,7 +798,6 @@
 				569239001E2B5711005F74C9 /* LocalizationStrings.swift in Sources */,
 				561E00681E09770B00E55313 /* CreateIdeaViewController.swift in Sources */,
 				567FA3EC1E05744F00E4A293 /* IdeaData.swift in Sources */,
-				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
 				569D0E051E62B3A400445D92 /* TableViewTopBounceDecorateView.swift in Sources */,
 				56760ED01E1B82F300561854 /* AddingIconView.swift in Sources */,
 				56A1DD551E0D543B0047DA5C /* DimPresentAnimationController.swift in Sources */,
@@ -832,14 +832,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8126521F01FC2E001F5CF0 /* Theme.swift in Sources */,
+				FA81264F1F01F6CA001F5CF0 /* IdeaListTableView.swift in Sources */,
 				FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */,
 				FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */,
 				FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */,
 				FA06D9B61F009F02007D6BA1 /* BaseTableView.swift in Sources */,
 				FA06D9A71F000407007D6BA1 /* MainViewController.swift in Sources */,
 				FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */,
+				FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */,
 				FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */,
-				FA46E58A1F011D0A0038D59B /* IdeaData_macOS.swift in Sources */,
 				FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

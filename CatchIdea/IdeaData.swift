@@ -8,16 +8,10 @@
 
 import Foundation
 
-protocol MarkColor {
-    associatedtype Color
-    func markColor() -> Color
-    func setMarkColor(_ markColor: Color)
-}
-
 internal class IdeaData {
     //These properties should store in CoreData
     
-    internal var _markColor: Any?
+    internal var markColor: Color
     
     internal let addingDate: Date
     internal var content: String
@@ -33,13 +27,13 @@ internal class IdeaData {
             return addingDate.description
         }
     }
-    internal init(addingDate: Date, header: String, content: String="",isFinish: Bool=false, isDelete: Bool=false, markColor: Any? = nil, notificationDate: Date?=nil) {
+    internal init(addingDate: Date, header: String, content: String="",isFinish: Bool=false, isDelete: Bool=false, markColor: Color = Theme.shared.markColors[0], notificationDate: Date?=nil) {
         self.addingDate = addingDate
         self.header = header
         self.content = content
         self.isFinish = isFinish
         self.isDelete = isDelete
-        self._markColor = markColor
+        self.markColor = markColor
         self.notificationDate = notificationDate
     }
     

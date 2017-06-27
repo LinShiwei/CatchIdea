@@ -49,7 +49,7 @@ internal class MainVCTableView: UITableView {
             
             var matchColor = true
             
-            if filterColor != UIColor.white, !(filterColor ~= idea.markColor()){
+            if filterColor != UIColor.white, !(filterColor ~= idea.markColor){
                 matchColor = false
 //                
 //                var r: CGFloat = 0

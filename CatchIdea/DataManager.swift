@@ -21,12 +21,11 @@ internal enum DeleteStyle {
 
 #if os(iOS)
     import UIKit
-    typealias Color = UIColor
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 #else
 #if os(macOS)
     import Cocoa
-    typealias Color = NSColor
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
 #endif
     //fatal error
@@ -49,6 +48,7 @@ internal final class DataManager: NSObject {
         super.init()
     }
 
+    //Should call getAllIdeaData: before calling any other method in DataManager
     //MARK: Public API - Get
     internal func getAllIdeaData(type: IdeaDataType, _ completion: @escaping (Bool,[IdeaData]?)->Void) {
         getIdeaDataObjects{[unowned self] success in
@@ -227,7 +227,7 @@ internal final class DataManager: NSObject {
         ideaObject.setValue(idea.content, forKey: "content")
         ideaObject.setValue(idea.isDelete, forKey: "isDelete")
         ideaObject.setValue(idea.isFinish, forKey: "isFinish")
-        ideaObject.setValue(idea.markColor(), forKey: "markColor")
+        ideaObject.setValue(idea.markColor, forKey: "markColor")
         ideaObject.setValue(idea.notificationDate, forKey: "notificationDate")
         return ideaObject
     }
