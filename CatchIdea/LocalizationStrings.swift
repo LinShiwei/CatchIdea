@@ -10,6 +10,8 @@ import Foundation
 
 internal class LocalizationStrings {
     static let shared = LocalizationStrings()
+    
+    internal let tableEmptyDefaultString: String
     internal let mainTableEmptyString: String
     internal let trashTableEmptyString: String
     
@@ -46,6 +48,7 @@ internal class LocalizationStrings {
     private init(){
         
         if isLanguageChineseSimple {
+            tableEmptyDefaultString = "这里什么都没有"
             mainTableEmptyString = "下拉记录新的灵感"
             trashTableEmptyString = "纸篓清空啦"
             
@@ -81,6 +84,7 @@ internal class LocalizationStrings {
             purchaseItem1 = "一包辣条"
             purchaseItem2 = "一瓶饮料"
         }else{
+            tableEmptyDefaultString = "There's nothing here."
             mainTableEmptyString = "Drag down to create new idea."
             trashTableEmptyString = "Trash is empty."
             

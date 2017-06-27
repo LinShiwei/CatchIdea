@@ -94,6 +94,7 @@
 		FA06D9AF1F000407007D6BA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AD1F000407007D6BA1 /* Main.storyboard */; };
 		FA06D9B61F009F02007D6BA1 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */; };
 		FA06D9BB1F00D219007D6BA1 /* AppStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */; };
+		FA3A6DB61F02041E00123867 /* FilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB51F02041E00123867 /* FilterTableView.swift */; };
 		FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
 		FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
 		FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
@@ -228,6 +229,7 @@
 		FA06D9B11F000407007D6BA1 /* CatchIdea_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdea_macOS.entitlements; sourceTree = "<group>"; };
 		FA06D9B51F009F02007D6BA1 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreManager.swift; sourceTree = "<group>"; };
+		FA3A6DB51F02041E00123867 /* FilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableView.swift; sourceTree = "<group>"; };
 		FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
 		FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableView.swift; sourceTree = "<group>"; };
@@ -311,12 +313,9 @@
 				56EEFBA21E5988BD00083C24 /* iRate */,
 				569238FF1E2B5711005F74C9 /* LocalizationStrings.swift */,
 				56F604D11E06CDCF001C465B /* IdeaCellManagerDelegate.swift */,
-				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
-				56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */,
-				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
-				561FAA191E21247300206894 /* GuideViewController.swift */,
-				56429BCD1E236DF100C38466 /* ViewControllerManager.swift */,
 				5681B5961E645C7000E367E0 /* NetworkActivityIndicatorManager.swift */,
+				56429BCD1E236DF100C38466 /* ViewControllerManager.swift */,
+				FA3A6DB71F020A3F00123867 /* SharedView&VC */,
 				560036AD1E44840F00C0AEC4 /* extension */,
 				56A1DD4F1E0D0E3A0047DA5C /* AnimationTransitioningVC */,
 				567676F51E1693AA00555102 /* IdeaFilterView */,
@@ -577,6 +576,18 @@
 			name = Shared;
 			sourceTree = "<group>";
 		};
+		FA3A6DB71F020A3F00123867 /* SharedView&VC */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A6DB51F02041E00123867 /* FilterTableView.swift */,
+				56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */,
+				56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */,
+				561FAA141E20C2C900206894 /* NotificationIndicatorButton.swift */,
+				561FAA191E21247300206894 /* GuideViewController.swift */,
+			);
+			name = "SharedView&VC";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -751,6 +762,7 @@
 				567FA3CE1E05628E00E4A293 /* AppDelegate.swift in Sources */,
 				56FE13851E0CF1B3006A833A /* Theme.swift in Sources */,
 				56F604D21E06CDCF001C465B /* IdeaCellManagerDelegate.swift in Sources */,
+				FA3A6DB61F02041E00123867 /* FilterTableView.swift in Sources */,
 				5687643B1E2F68D000DB6C89 /* CoreDataStack.swift in Sources */,
 				56580A091E6BC5C00043BF67 /* WebServerManager.swift in Sources */,
 				561FAA171E20CBC000206894 /* UIColor+~=.swift in Sources */,
