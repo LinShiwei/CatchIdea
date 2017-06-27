@@ -10,8 +10,8 @@ import Cocoa
 
 class MainViewController: NSViewController {
 
-    @IBOutlet weak var ideaTableView: BaseTableView!
-    @IBOutlet weak var trashTableView: BaseTableView!
+    @IBOutlet weak var ideaTableView: BaseFilterTableView!
+    @IBOutlet weak var trashTableView: BaseFilterTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         

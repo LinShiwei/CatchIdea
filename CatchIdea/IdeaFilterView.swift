@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol IdeaFilterDelegate {
-    func filterIdea(withSearchText text: String, andMarkColor color: UIColor)
-}
-
 class IdeaFilterView: UIView {
 
     internal var filterDelegate: IdeaFilterDelegate?

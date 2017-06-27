@@ -8,19 +8,8 @@
 
 import UIKit
 
-class FilterTableView: UITableView {
+class FilterTableView: BaseFilterTableView {
 
-    internal var ideaData = [IdeaData](){
-        didSet{
-            filteredIdeaData = ideaData
-        }
-    }
-    
-    internal var filteredIdeaData = [IdeaData]()
-    
-    fileprivate var filterColor = UIColor.white
-    fileprivate var filterText = ""
-    
     private var filterView: IdeaFilterView?
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,28 +22,11 @@ class FilterTableView: UITableView {
         emptyDataSetDelegate = self
         emptyDataSetSource = self
         tableFooterView = UIView()
+
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-    }
-    
-    override func reloadData(){
-        filteredIdeaData = ideaData.filter{ (idea: IdeaData) -> Bool in
-            var containText = true
-            if filterText != "", !idea.header.contains(filterText){
-                containText = false
-            }else{
-                containText = true
-            }
-            
-            var matchColor = true
-            if filterColor != UIColor.white, !(filterColor ~= idea.markColor){
-                matchColor = false
-            }
-            return containText && matchColor
-        }
-        super.reloadData()
     }
     
     override func resignFirstResponder() -> Bool {

@@ -11,11 +11,15 @@ import Foundation
 #if os(iOS)
     import UIKit
     typealias Color = UIColor
+    typealias TableView = UITableView
+    typealias View = UIView
     
 #else
 #if os(macOS)
     import Cocoa
     typealias Color = NSColor
+    typealias TableView = NSTableView
+    typealias View = NSView
 #endif
     //fatal error
     
