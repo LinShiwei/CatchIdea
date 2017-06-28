@@ -99,6 +99,8 @@
 		FA3371A61F0297280011DECC /* FilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371A51F0297280011DECC /* FilterTableView.swift */; };
 		FA3371A91F034CB20011DECC /* ContentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371A81F034CB20011DECC /* ContentTabView.swift */; };
 		FA3371AB1F034E560011DECC /* AddOrCleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371AA1F034E560011DECC /* AddOrCleanButton.swift */; };
+		FA3371AD1F035CA20011DECC /* ContentCellInteractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371AC1F035CA20011DECC /* ContentCellInteractView.swift */; };
+		FA3371AF1F035CBC0011DECC /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371AE1F035CBC0011DECC /* ContentCell.swift */; };
 		FA3A6DB61F02041E00123867 /* FilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB51F02041E00123867 /* FilterTableView.swift */; };
 		FA3A6DB91F020B6200123867 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */; };
 		FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */; };
@@ -244,6 +246,8 @@
 		FA3371A51F0297280011DECC /* FilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableView.swift; sourceTree = "<group>"; };
 		FA3371A81F034CB20011DECC /* ContentTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTabView.swift; sourceTree = "<group>"; };
 		FA3371AA1F034E560011DECC /* AddOrCleanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOrCleanButton.swift; sourceTree = "<group>"; };
+		FA3371AC1F035CA20011DECC /* ContentCellInteractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCellInteractView.swift; sourceTree = "<group>"; };
+		FA3371AE1F035CBC0011DECC /* ContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		FA3A6DB51F02041E00123867 /* FilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableView.swift; sourceTree = "<group>"; };
 		FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdeaFilterDelegate.swift; path = CatchIdea/IdeaFilterDelegate.swift; sourceTree = "<group>"; };
 		FA3A6DBB1F021E3200123867 /* BaseFilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFilterTableView.swift; sourceTree = "<group>"; };
@@ -597,8 +601,6 @@
 			isa = PBXGroup;
 			children = (
 				FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */,
-				FA3371A01F0279CB0011DECC /* MarkColorView.swift */,
-				FA3371A21F027B6F0011DECC /* MarkColorCell.swift */,
 			);
 			name = IdeaListTableView;
 			sourceTree = "<group>";
@@ -607,6 +609,10 @@
 			isa = PBXGroup;
 			children = (
 				FA3371A51F0297280011DECC /* FilterTableView.swift */,
+				FA3371A21F027B6F0011DECC /* MarkColorCell.swift */,
+				FA3371A01F0279CB0011DECC /* MarkColorView.swift */,
+				FA3371AE1F035CBC0011DECC /* ContentCell.swift */,
+				FA3371AC1F035CA20011DECC /* ContentCellInteractView.swift */,
 			);
 			name = SharedClass;
 			sourceTree = "<group>";
@@ -902,12 +908,14 @@
 				FA3371A91F034CB20011DECC /* ContentTabView.swift in Sources */,
 				FA81264F1F01F6CA001F5CF0 /* IdeaListTableView.swift in Sources */,
 				FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */,
+				FA3371AD1F035CA20011DECC /* ContentCellInteractView.swift in Sources */,
 				FA33719F1F0235240011DECC /* Define.swift in Sources */,
 				FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */,
 				FA3371A31F027B6F0011DECC /* MarkColorCell.swift in Sources */,
 				FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */,
 				FA3371A11F0279CB0011DECC /* MarkColorView.swift in Sources */,
 				FA06D9A71F000407007D6BA1 /* MainViewController_macOS.swift in Sources */,
+				FA3371AF1F035CBC0011DECC /* ContentCell.swift in Sources */,
 				FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */,
 				FA3371A61F0297280011DECC /* FilterTableView.swift in Sources */,
 				FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */,

@@ -704,7 +704,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController_macOS" customModule="CatchIdea_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="596" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="593" height="411"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="dHw-M8-Ddj">
@@ -837,7 +837,7 @@
                                 </constraints>
                             </customView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="Kdf-qc-RWz" customClass="ContentTabView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                <rect key="frame" x="43" y="-10" width="560" height="427"/>
+                                <rect key="frame" x="43" y="-10" width="557" height="427"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="d5n-DV-sVx"/>
                                 </constraints>
@@ -845,17 +845,17 @@
                                 <tabViewItems>
                                     <tabViewItem label="Idea" identifier="IdeaItem" id="stf-xe-YpA">
                                         <view key="view" id="fhL-Sa-YQl">
-                                            <rect key="frame" x="10" y="33" width="540" height="381"/>
+                                            <rect key="frame" x="10" y="33" width="537" height="381"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE8-od-PF5">
-                                                    <rect key="frame" x="8" y="8" width="524" height="365"/>
+                                                    <rect key="frame" x="8" y="8" width="521" height="365"/>
                                                     <clipView key="contentView" id="Gn8-WR-VX1">
-                                                        <rect key="frame" x="1" y="0.0" width="522" height="364"/>
+                                                        <rect key="frame" x="1" y="0.0" width="519" height="364"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="IdeaListTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="522" height="341"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="341"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -894,7 +894,7 @@
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
-                                                                    <tableColumn width="400" minWidth="40" maxWidth="1000" id="VFu-SX-BoQ">
+                                                                    <tableColumn width="483" minWidth="40" maxWidth="1000" id="VFu-SX-BoQ">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -907,12 +907,12 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="ContentCell" id="aCq-IH-Dpk">
-                                                                                <rect key="frame" x="34" y="1" width="400" height="17"/>
+                                                                            <tableCellView identifier="ContentCell" id="aCq-IH-Dpk" customClass="ContentCell" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                                                <rect key="frame" x="34" y="1" width="483" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpb-DF-G5Y">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="17"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="d9e-JQ-IRb">
                                                                                             <font key="font" metaFont="system"/>
@@ -940,7 +940,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <tableHeaderView key="headerView" id="1YH-Uk-7PT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="522" height="23"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="519" height="23"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableHeaderView>
                                                 </scrollView>
@@ -955,17 +955,17 @@
                                     </tabViewItem>
                                     <tabViewItem label="Trash" identifier="TrashItem" id="ozQ-3D-1mt">
                                         <view key="view" id="kS6-hE-bJa">
-                                            <rect key="frame" x="10" y="33" width="540" height="381"/>
+                                            <rect key="frame" x="10" y="33" width="537" height="381"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSE-sA-kQc">
-                                                    <rect key="frame" x="8" y="8" width="524" height="365"/>
+                                                    <rect key="frame" x="8" y="8" width="521" height="365"/>
                                                     <clipView key="contentView" id="Ejq-Fb-A5z">
-                                                        <rect key="frame" x="1" y="0.0" width="522" height="364"/>
+                                                        <rect key="frame" x="1" y="0.0" width="519" height="364"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="TrashTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="522" height="341"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="341"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1004,7 +1004,7 @@
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
-                                                                    <tableColumn width="400" minWidth="40" maxWidth="1000" id="RhP-XL-Dwu">
+                                                                    <tableColumn width="483" minWidth="40" maxWidth="1000" id="RhP-XL-Dwu">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1017,12 +1017,12 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="ContentCell" id="hTK-Nx-NoD">
-                                                                                <rect key="frame" x="34" y="1" width="400" height="17"/>
+                                                                            <tableCellView identifier="ContentCell" id="hTK-Nx-NoD" customClass="ContentCell" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                                                <rect key="frame" x="34" y="1" width="483" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNz-by-K7M">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="17"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="h8r-ns-DMz">
                                                                                             <font key="font" metaFont="system"/>
@@ -1042,7 +1042,7 @@
                                                         </subviews>
                                                     </clipView>
                                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="MDf-z8-VJF">
-                                                        <rect key="frame" x="1" y="117" width="237" height="16"/>
+                                                        <rect key="frame" x="1" y="348" width="357" height="16"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="GzF-hp-ikI">
@@ -1050,7 +1050,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <tableHeaderView key="headerView" id="BoO-Ro-KLf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="522" height="23"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="519" height="23"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableHeaderView>
                                                 </scrollView>
@@ -1084,7 +1084,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="757"/>
+            <point key="canvasLocation" x="73.5" y="756.5"/>
         </scene>
     </scenes>
     <resources>

@@ -20,6 +20,10 @@ class FilterTableView: BaseFilterTableView {
     func clickAtMarkColorCellToDelete(sender: NSGestureRecognizer){
         //Should override
     }
+    
+    func clickAtInteractView(sender: NSGestureRecognizer) {
+        //Should override
+    }
 }
 
 
@@ -46,8 +50,12 @@ extension FilterTableView: NSTableViewDelegate {
                 markColorCell.markColorView.addGestureRecognizer(clickGesture)
                 
             case contentCellIdentifier:
-                cell.textField?.stringValue = filteredIdeaData[row].header
-                
+                guard let contentCell = cell as? ContentCell else {
+                    return nil
+                }
+                contentCell.textField?.stringValue = filteredIdeaData[row].header
+                let clickGesture = NSClickGestureRecognizer(target: self, action: #selector(clickAtInteractView(sender:)))
+                contentCell.interactView.addGestureRecognizer(clickGesture)
             default:
                 fatalError()
             }

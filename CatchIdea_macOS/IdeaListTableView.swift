@@ -22,10 +22,19 @@ class IdeaListTableView: FilterTableView {
         let index = self.row(for: cell)
         
         DataManager.shared.deleteOneIdeaData(deleteStyle: .moveToTrash, ideaData: self.ideaData[index])
-        self.ideaData.remove(at: index)
-        self.beginUpdates()
-        self.removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
-        self.endUpdates()
+        var tempFilterIdeaData = filteredIdeaData
+        for i in 0...ideaData.count-1 {
+            if ideaData[i] == filteredIdeaData[index] {
+                ideaData.remove(at: i)
+                break
+            }
+        }
+        tempFilterIdeaData.remove(at: index)
+        filteredIdeaData = tempFilterIdeaData
+        
+        beginUpdates()
+        removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
+        endUpdates()
     }
     
     internal func refreshIdeaDataAndReload(){

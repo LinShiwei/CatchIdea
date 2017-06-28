@@ -166,6 +166,8 @@ internal final class DataManager: NSObject {
             objects.remove(at: index)
             findObject = true
         }
+//        print("delete")
+//        print(count - objects.count)
         assert(objects.count == count - 1)
         completion?(findObject)
     }

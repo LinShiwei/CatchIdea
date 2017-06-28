@@ -21,10 +21,42 @@ class TrashTableView: FilterTableView {
         let index = self.row(for: cell)
         
         DataManager.shared.deleteOneIdeaData(deleteStyle: .deleteForever, ideaData: self.ideaData[index])
-        self.ideaData.remove(at: index)
-        self.beginUpdates()
-        self.removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
-        self.endUpdates()
+        var tempFilterIdeaData = filteredIdeaData
+        for i in 0...ideaData.count-1 {
+            if ideaData[i] == filteredIdeaData[index] {
+                ideaData.remove(at: i)
+                break
+            }
+        }
+        tempFilterIdeaData.remove(at: index)
+        filteredIdeaData = tempFilterIdeaData
+        
+        beginUpdates()
+        removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
+        endUpdates()
+    }
+    
+    override func clickAtInteractView(sender: NSGestureRecognizer) {
+        guard let v = sender.view as? ContentCellInteractView,let cell = v.superview as? NSTableCellView else {
+            return
+        }
+        let index = self.row(for: cell)
+        
+        DataManager.shared.restoreOneIdeaData(ideaData: self.ideaData[index])
+        var tempFilterIdeaData = filteredIdeaData
+        for i in 0...ideaData.count-1 {
+            if ideaData[i] == filteredIdeaData[index] {
+                ideaData.remove(at: i)
+                break
+            }
+        }
+        tempFilterIdeaData.remove(at: index)
+        filteredIdeaData = tempFilterIdeaData
+        
+        beginUpdates()
+        removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
+        endUpdates()
+        
     }
     
     internal func clearTrashForever(){

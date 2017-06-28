@@ -38,6 +38,6 @@ internal class IdeaData {
     }
     
     static func == (left: IdeaData, right: IdeaData)->Bool {
-        return left.identifier == right.identifier
+        return left.addingDate == right.addingDate
     }
 }
