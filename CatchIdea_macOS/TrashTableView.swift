@@ -26,4 +26,32 @@ class TrashTableView: FilterTableView {
         self.removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
         self.endUpdates()
     }
+    
+    internal func clearTrashForever(){
+        guard self.numberOfRows > 0 && self.numberOfRows == self.ideaData.count else {
+            return
+        }
+        DataManager.shared.deleteAllIdeaDataInTrash({[weak self] success in
+            guard let safeSelf = self else{
+                return
+            }
+            let indexSet = IndexSet(0...safeSelf.numberOfRows-1)
+            safeSelf.ideaData.removeAll()
+            safeSelf.beginUpdates()
+            safeSelf.removeRows(at: indexSet, withAnimation: NSTableViewAnimationOptions.slideRight)
+            safeSelf.endUpdates()
+//            safeSelf.reloadData()
+        })
+    }
+    
+    internal func refreshIdeaDataAndReload(){
+        DataManager.shared.getAllIdeaData(type: .deleted, {[weak self](success, ideas) in
+            if (success&&(ideas != nil)){
+                self?.ideaData = ideas!
+                DispatchQueue.main.async {
+                    self?.reloadData()
+                }
+            }
+        })
+    }
 }

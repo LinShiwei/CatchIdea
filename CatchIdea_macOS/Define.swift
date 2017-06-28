@@ -10,3 +10,6 @@ import Foundation
 
 let markColorCellIdentifier = "MarkColorCell"
 let contentCellIdentifier = "ContentCell"
+
+let tabIdeaItemIdentifier = "IdeaItem"
+let tabTrashItemIdentifier = "TrashItem"

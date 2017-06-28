@@ -27,4 +27,15 @@ class IdeaListTableView: FilterTableView {
         self.removeRows(at: [index], withAnimation: NSTableViewAnimationOptions.slideRight)
         self.endUpdates()
     }
+    
+    internal func refreshIdeaDataAndReload(){
+        DataManager.shared.getAllIdeaData(type: .existed, {[weak self](success, ideas) in
+            if (success&&(ideas != nil)){
+                self?.ideaData = ideas!
+                DispatchQueue.main.async {
+                    self?.reloadData()
+                }
+            }
+        })
+    }
 }

@@ -10,27 +10,13 @@ import Cocoa
 
 class MainViewController_macOS: NSViewController {
 
+    @IBOutlet weak var contentTabView: ContentTabView!
     @IBOutlet weak var ideaListTableView: IdeaListTableView!
     @IBOutlet weak var trashTableView: TrashTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        
-        
-//        DataManager.shared.saveOneIdeaData(ideaData: IdeaData(addingDate: Date(), header: "newItem"), { Void in
-//            DataManager.shared.getAllIdeaData(type: .all, {(success,ideas) in
-//                print(success)
-//                print(ideas?.count)
-//                
-//            })
-//        })
-//        
-//        DataManager.shared.getAllIdeaData(type: .all, {(success,ideas) in
-//            print(!success)
-//            print(ideas?.count)
-//            
-//        })
+        contentTabView.delegate = self
     }
 
     override func viewWillAppear() {
@@ -67,14 +53,44 @@ class MainViewController_macOS: NSViewController {
         }
     }
 
-    @IBAction func addOneIdea(_ sender: Any) {
-        let idea = IdeaData(addingDate: Date(), header: Date().description)
-        DataManager.shared.saveOneIdeaData(ideaData: idea)
-        ideaListTableView.ideaData.insert(idea, at: 0)
-        ideaListTableView.beginUpdates()
-        ideaListTableView.insertRows(at: [0], withAnimation: NSTableViewAnimationOptions.slideLeft)
-        ideaListTableView.endUpdates()
+    @IBAction func addOneIdea(_ sender: Any) {//Add or Clean
+        switch contentTabView.selectedItemIdentifier {
+        case tabIdeaItemIdentifier:
+            let idea = IdeaData(addingDate: Date(), header: Date().description)
+            DataManager.shared.saveOneIdeaData(ideaData: idea)
+            ideaListTableView.ideaData.insert(idea, at: 0)
+            ideaListTableView.beginUpdates()
+            ideaListTableView.insertRows(at: [0], withAnimation: NSTableViewAnimationOptions.slideLeft)
+            ideaListTableView.endUpdates()
+
+        case tabTrashItemIdentifier:
+            trashTableView.clearTrashForever()
+            
+            
+        default:
+            return
+        }
+        
     }
 
+}
+
+extension MainViewController_macOS: NSTabViewDelegate {
+    func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
+        guard let identifier = tabViewItem?.identifier as? String else {
+            return
+        }
+        switch identifier {
+        case tabIdeaItemIdentifier:
+            print("select idea")
+            ideaListTableView.refreshIdeaDataAndReload()
+        case tabTrashItemIdentifier:
+            print("select trash")
+            trashTableView.refreshIdeaDataAndReload()
+            
+        default:
+            fatalError()
+        }
+    }
 }
 

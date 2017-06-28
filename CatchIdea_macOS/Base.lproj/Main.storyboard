@@ -798,7 +798,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-WE-6xg">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-WE-6xg" customClass="AddOrCleanButton" customModule="CatchIdea_macOS" customModuleProvider="target">
                                         <rect key="frame" x="10" y="7" width="30" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="HKG-eQ-Aam"/>
@@ -836,14 +836,14 @@
                                     <constraint firstItem="5sg-Qo-mUh" firstAttribute="top" secondItem="3br-MS-Uqj" secondAttribute="bottom" constant="8" id="mwx-L0-YFA"/>
                                 </constraints>
                             </customView>
-                            <tabView translatesAutoresizingMaskIntoConstraints="NO" id="Kdf-qc-RWz">
+                            <tabView translatesAutoresizingMaskIntoConstraints="NO" id="Kdf-qc-RWz" customClass="ContentTabView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                 <rect key="frame" x="43" y="-10" width="560" height="427"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="d5n-DV-sVx"/>
                                 </constraints>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="Idea" identifier="1" id="stf-xe-YpA">
+                                    <tabViewItem label="Idea" identifier="IdeaItem" id="stf-xe-YpA">
                                         <view key="view" id="fhL-Sa-YQl">
                                             <rect key="frame" x="10" y="33" width="540" height="381"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -953,7 +953,7 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Trash" identifier="2" id="ozQ-3D-1mt">
+                                    <tabViewItem label="Trash" identifier="TrashItem" id="ozQ-3D-1mt">
                                         <view key="view" id="kS6-hE-bJa">
                                             <rect key="frame" x="10" y="33" width="540" height="381"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1077,6 +1077,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentTabView" destination="Kdf-qc-RWz" id="1rf-s0-3s2"/>
                         <outlet property="ideaListTableView" destination="wjd-GL-58B" id="fsd-5g-H61"/>
                         <outlet property="trashTableView" destination="8GI-1l-KWR" id="gNz-Pg-hbu"/>
                     </connections>
