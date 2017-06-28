@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ColorSelectionDelegate {
-    func didSelectColor(_ color: UIColor)
-}
-
 class ColorSeletcionView: UIView {
 
     internal var selectionDelegate: ColorSelectionDelegate?
@@ -69,6 +65,7 @@ class ColorSeletcionView: UIView {
         let buttonGap = (containerViewFrame.width-buttonCount*buttonSize.width-sideSpace*2)/(buttonCount-1)
         
         for index in 0...Int(buttonCount)-1 {
+            //button.frame.origin.y = 0 使button在View的顶部位置。
             let button = UIButton(frame: CGRect(origin: CGPoint(x: 20+(buttonSize.width+buttonGap)*CGFloat(index),y: 0), size: buttonSize))
             if index == 0 {
                 button.backgroundColor = UIColor.white

@@ -704,85 +704,19 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController_macOS" customModule="CatchIdea_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="593" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="593" height="490"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="dHw-M8-Ddj">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="411"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="490"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lCZ-jn-ypU">
-                                        <rect key="frame" x="10" y="372" width="30" height="32"/>
+                                        <rect key="frame" x="10" y="451" width="30" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="EyC-Nt-9gt"/>
                                             <constraint firstAttribute="height" constant="30" id="afF-Sh-2f4"/>
                                         </constraints>
                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZRI-1a-VdZ">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y0i-9U-3hq">
-                                        <rect key="frame" x="10" y="334" width="30" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="UIK-gM-Pju"/>
-                                            <constraint firstAttribute="height" constant="30" id="dh8-wo-8Yg"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gQJ-W9-a3J">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tlM-ZE-12G">
-                                        <rect key="frame" x="10" y="296" width="30" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="MV1-yT-xyF"/>
-                                            <constraint firstAttribute="width" constant="30" id="lYn-Jb-mCS"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ULn-c7-srd">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3br-MS-Uqj">
-                                        <rect key="frame" x="10" y="258" width="30" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="JVq-nr-EWI"/>
-                                            <constraint firstAttribute="width" constant="30" id="zaw-JN-YdP"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qhj-hj-fdw">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5sg-Qo-mUh">
-                                        <rect key="frame" x="10" y="220" width="30" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="JTr-9x-64Z"/>
-                                            <constraint firstAttribute="width" constant="30" id="Ygc-mT-Y94"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BX6-me-fLb">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Piw-OE-785">
-                                        <rect key="frame" x="10" y="182" width="30" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="bQZ-Ia-F5I"/>
-                                            <constraint firstAttribute="width" constant="30" id="vwD-v4-bxg"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oS5-t4-87k">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Bq-nG-GyF">
-                                        <rect key="frame" x="10" y="144" width="30" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="9mV-fv-cPJ"/>
-                                            <constraint firstAttribute="height" constant="30" id="Wph-6C-ACl"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oo6-jz-VK3">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -812,32 +746,29 @@
                                             <action selector="addOneIdea:" target="XfG-lQ-9wD" id="sa7-e5-JFQ"/>
                                         </connections>
                                     </button>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="xt6-uj-OYc" customClass="ColorFilterView" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="84" width="30" height="360"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="360" id="447-Tp-g0H"/>
+                                            <constraint firstAttribute="width" constant="30" id="fFc-lB-u8H"/>
+                                        </constraints>
+                                    </customView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0Bq-nG-GyF" secondAttribute="bottom" priority="250" constant="208" id="1Fy-8E-fnP"/>
                                     <constraint firstItem="x8G-fn-Z2p" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="22X-K2-inj"/>
                                     <constraint firstAttribute="bottom" secondItem="QcM-WE-6xg" secondAttribute="bottom" constant="8" id="48W-kT-PDE"/>
-                                    <constraint firstItem="Piw-OE-785" firstAttribute="top" secondItem="5sg-Qo-mUh" secondAttribute="bottom" constant="8" id="54q-eQ-X5E"/>
-                                    <constraint firstItem="3br-MS-Uqj" firstAttribute="top" secondItem="tlM-ZE-12G" secondAttribute="bottom" constant="8" id="627-d6-0D9"/>
-                                    <constraint firstItem="tlM-ZE-12G" firstAttribute="top" secondItem="Y0i-9U-3hq" secondAttribute="bottom" constant="8" id="7VW-c5-Pei"/>
-                                    <constraint firstItem="tlM-ZE-12G" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="ECw-Dc-zGT"/>
+                                    <constraint firstItem="xt6-uj-OYc" firstAttribute="top" secondItem="lCZ-jn-ypU" secondAttribute="bottom" constant="8" id="Ce4-Hg-aNy"/>
                                     <constraint firstAttribute="width" constant="50" id="Fvf-Bv-csy"/>
-                                    <constraint firstItem="5sg-Qo-mUh" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="Jnh-Vm-Unv"/>
-                                    <constraint firstItem="Y0i-9U-3hq" firstAttribute="top" secondItem="lCZ-jn-ypU" secondAttribute="bottom" constant="8" id="LAB-Um-7TE"/>
-                                    <constraint firstItem="Piw-OE-785" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="SdO-Iv-KUp"/>
                                     <constraint firstItem="lCZ-jn-ypU" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="TNM-fI-MLc"/>
-                                    <constraint firstItem="0Bq-nG-GyF" firstAttribute="top" secondItem="Piw-OE-785" secondAttribute="bottom" constant="8" id="bO7-PA-QCx"/>
-                                    <constraint firstItem="0Bq-nG-GyF" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="dxT-U8-Q3t"/>
-                                    <constraint firstItem="3br-MS-Uqj" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="ekO-gg-0si"/>
-                                    <constraint firstItem="Y0i-9U-3hq" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="fJP-cD-gz8"/>
+                                    <constraint firstItem="x8G-fn-Z2p" firstAttribute="top" secondItem="xt6-uj-OYc" secondAttribute="bottom" constant="8" id="fRQ-DG-6rr"/>
+                                    <constraint firstItem="xt6-uj-OYc" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="hBM-bX-6ea"/>
                                     <constraint firstItem="QcM-WE-6xg" firstAttribute="top" secondItem="x8G-fn-Z2p" secondAttribute="bottom" constant="8" id="iM4-Bq-K7h"/>
                                     <constraint firstItem="lCZ-jn-ypU" firstAttribute="top" secondItem="dHw-M8-Ddj" secondAttribute="top" constant="8" id="k5G-my-1Q9"/>
                                     <constraint firstItem="QcM-WE-6xg" firstAttribute="centerX" secondItem="dHw-M8-Ddj" secondAttribute="centerX" id="kSt-JU-ge2"/>
-                                    <constraint firstItem="5sg-Qo-mUh" firstAttribute="top" secondItem="3br-MS-Uqj" secondAttribute="bottom" constant="8" id="mwx-L0-YFA"/>
                                 </constraints>
                             </customView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="Kdf-qc-RWz" customClass="ContentTabView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                <rect key="frame" x="43" y="-10" width="557" height="427"/>
+                                <rect key="frame" x="43" y="-10" width="557" height="506"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="d5n-DV-sVx"/>
                                 </constraints>
@@ -845,17 +776,17 @@
                                 <tabViewItems>
                                     <tabViewItem label="Idea" identifier="IdeaItem" id="stf-xe-YpA">
                                         <view key="view" id="fhL-Sa-YQl">
-                                            <rect key="frame" x="10" y="33" width="537" height="381"/>
+                                            <rect key="frame" x="10" y="33" width="537" height="460"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE8-od-PF5">
-                                                    <rect key="frame" x="8" y="8" width="521" height="365"/>
+                                                    <rect key="frame" x="8" y="8" width="521" height="444"/>
                                                     <clipView key="contentView" id="Gn8-WR-VX1">
-                                                        <rect key="frame" x="1" y="0.0" width="519" height="364"/>
+                                                        <rect key="frame" x="1" y="0.0" width="519" height="443"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="IdeaListTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="341"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="420"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -962,7 +893,7 @@
                                                     <rect key="frame" x="8" y="8" width="521" height="365"/>
                                                     <clipView key="contentView" id="Ejq-Fb-A5z">
                                                         <rect key="frame" x="1" y="0.0" width="519" height="364"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="TrashTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="519" height="341"/>
