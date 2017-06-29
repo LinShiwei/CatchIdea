@@ -768,7 +768,7 @@
                                 </constraints>
                             </customView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="Kdf-qc-RWz" customClass="ContentTabView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                <rect key="frame" x="43" y="-10" width="557" height="506"/>
+                                <rect key="frame" x="43" y="-10" width="557" height="468"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="d5n-DV-sVx"/>
                                 </constraints>
@@ -776,17 +776,17 @@
                                 <tabViewItems>
                                     <tabViewItem label="Idea" identifier="IdeaItem" id="stf-xe-YpA">
                                         <view key="view" id="fhL-Sa-YQl">
-                                            <rect key="frame" x="10" y="33" width="537" height="460"/>
+                                            <rect key="frame" x="10" y="33" width="537" height="422"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE8-od-PF5">
-                                                    <rect key="frame" x="8" y="8" width="521" height="444"/>
+                                                    <rect key="frame" x="8" y="8" width="521" height="406"/>
                                                     <clipView key="contentView" id="Gn8-WR-VX1">
-                                                        <rect key="frame" x="1" y="0.0" width="519" height="443"/>
+                                                        <rect key="frame" x="1" y="0.0" width="519" height="405"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="IdeaListTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="420"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="382"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -886,17 +886,17 @@
                                     </tabViewItem>
                                     <tabViewItem label="Trash" identifier="TrashItem" id="ozQ-3D-1mt">
                                         <view key="view" id="kS6-hE-bJa">
-                                            <rect key="frame" x="10" y="33" width="537" height="381"/>
+                                            <rect key="frame" x="10" y="33" width="537" height="407"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSE-sA-kQc">
-                                                    <rect key="frame" x="8" y="8" width="521" height="365"/>
+                                                    <rect key="frame" x="8" y="8" width="521" height="391"/>
                                                     <clipView key="contentView" id="Ejq-Fb-A5z">
-                                                        <rect key="frame" x="1" y="0.0" width="519" height="364"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <rect key="frame" x="1" y="0.0" width="519" height="390"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="TrashTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="341"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="367"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -996,26 +996,42 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0u-4N-1jo">
+                                <rect key="frame" x="58" y="460" width="527" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="8AQ-vO-ltZ"/>
+                                </constraints>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="cIM-Yu-oP2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                            </searchField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Kdf-qc-RWz" firstAttribute="leading" secondItem="dHw-M8-Ddj" secondAttribute="trailing" id="1N4-Ta-Tup"/>
                             <constraint firstAttribute="trailing" secondItem="Kdf-qc-RWz" secondAttribute="trailing" id="4wV-un-r7l"/>
-                            <constraint firstItem="Kdf-qc-RWz" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="AeS-SY-adb"/>
+                            <constraint firstItem="X0u-4N-1jo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="8" id="8Px-us-NGp"/>
+                            <constraint firstItem="X0u-4N-1jo" firstAttribute="leading" secondItem="dHw-M8-Ddj" secondAttribute="trailing" constant="8" id="IFz-cP-x0L"/>
                             <constraint firstItem="dHw-M8-Ddj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Pj4-C0-Wwl"/>
+                            <constraint firstItem="Kdf-qc-RWz" firstAttribute="top" secondItem="X0u-4N-1jo" secondAttribute="bottom" constant="8" id="VrY-aS-r0p"/>
                             <constraint firstItem="dHw-M8-Ddj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="btE-X9-8yj"/>
                             <constraint firstAttribute="bottom" secondItem="Kdf-qc-RWz" secondAttribute="bottom" id="gik-UC-QyL"/>
+                            <constraint firstAttribute="trailing" secondItem="X0u-4N-1jo" secondAttribute="trailing" constant="8" id="nNE-np-YeT"/>
                             <constraint firstAttribute="bottom" secondItem="dHw-M8-Ddj" secondAttribute="bottom" id="zLm-fa-8E4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="colorFilterView" destination="xt6-uj-OYc" id="H2U-iW-Yra"/>
                         <outlet property="contentTabView" destination="Kdf-qc-RWz" id="1rf-s0-3s2"/>
                         <outlet property="ideaListTableView" destination="wjd-GL-58B" id="fsd-5g-H61"/>
+                        <outlet property="searchField" destination="X0u-4N-1jo" id="RDV-aN-ywM"/>
                         <outlet property="trashTableView" destination="8GI-1l-KWR" id="gNz-Pg-hbu"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73.5" y="756.5"/>
+            <point key="canvasLocation" x="73.5" y="756"/>
         </scene>
     </scenes>
     <resources>

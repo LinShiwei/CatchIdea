@@ -10,13 +10,24 @@ import Cocoa
 
 class MainViewController_macOS: NSViewController {
 
+    let filterManager = FilterManager.shared
+    
+    @IBOutlet weak var searchField: NSSearchField!
+    @IBOutlet weak var colorFilterView: ColorFilterView!
+    
     @IBOutlet weak var contentTabView: ContentTabView!
     @IBOutlet weak var ideaListTableView: IdeaListTableView!
     @IBOutlet weak var trashTableView: TrashTableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         contentTabView.delegate = self
+        
+        searchField.delegate = filterManager
+        colorFilterView.selectionDelegate = filterManager
+//        searchField.delegate = self
     }
 
     override func viewWillAppear() {
@@ -53,6 +64,10 @@ class MainViewController_macOS: NSViewController {
         }
     }
 
+    override func controlTextDidChange(_ obj: Notification) {
+        
+    }
+    
     @IBAction func addOneIdea(_ sender: Any) {//Add or Clean
         switch contentTabView.selectedItemIdentifier {
         case tabIdeaItemIdentifier:
