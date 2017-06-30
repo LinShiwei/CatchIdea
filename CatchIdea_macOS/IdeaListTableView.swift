@@ -10,6 +10,12 @@ import Cocoa
 
 class IdeaListTableView: FilterTableView {
     
+    override internal var isCellClickEnable: Bool {
+        get{
+            return true
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -37,6 +43,13 @@ class IdeaListTableView: FilterTableView {
         endUpdates()
     }
     
+    override func clickAtContentCell(sender: NSGestureRecognizer) {
+        guard let cell = sender.view as? ContentCell,let field = cell.textField else {
+            return
+        }
+        field.isEditable = true
+    }
+    
     internal func refreshIdeaDataAndReload(){
         DataManager.shared.getAllIdeaData(type: .existed, {[weak self](success, ideas) in
             if (success&&(ideas != nil)){
@@ -47,4 +60,7 @@ class IdeaListTableView: FilterTableView {
             }
         })
     }
+    
+    
 }
+

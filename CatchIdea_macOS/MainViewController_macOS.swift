@@ -28,6 +28,7 @@ class MainViewController_macOS: NSViewController {
         searchField.delegate = filterManager
         colorFilterView.selectionDelegate = filterManager
 //        searchField.delegate = self
+        filterManager.filterDelegate = self
     }
 
     override func viewWillAppear() {
@@ -106,6 +107,17 @@ extension MainViewController_macOS: NSTabViewDelegate {
         default:
             fatalError()
         }
+    }
+}
+
+extension MainViewController_macOS: IdeaFilterDelegate {
+    func filterIdea(withSearchText text: String, andMarkColor color: Color) {
+        ideaListTableView.filterText = text
+        ideaListTableView.filterColor = color
+        trashTableView.filterText = text
+        trashTableView.filterColor = color
+        tabView(contentTabView, didSelect: contentTabView.selectedTabViewItem)
+        
     }
 }
 

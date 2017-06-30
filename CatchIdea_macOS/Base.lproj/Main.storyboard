@@ -838,20 +838,25 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="ContentCell" id="aCq-IH-Dpk" customClass="ContentCell" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                                            <tableCellView identifier="ContentCell" misplaced="YES" id="aCq-IH-Dpk" customClass="ContentCell" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                                 <rect key="frame" x="34" y="1" width="483" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
-                                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpb-DF-G5Y">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="17"/>
-                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="d9e-JQ-IRb">
+                                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpb-DF-G5Y">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="22"/>
+                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Table View Cell" usesSingleLineMode="YES" id="d9e-JQ-IRb">
                                                                                             <font key="font" metaFont="system"/>
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                 </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="bpb-DF-G5Y" secondAttribute="trailing" id="DZA-5N-QNJ"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="bpb-DF-G5Y" secondAttribute="bottom" id="HzM-Pz-YWC"/>
+                                                                                    <constraint firstItem="bpb-DF-G5Y" firstAttribute="leading" secondItem="aCq-IH-Dpk" secondAttribute="leading" id="aKt-oq-HUL"/>
+                                                                                    <constraint firstItem="bpb-DF-G5Y" firstAttribute="top" secondItem="aCq-IH-Dpk" secondAttribute="top" constant="4" id="hmw-wC-Y6n"/>
+                                                                                </constraints>
                                                                                 <connections>
                                                                                     <outlet property="textField" destination="bpb-DF-G5Y" id="1ks-rI-x1A"/>
                                                                                 </connections>
@@ -886,17 +891,17 @@
                                     </tabViewItem>
                                     <tabViewItem label="Trash" identifier="TrashItem" id="ozQ-3D-1mt">
                                         <view key="view" id="kS6-hE-bJa">
-                                            <rect key="frame" x="10" y="33" width="537" height="407"/>
+                                            <rect key="frame" x="10" y="33" width="537" height="422"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSE-sA-kQc">
-                                                    <rect key="frame" x="8" y="8" width="521" height="391"/>
+                                                    <rect key="frame" x="8" y="8" width="521" height="406"/>
                                                     <clipView key="contentView" id="Ejq-Fb-A5z">
-                                                        <rect key="frame" x="1" y="0.0" width="519" height="390"/>
+                                                        <rect key="frame" x="1" y="0.0" width="519" height="405"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="TrashTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="367"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="519" height="382"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
