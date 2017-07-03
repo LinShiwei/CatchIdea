@@ -846,7 +846,7 @@
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-kx-PMb">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="462" height="17"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="457" height="17"/>
                                                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="mGe-hG-FNr">
                                                                                             <font key="font" metaFont="system"/>
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -861,22 +861,25 @@
                                                                                             <outlet property="delegate" destination="LHE-ps-2yV" id="qBq-SD-fWB"/>
                                                                                         </connections>
                                                                                     </textField>
-                                                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nWl-44-qwE">
-                                                                                        <rect key="frame" x="468" y="-1" width="13" height="19"/>
-                                                                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YqO-cJ-9mk">
-                                                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="jns-dL-9Kg">
+                                                                                        <rect key="frame" x="461" y="-2" width="22" height="21"/>
+                                                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fJR-Gw-7iq">
+                                                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                             <font key="font" metaFont="system"/>
                                                                                         </buttonCell>
+                                                                                        <connections>
+                                                                                            <binding destination="LHE-ps-2yV" name="value" keyPath="objectValue.isDelete" id="a3o-af-3yg"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="bottom" secondItem="l0q-kx-PMb" secondAttribute="bottom" id="9TY-z9-g2r"/>
-                                                                                    <constraint firstAttribute="trailing" secondItem="nWl-44-qwE" secondAttribute="trailing" constant="2" id="IKt-Rc-O8d"/>
-                                                                                    <constraint firstItem="nWl-44-qwE" firstAttribute="leading" secondItem="l0q-kx-PMb" secondAttribute="trailing" constant="8" id="MEr-Hj-vRg"/>
+                                                                                    <constraint firstItem="jns-dL-9Kg" firstAttribute="top" secondItem="LHE-ps-2yV" secondAttribute="top" id="Jj9-jQ-6Tx"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="jns-dL-9Kg" secondAttribute="bottom" id="Kji-u9-hHa"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="jns-dL-9Kg" secondAttribute="trailing" constant="2" id="Ktd-Hc-SLF"/>
+                                                                                    <constraint firstItem="jns-dL-9Kg" firstAttribute="leading" secondItem="l0q-kx-PMb" secondAttribute="trailing" constant="8" id="O5E-4J-Xih"/>
                                                                                     <constraint firstItem="l0q-kx-PMb" firstAttribute="leading" secondItem="LHE-ps-2yV" secondAttribute="leading" constant="2" id="iW6-Fh-C1O"/>
-                                                                                    <constraint firstAttribute="bottom" secondItem="nWl-44-qwE" secondAttribute="bottom" id="kBi-77-EDw"/>
                                                                                     <constraint firstItem="l0q-kx-PMb" firstAttribute="top" secondItem="LHE-ps-2yV" secondAttribute="top" id="sLS-4D-vFd"/>
-                                                                                    <constraint firstItem="nWl-44-qwE" firstAttribute="top" secondItem="LHE-ps-2yV" secondAttribute="top" id="vuJ-Z2-e9L"/>
                                                                                 </constraints>
                                                                                 <connections>
                                                                                     <outlet property="contentTextField" destination="l0q-kx-PMb" id="J1t-kQ-lWP"/>
@@ -1067,7 +1070,7 @@
                 </arrayController>
                 <userDefaultsController representsSharedInstance="YES" id="hYB-3s-vQl"/>
             </objects>
-            <point key="canvasLocation" x="73.5" y="756"/>
+            <point key="canvasLocation" x="76" y="800"/>
         </scene>
     </scenes>
     <resources>
