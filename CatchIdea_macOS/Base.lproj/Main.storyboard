@@ -829,7 +829,7 @@
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
                                                                     <tableColumn width="483" minWidth="40" maxWidth="1000" id="VFu-SX-BoQ">
-                                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="header">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -841,34 +841,25 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="ContentCell" misplaced="YES" id="aCq-IH-Dpk" customClass="ContentCell" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                                            <tableCellView id="LHE-ps-2yV">
                                                                                 <rect key="frame" x="34" y="1" width="483" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
-                                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpb-DF-G5Y">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="22"/>
-                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Table View Cell" usesSingleLineMode="YES" id="d9e-JQ-IRb">
+                                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-kx-PMb">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="17"/>
+                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="mGe-hG-FNr">
                                                                                             <font key="font" metaFont="system"/>
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                         </textFieldCell>
                                                                                         <connections>
-                                                                                            <binding destination="aCq-IH-Dpk" name="value" keyPath="objectValue.header" id="JGb-Go-fJS">
-                                                                                                <dictionary key="options">
-                                                                                                    <bool key="NSConditionallySetsEditable" value="YES"/>
-                                                                                                </dictionary>
-                                                                                            </binding>
+                                                                                            <binding destination="LHE-ps-2yV" name="value" keyPath="objectValue.header" id="Pgn-D9-fsz"/>
                                                                                         </connections>
                                                                                     </textField>
                                                                                 </subviews>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="trailing" secondItem="bpb-DF-G5Y" secondAttribute="trailing" id="DZA-5N-QNJ"/>
-                                                                                    <constraint firstAttribute="bottom" secondItem="bpb-DF-G5Y" secondAttribute="bottom" id="HzM-Pz-YWC"/>
-                                                                                    <constraint firstItem="bpb-DF-G5Y" firstAttribute="leading" secondItem="aCq-IH-Dpk" secondAttribute="leading" id="aKt-oq-HUL"/>
-                                                                                    <constraint firstItem="bpb-DF-G5Y" firstAttribute="top" secondItem="aCq-IH-Dpk" secondAttribute="top" constant="4" id="hmw-wC-Y6n"/>
-                                                                                </constraints>
                                                                                 <connections>
-                                                                                    <outlet property="textField" destination="bpb-DF-G5Y" id="1ks-rI-x1A"/>
+                                                                                    <outlet property="textField" destination="l0q-kx-PMb" id="K0A-Kc-rqY"/>
                                                                                 </connections>
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
