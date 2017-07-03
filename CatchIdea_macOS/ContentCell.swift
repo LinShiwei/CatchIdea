@@ -10,7 +10,7 @@ import Cocoa
 
 class ContentCell: NSTableCellView {
 
-    internal var interactView: ContentCellInteractView
+//    internal var interactView: ContentCellInteractView
     
     @IBOutlet weak var contentTextField: NSTextField!
     override func draw(_ dirtyRect: NSRect) {
@@ -21,7 +21,7 @@ class ContentCell: NSTableCellView {
     
     
     required init?(coder: NSCoder) {
-        interactView = ContentCellInteractView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+//        interactView = ContentCellInteractView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
 
         super.init(coder: coder)
         
@@ -35,7 +35,7 @@ class ContentCell: NSTableCellView {
     
     override func layout() {
         super.layout()
-        interactView.frame.origin = CGPoint(x: frame.width-8-interactView.frame.width, y: frame.height/4)
+//        interactView.frame.origin = CGPoint(x: frame.width-8-interactView.frame.width, y: frame.height/4)
     }
 }
 

@@ -12,6 +12,10 @@ class MainViewController_macOS: NSViewController {
 
     let filterManager = FilterManager.shared
     
+    @IBOutlet var ideaListArrayController: IdeaListArrayController!
+    
+    @IBOutlet var trashArrayController: TrashArrayController!
+    
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var colorFilterView: ColorFilterView!
     

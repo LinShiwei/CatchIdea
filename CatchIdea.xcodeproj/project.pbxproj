@@ -120,6 +120,8 @@
 		FA86D12F1F05387000568C22 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D12E1F05387000568C22 /* FilterManager.swift */; };
 		FA86D1341F0A116400568C22 /* CatchIdea_macOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A81F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld */; };
 		FA86D13E1F0A2FED00568C22 /* IdeaListArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */; };
+		FA86D1401F0A5CDE00568C22 /* TrashArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D13F1F0A5CDE00568C22 /* TrashArrayController.swift */; };
+		FA86D1431F0A6BCF00568C22 /* TrashContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +266,8 @@
 		FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableView.swift; sourceTree = "<group>"; };
 		FA86D12E1F05387000568C22 /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListArrayController.swift; sourceTree = "<group>"; };
+		FA86D13F1F0A5CDE00568C22 /* TrashArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashArrayController.swift; sourceTree = "<group>"; };
+		FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashContentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,7 +589,7 @@
 				FA86D12E1F05387000568C22 /* FilterManager.swift */,
 				FA3371A71F02989E0011DECC /* SharedClass */,
 				FA3371A41F027B820011DECC /* IdeaListTableView */,
-				FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */,
+				FA86D1411F0A5CE900568C22 /* TrashTableView */,
 				FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */,
 				FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */,
 				FA33719E1F0235240011DECC /* Define.swift */,
@@ -614,6 +618,7 @@
 			children = (
 				FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */,
 				FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */,
+				FA3371AE1F035CBC0011DECC /* ContentCell.swift */,
 			);
 			name = IdeaListTableView;
 			sourceTree = "<group>";
@@ -624,7 +629,6 @@
 				FA3371A51F0297280011DECC /* FilterTableView.swift */,
 				FA3371A21F027B6F0011DECC /* MarkColorCell.swift */,
 				FA3371A01F0279CB0011DECC /* MarkColorView.swift */,
-				FA3371AE1F035CBC0011DECC /* ContentCell.swift */,
 				FA3371AC1F035CA20011DECC /* ContentCellInteractView.swift */,
 			);
 			name = SharedClass;
@@ -653,6 +657,16 @@
 				FA06D9A81F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		FA86D1411F0A5CE900568C22 /* TrashTableView */ = {
+			isa = PBXGroup;
+			children = (
+				FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */,
+				FA86D13F1F0A5CDE00568C22 /* TrashArrayController.swift */,
+				FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */,
+			);
+			name = TrashTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -914,9 +928,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA86D1401F0A5CDE00568C22 /* TrashArrayController.swift in Sources */,
 				FA86D1341F0A116400568C22 /* CatchIdea_macOS.xcdatamodeld in Sources */,
 				FA3A6DBE1F0224A600123867 /* UIColor+~=.swift in Sources */,
 				FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */,
+				FA86D1431F0A6BCF00568C22 /* TrashContentCell.swift in Sources */,
 				FA3371AB1F034E560011DECC /* AddOrCleanButton.swift in Sources */,
 				FA1D04B91F03E36500FC6BF3 /* ColorFilterView.swift in Sources */,
 				FA1D04C61F03E8A900FC6BF3 /* BaseFilterTableView.swift in Sources */,
