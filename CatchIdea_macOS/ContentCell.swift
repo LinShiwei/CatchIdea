@@ -12,6 +12,7 @@ class ContentCell: NSTableCellView {
 
     internal var interactView: ContentCellInteractView
     
+    @IBOutlet weak var contentTextField: NSTextField!
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
@@ -24,11 +25,23 @@ class ContentCell: NSTableCellView {
 
         super.init(coder: coder)
         
-        addSubview(interactView)
+        
+        
+//        contentTextField.delegate = self
+
+        
+//        addSubview(interactView)
     }
     
     override func layout() {
         super.layout()
         interactView.frame.origin = CGPoint(x: frame.width-8-interactView.frame.width, y: frame.height/4)
+    }
+}
+
+extension ContentCell: NSTextFieldDelegate {
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        (NSApplication.shared().delegate as! AppDelegate).saveAction(nil)
+        
     }
 }

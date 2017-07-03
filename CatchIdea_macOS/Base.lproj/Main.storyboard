@@ -841,24 +841,45 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView id="LHE-ps-2yV">
+                                                                            <tableCellView id="LHE-ps-2yV" customClass="ContentCell" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                                 <rect key="frame" x="34" y="1" width="483" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
-                                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-kx-PMb">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="17"/>
-                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="mGe-hG-FNr">
+                                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0q-kx-PMb">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="462" height="17"/>
+                                                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="mGe-hG-FNr">
                                                                                             <font key="font" metaFont="system"/>
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                         </textFieldCell>
                                                                                         <connections>
-                                                                                            <binding destination="LHE-ps-2yV" name="value" keyPath="objectValue.header" id="Pgn-D9-fsz"/>
+                                                                                            <binding destination="LHE-ps-2yV" name="value" keyPath="objectValue.header" id="6Q5-2Q-Dxy">
+                                                                                                <dictionary key="options">
+                                                                                                    <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                                </dictionary>
+                                                                                            </binding>
+                                                                                            <outlet property="delegate" destination="LHE-ps-2yV" id="qBq-SD-fWB"/>
                                                                                         </connections>
                                                                                     </textField>
+                                                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nWl-44-qwE">
+                                                                                        <rect key="frame" x="468" y="-1" width="13" height="19"/>
+                                                                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YqO-cJ-9mk">
+                                                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                            <font key="font" metaFont="system"/>
+                                                                                        </buttonCell>
+                                                                                    </button>
                                                                                 </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="bottom" secondItem="l0q-kx-PMb" secondAttribute="bottom" id="9TY-z9-g2r"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="nWl-44-qwE" secondAttribute="trailing" constant="2" id="IKt-Rc-O8d"/>
+                                                                                    <constraint firstItem="nWl-44-qwE" firstAttribute="leading" secondItem="l0q-kx-PMb" secondAttribute="trailing" constant="8" id="MEr-Hj-vRg"/>
+                                                                                    <constraint firstItem="l0q-kx-PMb" firstAttribute="leading" secondItem="LHE-ps-2yV" secondAttribute="leading" constant="2" id="iW6-Fh-C1O"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="nWl-44-qwE" secondAttribute="bottom" id="kBi-77-EDw"/>
+                                                                                    <constraint firstItem="l0q-kx-PMb" firstAttribute="top" secondItem="LHE-ps-2yV" secondAttribute="top" id="sLS-4D-vFd"/>
+                                                                                    <constraint firstItem="nWl-44-qwE" firstAttribute="top" secondItem="LHE-ps-2yV" secondAttribute="top" id="vuJ-Z2-e9L"/>
+                                                                                </constraints>
                                                                                 <connections>
+                                                                                    <outlet property="contentTextField" destination="l0q-kx-PMb" id="J1t-kQ-lWP"/>
                                                                                     <outlet property="textField" destination="l0q-kx-PMb" id="K0A-Kc-rqY"/>
                                                                                 </connections>
                                                                             </tableCellView>
@@ -1039,7 +1060,7 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController mode="entity" entityName="IdeaItemObject" automaticallyPreparesContent="YES" id="hRB-Fj-kdU">
+                <arrayController mode="entity" entityName="IdeaItemObject" fetchPredicateFormat="header like 'Empty8*'" automaticallyPreparesContent="YES" id="hRB-Fj-kdU" customClass="IdeaListArrayController" customModule="CatchIdea_macOS" customModuleProvider="target">
                     <connections>
                         <binding destination="XfG-lQ-9wD" name="managedObjectContext" keyPath="self.managedObjectContext" id="mm3-vi-Bzy"/>
                     </connections>

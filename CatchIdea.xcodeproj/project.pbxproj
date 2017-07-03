@@ -119,6 +119,7 @@
 		FA8126521F01FC2E001F5CF0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
 		FA86D12F1F05387000568C22 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D12E1F05387000568C22 /* FilterManager.swift */; };
 		FA86D1341F0A116400568C22 /* CatchIdea_macOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A81F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld */; };
+		FA86D13E1F0A2FED00568C22 /* IdeaListArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +263,7 @@
 		FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListTableView.swift; sourceTree = "<group>"; };
 		FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashTableView.swift; sourceTree = "<group>"; };
 		FA86D12E1F05387000568C22 /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListArrayController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,6 +612,7 @@
 		FA3371A41F027B820011DECC /* IdeaListTableView */ = {
 			isa = PBXGroup;
 			children = (
+				FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */,
 				FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */,
 			);
 			name = IdeaListTableView;
@@ -929,6 +932,7 @@
 				FA06D9A71F000407007D6BA1 /* MainViewController_macOS.swift in Sources */,
 				FA3371AF1F035CBC0011DECC /* ContentCell.swift in Sources */,
 				FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */,
+				FA86D13E1F0A2FED00568C22 /* IdeaListArrayController.swift in Sources */,
 				FA1D04C81F03E8A900FC6BF3 /* ColorSelectionDelegate.swift in Sources */,
 				FA3371A61F0297280011DECC /* FilterTableView.swift in Sources */,
 				FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */,
