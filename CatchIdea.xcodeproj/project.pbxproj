@@ -111,7 +111,6 @@
 		FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */; };
 		FA3A6DBE1F0224A600123867 /* UIColor+~=.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561FAA161E20CBC000206894 /* UIColor+~=.swift */; };
 		FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
-		FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3D41E05628E00E4A293 /* CatchIdea.xcdatamodeld */; };
 		FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
 		FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */; };
 		FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */; };
@@ -119,6 +118,7 @@
 		FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8126501F01F6EC001F5CF0 /* TrashTableView.swift */; };
 		FA8126521F01FC2E001F5CF0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13841E0CF1B3006A833A /* Theme.swift */; };
 		FA86D12F1F05387000568C22 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D12E1F05387000568C22 /* FilterManager.swift */; };
+		FA86D1341F0A116400568C22 /* CatchIdea_macOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A81F000407007D6BA1 /* CatchIdea_macOS.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -911,6 +911,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA86D1341F0A116400568C22 /* CatchIdea_macOS.xcdatamodeld in Sources */,
 				FA3A6DBE1F0224A600123867 /* UIColor+~=.swift in Sources */,
 				FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */,
 				FA3371AB1F034E560011DECC /* AddOrCleanButton.swift in Sources */,
@@ -922,7 +923,6 @@
 				FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */,
 				FA3371AD1F035CA20011DECC /* ContentCellInteractView.swift in Sources */,
 				FA33719F1F0235240011DECC /* Define.swift in Sources */,
-				FA46E58C1F0125C00038D59B /* CatchIdea.xcdatamodeld in Sources */,
 				FA3371A31F027B6F0011DECC /* MarkColorCell.swift in Sources */,
 				FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */,
 				FA3371A11F0279CB0011DECC /* MarkColorView.swift in Sources */,

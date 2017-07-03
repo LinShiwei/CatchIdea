@@ -731,6 +731,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="remove:" target="hRB-Fj-kdU" id="A4G-E6-TyO"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-WE-6xg" customClass="AddOrCleanButton" customModule="CatchIdea_macOS" customModuleProvider="target">
                                         <rect key="frame" x="10" y="7" width="30" height="32"/>
@@ -743,7 +746,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="addOneIdea:" target="XfG-lQ-9wD" id="sa7-e5-JFQ"/>
+                                            <action selector="add:" target="hRB-Fj-kdU" id="oGh-2j-wLK"/>
                                         </connections>
                                     </button>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="xt6-uj-OYc" customClass="ColorFilterView" customModule="CatchIdea_macOS" customModuleProvider="target">
@@ -785,7 +788,7 @@
                                                         <rect key="frame" x="1" y="0.0" width="519" height="405"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="IdeaListTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                            <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B">
                                                                 <rect key="frame" x="0.0" y="0.0" width="519" height="382"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -849,6 +852,13 @@
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                         </textFieldCell>
+                                                                                        <connections>
+                                                                                            <binding destination="aCq-IH-Dpk" name="value" keyPath="objectValue.header" id="JGb-Go-fJS">
+                                                                                                <dictionary key="options">
+                                                                                                    <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                                </dictionary>
+                                                                                            </binding>
+                                                                                        </connections>
                                                                                     </textField>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -864,6 +874,9 @@
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
                                                                 </tableColumns>
+                                                                <connections>
+                                                                    <binding destination="hRB-Fj-kdU" name="content" keyPath="arrangedObjects" id="o0M-dx-Eeg"/>
+                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                     </clipView>
@@ -900,7 +913,7 @@
                                                         <rect key="frame" x="1" y="0.0" width="519" height="405"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR" customClass="TrashTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                            <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR">
                                                                 <rect key="frame" x="0.0" y="0.0" width="519" height="382"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -1029,12 +1042,18 @@
                     <connections>
                         <outlet property="colorFilterView" destination="xt6-uj-OYc" id="H2U-iW-Yra"/>
                         <outlet property="contentTabView" destination="Kdf-qc-RWz" id="1rf-s0-3s2"/>
-                        <outlet property="ideaListTableView" destination="wjd-GL-58B" id="fsd-5g-H61"/>
+                        <outlet property="ideaListTableView" destination="wjd-GL-58B" id="Ydc-8S-jvL"/>
                         <outlet property="searchField" destination="X0u-4N-1jo" id="RDV-aN-ywM"/>
-                        <outlet property="trashTableView" destination="8GI-1l-KWR" id="gNz-Pg-hbu"/>
+                        <outlet property="trashTableView" destination="8GI-1l-KWR" id="VAd-Uq-XUL"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController mode="entity" entityName="IdeaItemObject" automaticallyPreparesContent="YES" id="hRB-Fj-kdU">
+                    <connections>
+                        <binding destination="XfG-lQ-9wD" name="managedObjectContext" keyPath="self.managedObjectContext" id="mm3-vi-Bzy"/>
+                    </connections>
+                </arrayController>
+                <userDefaultsController representsSharedInstance="YES" id="hYB-3s-vQl"/>
             </objects>
             <point key="canvasLocation" x="73.5" y="756"/>
         </scene>
