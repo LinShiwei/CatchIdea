@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="IdeaItemObject" representedClassName="IdeaItemObject" syncable="YES" codeGenerationType="class">
+    <entity name="IdeaItemObject" representedClassName="IdeaItemObject" syncable="YES">
         <attribute name="addingDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="header" optional="YES" attributeType="String" defaultValueString="Empty" syncable="YES"/>
@@ -10,6 +10,6 @@
         <attribute name="notificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="IdeaItemObject" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="IdeaItemObject" positionX="-63" positionY="-18" width="128" height="28"/>
     </elements>
 </model>
