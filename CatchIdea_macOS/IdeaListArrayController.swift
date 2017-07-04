@@ -25,6 +25,7 @@ class IdeaListArrayController: NSArrayController {
     
     override func addObject(_ object: Any) {
         super.addObject(object)
+        
     }
 }
 

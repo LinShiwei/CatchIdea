@@ -12,7 +12,7 @@ class MarkColorView: NSView {
 
     internal var markColor = NSColor.red{
         didSet{
-            layer?.backgroundColor = markColor.cgColor
+//            layer?.backgroundColor = markColor.cgColor
         }
     }
     
@@ -24,10 +24,10 @@ class MarkColorView: NSView {
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        wantsLayer = true
-        layer?.cornerRadius = self.frame.width/2
-        layer?.backgroundColor = NSColor.green.cgColor
-        
+//        wantsLayer = true
+//        layer?.cornerRadius = self.frame.width/2
+//        layer?.backgroundColor = NSColor.green.cgColor
+//        
         
 //        stringValue = ""
 //        image = nil

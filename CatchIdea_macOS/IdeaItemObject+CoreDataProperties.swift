@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 import CoreData
 
 
@@ -27,5 +28,18 @@ extension IdeaItemObject {
     
     override public func awakeFromInsert() {
         super.awakeFromInsert()
+        addingDate = NSDate()
+        content = ""
+        header = "Create new idea."
+        isDelete = false
+        isFinish = false
+//        markColor = NSColor.blue 
+        //Setting markColor directly to NSColor will cause error.
+        //Should set markColor as NSData with NSKeyedArchiver. Because this property is tranformable and is encode with nskeyarchiver.
+        //On binding, should select 'value transformer' to nskeyunachiverfromdata
+        markColor = NSKeyedArchiver.archivedData(withRootObject: NSColor.red) as NSObject
+        notificationDate = nil
+        
+        
     }
 }
