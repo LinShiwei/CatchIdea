@@ -138,11 +138,23 @@ extension MainViewController_macOS: IdeaFilterDelegate {
     func filterIdea(withSearchText text: String, andMarkColorIndex index: Int) {
         switch contentTabView.selectedItemIdentifier {
         case tabIdeaItemIdentifier:
-            ideaListArrayController.fetchPredicate = NSPredicate(format: "(markColorIndex == %@) && (isDelete == false || isDelete == nil) && (isFinish == false || isFinish == nil)", argumentArray: [index])
-
+            if text == "" {
+                ideaListArrayController.fetchPredicate = NSPredicate(format: "(markColorIndex == %d) && (isDelete == false || isDelete == nil) && (isFinish == false || isFinish == nil)", index)
+            }else{
+                ideaListArrayController.fetchPredicate = NSPredicate(format: "((header CONTAINS %@)) && (markColorIndex == %d) && (isDelete == false || isDelete == nil) && (isFinish == false || isFinish == nil)",text,index)
+            }
+           //(header CONTAINS %@) &&
             
         case tabTrashItemIdentifier:
+            if text == "" {
+                trashArrayController.fetchPredicate = NSPredicate(format: "(markColorIndex == %d) && (isDelete == true || isFinish == true) ",index)
 
+            }else{
+                trashArrayController.fetchPredicate = NSPredicate(format: "((header CONTAINS %@)) && (markColorIndex == %d) && (isDelete == true || isFinish == true) ",text,index)
+            }
+            
+
+            //(header CONTAINS %@) &&
             return
         default:
             return
