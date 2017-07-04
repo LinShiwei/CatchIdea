@@ -13,3 +13,4 @@ let contentCellIdentifier = "ContentCell"
 
 let tabIdeaItemIdentifier = "IdeaItem"
 let tabTrashItemIdentifier = "TrashItem"
+

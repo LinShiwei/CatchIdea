@@ -10,7 +10,7 @@ import Cocoa
 
 class MarkColorCell: NSTableCellView {
 
-    var markColorView: MarkColorView
+//    var markColorView: MarkColorView
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -19,10 +19,10 @@ class MarkColorCell: NSTableCellView {
     }
     
     required init?(coder: NSCoder) {
-        markColorView = MarkColorView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+//        markColorView = MarkColorView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
         
         super.init(coder: coder)
-        addSubview(markColorView)
+//        addSubview(markColorView)
 
 //        markColorButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 //        markColorButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -31,6 +31,6 @@ class MarkColorCell: NSTableCellView {
     override func layout() {
         super.layout()
         
-        markColorView.frame.origin = CGPoint(x: frame.width/4, y: frame.height/4)
+//        markColorView.frame.origin = CGPoint(x: frame.width/4, y: frame.height/4)
     }
 }

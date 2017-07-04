@@ -812,11 +812,9 @@
                                                                                 <rect key="frame" x="1" y="1" width="30" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
-                                                                                    <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1L-tw-KBu">
-                                                                                        <rect key="frame" x="0.0" y="-3" width="30" height="23"/>
-                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                    </colorWell>
+                                                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="hbR-Ev-RPB" customClass="MarkColorView" customModule="CatchIdea_macOS" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="17"/>
+                                                                                    </customView>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tb-ZE-LPu">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -827,6 +825,12 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                 </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="hbR-Ev-RPB" firstAttribute="leading" secondItem="eTS-gK-xgQ" secondAttribute="leading" id="aTd-M1-l3A"/>
+                                                                                    <constraint firstItem="hbR-Ev-RPB" firstAttribute="top" secondItem="eTS-gK-xgQ" secondAttribute="top" id="dGQ-Al-hya"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="hbR-Ev-RPB" secondAttribute="bottom" id="gOi-2e-V09"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="hbR-Ev-RPB" secondAttribute="trailing" id="vfL-Lq-YBG"/>
+                                                                                </constraints>
                                                                                 <connections>
                                                                                     <outlet property="textField" destination="6tb-ZE-LPu" id="BQ0-gF-lCW"/>
                                                                                 </connections>
@@ -957,7 +961,7 @@
                                                                                 <rect key="frame" x="1" y="1" width="30" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
-                                                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="TPy-8v-KIa">
+                                                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="TPy-8v-KIa" customClass="MarkColorView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                                         <rect key="frame" x="2" y="2" width="26" height="13"/>
                                                                                     </customView>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0k-1Q-wqB">
