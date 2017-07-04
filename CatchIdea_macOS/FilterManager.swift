@@ -14,7 +14,7 @@ class FilterManager: NSObject {
     internal var filterDelegate: IdeaFilterDelegate?
     
     fileprivate var ideaSearchText = ""
-    fileprivate var ideaMarkColor = NSColor.white
+    fileprivate var ideaMarkColorIndex = -1
     
 
     private override init() {
@@ -26,15 +26,14 @@ class FilterManager: NSObject {
             return
         }
         ideaSearchText = searchField.stringValue
-        filterDelegate?.filterIdea(withSearchText: ideaSearchText, andMarkColor: ideaMarkColor)
-        
+        filterDelegate?.filterIdea(withSearchText: ideaSearchText, andMarkColorIndex: ideaMarkColorIndex)
     }
 }
 
 extension FilterManager: ColorSelectionDelegate {
-    func didSelectColor(_ color: Color) {
-        ideaMarkColor = color
-        filterDelegate?.filterIdea(withSearchText: ideaSearchText, andMarkColor: ideaMarkColor)
+    func didSelectColor(ofColorIndex index: Int) {
+        ideaMarkColorIndex = index
+        filterDelegate?.filterIdea(withSearchText: ideaSearchText, andMarkColorIndex: index)
     }
 }
 

@@ -33,7 +33,6 @@ class MainViewController_macOS: NSViewController {
     }
     
     @IBAction func changeFilter(_ sender: Any) {
-        ideaListArrayController.fetchPredicate = NSPredicate(format: "isDelete == true", argumentArray: nil)
 
     }
     override func viewDidLoad() {
@@ -127,13 +126,28 @@ extension MainViewController_macOS: NSTabViewDelegate {
 }
 
 extension MainViewController_macOS: IdeaFilterDelegate {
-    func filterIdea(withSearchText text: String, andMarkColor color: Color) {
+//    func filterIdea(withSearchText text: String, andMarkColor color: Color) {
 //        ideaListTableView.filterText = text
 //        ideaListTableView.filterColor = color
 //        trashTableView.filterText = text
 //        trashTableView.filterColor = color
 //        tabView(contentTabView, didSelect: contentTabView.selectedTabViewItem)
         
+//    }
+    
+    func filterIdea(withSearchText text: String, andMarkColorIndex index: Int) {
+        switch contentTabView.selectedItemIdentifier {
+        case tabIdeaItemIdentifier:
+            ideaListArrayController.fetchPredicate = NSPredicate(format: "(markColorIndex == %@) && (isDelete == false || isDelete == nil) && (isFinish == false || isFinish == nil)", argumentArray: [index])
+
+            
+        case tabTrashItemIdentifier:
+
+            return
+        default:
+            return
+        }
+
     }
 }
 

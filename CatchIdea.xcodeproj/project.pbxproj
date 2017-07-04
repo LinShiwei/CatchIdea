@@ -95,11 +95,12 @@
 		FA06D9AC1F000407007D6BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AB1F000407007D6BA1 /* Assets.xcassets */; };
 		FA06D9AF1F000407007D6BA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AD1F000407007D6BA1 /* Main.storyboard */; };
 		FA06D9BB1F00D219007D6BA1 /* AppStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */; };
+		FA1B7CF21F0B7F14002A0E71 /* ColorSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B7CF11F0B7F14002A0E71 /* ColorSelectionDelegate.swift */; };
+		FA1B7CF41F0B8058002A0E71 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B7CF31F0B8058002A0E71 /* IdeaFilterDelegate.swift */; };
 		FA1D04B91F03E36500FC6BF3 /* ColorFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D04B81F03E36500FC6BF3 /* ColorFilterView.swift */; };
 		FA1D04C51F03E8A900FC6BF3 /* BaseFilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D04C31F03E8A900FC6BF3 /* BaseFilterTableView.swift */; };
 		FA1D04C61F03E8A900FC6BF3 /* BaseFilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D04C31F03E8A900FC6BF3 /* BaseFilterTableView.swift */; };
 		FA1D04C71F03E8A900FC6BF3 /* ColorSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D04C41F03E8A900FC6BF3 /* ColorSelectionDelegate.swift */; };
-		FA1D04C81F03E8A900FC6BF3 /* ColorSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D04C41F03E8A900FC6BF3 /* ColorSelectionDelegate.swift */; };
 		FA33719F1F0235240011DECC /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33719E1F0235240011DECC /* Define.swift */; };
 		FA3371A11F0279CB0011DECC /* MarkColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371A01F0279CB0011DECC /* MarkColorView.swift */; };
 		FA3371A31F027B6F0011DECC /* MarkColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371A21F027B6F0011DECC /* MarkColorCell.swift */; };
@@ -110,7 +111,6 @@
 		FA3371AF1F035CBC0011DECC /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3371AE1F035CBC0011DECC /* ContentCell.swift */; };
 		FA3A6DB61F02041E00123867 /* FilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB51F02041E00123867 /* FilterTableView.swift */; };
 		FA3A6DB91F020B6200123867 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */; };
-		FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A6DB81F020B6200123867 /* IdeaFilterDelegate.swift */; };
 		FA3A6DBE1F0224A600123867 /* UIColor+~=.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561FAA161E20CBC000206894 /* UIColor+~=.swift */; };
 		FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3EB1E05744F00E4A293 /* IdeaData.swift */; };
 		FA8126491F013B42001F5CF0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567FA3E91E05736900E4A293 /* DataManager.swift */; };
@@ -251,9 +251,11 @@
 		FA06D9B01F000407007D6BA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA06D9B11F000407007D6BA1 /* CatchIdea_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CatchIdea_macOS.entitlements; sourceTree = "<group>"; };
 		FA06D9BA1F00D219007D6BA1 /* AppStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreManager.swift; sourceTree = "<group>"; };
+		FA1B7CF11F0B7F14002A0E71 /* ColorSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectionDelegate.swift; sourceTree = "<group>"; };
+		FA1B7CF31F0B8058002A0E71 /* IdeaFilterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaFilterDelegate.swift; sourceTree = "<group>"; };
 		FA1D04B81F03E36500FC6BF3 /* ColorFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorFilterView.swift; sourceTree = "<group>"; };
 		FA1D04C31F03E8A900FC6BF3 /* BaseFilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFilterTableView.swift; path = CatchIdea/BaseFilterTableView.swift; sourceTree = "<group>"; };
-		FA1D04C41F03E8A900FC6BF3 /* ColorSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSelectionDelegate.swift; path = CatchIdea/ColorSelectionDelegate.swift; sourceTree = "<group>"; };
+		FA1D04C41F03E8A900FC6BF3 /* ColorSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectionDelegate.swift; sourceTree = "<group>"; };
 		FA33719E1F0235240011DECC /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		FA3371A01F0279CB0011DECC /* MarkColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorView.swift; sourceTree = "<group>"; };
 		FA3371A21F027B6F0011DECC /* MarkColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkColorCell.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		563782741E1E9FA9008A4367 /* SharedCalss */ = {
 			isa = PBXGroup;
 			children = (
+				FA1D04C41F03E8A900FC6BF3 /* ColorSelectionDelegate.swift */,
 				5645A2E91E5F30D300A88603 /* IAPHelper */,
 				56EEFBA71E59890000083C24 /* Siren */,
 				56EEFBA21E5988BD00083C24 /* iRate */,
@@ -588,6 +591,8 @@
 			children = (
 				FA0310CC1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift */,
 				FA0310CD1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift */,
+				FA1B7CF11F0B7F14002A0E71 /* ColorSelectionDelegate.swift */,
+				FA1B7CF31F0B8058002A0E71 /* IdeaFilterDelegate.swift */,
 				FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */,
 				FA3371A81F034CB20011DECC /* ContentTabView.swift */,
 				FA3371AA1F034E560011DECC /* AddOrCleanButton.swift */,
@@ -608,7 +613,6 @@
 			isa = PBXGroup;
 			children = (
 				FA1D04C31F03E8A900FC6BF3 /* BaseFilterTableView.swift */,
-				FA1D04C41F03E8A900FC6BF3 /* ColorSelectionDelegate.swift */,
 				56FE13841E0CF1B3006A833A /* Theme.swift */,
 				567FA3EB1E05744F00E4A293 /* IdeaData.swift */,
 				567FA3E91E05736900E4A293 /* DataManager.swift */,
@@ -938,7 +942,6 @@
 				FA86D1341F0A116400568C22 /* CatchIdea_macOS.xcdatamodeld in Sources */,
 				FA0310CF1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift in Sources */,
 				FA3A6DBE1F0224A600123867 /* UIColor+~=.swift in Sources */,
-				FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */,
 				FA86D1431F0A6BCF00568C22 /* TrashContentCell.swift in Sources */,
 				FA3371AB1F034E560011DECC /* AddOrCleanButton.swift in Sources */,
 				FA0310CE1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift in Sources */,
@@ -951,14 +954,15 @@
 				FA3371AD1F035CA20011DECC /* ContentCellInteractView.swift in Sources */,
 				FA33719F1F0235240011DECC /* Define.swift in Sources */,
 				FA3371A31F027B6F0011DECC /* MarkColorCell.swift in Sources */,
+				FA1B7CF41F0B8058002A0E71 /* IdeaFilterDelegate.swift in Sources */,
 				FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */,
 				FA3371A11F0279CB0011DECC /* MarkColorView.swift in Sources */,
 				FA06D9A71F000407007D6BA1 /* MainViewController_macOS.swift in Sources */,
 				FA3371AF1F035CBC0011DECC /* ContentCell.swift in Sources */,
 				FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */,
 				FA86D13E1F0A2FED00568C22 /* IdeaListArrayController.swift in Sources */,
-				FA1D04C81F03E8A900FC6BF3 /* ColorSelectionDelegate.swift in Sources */,
 				FA3371A61F0297280011DECC /* FilterTableView.swift in Sources */,
+				FA1B7CF21F0B7F14002A0E71 /* ColorSelectionDelegate.swift in Sources */,
 				FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */,
 				FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */,
 				FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */,

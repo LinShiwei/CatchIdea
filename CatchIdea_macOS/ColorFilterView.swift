@@ -117,10 +117,12 @@ class ColorFilterView: NSView {
             if fabs(cell.frame.minY + cell.frame.height/2 - point.y) < cellSideLength/2 {
                 guard currentSelectedCell != cell else { return }
                 currentSelectedCell = cell
-                guard let cgColor = cell.layer?.backgroundColor,let color = NSColor(cgColor: cgColor) else{
-                    return
+                if let index = cells.index(of: cell) {
+                    selectionDelegate?.didSelectColor(ofColorIndex: index)
                 }
-                selectionDelegate?.didSelectColor(color)
+//                guard let cgColor = cell.layer?.backgroundColor,let color = NSColor(cgColor: cgColor) else{
+//                    return
+//                }
                 break
             }
         }
