@@ -88,8 +88,8 @@
 		56FE13891E0CF56F006A833A /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FE13881E0CF56F006A833A /* Define.swift */; };
 		56FED2E11E1A2F2800974D86 /* TopDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */; };
 		56FED2E31E1A301400974D86 /* SharedNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */; };
-		FA0310C81F0B36000021586D /* IdeaItemObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0310C61F0B36000021586D /* IdeaItemObject+CoreDataClass.swift */; };
-		FA0310C91F0B36000021586D /* IdeaItemObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0310C71F0B36000021586D /* IdeaItemObject+CoreDataProperties.swift */; };
+		FA0310CE1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0310CC1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift */; };
+		FA0310CF1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0310CD1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift */; };
 		FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A41F000407007D6BA1 /* AppDelegate.swift */; };
 		FA06D9A71F000407007D6BA1 /* MainViewController_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */; };
 		FA06D9AC1F000407007D6BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9AB1F000407007D6BA1 /* Assets.xcassets */; };
@@ -240,8 +240,8 @@
 		56FE13881E0CF56F006A833A /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		56FED2E01E1A2F2800974D86 /* TopDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopDecorationView.swift; sourceTree = "<group>"; };
 		56FED2E21E1A301400974D86 /* SharedNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedNavigationBar.swift; sourceTree = "<group>"; };
-		FA0310C61F0B36000021586D /* IdeaItemObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IdeaItemObject+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FA0310C71F0B36000021586D /* IdeaItemObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IdeaItemObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA0310CC1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IdeaItemObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA0310CD1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IdeaItemObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA06D9A21F000407007D6BA1 /* CatchIdea_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchIdea_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA06D9A41F000407007D6BA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController_macOS.swift; sourceTree = "<group>"; };
@@ -586,8 +586,8 @@
 		FA06D9A31F000407007D6BA1 /* CatchIdea_macOS */ = {
 			isa = PBXGroup;
 			children = (
-				FA0310C61F0B36000021586D /* IdeaItemObject+CoreDataClass.swift */,
-				FA0310C71F0B36000021586D /* IdeaItemObject+CoreDataProperties.swift */,
+				FA0310CC1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift */,
+				FA0310CD1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift */,
 				FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */,
 				FA3371A81F034CB20011DECC /* ContentTabView.swift */,
 				FA3371AA1F034E560011DECC /* AddOrCleanButton.swift */,
@@ -936,12 +936,12 @@
 			files = (
 				FA86D1401F0A5CDE00568C22 /* TrashArrayController.swift in Sources */,
 				FA86D1341F0A116400568C22 /* CatchIdea_macOS.xcdatamodeld in Sources */,
-				FA0310C91F0B36000021586D /* IdeaItemObject+CoreDataProperties.swift in Sources */,
+				FA0310CF1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift in Sources */,
 				FA3A6DBE1F0224A600123867 /* UIColor+~=.swift in Sources */,
 				FA3A6DBA1F020B8E00123867 /* IdeaFilterDelegate.swift in Sources */,
 				FA86D1431F0A6BCF00568C22 /* TrashContentCell.swift in Sources */,
 				FA3371AB1F034E560011DECC /* AddOrCleanButton.swift in Sources */,
-				FA0310C81F0B36000021586D /* IdeaItemObject+CoreDataClass.swift in Sources */,
+				FA0310CE1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift in Sources */,
 				FA1D04B91F03E36500FC6BF3 /* ColorFilterView.swift in Sources */,
 				FA1D04C61F03E8A900FC6BF3 /* BaseFilterTableView.swift in Sources */,
 				FA8126521F01FC2E001F5CF0 /* Theme.swift in Sources */,

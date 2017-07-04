@@ -32,6 +32,10 @@ class MainViewController_macOS: NSViewController {
         }
     }
     
+    @IBAction func changeFilter(_ sender: Any) {
+        ideaListArrayController.fetchPredicate = NSPredicate(format: "isDelete == true", argumentArray: nil)
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -732,7 +732,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="remove:" target="hRB-Fj-kdU" id="A4G-E6-TyO"/>
+                                            <action selector="changeFilter:" target="XfG-lQ-9wD" id="qYV-ZT-Sbd"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-WE-6xg" customClass="AddOrCleanButton" customModule="CatchIdea_macOS" customModuleProvider="target">
@@ -816,13 +816,6 @@
                                                                                         <rect key="frame" x="0.0" y="-3" width="30" height="23"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                        <connections>
-                                                                                            <binding destination="eTS-gK-xgQ" name="value" keyPath="objectValue.markColor" id="z5H-ux-E3s">
-                                                                                                <dictionary key="options">
-                                                                                                    <string key="NSValueTransformerName">NSKeyedUnarchiveFromData</string>
-                                                                                                </dictionary>
-                                                                                            </binding>
-                                                                                        </connections>
                                                                                     </colorWell>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tb-ZE-LPu">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="17"/>
@@ -964,18 +957,9 @@
                                                                                 <rect key="frame" x="1" y="1" width="30" height="17"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
-                                                                                    <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87d-Tf-i50">
-                                                                                        <rect key="frame" x="0.0" y="-3" width="30" height="23"/>
-                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                        <connections>
-                                                                                            <binding destination="RhN-BB-rTs" name="value" keyPath="objectValue.markColor" id="4lc-HN-V1B">
-                                                                                                <dictionary key="options">
-                                                                                                    <string key="NSValueTransformerName">NSKeyedUnarchiveFromData</string>
-                                                                                                </dictionary>
-                                                                                            </binding>
-                                                                                        </connections>
-                                                                                    </colorWell>
+                                                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="TPy-8v-KIa">
+                                                                                        <rect key="frame" x="2" y="2" width="26" height="13"/>
+                                                                                    </customView>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0k-1Q-wqB">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -986,6 +970,12 @@
                                                                                         </textFieldCell>
                                                                                     </textField>
                                                                                 </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="TPy-8v-KIa" firstAttribute="leading" secondItem="RhN-BB-rTs" secondAttribute="leading" constant="2" id="6IY-m9-DCn"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="TPy-8v-KIa" secondAttribute="bottom" constant="2" id="GAX-lW-x5w"/>
+                                                                                    <constraint firstItem="TPy-8v-KIa" firstAttribute="top" secondItem="RhN-BB-rTs" secondAttribute="top" constant="2" id="aej-MU-1SB"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="TPy-8v-KIa" secondAttribute="trailing" constant="2" id="jLD-QJ-8mZ"/>
+                                                                                </constraints>
                                                                                 <connections>
                                                                                     <outlet property="textField" destination="u0k-1Q-wqB" id="69T-U3-gCl"/>
                                                                                 </connections>
