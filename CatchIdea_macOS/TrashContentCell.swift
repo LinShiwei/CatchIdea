@@ -12,6 +12,9 @@ class TrashContentCell: NSTableCellView {
 
     @IBOutlet weak var deleteButton: NSButton!
     
+    @IBAction func restoreIdea(_ sender: Any) {
+        
+    }
     @IBAction func deleteIdeaForever(_ sender: Any) {
         if let obj = objectValue {
             guard let arrayController = (self.window?.contentViewController as? MainViewController_macOS)?.trashArrayController else {

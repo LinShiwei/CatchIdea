@@ -8,6 +8,19 @@
 
 import Cocoa
 
+class IdeaListTableView: NSTableView {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        delegate = self //设置了delegate 才能使cell里view的点击生效？
+    }
+}
+
+extension IdeaListTableView: NSTableViewDelegate {
+//    func selectionShouldChange(in tableView: NSTableView) -> Bool {
+//        return false
+//    }
+}
+
 //class IdeaListTableView: FilterTableView {
 //    
 //    override internal var isCellClickEnable: Bool {

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -699,6 +700,44 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ddw-Oj-WoS">
+            <objects>
+                <viewController storyboardIdentifier="popover" id="dxQ-VU-yvo" sceneMemberID="viewController">
+                    <view key="view" id="8wO-LJ-k6h">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="30"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="xKF-Vb-BHA">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5kE-DG-WVB"/>
+                                    <constraint firstAttribute="width" constant="350" id="9Ip-ST-eCe"/>
+                                </constraints>
+                            </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8Z-kj-yEk">
+                                <rect key="frame" x="157" y="7" width="37" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="diK-Y7-ukS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="xKF-Vb-BHA" firstAttribute="top" secondItem="8wO-LJ-k6h" secondAttribute="top" id="6bW-XF-iaD"/>
+                            <constraint firstAttribute="bottom" secondItem="xKF-Vb-BHA" secondAttribute="bottom" id="8OJ-SC-r5w"/>
+                            <constraint firstItem="i8Z-kj-yEk" firstAttribute="centerX" secondItem="8wO-LJ-k6h" secondAttribute="centerX" id="NzV-01-XJC"/>
+                            <constraint firstItem="i8Z-kj-yEk" firstAttribute="centerY" secondItem="8wO-LJ-k6h" secondAttribute="centerY" id="bos-9X-a7C"/>
+                            <constraint firstAttribute="trailing" secondItem="xKF-Vb-BHA" secondAttribute="trailing" id="cM4-sJ-x2B"/>
+                            <constraint firstItem="xKF-Vb-BHA" firstAttribute="leading" secondItem="8wO-LJ-k6h" secondAttribute="leading" id="fGU-Ca-qyb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="7w0-ZJ-C2S" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="541" y="392"/>
+        </scene>
         <!--Main View Controller macOS-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -788,7 +827,7 @@
                                                         <rect key="frame" x="1" y="0.0" width="519" height="405"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B">
+                                                            <tableView identifier="IdeaTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" headerView="1YH-Uk-7PT" viewBased="YES" id="wjd-GL-58B" customClass="IdeaListTableView" customModule="CatchIdea_macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="519" height="382"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -1004,7 +1043,7 @@
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynm-9v-GC8">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="462" height="17"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="433" height="17"/>
                                                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" usesSingleLineMode="YES" id="ngm-fO-XkZ">
                                                                                             <font key="font" metaFont="system"/>
                                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1015,7 +1054,10 @@
                                                                                         </connections>
                                                                                     </textField>
                                                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MKV-Nj-r6K">
-                                                                                        <rect key="frame" x="468" y="-1" width="13" height="19"/>
+                                                                                        <rect key="frame" x="464" y="-1" width="17" height="19"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" secondItem="MKV-Nj-r6K" secondAttribute="height" multiplier="1:1" id="wGZ-ze-1zf"/>
+                                                                                        </constraints>
                                                                                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8ea-7j-52F">
                                                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                             <font key="font" metaFont="system"/>
@@ -1024,14 +1066,31 @@
                                                                                             <action selector="deleteIdeaForever:" target="hTK-Nx-NoD" id="XS1-39-7s6"/>
                                                                                         </connections>
                                                                                     </button>
+                                                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LwY-0s-9ww">
+                                                                                        <rect key="frame" x="437" y="-2" width="21" height="21"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" secondItem="LwY-0s-9ww" secondAttribute="height" multiplier="1:1" id="uYE-EB-6Qe"/>
+                                                                                        </constraints>
+                                                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" lineBreakMode="truncatingTail" state="on" inset="2" id="V2P-Mz-1Rr">
+                                                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                            <font key="font" metaFont="system"/>
+                                                                                        </buttonCell>
+                                                                                        <connections>
+                                                                                            <action selector="restoreIdea:" target="hTK-Nx-NoD" id="vzr-XV-fG6"/>
+                                                                                            <binding destination="hTK-Nx-NoD" name="value" keyPath="objectValue.isDelete" id="6EC-sg-2sL"/>
+                                                                                        </connections>
+                                                                                    </button>
                                                                                 </subviews>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="bottom" secondItem="ynm-9v-GC8" secondAttribute="bottom" id="8Ba-eU-h9u"/>
+                                                                                    <constraint firstItem="LwY-0s-9ww" firstAttribute="top" secondItem="hTK-Nx-NoD" secondAttribute="top" id="Bds-ag-dvV"/>
                                                                                     <constraint firstItem="ynm-9v-GC8" firstAttribute="top" secondItem="hTK-Nx-NoD" secondAttribute="top" id="UIW-NB-NWN"/>
+                                                                                    <constraint firstItem="MKV-Nj-r6K" firstAttribute="leading" secondItem="LwY-0s-9ww" secondAttribute="trailing" constant="8" id="Wg9-8O-KJD"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="LwY-0s-9ww" secondAttribute="bottom" id="Yiz-zZ-1gE"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="MKV-Nj-r6K" secondAttribute="bottom" id="YqK-Mf-fgN"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="MKV-Nj-r6K" secondAttribute="trailing" constant="2" id="bEb-8k-wzc"/>
                                                                                     <constraint firstItem="MKV-Nj-r6K" firstAttribute="top" secondItem="hTK-Nx-NoD" secondAttribute="top" id="bjv-kp-XEB"/>
-                                                                                    <constraint firstItem="MKV-Nj-r6K" firstAttribute="leading" secondItem="ynm-9v-GC8" secondAttribute="trailing" constant="8" id="sic-MI-aPf"/>
+                                                                                    <constraint firstItem="LwY-0s-9ww" firstAttribute="leading" secondItem="ynm-9v-GC8" secondAttribute="trailing" constant="8" id="mqh-X1-VNn"/>
                                                                                     <constraint firstItem="ynm-9v-GC8" firstAttribute="leading" secondItem="hTK-Nx-NoD" secondAttribute="leading" constant="2" id="xW6-1T-ypr"/>
                                                                                 </constraints>
                                                                                 <connections>
