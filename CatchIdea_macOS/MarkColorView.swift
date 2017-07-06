@@ -35,6 +35,7 @@ class MarkColorView: NSView {
         
         
 //    }
+    internal var disablePopover = false
     
     internal var colorIndex: Int16 = -1 {
         didSet{
@@ -60,10 +61,15 @@ class MarkColorView: NSView {
 
         if let cell = self.superview as? MarkColorCell {
             bind("colorIndex", to: cell, withKeyPath: "objectValue.markColorIndex", options: nil)
+            bind("disablePopover", to: cell, withKeyPath: "objectValue.isDelete", options: nil)
         }
         
 //        let gesture = NSClickGestureRecognizer(target: self, action: #selector(showPopover(_:)))
 //        addGestureRecognizer(gesture)
+        let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "popover") as! ColorSelectionPopoverVC
+        controller.selectionDelegate = self
+        popover.contentViewController = controller
+        
     }
     
     override func layout() {
@@ -73,21 +79,33 @@ class MarkColorView: NSView {
     }
     
     override func mouseDown(with event: NSEvent) {
-//        if let controller = self.window?.contentViewController as? MainViewController_macOS {
-//            popover.contentViewController = controller
-        let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "popover") as! NSViewController
-        popover.contentViewController = controller
-//        let controller = NSViewController(nibName: ., bundle: <#T##Bundle?#>)
+        if !disablePopover && !popover.isShown {
             popover.show(relativeTo: self.bounds, of: self, preferredEdge: .maxX)
-//        }
+            
+
+//            window?.makeFirstResponder(popover.contentViewController)
+            
+            
+        }
+        super.mouseDown(with: event)
+
     }
     
 //    internal func showPopover(_ sender: Any){
-//        if let controller = self.window?.contentViewController as? MainViewController_macOS {
+//        let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "popover") as! NSViewController
 //            popover.contentViewController = controller
 //
 //            popover.show(relativeTo: self.bounds, of: self, preferredEdge: .maxX)
-//        }
+//        
 //        
 //    }
+}
+
+extension MarkColorView: ColorSelectionDelegate {
+    func didSelectColor(ofColorIndex index: Int) {
+        colorIndex = Int16(index)
+        if let cell = self.superview as? MarkColorCell {
+            cell.setValue(colorIndex, forKeyPath: "objectValue.markColorIndex")
+        }
+    }
 }

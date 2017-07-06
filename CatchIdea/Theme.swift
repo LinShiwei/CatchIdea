@@ -25,9 +25,11 @@ import Foundation
     
 #endif
 
-internal class Theme {
+@objc internal class Theme: NSObject{
     static let shared = Theme()
-    private init(){}
+    private override init(){
+        super.init()
+    }
     
     internal let mainThemeColor = Color(red: 0, green: 0.73, blue: 0.42, alpha: 1)
     internal let mainThemeColorLight = Color(red: 0.18, green: 0.83, blue: 0.45, alpha: 1)

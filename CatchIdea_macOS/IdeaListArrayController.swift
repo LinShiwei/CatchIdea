@@ -13,9 +13,7 @@ class IdeaListArrayController: NSArrayController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         fetchPredicate = NSPredicate(format: "(isDelete == nil || isDelete == false) && (isFinish == nil || isFinish == false) ", argumentArray: nil)
-        let str = "C"
-//        fetchPredicate = NSPredicate(format: "header CONTAINS %@", str)
-//        fetchPredicate = NSPredicate(format: "header LIKE '*C*'", argumentArray: nil)
+
     }
 
     

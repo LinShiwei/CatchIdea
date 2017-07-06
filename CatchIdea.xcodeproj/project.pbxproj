@@ -124,6 +124,8 @@
 		FA86D13E1F0A2FED00568C22 /* IdeaListArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */; };
 		FA86D1401F0A5CDE00568C22 /* TrashArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D13F1F0A5CDE00568C22 /* TrashArrayController.swift */; };
 		FA86D1431F0A6BCF00568C22 /* TrashContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */; };
+		FAB73D041F0DF555006CE652 /* ColorSelectionPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D031F0DF555006CE652 /* ColorSelectionPopoverVC.swift */; };
+		FAB73D061F0E11B2006CE652 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D051F0E11B2006CE652 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +276,8 @@
 		FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdeaListArrayController.swift; sourceTree = "<group>"; };
 		FA86D13F1F0A5CDE00568C22 /* TrashArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashArrayController.swift; sourceTree = "<group>"; };
 		FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashContentCell.swift; sourceTree = "<group>"; };
+		FAB73D031F0DF555006CE652 /* ColorSelectionPopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectionPopoverVC.swift; sourceTree = "<group>"; };
+		FAB73D051F0E11B2006CE652 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -594,6 +598,7 @@
 				FA1B7CF11F0B7F14002A0E71 /* ColorSelectionDelegate.swift */,
 				FA1B7CF31F0B8058002A0E71 /* IdeaFilterDelegate.swift */,
 				FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */,
+				FAB73D051F0E11B2006CE652 /* MainView.swift */,
 				FA3371A81F034CB20011DECC /* ContentTabView.swift */,
 				FA3371AA1F034E560011DECC /* AddOrCleanButton.swift */,
 				FA1D04B81F03E36500FC6BF3 /* ColorFilterView.swift */,
@@ -629,6 +634,7 @@
 				FA86D13D1F0A2FED00568C22 /* IdeaListArrayController.swift */,
 				FA81264E1F01F6CA001F5CF0 /* IdeaListTableView.swift */,
 				FA3371AE1F035CBC0011DECC /* ContentCell.swift */,
+				FAB73D031F0DF555006CE652 /* ColorSelectionPopoverVC.swift */,
 			);
 			name = IdeaListTableView;
 			sourceTree = "<group>";
@@ -770,6 +776,7 @@
 					FA06D9A11F000407007D6BA1 = {
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = 544PNK2P78;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -960,11 +967,13 @@
 				FA06D9A71F000407007D6BA1 /* MainViewController_macOS.swift in Sources */,
 				FA3371AF1F035CBC0011DECC /* ContentCell.swift in Sources */,
 				FA06D9A51F000407007D6BA1 /* AppDelegate.swift in Sources */,
+				FAB73D041F0DF555006CE652 /* ColorSelectionPopoverVC.swift in Sources */,
 				FA86D13E1F0A2FED00568C22 /* IdeaListArrayController.swift in Sources */,
 				FA3371A61F0297280011DECC /* FilterTableView.swift in Sources */,
 				FA1B7CF21F0B7F14002A0E71 /* ColorSelectionDelegate.swift in Sources */,
 				FA8126511F01F6EC001F5CF0 /* TrashTableView.swift in Sources */,
 				FA81264D1F013E70001F5CF0 /* LocalNotificationManager.swift in Sources */,
+				FAB73D061F0E11B2006CE652 /* MainView.swift in Sources */,
 				FA81264B1F013D64001F5CF0 /* LocalizationStrings.swift in Sources */,
 				FA86D12F1F05387000568C22 /* FilterManager.swift in Sources */,
 			);
@@ -1201,6 +1210,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1218,6 +1228,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linshiwei.macos.CatchIdea-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "CatchIdea_macOS/CatchIdea_macOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1228,6 +1240,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1245,6 +1258,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.linshiwei.macos.CatchIdea-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "CatchIdea_macOS/CatchIdea_macOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
