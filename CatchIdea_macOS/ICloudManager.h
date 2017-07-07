@@ -18,4 +18,5 @@
 - (void)saveWithRecordType:(NSString *)type contentDictionary:(NSDictionary *)dic;
 
 - (void)getIdeaItemDictionaryWithRecordID:(CKRecordID *)recordID withCompletion:(void(^)(NSDictionary *dic, BOOL success))completion;
+
 @end
