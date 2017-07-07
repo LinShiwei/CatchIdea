@@ -52,7 +52,7 @@ class MarkColorView: NSView {
     }
     
     let popover = NSPopover()
-    
+    var controller: ColorSelectionPopoverVC?
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         wantsLayer = true
@@ -66,9 +66,9 @@ class MarkColorView: NSView {
         
 //        let gesture = NSClickGestureRecognizer(target: self, action: #selector(showPopover(_:)))
 //        addGestureRecognizer(gesture)
-        let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "popover") as! ColorSelectionPopoverVC
-        controller.selectionDelegate = self
-        popover.contentViewController = controller
+//        let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "popover") as! ColorSelectionPopoverVC
+//        controller.selectionDelegate = self
+//        popover.contentViewController = controller
         
     }
     
@@ -79,16 +79,17 @@ class MarkColorView: NSView {
     }
     
     override func mouseDown(with event: NSEvent) {
-        if !disablePopover && !popover.isShown {
-            popover.show(relativeTo: self.bounds, of: self, preferredEdge: .maxX)
-            
-
-//            window?.makeFirstResponder(popover.contentViewController)
-            
-            
-        }
+//        if !disablePopover && !popover.isShown {
+//            popover.show(relativeTo: self.bounds, of: self, preferredEdge: .maxX)
+//        }
 //        super.mouseDown(with: event)
+        guard let vc = self.window?.contentViewController as? MainViewController_macOS else {
+            return
+        }
+        controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "popover") as! ColorSelectionPopoverVC
+        controller?.selectionDelegate = self
 
+        vc.presentViewController(controller!, asPopoverRelativeTo: self.bounds, of: self, preferredEdge: .maxX, behavior: .semitransient)
     }
     
 //    internal func showPopover(_ sender: Any){
