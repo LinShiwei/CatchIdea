@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CloudKit/CloudKit.h>
 
+
 @interface ICloudManager : NSObject
 + (instancetype)shared;
 
 - (void)save;
-
 - (void)subscriptionWithRecordType:(NSString *)type;
-
 - (void)saveWithRecordType:(NSString *)type contentDictionary:(NSDictionary *)dic;
+
+- (void)getIdeaItemDictionaryWithRecordID:(CKRecordID *)recordID withCompletion:(void(^)(NSDictionary *dic, BOOL success))completion;
 @end

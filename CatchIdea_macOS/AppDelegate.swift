@@ -30,15 +30,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func application(_ application: NSApplication, didReceiveRemoteNotification userInfo: [String : Any]) {
         let cloudKitNotificaton = CKNotification(fromRemoteNotificationDictionary: userInfo)
-        let alertBody = cloudKitNotificaton.alertBody
-        if cloudKitNotificaton.notificationType == .query {
-            let recordID = (cloudKitNotificaton as! CKQueryNotification).recordID
+        guard cloudKitNotificaton.notificationType == .query, let notif = cloudKitNotificaton as? CKQueryNotification else {
+            return
+        }
+        guard let key = notif.alertLocalizationKey else {
+            return
+        }
+        switch key {
+        case "Create":
+            let recordID = notif.recordID
+            ICloudManager.shared().getIdeaItemDictionary(with: recordID, withCompletion: {(dic,success) in
+                CoreDataManger.shared().createNewObject(withKeyValue: dic)
+
+            })
+        default:
+            break;
         }
         
-        let context = self.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "IdeaItemObject", in: context)
-        let ideaObj = NSManagedObject(entity: entity!, insertInto: context)
-        saveAction(nil)
+//        let context = self.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "IdeaItemObject", in: context)
+//        let ideaObj = NSManagedObject(entity: entity!, insertInto: context)
+//        saveAction(nil)
     }
     
     // MARK: - Core Data stack

@@ -128,6 +128,7 @@
 		FAB73D061F0E11B2006CE652 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D051F0E11B2006CE652 /* MainView.swift */; };
 		FAB73D081F0E2233006CE652 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB73D071F0E2233006CE652 /* CloudKit.framework */; };
 		FAB73D0E1F0F248B006CE652 /* ICloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D0D1F0F248B006CE652 /* ICloudManager.m */; };
+		FAB73D121F0F6F91006CE652 /* CoreDataManger.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D111F0F6F91006CE652 /* CoreDataManger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +285,8 @@
 		FAB73D0C1F0F248B006CE652 /* ICloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICloudManager.h; sourceTree = "<group>"; };
 		FAB73D0D1F0F248B006CE652 /* ICloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICloudManager.m; sourceTree = "<group>"; };
 		FAB73D0F1F0F249C006CE652 /* CatchIdea_macOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CatchIdea_macOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		FAB73D101F0F6F91006CE652 /* CoreDataManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManger.h; sourceTree = "<group>"; };
+		FAB73D111F0F6F91006CE652 /* CoreDataManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -693,6 +696,8 @@
 				FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */,
 				FAB73D0C1F0F248B006CE652 /* ICloudManager.h */,
 				FAB73D0D1F0F248B006CE652 /* ICloudManager.m */,
+				FAB73D101F0F6F91006CE652 /* CoreDataManger.h */,
+				FAB73D111F0F6F91006CE652 /* CoreDataManger.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -1007,6 +1012,7 @@
 				FA3371A31F027B6F0011DECC /* MarkColorCell.swift in Sources */,
 				FA1B7CF41F0B8058002A0E71 /* IdeaFilterDelegate.swift in Sources */,
 				FA46E58B1F011D350038D59B /* IdeaData.swift in Sources */,
+				FAB73D121F0F6F91006CE652 /* CoreDataManger.m in Sources */,
 				FA3371A11F0279CB0011DECC /* MarkColorView.swift in Sources */,
 				FA06D9A71F000407007D6BA1 /* MainViewController_macOS.swift in Sources */,
 				FA3371AF1F035CBC0011DECC /* ContentCell.swift in Sources */,

@@ -7,7 +7,20 @@
 //
 
 #import "ICloudManager.h"
+//#import "CatchIdea_macOS-Swift.h"
 
+//enum CKAlertLocationKey {
+//    Create,
+//    Update,
+//    Delete
+//};
+
+
+@interface ICloudManager ()
+
+@property CKDatabase *privateDataBase;
+
+@end
 @implementation ICloudManager
 
 + (instancetype)shared{
@@ -23,8 +36,7 @@
 {
     self = [super init];
     if (self) {
-//        CKRecordID *newID = [[CKRecordID alloc] initWithRecordName:@"115"];
-        
+        _privateDataBase = [[CKContainer defaultContainer] privateCloudDatabase];
         
         
     }
@@ -57,15 +69,41 @@
 
 - (void)subscriptionWithRecordType:(NSString *)type {
     NSPredicate *precidate = [NSPredicate predicateWithFormat:@"TRUEPREDICATE"];
-    CKQuerySubscription *subscription = [[CKQuerySubscription alloc] initWithRecordType:type predicate:precidate options:CKQuerySubscriptionOptionsFiresOnRecordUpdate | CKQuerySubscriptionOptionsFiresOnRecordCreation | CKQuerySubscriptionOptionsFiresOnRecordDeletion];
-    CKNotificationInfo *notificationInfo = [CKNotificationInfo new];
-    notificationInfo.alertLocalizationKey = @"New item update";
-    notificationInfo.shouldBadge = true;
-    subscription.notificationInfo = notificationInfo;
-    CKDatabase *privateDataBase = [[CKContainer defaultContainer] privateCloudDatabase];
-    [privateDataBase saveSubscription:subscription completionHandler:^(CKSubscription*sub, NSError *err){
+    CKQuerySubscription *updateSub = [[CKQuerySubscription alloc] initWithRecordType:type predicate:precidate options:CKQuerySubscriptionOptionsFiresOnRecordUpdate];
+    CKNotificationInfo *updateInfo = [CKNotificationInfo new];
+    updateInfo.alertLocalizationKey = @"Update";
+    updateInfo.shouldBadge = true;
+    updateSub.notificationInfo = updateInfo;
+    [_privateDataBase saveSubscription:updateSub completionHandler:^(CKSubscription*sub, NSError *err){
         if (err) {
-            
+            NSLog(@"%@",err);
+            return;
+        }
+        
+    }];
+    
+    CKQuerySubscription *createSub = [[CKQuerySubscription alloc] initWithRecordType:type predicate:precidate options:CKQuerySubscriptionOptionsFiresOnRecordCreation];
+    CKNotificationInfo *createInfo = [CKNotificationInfo new];
+    createInfo.alertLocalizationKey = @"Create";
+    createInfo.shouldBadge = true;
+    createSub.notificationInfo = createInfo;
+    [_privateDataBase saveSubscription:createSub completionHandler:^(CKSubscription*sub, NSError *err){
+        if (err) {
+            NSLog(@"%@",err);
+
+            return;
+        }
+        
+    }];
+    CKQuerySubscription *deleteSub = [[CKQuerySubscription alloc] initWithRecordType:type predicate:precidate options:CKQuerySubscriptionOptionsFiresOnRecordDeletion];
+    CKNotificationInfo *deleteInfo = [CKNotificationInfo new];
+    deleteInfo.alertLocalizationKey = @"Delete";
+    deleteInfo.shouldBadge = true;
+    deleteSub.notificationInfo = deleteInfo;
+    [_privateDataBase saveSubscription:deleteSub completionHandler:^(CKSubscription*sub, NSError *err){
+        if (err) {
+            NSLog(@"%@",err);
+
             return;
         }
         
@@ -77,11 +115,7 @@
     for(NSString *key in [dic allKeys]){
         record[key] = [dic objectForKey:key];
     }
-    
-    CKContainer *myContainer = [CKContainer defaultContainer];
-    CKDatabase *privateDataBase = [myContainer privateCloudDatabase];
-    
-    [privateDataBase saveRecord:record completionHandler:^(CKRecord *re,NSError *err){
+    [_privateDataBase saveRecord:record completionHandler:^(CKRecord *re,NSError *err){
         if (err) {
             
             return;
@@ -89,5 +123,30 @@
         
         
     }];
+}
+
+- (void)getIdeaItemDictionaryWithRecordID:(CKRecordID *)recordID withCompletion:(void (^)(NSDictionary *, BOOL))completion {
+    if (!recordID) {
+        completion(nil,false);
+    }
+    [_privateDataBase fetchRecordWithID:recordID completionHandler:^(CKRecord *record, NSError *error){
+        if (error) {
+            return;
+        }
+        NSDictionary *dic = [NSMutableDictionary dictionary];
+        if (record) {
+            for (NSString *key in record.allKeys) {
+                [dic setValue:[record valueForKey:key] forKey:key];
+            }
+        }
+        if ([dic count] > 0) {
+            NSLog(@"Fetch item from icloud with %lu keys",(unsigned long)[dic count]);
+            completion(dic,true);
+        }else{
+            NSLog(@"Fail to fetch item from icloud");
+            completion(nil,false);
+        }
+    }];
+    
 }
 @end
