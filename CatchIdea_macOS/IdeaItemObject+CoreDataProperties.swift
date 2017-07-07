@@ -23,7 +23,8 @@ extension IdeaItemObject {
     @NSManaged public var isFinish: Bool
     @NSManaged public var markColorIndex: Int16
     @NSManaged public var notificationDate: NSDate?
-
+    @NSManaged public var uuidString: String?
+    
     override public func awakeFromInsert() {
         super.awakeFromInsert()
         addingDate = NSDate()
@@ -32,6 +33,7 @@ extension IdeaItemObject {
         isDelete = false
         isFinish = false
         markColorIndex = 0
+        uuidString = UUID().uuidString
         //        markColor = NSColor.blue
         //Setting markColor directly to NSColor will cause error.
         //Should set markColor as NSData with NSKeyedArchiver. Because this property is tranformable and is encode with nskeyarchiver.

@@ -8,19 +8,39 @@
 
 import Cocoa
 
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+
+        guard let application = aNotification.object as? NSApplication else{
+            return
+        }
+        let myType = NSRemoteNotificationType.badge
+        application.registerForRemoteNotifications(matching: myType)
+//        NSRemoteNotificationType myTypes =
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
+    func application(_ application: NSApplication, didReceiveRemoteNotification userInfo: [String : Any]) {
+        let cloudKitNotificaton = CKNotification(fromRemoteNotificationDictionary: userInfo)
+        let alertBody = cloudKitNotificaton.alertBody
+        if cloudKitNotificaton.notificationType == .query {
+            let recordID = (cloudKitNotificaton as! CKQueryNotification).recordID
+        }
+        
+        let context = self.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "IdeaItemObject", in: context)
+        let ideaObj = NSManagedObject(entity: entity!, insertInto: context)
+        saveAction(nil)
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

@@ -126,6 +126,8 @@
 		FA86D1431F0A6BCF00568C22 /* TrashContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */; };
 		FAB73D041F0DF555006CE652 /* ColorSelectionPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D031F0DF555006CE652 /* ColorSelectionPopoverVC.swift */; };
 		FAB73D061F0E11B2006CE652 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D051F0E11B2006CE652 /* MainView.swift */; };
+		FAB73D081F0E2233006CE652 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB73D071F0E2233006CE652 /* CloudKit.framework */; };
+		FAB73D0E1F0F248B006CE652 /* ICloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB73D0D1F0F248B006CE652 /* ICloudManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,6 +280,10 @@
 		FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashContentCell.swift; sourceTree = "<group>"; };
 		FAB73D031F0DF555006CE652 /* ColorSelectionPopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectionPopoverVC.swift; sourceTree = "<group>"; };
 		FAB73D051F0E11B2006CE652 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FAB73D071F0E2233006CE652 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		FAB73D0C1F0F248B006CE652 /* ICloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICloudManager.h; sourceTree = "<group>"; };
+		FAB73D0D1F0F248B006CE652 /* ICloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICloudManager.m; sourceTree = "<group>"; };
+		FAB73D0F1F0F249C006CE652 /* CatchIdea_macOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CatchIdea_macOS-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +309,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB73D081F0E2233006CE652 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +535,7 @@
 		56BAF7431E0C16A600218103 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAB73D071F0E2233006CE652 /* CloudKit.framework */,
 				56580A0C1E6BCF260043BF67 /* SwiftyJSON.framework */,
 				56580A0A1E6BCF200043BF67 /* Alamofire.framework */,
 				56649B4C1E5FC89400313A03 /* SwiftyStoreKit.framework */,
@@ -593,22 +601,10 @@
 		FA06D9A31F000407007D6BA1 /* CatchIdea_macOS */ = {
 			isa = PBXGroup;
 			children = (
-				FA0310CC1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift */,
-				FA0310CD1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift */,
-				FA1B7CF11F0B7F14002A0E71 /* ColorSelectionDelegate.swift */,
-				FA1B7CF31F0B8058002A0E71 /* IdeaFilterDelegate.swift */,
-				FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */,
-				FAB73D051F0E11B2006CE652 /* MainView.swift */,
-				FA3371A81F034CB20011DECC /* ContentTabView.swift */,
-				FA3371AA1F034E560011DECC /* AddOrCleanButton.swift */,
-				FA1D04B81F03E36500FC6BF3 /* ColorFilterView.swift */,
-				FA86D12E1F05387000568C22 /* FilterManager.swift */,
+				FAB73D0A1F0F238A006CE652 /* Delegate */,
+				FAB73D091F0F2349006CE652 /* Manager */,
+				FAB73D0B1F0F2402006CE652 /* MainVC */,
 				FA3371A71F02989E0011DECC /* SharedClass */,
-				FA3371A41F027B820011DECC /* IdeaListTableView */,
-				FA86D1411F0A5CE900568C22 /* TrashTableView */,
-				FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */,
-				FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */,
-				FA33719E1F0235240011DECC /* Define.swift */,
 				FA3A6DBF1F022AA700123867 /* Support */,
 			);
 			path = CatchIdea_macOS;
@@ -642,10 +638,12 @@
 		FA3371A71F02989E0011DECC /* SharedClass */ = {
 			isa = PBXGroup;
 			children = (
+				FA81264A1F013D64001F5CF0 /* LocalizationStrings.swift */,
 				FA3371A51F0297280011DECC /* FilterTableView.swift */,
 				FA3371A21F027B6F0011DECC /* MarkColorCell.swift */,
 				FA3371A01F0279CB0011DECC /* MarkColorView.swift */,
 				FA3371AC1F035CA20011DECC /* ContentCellInteractView.swift */,
+				FA33719E1F0235240011DECC /* Define.swift */,
 			);
 			name = SharedClass;
 			sourceTree = "<group>";
@@ -683,6 +681,43 @@
 				FA86D1421F0A6BCF00568C22 /* TrashContentCell.swift */,
 			);
 			name = TrashTableView;
+			sourceTree = "<group>";
+		};
+		FAB73D091F0F2349006CE652 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FAB73D0F1F0F249C006CE652 /* CatchIdea_macOS-Bridging-Header.h */,
+				FA0310CC1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift */,
+				FA0310CD1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift */,
+				FA86D12E1F05387000568C22 /* FilterManager.swift */,
+				FA81264C1F013E70001F5CF0 /* LocalNotificationManager.swift */,
+				FAB73D0C1F0F248B006CE652 /* ICloudManager.h */,
+				FAB73D0D1F0F248B006CE652 /* ICloudManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		FAB73D0A1F0F238A006CE652 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B7CF11F0B7F14002A0E71 /* ColorSelectionDelegate.swift */,
+				FA1B7CF31F0B8058002A0E71 /* IdeaFilterDelegate.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		FAB73D0B1F0F2402006CE652 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				FA06D9A61F000407007D6BA1 /* MainViewController_macOS.swift */,
+				FAB73D051F0E11B2006CE652 /* MainView.swift */,
+				FA3371A81F034CB20011DECC /* ContentTabView.swift */,
+				FA3371AA1F034E560011DECC /* AddOrCleanButton.swift */,
+				FA1D04B81F03E36500FC6BF3 /* ColorFilterView.swift */,
+				FA3371A41F027B820011DECC /* IdeaListTableView */,
+				FA86D1411F0A5CE900568C22 /* TrashTableView */,
+			);
+			name = MainVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -777,6 +812,14 @@
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = 544PNK2P78;
 						LastSwiftMigration = 0830;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -950,6 +993,7 @@
 				FA0310CF1F0B5B810021586D /* IdeaItemObject+CoreDataProperties.swift in Sources */,
 				FA3A6DBE1F0224A600123867 /* UIColor+~=.swift in Sources */,
 				FA86D1431F0A6BCF00568C22 /* TrashContentCell.swift in Sources */,
+				FAB73D0E1F0F248B006CE652 /* ICloudManager.m in Sources */,
 				FA3371AB1F034E560011DECC /* AddOrCleanButton.swift in Sources */,
 				FA0310CE1F0B5B810021586D /* IdeaItemObject+CoreDataClass.swift in Sources */,
 				FA1D04B91F03E36500FC6BF3 /* ColorFilterView.swift in Sources */,

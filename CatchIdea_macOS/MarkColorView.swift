@@ -87,7 +87,7 @@ class MarkColorView: NSView {
             
             
         }
-        super.mouseDown(with: event)
+//        super.mouseDown(with: event)
 
     }
     

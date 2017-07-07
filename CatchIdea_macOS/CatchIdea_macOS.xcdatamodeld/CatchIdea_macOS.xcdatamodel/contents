@@ -8,8 +8,9 @@
         <attribute name="isFinish" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="markColorIndex" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="6" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="notificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuidString" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="IdeaItemObject" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="IdeaItemObject" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

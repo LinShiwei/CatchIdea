@@ -40,6 +40,13 @@ class MainViewController_macOS: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
+        let man = ICloudManager.shared()
+        man?.subscription(withRecordType: "IdeaItem")
+        
+        
+//        man?.save()
         contentTabView.delegate = self
         
         searchField.delegate = filterManager

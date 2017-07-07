@@ -16,7 +16,7 @@ class FilterManager: NSObject {
     fileprivate var ideaSearchText = ""
     fileprivate var ideaMarkColorIndex = 0
     
-
+    
     private override init() {
         super.init()
     }
