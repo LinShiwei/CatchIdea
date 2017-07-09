@@ -920,6 +920,7 @@
                                                                 </tableColumns>
                                                                 <connections>
                                                                     <binding destination="hRB-Fj-kdU" name="content" keyPath="arrangedObjects" id="o0M-dx-Eeg"/>
+                                                                    <binding destination="hRB-Fj-kdU" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="o0M-dx-Eeg" id="f3B-3H-WbR"/>
                                                                 </connections>
                                                             </tableView>
                                                         </subviews>
@@ -955,7 +956,7 @@
                                                     <rect key="frame" x="8" y="8" width="521" height="406"/>
                                                     <clipView key="contentView" id="Ejq-Fb-A5z">
                                                         <rect key="frame" x="1" y="0.0" width="519" height="405"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <tableView identifier="TrashTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" headerView="BoO-Ro-KLf" viewBased="YES" id="8GI-1l-KWR">
                                                                 <rect key="frame" x="0.0" y="0.0" width="519" height="382"/>

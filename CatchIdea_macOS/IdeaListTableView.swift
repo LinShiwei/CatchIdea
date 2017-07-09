@@ -16,9 +16,18 @@ class IdeaListTableView: NSTableView {
 }
 
 extension IdeaListTableView: NSTableViewDelegate {
-//    func selectionShouldChange(in tableView: NSTableView) -> Bool {
-//        return false
-//    }
+    func tableViewSelectionDidChange(_ notification: Notification) {
+//        let row = self.selectedRow
+//        guard self.selectedRowIndexes.count == 1, row != -1 else {
+//            self.print("Not allow mutiple selection OR none selection")
+//            return
+//        }
+//        let cell = self.view(atColumn: 1, row: row, makeIfNecessary: false)
+//
+        
+//        let cell = selectedCell()
+    }
+    
 }
 
 //class IdeaListTableView: FilterTableView {
