@@ -9,6 +9,13 @@
 #import "CoreDataManger.h"
 #import "CatchIdea_macOS-Swift.h"
 
+@interface CoreDataManger ()
+
+@property (weak) AppDelegate *delegate;
+@property (weak) NSManagedObjectContext *context;
+
+@end
+
 @implementation CoreDataManger
 
 NSString *entityName = @"IdeaItemObject";
@@ -26,17 +33,66 @@ NSString *entityName = @"IdeaItemObject";
 {
     self = [super init];
     if (self) {
-    
+        _delegate = [[NSApplication sharedApplication] delegate];
+        _context = _delegate.persistentContainer.viewContext;
+        NSAssert(_delegate != nil,@"ERROR,delegate should not be nil");
+        NSAssert(_context != nil, @"ERROR,context should not be nil");
     }
     return self;
 }
 
 - (void)reviseObjectWithUUID:(NSString *)uuidString AndKeyValue:(NSDictionary *)dic {
+    if (_delegate == nil || _context == nil) {
+        return;
+    }
     
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"uuidString = %@",uuidString];
+    NSError *error = nil;
+    NSArray *results = [_context executeFetchRequest:request error:&error];
+    if (results.count == 1){
+        NSManagedObject *obj = results[0];
+        if (obj) {
+            for (NSString *key in [dic allKeys]) {
+                if ([obj valueForKey:key] != nil) {
+                    [obj setValue:[dic valueForKey:key] forKey:key];
+                }
+            }
+            [_delegate saveAction:nil];
+        }else{
+            
+        }
+    }else if (results == nil) {
+        NSLog(@"ERROR,can not fetch result");
+
+    }else{
+        NSLog(@"ERROR,results.count should be 1");
+    }
 }
 
 - (void)deleteObjectWithUUID:(NSString *)uuidString {
+    if (_delegate == nil || _context == nil) {
+        return;
+    }
     
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"uuidString = %@",uuidString];
+    NSError *error = nil;
+    NSArray *results = [_context executeFetchRequest:request error:&error];
+    if (results.count == 1){
+        NSManagedObject *obj = results[0];
+        if (obj) {
+            [_context deleteObject:obj];
+            [_delegate saveAction:nil];
+        }else{
+            
+        }
+    }else if (results == nil) {
+        NSLog(@"ERROR,can not fetch result");
+        
+    }else{
+        NSLog(@"ERROR,results.count should be 1");
+    }
 }
 
 - (void)createNewObjectWithKeyValue:(NSDictionary * )dic {
@@ -44,13 +100,11 @@ NSString *entityName = @"IdeaItemObject";
         NSLog(@"ideaitem dictionary is empty");
         return;
     }
-    AppDelegate *delegate = [[NSApplication sharedApplication] delegate];
-    if (delegate == nil) {
+    if (_delegate == nil || _context == nil) {
         return;
     }
-    NSManagedObjectContext *context = delegate.persistentContainer.viewContext;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
-    NSManagedObject *object = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:_context];
+    NSManagedObject *object = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:_context];
 //    for (NSString *key in dic.allKeys) {
 //        [object setValue:[dic valueForKey:key] forKey:key];
 //    }
@@ -64,7 +118,7 @@ NSString *entityName = @"IdeaItemObject";
     [object setValue:[dic valueForKey:@"markColorIndex"] forKey:@"markColorIndex"];
 
     
-    [delegate saveAction:nil];
+    [_delegate saveAction:nil];
     
 }
 

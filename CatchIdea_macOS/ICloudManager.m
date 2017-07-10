@@ -7,7 +7,7 @@
 //
 
 #import "ICloudManager.h"
-//#import "CatchIdea_macOS-Swift.h"
+#import "CatchIdea_macOS-Swift.h"
 
 //enum CKAlertLocationKey {
 //    Create,
@@ -15,6 +15,8 @@
 //    Delete
 //};
 
+
+//recordName is uuidString
 
 @interface ICloudManager ()
 
@@ -37,14 +39,17 @@
     self = [super init];
     if (self) {
         _privateDataBase = [[CKContainer defaultContainer] privateCloudDatabase];
-        
+        AppDelegate *delegate = [[NSApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = delegate.persistentContainer.viewContext;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataModelChange:) name:NSManagedObjectContextObjectsDidChangeNotification object:context];
         
     }
     return self;
 }
 
 - (void)save{
-    CKRecord *ideaItemRecord = [[CKRecord alloc] initWithRecordType:@"IdeaItem"];
+    CKRecordID *recordID = [[CKRecordID alloc] initWithRecordName:[[NSUUID UUID] UUIDString]];
+    CKRecord *ideaItemRecord = [[CKRecord alloc] initWithRecordType:@"IdeaItem" recordID:recordID];
     ideaItemRecord[@"addingDate"] = [NSDate date];
     ideaItemRecord[@"markColorIndex"] = [NSNumber numberWithInteger:0];
     ideaItemRecord[@"content"] = @"";
@@ -52,8 +57,7 @@
     ideaItemRecord[@"isFinish"] = false;
     ideaItemRecord[@"notificationDate"] = nil;
     ideaItemRecord[@"header"] = @"newnew";
-    ideaItemRecord[@"uuidString"] = [[NSUUID UUID] UUIDString];
-    
+//    ideaItemRecord[@"uuidString"] = [[NSUUID UUID] UUIDString];
     CKContainer *myContainer = [CKContainer defaultContainer];
     CKDatabase *privateDataBase = [myContainer privateCloudDatabase];
     
@@ -111,9 +115,17 @@
 }
 
 - (void)saveWithRecordType:(NSString *)type contentDictionary:(NSDictionary *)dic{
-    CKRecord *record = [[CKRecord alloc] initWithRecordType:type];
-    for(NSString *key in [dic allKeys]){
-        record[key] = [dic objectForKey:key];
+    NSString *recordName = [dic valueForKey:@"uuidString"];
+    if (recordName == nil) {
+        return;
+    }
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:dic];
+    [dictionary removeObjectForKey:@"uuidString"];
+//    [dic remove]
+    CKRecordID *recordID = [[CKRecordID alloc] initWithRecordName:recordName];
+    CKRecord *record = [[CKRecord alloc] initWithRecordType:type recordID:recordID];
+    for(NSString *key in [dictionary allKeys]){
+        record[key] = [dictionary objectForKey:key];
     }
     [_privateDataBase saveRecord:record completionHandler:^(CKRecord *re,NSError *err){
         if (err) {
@@ -138,6 +150,7 @@
             for (NSString *key in record.allKeys) {
                 [dic setValue:[record valueForKey:key] forKey:key];
             }
+            [dic setValue:[[record recordID] recordName] forKey:@"uuidString"];
         }
         if ([dic count] > 0) {
             NSLog(@"Fetch item from icloud with %lu keys",(unsigned long)[dic count]);
@@ -147,6 +160,25 @@
             completion(nil,false);
         }
     }];
+    
+}
+
+- (void)handleDataModelChange:(NSNotification *)note
+{
+    NSSet *updatedObjects = [[note userInfo] objectForKey:NSUpdatedObjectsKey];
+    NSSet *deletedObjects = [[note userInfo] objectForKey:NSDeletedObjectsKey];
+    NSSet *insertedObjects = [[note userInfo] objectForKey:NSInsertedObjectsKey];
+    
+    for (NSManagedObject *obj in updatedObjects) {
+        
+    }
+    
+    for (NSManagedObject *obj in insertedObjects) {
+        
+    }
+    
+//    let dic = Dictionary<String,Any>(dictionaryLiteral: ("addingDate",addingDate!),("content",content!),("header",header!),("isDelete",isDelete),("isFinish",isFinish),("markColorIndex",markColorIndex),("uuidString",uuidString!))
+//    ICloudManager.shared().save(withRecordType: "IdeaItem", contentDictionary: dic)
     
 }
 @end
