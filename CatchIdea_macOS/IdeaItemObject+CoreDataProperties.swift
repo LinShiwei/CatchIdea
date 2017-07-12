@@ -42,5 +42,6 @@ extension IdeaItemObject {
         notificationDate = nil
         
         
+        
     }
 }

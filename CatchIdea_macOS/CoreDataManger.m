@@ -32,31 +32,64 @@
     if (self) {
         _delegate = [[NSApplication sharedApplication] delegate];
         _context = _delegate.persistentContainer.viewContext;
-        NSAssert(_delegate != nil, @"delegate should not be nil");
-        NSAssert(_context != nil, @"context should not be nil");
+
+        NSAssert(_delegate != nil,@"ERROR,delegate should not be nil");
+        NSAssert(_context != nil, @"ERROR,context should not be nil");
     }
     return self;
 }
 
 - (void)reviseObjectWithUUID:(NSString *)uuidString AndKeyValue:(NSDictionary *)dic {
+    if (_delegate == nil || _context == nil) {
+        return;
+    }
     
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:CoreDataModelKey.entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"uuidString = %@",uuidString];
+    NSError *error = nil;
+    NSArray *results = [_context executeFetchRequest:request error:&error];
+    if (results.count == 1){
+        NSManagedObject *obj = results[0];
+        if (obj) {
+            for (NSString *key in [dic allKeys]) {
+                if ([obj valueForKey:key] != nil) {
+                    [obj setValue:[dic valueForKey:key] forKey:key];
+                }
+            }
+            [_delegate saveAction:nil];
+        }else{
+            
+        }
+    }else if (results == nil) {
+        NSLog(@"ERROR,can not fetch result");
+
+    }else{
+        NSLog(@"ERROR,results.count should be 1");
+    }
 }
 
 - (void)deleteObjectWithUUID:(NSString *)uuidString {
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:CoreDataModelKey.entityName];
-//    fetchRequest.predicate =
+    if (_delegate == nil || _context == nil) {
+        return;
+    }
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:CoreDataModelKey.entityName];
+    request.predicate = [NSPredicate predicateWithFormat:@"uuidString = %@",uuidString];
     NSError *error = nil;
-    NSArray *results = [_context executeFetchRequest:fetchRequest error:&error];
-    if (!results || results.count == 0) {
-        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
-        abort();
-    }else{
-        if (results.count == 1) {
-            [_context deleteObject:[results objectAtIndex:0]];
+    NSArray *results = [_context executeFetchRequest:request error:&error];
+    if (results.count == 1){
+        NSManagedObject *obj = results[0];
+        if (obj) {
+            [_context deleteObject:obj];
             [_delegate saveAction:nil];
         }else{
-            NSLog(@"Error: Fetch more than one object with one uuidString.");
+            
         }
+    }else if (results == nil) {
+        NSLog(@"ERROR,can not fetch result");
+        
+    }else{
+        NSLog(@"ERROR,results.count should be 1");
     }
 }
 
@@ -65,7 +98,9 @@
         NSLog(@"ideaitem dictionary is empty");
         return;
     }
-    
+    if (_delegate == nil || _context == nil) {
+        return;
+    }
     NSEntityDescription *entity = [NSEntityDescription entityForName:CoreDataModelKey.entityName inManagedObjectContext:_context];
     NSManagedObject *object = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:_context];
 //    for (NSString *key in dic.allKeys) {

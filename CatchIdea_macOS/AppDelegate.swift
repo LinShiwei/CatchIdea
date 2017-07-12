@@ -33,27 +33,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard cloudKitNotificaton.notificationType == .query, let notif = cloudKitNotificaton as? CKQueryNotification else {
             return
         }
-        guard let key = notif.alertLocalizationKey, let recordID = notif.recordID else {
+
+        guard let key = notif.alertLocalizationKey,let recordID = notif.recordID else {
             return
         }
-        ICloudManager.shared().getIdeaItemDictionary(with: recordID, withCompletion: {(dic,success) in
-            guard success,let dic = dic else{return}
+        switch key {
+        case "Create":
             
-            switch key {
-            case "Create":
+            ICloudManager.shared().getIdeaItemDictionary(with: recordID, withCompletion: {(dic,success) in
                 CoreDataManger.shared().createNewObject(withKeyValue: dic)
-            case "Delete":
-                guard let uuid = dic[CoreDataModelKey.uuidString] as? String else {
-                    break
-                }
-                CoreDataManger.shared().deleteObject(withUUID: uuid)
-                break
-                    
+
+            })
+        case "Delete":
+            CoreDataManger.shared().deleteObject(withUUID: recordID.recordName)
+            
+            break
+        case "Update":
+            ICloudManager.shared().getIdeaItemDictionary(with: recordID, withCompletion: {(dic,success) in
+                guard ((dic != nil)&&success) else {return}
+                CoreDataManger.shared().reviseObject(withUUID: recordID.recordName, andKeyValue: dic)
                 
-            default:
-                break
-            }
-        })
+            })
+            break
+        default:
+            break;
+        }
+        
 //        let context = self.persistentContainer.viewContext
 //        let entity = NSEntityDescription.entity(forEntityName: "IdeaItemObject", in: context)
 //        let ideaObj = NSManagedObject(entity: entity!, insertInto: context)

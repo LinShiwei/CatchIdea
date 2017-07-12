@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CloudKit/CloudKit.h>
-
+#import <CoreData/CoreData.h>
 
 @interface ICloudManager : NSObject
 + (instancetype)shared;

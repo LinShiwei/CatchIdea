@@ -26,6 +26,9 @@ class IdeaListArrayController: NSArrayController {
     
     override func addObject(_ object: Any) {
         super.addObject(object)
+        //
+        //self.selectsInsertedObjects is true by default, so that when insert an object, it will auto select the inserted object.
+        //Thus, when bind selectionIndexes to tableview's selection, it will trigger tableview's selectiondidchange delegate func when insert an object in arraycontroller.
         
     }
 }
