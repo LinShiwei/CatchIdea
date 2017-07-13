@@ -15,8 +15,9 @@
 
 - (void)save;
 - (void)subscriptionWithRecordType:(NSString *)type;
+- (void)createWithRecordType:(NSString *)type contentDictionary:(NSDictionary *)dic;
 - (void)saveWithRecordType:(NSString *)type contentDictionary:(NSDictionary *)dic;
-
+- (void)deleteWithRecordName:(NSString *)uuidString;
 - (void)getIdeaItemDictionaryWithRecordID:(CKRecordID *)recordID withCompletion:(void(^)(NSDictionary *dic, BOOL success))completion;
 
 @end

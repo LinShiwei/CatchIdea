@@ -14,6 +14,14 @@ let contentCellIdentifier = "ContentCell"
 let tabIdeaItemIdentifier = "IdeaItem"
 let tabTrashItemIdentifier = "TrashItem"
 
+class ICloudDashBoardKey: NSObject {
+    static let recordType = "IdeaItem"
+    static let notificationCreate = "Create"
+    static let notificationUpdate = "Update"
+    static let notificationDelete = "Delete"
+
+}
+
 class CoreDataModelKey: NSObject {
     static let entityName = "IdeaItemObject"
     

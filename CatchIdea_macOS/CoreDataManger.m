@@ -45,7 +45,7 @@
     }
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:CoreDataModelKey.entityName];
-    request.predicate = [NSPredicate predicateWithFormat:@"uuidString = %@",uuidString];
+    request.predicate = [NSPredicate predicateWithFormat:@"%@ = %@",CoreDataModelKey.uuidString,uuidString];
     NSError *error = nil;
     NSArray *results = [_context executeFetchRequest:request error:&error];
     if (results.count == 1){
@@ -74,7 +74,7 @@
     }
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:CoreDataModelKey.entityName];
-    request.predicate = [NSPredicate predicateWithFormat:@"uuidString = %@",uuidString];
+    request.predicate = [NSPredicate predicateWithFormat:@"%@ = %@",CoreDataModelKey.uuidString,uuidString];
     NSError *error = nil;
     NSArray *results = [_context executeFetchRequest:request error:&error];
     if (results.count == 1){

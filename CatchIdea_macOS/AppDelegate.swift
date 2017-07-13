@@ -38,17 +38,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         switch key {
-        case "Create":
+        case ICloudDashBoardKey.notificationCreate:
             
             ICloudManager.shared().getIdeaItemDictionary(with: recordID, withCompletion: {(dic,success) in
                 CoreDataManger.shared().createNewObject(withKeyValue: dic)
 
             })
-        case "Delete":
+        case ICloudDashBoardKey.notificationDelete:
             CoreDataManger.shared().deleteObject(withUUID: recordID.recordName)
             
             break
-        case "Update":
+        case ICloudDashBoardKey.notificationUpdate:
             ICloudManager.shared().getIdeaItemDictionary(with: recordID, withCompletion: {(dic,success) in
                 guard ((dic != nil)&&success) else {return}
                 CoreDataManger.shared().reviseObject(withUUID: recordID.recordName, andKeyValue: dic)
