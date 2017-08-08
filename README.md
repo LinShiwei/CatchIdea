@@ -8,8 +8,10 @@ An app for recording instant ideas，has been published [in AppStore](https://it
 
 ![](/image/screen696x696.jpeg)
 ![](/image/screen696x696-2.jpeg)
+
 ![](/image/screen696x696-3.jpeg)
 ![](/image/screen696x696-4.jpeg)
+
 ![](/image/screen696x696-5.jpeg)
 
 ## Introduction
@@ -21,7 +23,6 @@ Using this app, whenever you come up with an idea, you can catch it and note it 
 2. Mark your ideas with different colors, helping to manage your ideas.
 3. Support searching, notification and widget.
 
-内容提要
 一款用于快速记录灵感的应用。
 再也不怕突发奇想，却没有即时记录，而让灵感溜走了。
 
